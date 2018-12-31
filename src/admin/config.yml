@@ -59,13 +59,13 @@ collections:
     create: true
     format: json
     widget: list
-      fields:
-        - label: Title 
-          name: title 
-          widget: string
-        - label: Image 
-          name: image 
-          widget: image
-        - label: Description 
-          name: description 
-          widget: string
+    fields:
+      - label: Title 
+        name: title 
+        widget: string
+      - label: Image 
+        name: image 
+        widget: image
+      - label: Description 
+        name: description 
+        widget: string
