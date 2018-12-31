@@ -48,19 +48,17 @@ collections:
   - name: projects-collection
     label: Projects 
     format: json
+    # create: true
     delete: true
-    create: true
 
     # The path to the folder where the documents are stored, relative to project root
     folder: content/projects 
-    editor:
-      preview: false
 
     # delete: false prevents users from deleting items in a collection; defaults to true
 
     fields:
-      - label: list of projects
-        name: projects-list
+      - label: Art projects
+        name: art-projects-list
         widget: list
         fields:
           - label: project name 
