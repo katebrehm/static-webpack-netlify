@@ -1,14 +1,10 @@
 {
-  "art-projects-list": [
+  "art-projects--list": [
     {
-      "project-title": "cars",
-      "project-image": "/images/eyeball---kbrehm--costume.jpg",
-      "project-description": "ccdar"
-    },
-    {
-      "project-title": "disc",
-      "project-image": "/images/screen-shot-2018-02-12-at-12.03.22-am.png",
-      "project-description": "disc"
+      "art-project-title": "df",
+      "art-project--image": "/images/screen-shot-2018-02-12-at-12.03.22-am.png",
+      "art-project--type": 2,
+      "project-description": "df"
     }
   ]
 }
