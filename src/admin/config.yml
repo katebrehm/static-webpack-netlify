@@ -74,8 +74,8 @@ collections:
                 name: art-project--image 
                 widget: image
                 pattern: 
-              - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
-              - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
+                  - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                  - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
 
               - label: Project type
                 name: art-project--type
