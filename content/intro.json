@@ -1,2 +1,22 @@
 {
+  "intro--text-fragment-list": [
+    {
+      "intro--text-fragment": "Kate Brehm is an artist and movement director specializing in",
+      "intro--text-fragment-type": 1
+    },
+    {
+      "intro--text-fragment": "puppetry, ",
+      "intro--text-fragment-type": 2,
+      "intro--text-hoverable-image": "/images/screen-shot-2018-02-12-at-12.03.22-am.png"
+    },
+    {
+      "intro--text-fragment": "scenic dramaturgy, and ",
+      "intro--text-fragment-type": 1
+    },
+    {
+      "intro--text-fragment": "physical acting.",
+      "intro--text-fragment-type": 2,
+      "intro--text-hoverable-image": "/images/screen-shot-2018-12-30-at-11.34.32-pm.png"
+    }
+  ]
 }
