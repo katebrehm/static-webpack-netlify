@@ -54,7 +54,7 @@ collections:
     format: json
 
     # The path to the folder where the documents are stored, relative to project root
-    file: content/projects/art.json 
+    files: content/projects/art.json 
 
     # delete: false prevents users from deleting items in a collection; defaults to true
 
