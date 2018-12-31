@@ -6,24 +6,66 @@ media_folder: src/images/content
 public_folder: /images
 
 collections:
-  - name: "projects" # Used in routes, e.g., /admin/collections/pages Must be unique.
-    label: "Projects"  # Used in the UI
-    folder: "content/projects" # The path to the folder where the documents are stored, relative to project root
-    create: true # Allow users to create new documents in this collection
-    format: 'json'
+  - name: front-collection
+    label: Front panel
+    format: json
+    description: what goes on the front page
+    editor:
+      preview: false
+
+    # allows users to create new items in the collection; defaults to false. Folders only
+    create: false 
+
+    # The path to the folder where the documents are stored, relative to project root
+    folder: content/front 
+
     fields:
-      - {
-          label: Title, 
-          name: title, 
+      - name: front-page
+
+        # delete: false prevents users from deleting items in a collection; defaults to true
+        delete: true
+        label: Front Page
+        hint: The opening paragraph at the top. Drag and drop to order. 
+        widget: list
+
+        fields:
+          - label: Text type
+            name: front-page--text-type
+            widget: select
+            options:
+             - { label: plain, value: 1 }
+             - { label: hoverable, value: 2 }
+
+          - label: Hoverable image
+            name: image
+            widget: image
+            required: false
+            hint: Only choose if hoverable is selected
+            pattern: 
+              - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+              - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
+
+  # Used in routes, e.g., /admin/collections/pages. Must be unique.
+  - name: projects-collection
+    label: Projects 
+
+    # The path to the folder where the documents are stored, relative to project root
+    folder: content/projects 
+    editor:
+      preview: false
+
+    # delete: false prevents users from deleting items in a collection; defaults to true
+    delete: true
+    create: true
+    format: json
+    widget: list
+      fields:
+        - label: Title 
+          name: title 
           widget: string
-        }
-      - {
-          label: Image, 
-          name: image, 
+        - label: Image 
+          name: image 
           widget: image
-        }
-      - {
-          label: Description, 
-          name: description, 
+        - label: Description 
+          name: description 
           widget: string
-        }
