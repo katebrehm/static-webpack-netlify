@@ -19,10 +19,9 @@ collections:
       preview: false
 
     files:
-      - label: Intro section
-        name: intro
+      - name: intro
+        label: Intro section
         file: content/intro.json
-
         fields:
           - label: text fragments
             name: intro--text-fragment-list
@@ -49,11 +48,9 @@ collections:
                   - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
 
 
-    files:
-      - label: Art projects section
-        name: art-projects
+      - name: art-projects
+        label: Art projects section
         file: content/art-projects.json
-
         fields:
           - label: Art projects
             name: title
