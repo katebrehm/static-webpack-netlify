@@ -4,6 +4,7 @@ Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
 - use templates to have access to data from .json files
 - netlify: regex validation?
 - netlify: disappearing label?
+- netlify: image not showing in list?
 - carry over current design
 - routes 
 - set up Uploadcare https://github.com/uploadcare/uploadcare-netlifycms
