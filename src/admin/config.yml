@@ -6,7 +6,7 @@ media_folder: src/images/content
 public_folder: /images
 
 collections:
-  - name: front-collection
+  - name: front-page-collection
     label: Front panel
     format: json
     description: what goes on the front page
@@ -19,7 +19,7 @@ collections:
     folder: content/front 
 
     fields:
-      - name: front-page
+      - name: front-page-paragraph
 
         # delete: false prevents users from deleting items in a collection; defaults to true
         delete: true
@@ -36,7 +36,7 @@ collections:
              - { label: hoverable, value: 2 }
 
           - label: Hoverable image
-            name: image
+            name: front-page--hoverable-image
             widget: image
             required: false
             hint: Only choose if hoverable is selected
@@ -59,16 +59,18 @@ collections:
     # delete: false prevents users from deleting items in a collection; defaults to true
 
     fields:
-      - label: list
-        name: list
+      - label: list of projects
+        name: projects-list
         widget: list
         fields:
-          - label: Title 
-        name: title 
-        widget: string
-          - label: Image 
-        name: image 
-        widget: image
-          - label: Description 
-        name: description 
-        widget: string
+          - label: project name 
+            name: project-title 
+            widget: string
+         
+          - label: project image 
+            name: project-image 
+            widget: image
+
+          - label: project description 
+            name: project-description 
+            widget: string
