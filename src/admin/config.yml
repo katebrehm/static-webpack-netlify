@@ -11,7 +11,7 @@ collections:
     format: json
     description: what goes on the front page
     # allows users to create new items in the collection; defaults to false. Folders only
-    create: false 
+    create: true 
     editor:
       preview: false
 
@@ -48,7 +48,7 @@ collections:
   - name: projects-collection
     label: Projects 
     format: json
-    # create: true
+    create: true
     delete: true
 
     # The path to the folder where the documents are stored, relative to project root
