@@ -53,6 +53,8 @@ collections:
     label: Projects 
     format: json
     delete: false
+    editor:
+      preview: false
 
     # The path to the folder where the documents are stored, relative to project root
     files:
@@ -61,16 +63,23 @@ collections:
         file: content/projects/art.json 
         fields:
           - label: Art projects
-            name: art-projects-list
+            name: art-projects--list
             widget: list
             fields:
               - label: project name 
-                name: project-title 
+                name: art-project-title 
                 widget: string
              
               - label: project image 
-                name: project-image 
+                name: art-project--image 
                 widget: image
+    
+              - label: Project type
+                name: art-project--type
+                widget: select
+                options:
+                 - { label: live art, value: 1 }
+                 - { label: devising + directing, value: 2 }
 
               - label: project description 
                 name: project-description 
