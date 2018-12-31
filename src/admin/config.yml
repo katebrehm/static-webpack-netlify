@@ -35,6 +35,10 @@ collections:
              - { label: plain, value: 1 }
              - { label: hoverable, value: 2 }
 
+          - label: Text
+            name: front-page--text
+            widget: string
+
           - label: Hoverable image
             name: front-page--hoverable-image
             widget: image
@@ -48,11 +52,9 @@ collections:
   - name: projects-collection
     label: Projects 
     format: json
-    create: true
-    delete: true
 
     # The path to the folder where the documents are stored, relative to project root
-    folder: content/projects 
+    file: content/projects/art.json 
 
     # delete: false prevents users from deleting items in a collection; defaults to true
 
