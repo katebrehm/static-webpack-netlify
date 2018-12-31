@@ -10,11 +10,10 @@ collections:
     label: Front panel
     format: json
     description: what goes on the front page
-    editor:
-      preview: false
-
     # allows users to create new items in the collection; defaults to false. Folders only
     create: false 
+    editor:
+      preview: false
 
     # The path to the folder where the documents are stored, relative to project root
     folder: content/front 
@@ -48,6 +47,9 @@ collections:
   # Used in routes, e.g., /admin/collections/pages. Must be unique.
   - name: projects-collection
     label: Projects 
+    format: json
+    delete: true
+    create: true
 
     # The path to the folder where the documents are stored, relative to project root
     folder: content/projects 
@@ -55,17 +57,18 @@ collections:
       preview: false
 
     # delete: false prevents users from deleting items in a collection; defaults to true
-    delete: true
-    create: true
-    format: json
-    widget: list
+
     fields:
-      - label: Title 
+      - label: list
+        name: list
+        widget: list
+        fields:
+          - label: Title 
         name: title 
         widget: string
-      - label: Image 
+          - label: Image 
         name: image 
         widget: image
-      - label: Description 
+          - label: Description 
         name: description 
         widget: string
