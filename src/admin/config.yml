@@ -52,6 +52,7 @@ collections:
   - name: projects-collection
     label: Projects 
     format: json
+    delete: false
 
     # The path to the folder where the documents are stored, relative to project root
     files:
