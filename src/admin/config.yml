@@ -54,23 +54,23 @@ collections:
     format: json
 
     # The path to the folder where the documents are stored, relative to project root
-    files: content/projects/art.json 
-
-    # delete: false prevents users from deleting items in a collection; defaults to true
-
-    fields:
+    files:
       - label: Art projects
-        name: art-projects-list
-        widget: list
+        name: art-projects
+        file: content/projects/art.json 
         fields:
-          - label: project name 
-            name: project-title 
-            widget: string
-         
-          - label: project image 
-            name: project-image 
-            widget: image
+          - label: Art projects
+            name: art-projects-list
+            widget: list
+            fields:
+              - label: project name 
+                name: project-title 
+                widget: string
+             
+              - label: project image 
+                name: project-image 
+                widget: image
 
-          - label: project description 
-            name: project-description 
-            widget: string
+              - label: project description 
+                name: project-description 
+                widget: string
