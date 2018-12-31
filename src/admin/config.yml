@@ -6,84 +6,77 @@ media_folder: src/images/content
 public_folder: /images
 
 collections:
-  - name: front-page-collection
-    label: Front panel
-    format: json
-    description: what goes on the front page
-    # allows users to create new items in the collection; defaults to false. Folders only
-    create: true 
-    editor:
-      preview: false
 
-    # The path to the folder where the documents are stored, relative to project root
-    folder: content/front 
-
-    fields:
-      - name: front-page-paragraph
-
-        # delete: false prevents users from deleting items in a collection; defaults to true
-        delete: true
-        label: Front Page
-        hint: The opening paragraph at the top. Drag and drop to order. 
-        widget: list
-
-        fields:
-          - label: Text type
-            name: front-page--text-type
-            widget: select
-            options:
-             - { label: plain, value: 1 }
-             - { label: hoverable, value: 2 }
-
-          - label: Text
-            name: front-page--text
-            widget: string
-
-          - label: Hoverable image
-            name: front-page--hoverable-image
-            widget: image
-            required: false
-            hint: Only choose if hoverable is selected
-            pattern: 
-              - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
-              - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
-
-  # Used in routes, e.g., /admin/collections/pages. Must be unique.
-  - name: projects-collection
-    label: Projects 
+  # Used in routes, e.g., /admin/collections/sections. Must be unique.
+  - name: sections
+    label: Sections 
+    label_singular: Section
+    description: the site sections / panels
     format: json
     delete: false
+    create: false
     editor:
       preview: false
 
-    # The path to the folder where the documents are stored, relative to project root
     files:
-      - label: Art projects
-        name: art-projects
-        file: content/projects/art.json 
+      - label: Intro section
+        name: intro
+        file: content/intro.json
+
         fields:
-          - label: Art projects
-            name: art-projects--list
+          - label: text fragments
+            name: intro--text-fragment-list
             widget: list
             fields:
-              - label: project name 
-                name: art-project-title 
+              - label: text fragment
+                name: intro--text-fragment 
+                widget: string
+                 
+              - label: text fragment type
+                name: intro--text-fragment-type
+                widget: select
+                options:
+                 - { label: plain, value: 1 }
+                 - { label: hoverable, value: 2 }
+
+              - label: hoverable image
+                name: intro--text-hoverable-image
+                widget: image
+                required: false
+                hint: Only select/upload an image if this fragment is hoverable. Otherwise leave blank
+                pattern: 
+                  - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                  - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
+
+
+    files:
+      - label: Art projects section
+        name: art-projects
+        file: content/art-projects.json
+
+        fields:
+          - label: Art projects
+            name: title
+            widget: list
+            fields:
+              - label: art project name 
+                name: art-project--title 
                 widget: string
              
-              - label: project image 
+              - label: art project image 
                 name: art-project--image 
                 widget: image
                 pattern: 
                   - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
                   - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
 
-              - label: Project type
-                name: art-project--type
+              - label: art project type
+                name: art-project-type
                 widget: select
                 options:
                  - { label: live art, value: 1 }
                  - { label: devising + directing, value: 2 }
 
-              - label: project description 
-                name: project-description 
+              - label: art project description 
+                name: art-project--description 
                 widget: string
