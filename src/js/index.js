@@ -9,10 +9,10 @@
 // https://stackoverflow.com/a/39820703
 
 // is it necessary if given through provide plugin?
-import $ from 'jquery';
-import jquery from 'jquery';
-window.jQuery = jquery;
-window.$ = jquery
+// import $ from 'jquery';
+// import jquery from 'jquery';
+// window.jQuery = jquery;
+// window.$ = jquery
 
 import TweenMax from "greensock";
 import verge from "verge";
@@ -24,7 +24,6 @@ import Glide from '@glidejs/glide'
 // import "scrolloverflow.js";
 
 import fullpage from "fullpage.js"
-// @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
 // fullpage.js v2 format
 // import 'fullpage.js/jquery.fullpage.js';
@@ -39,6 +38,10 @@ import '../scss/index.scss';
 
 
 (function () {
+
+
+// testing jquery
+// console.log($('.mast__wrapper')[0]);
 
 new fullpage("#fullpage", {
         licenseKey: '',
