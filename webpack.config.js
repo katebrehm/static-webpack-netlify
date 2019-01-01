@@ -14,6 +14,8 @@ const providePluginList = {
 	'window.jQuery': 'jquery',
 }
 
+
+
 module.exports = (env, argv) => ({
 	entry: {
 		bundle: path.join(__dirname, 'src', 'js', 'index.js'),
@@ -28,6 +30,8 @@ module.exports = (env, argv) => ({
 	performance: {
 		hints: false
 	},
+
+
 
 	stats: 'verbose',
 
@@ -135,7 +139,13 @@ module.exports = (env, argv) => ({
 						},
 						'webpack-module-hot-accept'
 					]
+			},
+			
+			{ 
+				test: /\.hbs$/, 
+				loader: 'handlebars-loader' 
 			}
+
 		]
 	},
 

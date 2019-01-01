@@ -12,9 +12,23 @@ import Glide from '@glidejs/glide'
 import fullpage from "fullpage.js"
 import '../scss/index.scss';
 
+// for testing handlebars
+import lodash from 'lodash';
+
+// import templateA from '../templates/test.hbs';
+// import templateA from 'handlebars-loader!../templates/test.hbs';
+import templateA from '../templates/test.hbs';
 
 (function () {
 
+    function square(n) {
+        return n*n;
+    }
+
+
+// @todo: what's the connection of literal 'numbers' across the functions and in the hbs?
+let numbers = _.map([1,2,3,4,5,6], n => n*n);
+console.log(templateA({numbers}));
 
 // testing jquery
 // console.log($('.mast__wrapper')[0]);
