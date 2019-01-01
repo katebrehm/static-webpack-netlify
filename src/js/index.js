@@ -2,18 +2,6 @@
 // https://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
 // require('file-loader?name=[name].[ext]!../index.html');
 
-// https://stackoverflow.com/questions/35259835/how-to-import-jquery-ui-using-es6-es7-syntax
-// https://stackoverflow.com/a/44508599
-// import 'jquery-ui-bundle';
-// https://stackoverflow.com/questions/35358625/jquery-is-not-defined-when-use-es6-import
-// https://stackoverflow.com/a/39820703
-
-// is it necessary if given through provide plugin?
-// import $ from 'jquery';
-// import jquery from 'jquery';
-// window.jQuery = jquery;
-// window.$ = jquery
-
 import TweenMax from "greensock";
 import verge from "verge";
 import Glide from '@glidejs/glide'
@@ -21,19 +9,7 @@ import Glide from '@glidejs/glide'
 // import 'intersection-observer'
 // import scrollama from 'scrollama';
 
-// import "scrolloverflow.js";
-
 import fullpage from "fullpage.js"
-
-// fullpage.js v2 format
-// import 'fullpage.js/jquery.fullpage.js';
-// import 'fullpage.js/vendors/jquery.easings.min.js';
-// import 'fullpage.js/dist/jquery.fullpage.extensions.min.js';
-// import 'fullpage.js/dist/jquery.fullpage.css';
-
-// webpack not processing. Using CDN for now
-// import "material-design-icons/iconfont/material-icons.css";
-
 import '../scss/index.scss';
 
 
@@ -46,7 +22,6 @@ import '../scss/index.scss';
 new fullpage("#fullpage", {
         licenseKey: '',
         // verticalCentered: true,
-        // scrollOverflow: true
         // menu: '#menu',
         // anchors: ['intro', 'work', 'projects', 'workshops', 'bio'],
         // easingcss3: "linear"
@@ -66,11 +41,11 @@ new fullpage("#fullpage", {
         onLeave: function(index, nextIndex, direction){
             var leavingSection = $(this);
             
-            console.log('onLeave');
-            console.log('index: ', index); // leaving this index, 1-indexed array
-            console.log('nextIndex: ', nextIndex); // arriving at this index ,  1-indexed array
-            console.log('direction: ', direction);
-            console.log('=========');
+            // console.log('onLeave');
+            // console.log('index: ', index); // leaving this index, 1-indexed array
+            // console.log('nextIndex: ', nextIndex); // arriving at this index ,  1-indexed array
+            // console.log('direction: ', direction);
+            // console.log('=========');
 
             // leaving section 1
             if(nextIndex === 2){
@@ -309,7 +284,7 @@ new fullpage("#fullpage", {
 
 
             function playVideo(video){
-                video.play();
+                // video.play();
             }
 
             function stopVideo(video){
