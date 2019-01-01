@@ -2,10 +2,9 @@ Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
 
 #### todo
 - use templates to have access to data from .json files
-- netlify: regex validation?
-- netlify: disappearing label?
-- netlify: image not showing in list?
 - carry over current design
+- netlify: image regex validation?
+- netlify: disappearing label?
 - routes 
 - set up Uploadcare https://github.com/uploadcare/uploadcare-netlifycms
 - moves assets to project root
@@ -15,3 +14,4 @@ Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
 - set up custom domain
 - analytics https://github.com/colbyfayock/html-webpack-partials-plugin
 - convert to Gatsby
+- netlify: possible to add a list singular label?
