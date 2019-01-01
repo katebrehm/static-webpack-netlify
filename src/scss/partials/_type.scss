@@ -1,0 +1,39 @@
+.serif {
+  // display: inline-block;
+  font-family: 'IBDF', serif;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6,
+p, .p {
+  font-family: 'RKG', sans-serif;
+} 
+
+h1,
+.h1 {
+  font-size: 1.3rem; 
+  font-family: 'SKG', sans-serif;
+  font-weight: normal;
+  letter-spacing: -5px;
+}
+
+h2,
+.h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+h3,
+.h3 {
+  font-family: 'MKG', sans-serif;
+  font-size: 1.2rem; 
+  line-height: 1.5;
+}
+
+p,
+.p {
+  font-size: 1.1rem;
+  margin-bottom: 0.9rem;
+  line-height: 1.4;
+}

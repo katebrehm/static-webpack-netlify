@@ -2,7 +2,6 @@ Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
 
 #### todo
 - use templates to have access to data from .json files
-- carry over current design
 - netlify: image regex validation?
 - netlify: disappearing label?
 - routes 
@@ -15,3 +14,8 @@ Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
 - analytics https://github.com/colbyfayock/html-webpack-partials-plugin
 - convert to Gatsby
 - netlify: possible to add a list singular label?
+- update to fullpage 3, get GNU license key
+- page transitions with swup
+- add typefaces/fonts back
+- webpack to load fullpage license key without commiting it to repo
+- fix jumping: https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section

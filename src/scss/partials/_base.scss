@@ -3,13 +3,37 @@ html { font-size: 16px; }
 *, 
 *:after, 
 *:before { 
-	-webkit-box-sizing: border-box; 
-	box-sizing: border-box; 
-	margin: 0;
-	padding: 0;
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+
+    // global style, so we can use ems
+
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: #276688;
 }
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+a:hover, 
+a:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.svg {
+  height: auto !important;
+}
+

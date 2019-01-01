@@ -1,4 +1,40 @@
-@import 'partials/base';
 
-// temp, testing
-.mast__image { opacity: 0; }
+// Required Core Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// Optional Theme Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+@import 'partials/mq';
+@import 'partials/mq-debugger';
+@import 'partials/colors';
+@import 'partials/base';
+@import 'partials/utilities';
+@import 'partials/type';
+@import 'partials/panel';
+@import 'partials/nav';
+
+@import 'partials/panel--mast';
+@import 'partials/panel--bio';
+@import 'partials/panel--projects';
+
+
+body {
+    position: relative; 
+
+    // for some reason, when fullpage.js sets this,
+    // when scrolling to a section that has a gradient applied,
+    // layers underneath it, whether text or images,
+    // dont show, until animation is completed.
+
+    // disabling this doesnt seem to have a negative effect
+    overflow: visible !important;
+}
+
+.fp-tableCell {
+    display: flex !important;
+    position: relative;
+    align-items: center;
+}
+
+

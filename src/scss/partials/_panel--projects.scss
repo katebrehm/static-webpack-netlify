@@ -1,0 +1,172 @@
+@import "_colors";
+
+.panel--projects {
+	background: linear-gradient(180deg,#05070b 0,#17171d);
+}
+
+.glide__track {
+	overflow: visible;
+}
+
+.glide__slides {
+	height: 60vh;
+	@include mq('md') { height: 400px; }
+	@include mq('lg') { height: 400px; }
+	@include mq('xl') { height: 350px; }
+	@include mq('xxl') { height: 450px; }
+
+	overflow: visible;
+}
+
+/* 
+    $breakpoints: (
+	    "xxs":  1px,
+	    "xs":   400px,
+	    "sm":   480px,
+	    "md":   650px,
+	    "lg":   860px,
+	    "xl":   1030px,
+	    "xxl":  1200px,
+	    "xxxl": 1600px
+	);
+ */
+
+.glide__slide {
+	background-size: cover;
+	background-position: center center;
+	
+	@include mq('lg') { 
+		opacity: 0.6;
+		transition: opacity 0.1s ease-in-out;
+	}
+
+}
+
+.glide__slide--active {
+	opacity: 1 !important;
+}
+
+.glide__arrows { 
+	display: flex;
+	position: absolute;
+    bottom: -13vh;
+    right: 0;
+}
+
+.glide__arrow { 
+	position: static;
+	top: auto;
+	left: auto; 
+	right: auto;
+	margin: 1rem;
+	padding: 0;
+	transform: none;
+	box-shadow: none;
+	text-shadow: none;
+	border-radius: 0;
+	border: 0;
+	color: #82C345;
+	line-height: normal;
+	i {     width: 20px !important; }
+ }
+
+ .glide__arrow--left {
+	margin-left: auto;
+
+ }
+
+ .glide__arrow--right {
+	margin-right: 3rem;
+}
+
+
+// .glide__slide:nth-of-type(1){ background-image: url('.././images/photos/content/_MG_5563.jpg');	}
+// .glide__slide:nth-of-type(2){ background-image: url('.././images/photos/content/IMG_1243--1800.jpg');	}
+// .glide__slide:nth-of-type(3){ background-image: url('.././images/photos/content/_MG_5625.jpg');	}
+// .glide__slide:nth-of-type(4){ background-image: url('.././images/photos/content/_MP_6321--1600.jpg');	}
+// .glide__slide:nth-of-type(5){ background-image: url('.././images/photos/content/chi-cth-blue-man-group-2017-ct0047554800-20170210.jpg');	}
+// .glide__slide:nth-of-type(6){ background-image: url('.././images/photos/content/eyeball---kbrehm--costume.jpg');	}
+// .glide__slide:nth-of-type(7){ background-image: url('.././images/photos/content/poof.png');	}
+
+// .glide__slide:nth-of-type(8){ background-image: url('.././images/photos/content/_MG_5563.jpg');	}
+// .glide__slide:nth-of-type(9){ background-image: url('.././images/photos/content/IMG_1243--1800.jpg');	}
+// .glide__slide:nth-of-type(10){ background-image: url('.././images/photos/content/_MG_5625.jpg');	}
+// .glide__slide:nth-of-type(11){ background-image: url('.././images/photos/content/_MP_6321--1600.jpg');	}
+// .glide__slide:nth-of-type(12){ background-image: url('.././images/photos/content/chi-cth-blue-man-group-2017-ct0047554800-20170210.jpg');	}
+// .glide__slide:nth-of-type(13){ background-image: url('.././images/photos/content/eyeball---kbrehm--costume.jpg');	}
+// .glide__slide:nth-of-type(14){ background-image: url('.././images/photos/content/poof.png');	}
+
+// .glide__slide:nth-of-type(15){ background-image: url('.././images/photos/content/_MG_5563.jpg');	}
+// .glide__slide:nth-of-type(16){ background-image: url('.././images/photos/content/IMG_1243--1800.jpg');	}
+// .glide__slide:nth-of-type(17){ background-image: url('.././images/photos/content/_MG_5625.jpg');	}
+// .glide__slide:nth-of-type(18){ background-image: url('.././images/photos/content/_MP_6321--1600.jpg');	}
+// .glide__slide:nth-of-type(19){ background-image: url('.././images/photos/content/chi-cth-blue-man-group-2017-ct0047554800-20170210.jpg');	}
+// .glide__slide:nth-of-type(20){ background-image: url('.././images/photos/content/eyeball---kbrehm--costume.jpg');	}
+// .glide__slide:nth-of-type(21){ background-image: url('.././images/photos/content/poof.png');	}
+
+
+.slide__image {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.slide__title {
+	position: relative;
+	margin: 1rem;
+	top: -3.4rem;
+	user-select: text;
+	color: white;
+	/* background: #f3ff76; */
+	/* box-shadow: 1rem 1rem rgba($teal-2, 0.4); */
+}
+
+.container__arrow:hover {
+	opacity: 1;
+}
+
+
+
+
+//////////////////
+// video, HTML el
+/* $poofWidth: 600px;
+$poofheight: 337.5px; */
+
+// vimeo, matches embed element
+// TODO: make one set of vars
+/* $poofWidth: 100%;
+$poofheight: 90vh;
+ */
+
+
+
+/* .fp-controlArrow {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	z-index: 1 !important;
+	top: 0 !important;
+	bottom: 0 !important;
+	height: 100vh !important;
+	
+	transform: none !important;
+	width: auto !important;
+	border: none !important;
+	margin: 0 !important;
+	border-width: 0 !important;
+	border-color: none !important;
+}
+
+.fp-controlArrow.fp-prev,
+.fp-controlArrow.fp-next {
+	left: auto !important;
+	width: auto !important;
+	border: none !important;
+}
+//	*/
+// video {
+//	object-fit: cover;
+//	width: 100vw;
+// }
+

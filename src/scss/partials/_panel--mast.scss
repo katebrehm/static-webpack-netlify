@@ -1,0 +1,282 @@
+@import "_colors";
+
+.panel--mast {
+	position: relative;
+	display: grid;
+
+	height: 100vh;
+	width: 100vw;
+	background-color: #26274C;
+
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-areas:    					
+												". . . . . . . . . ."
+												". . . . . . . . . ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". a a a a a a a a ."
+												". . . . . . . . . ."
+												". . . . . . . . . .";
+
+
+
+	@include mq('md') {
+
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-areas:    					". . . . . . . ."
+													". a a a a a a ."
+													". . . . . . . .";
+	}
+
+	@include mq('lg') {
+
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-areas:    					
+													". . . . . . . ."
+													". a a a a a a ."
+													". a a a a a a ."
+													". a a a a a a ."
+													". a a a a a a ."
+													". . . . . . . .";
+
+	}
+
+	@include mq('xl') {
+
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-areas:    					
+													". . . . . . . . . . . ."
+													". . a a a a a a a a . ."
+													". . a a a a a a a a . ."
+													". . a a a a a a a a . ."
+													". . a a a a a a a a . ."
+													". . . . . . . . . . . .";
+
+	}
+
+
+	@include mq('xxxl') {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-areas:    					". . . ."
+													". a a ."
+													". . . .";
+	}
+
+}
+
+.mast__image {
+	position: absolute;
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+}
+
+.mast__wrapper {
+	grid-area: a;
+	align-self: center;
+	z-index: 3;
+
+	color: #276688;
+	line-height: 1.15;
+}
+
+.hide-xs {
+	display: none;
+	@include mq('md') { 
+		display: inline;
+  }
+}
+
+.mast__wrapper span, 
+a {
+
+  @include mq('xxs') { 
+	font-size: 1.2rem;
+	line-height: 1.7;
+	}
+
+  @include mq('sm') { 
+	font-size: 1.2rem;
+	line-height: 1.7;
+	}
+
+  @include mq('md') { 
+	font-size: 1.2rem;
+	line-height: 1.6;
+  }
+
+  @include mq('lg') { 
+	font-size: 1.4rem;
+	line-height: 1.45;
+  }
+
+  @include mq('xl') { 
+	font-size: 1.4rem;
+	line-height: 1.6;
+  }
+
+  @include mq('xxl') { 
+  	font-size: 1.5rem;
+	line-height: 1.5;
+	}
+
+   @include mq('xxxl') { 
+  	font-size: 1.7rem;
+	line-height: 1.6;
+}
+
+}
+
+.mast__text {
+ 	font-family: 'RKG' , sans-serif;
+	margin: 1rem 0;
+	color: white;
+}
+
+.mast__link {
+	visibility: inherit;
+	padding: 0.2rem 0;
+
+	color: white;
+    opacity: 1;
+
+	font-family: 'MKG';
+	letter-spacing: .01rem;
+
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	transition: text-decoration padding opacity background-color border color , 0.3s ease-in-out;
+
+	@include mq('xl') { 
+ 		font-family: 'RKG' , sans-serif;
+ 		border: 0;
+		padding: 0.2rem 0.5rem;
+		white-space: nowrap;
+	}
+}
+
+
+.mast__link:nth-of-type(5n+1):hover { background-color: #00FDDC; border: 0; }
+.mast__link:nth-of-type(5n+2):hover { background-color: #276688; border: 0; }
+.mast__link:nth-of-type(5n+3):hover { background-color: #A9ABB7; border: 0; }
+.mast__link:nth-of-type(5n+4):hover { background-color: #55DDE0; border: 0; }
+.mast__link:nth-of-type(5n+5):hover { background-color: #6EABC2; border: 0; }
+
+
+  @include mq('xl') { 
+
+	/*
+		5 before n being the total number of colors we want to cycle through
+		This only works when the links share the same parent
+		So we need to use a spacer element between paragraphs, instead of "real"
+		paragraphs
+	*/
+
+	.mast__link:nth-of-type(5n+1) { background: #00FDDC; color: #276688;  }
+	.mast__link:nth-of-type(5n+2) { background: #276688; }
+	.mast__link:nth-of-type(5n+3) { background: #A9ABB7; }
+	.mast__link:nth-of-type(5n+4) { background: #55DDE0; color: #276688; }
+	.mast__link:nth-of-type(5n+5) { background: #6EABC2;}
+
+  }
+
+
+
+.mast__link:hover {
+	opacity: 0.8;
+	text-decoration: none;
+}
+
+.project--explore {
+	background-color: black;
+	object-fit: contain;
+}
+
+.project--explore::after {
+	content: '?';
+	position: absolute;
+	font-size: 50vw;
+	color: white;
+	left: 1rem;
+	bottom: 1rem;
+	z-index: 1000;
+}
+
+.project__detail-tooltip {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	opacity: 0;
+	width: 100vw;
+	bottom: 0;
+	color: white;
+	border-top: 1 solid white;
+	padding: 1rem 1rem 2rem 1rem;
+}
+
+.project__detail-tooltip span {
+	display: block;
+	margin: 0 1rem;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+	line-height: 1.1;
+	color: white;
+	// transform: translateY(12px);
+	// opacity: 0;
+}
+
+.tooltip__logo {
+	height: 8rem;
+	margin: 0 1rem;
+	display: inline-block;
+	position: relative;
+	top: -10px;
+	// opacity: 0;
+}
+
+.tooltip__title {
+	font-family: 'MKG', sans-serif;
+	font-size: 1.2rem; 
+	letter-spacing: 1px;
+}
+
+.tooltip__small {
+	font-family: 'RKG', sans-serif;
+	font-size: 1.1rem; 
+}
+
+.tooltip__date {
+	position: relative;
+	top: 2px; // hacky fix
+	font-family: 'IRKG', sans-serif;
+	font-size: 1rem; 
+}
+
+.mast__diags {
+	position: absolute;
+	z-index: 11;
+	width: 100vw;
+	height: 13rem;
+	left: 160px;
+	bottom: -5rem;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAOklEQVQoU43MSwoAMAgD0eT+h7ZYaOlHo7N+DNHL2HAGgBWcyGcKbqTghTL4oQiG6IUpOqFEC5bI4QD8PAoKd9j4XwAAAABJRU5ErkJggg==);
+	mix-blend-mode: soft-light;
+}
+
+

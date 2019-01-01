@@ -1,0 +1,30 @@
+.opacity--zero {
+  opacity: 0;
+}
+
+// full viewport, so it can be used in any masking container
+.tint--mast {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* mix-blend-mode: luminosity; */
+  /* mix-blend-mode: soft-light; */
+  /* background-color: $teal-3; */
+  mix-blend-mode: color;
+  background-color: $teal-5;
+}
+
+@mixin border($color, $border-size) {
+  box-shadow: 0 0 0 $border-size $color; //text-align-last: 
+  /*
+  // just one side
+  box-shadow: 0 $border-size 0 0 $teal-5; // bottom
+  box-shadow: 0 -$border-size 0 0 $teal-5; // top
+  box-shadow: -$border-size 0 0 0 $teal-5; // left
+  box-shadow: $border-size 0 0 0 $teal-5; // right
+ */
+}
+

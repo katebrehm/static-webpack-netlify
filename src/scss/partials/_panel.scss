@@ -1,0 +1,18 @@
+.panel {
+  position: relative;
+}
+
+.material-icon__arrow--down {
+	position: absolute;
+	z-index: 5;
+  opacity: 1;
+	left: 4rem;
+	bottom: 2rem;
+  font-size: 2rem !important;
+  transition: opacity, 0.16s ease-in-out;
+  cursor: pointer;
+}
+
+.material-icon__arrow--down:hover {
+  color: white;
+}

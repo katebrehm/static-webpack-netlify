@@ -1,0 +1,376 @@
+.panel--bio {
+	position: relative;
+
+
+	display: grid;
+
+	/*
+		https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/
+		[the grid line names]
+			the track widths
+	*/
+	grid-template-columns: 
+		[ panel--start  
+		  dark-bg--start 
+		  nav-hover--start ] 
+
+				20px 
+
+		[ nav-content--start ] 
+
+				max-content 
+
+		[ nav-content--end 
+		  headshot--start 
+		  caption--start ] 
+
+				20px 
+
+		[ nav-hover--end ] 
+
+				minmax(40px, 0.5fr) 
+
+		[ dark-bg--end ] 
+
+				0.2fr
+
+		[ headshot--end 
+		  caption--end 
+		  gutter--before-text--start ] 
+
+				40px 
+
+		[ text--start 
+		  gutter--before-text--end 
+		  button--download-pdf--start 
+		  tab--start ] 
+
+				1fr 
+
+		[ text--end 
+		  gutter--after-text--start 
+		  button--download-pdf--end  
+		  tab--end ] 
+
+				40px 
+
+		[ gutter--after-text--end 
+		  ] 
+
+				minmax(20px, 40px) 
+
+		[ panel--end ];
+
+	/*
+		[ Grid lines names. 
+		  Multiple can be used. Declare 
+		  within brackets ]
+
+			the track heights
+	
+	*/
+	grid-template-rows: 
+		[ panel--start
+		  gutter--top--start
+		  dark-bg--start
+		  nav-content--start ] 
+
+			20px 
+
+		[ gutter--top--end 
+		  tab--start ] 
+		
+			max-content 
+		
+		[ gutter--before-text--start ] 
+		
+			40px 
+		
+		[ tab--end
+			gutter--before-text--end
+		  text--start
+		  headshot--start ] 
+
+			minmax(500px, 1fr)  
+		
+		[ text--end
+		  headshot--end 
+		  caption--start
+		  button--download-pdf--start  ] 
+		
+			min-content 
+		
+		[ caption--end 
+		  gutter--last--start  ] 
+			
+			minmax(20px, 100px)
+		
+		[ panel--end 
+		  gutter--last--end
+		  dark-bg--end
+		  nav-content--end 
+		  button--download-pdf--end ];
+
+
+	height: 100vh;
+	width: 100vw;
+	background-color: $gray--mid;
+
+	/* background: linear-gradient(left bottom, #1e5799 0%,#2989d8 50%,#207cca 100%,#7db9e8 100%); */
+}
+
+.bio__nav-bg {
+	/*
+		Shorthand for:
+			grid-area: dark-bg- / dark-bg- / dark-bg- / dark-bg-;
+
+		Which is shorthand for:
+			grid-column-start: dark-bg-;
+			grid-column-end: dark-bg-;
+			grid-row-start: dark-bg-;
+			grid-row-end: dark-bg-;
+
+	*/
+	grid-area: dark-bg-;
+	/* background-color: #484865; */
+	background-color: #34344A;
+}
+
+.bio__nav-bg--mask {
+	height: 1rem;
+	align-self: center;
+	background-color: #8FC93A;
+	width: 100%;
+	transform-origin: center right;
+	z-index: 5;
+}
+
+.bio__nav { 
+	width: 100%;
+	grid-area: nav-content-;
+	align-self: flex-end;
+}
+
+.bio__nav img {
+	opacity: 0; 
+	/* width: 100%; */
+	/* heigh: 100%; */
+}
+
+.bio__headshot {
+	grid-area: headshot-;
+	position: relative;
+	box-shadow: inset 0 0 0 -20px white;
+	background-color: #b8bdc2;
+}
+
+.bio__diags {
+	position: absolute;
+	z-index: 11;  
+	width: 100vw;
+	height: 8rem;
+	left: 30px;
+	bottom: 0rem;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAOklEQVQoU43MSwoAMAgD0eT+h7ZYaOlHo7N+DNHL2HAGgBWcyGcKbqTghTL4oQiG6IUpOqFEC5bI4QD8PAoKd9j4XwAAAABJRU5ErkJggg==);
+	mix-blend-mode: soft-light;
+	opacity: 0.25;
+}
+
+.headshot__image {
+	position: absolute;
+	width: 120%; // original value;
+	height: 100%;
+	/* object-fit: cover; */
+	/* opacity: 1; */
+	/* transform: translateX(-75px); */
+	
+	background-repeat: no-repeat;
+  	background-size: cover;
+	background-position: center;
+}/* 
+
+.headshot__image:nth-of-type(2){ background-image: url('../.././images/photos/content/smersideface.jpeg'); z-index: 3; }
+.headshot__image:nth-of-type(3){ background-image: url('../.././images/photos/content/1280here_thingsfallapart_067.jpg'); z-index: 2; }
+.headshot__image:nth-of-type(4){ background-image: url('../.././images/photos/content/katediscfaace.jpg'); z-index: 1; }
+ */
+.headshot__mask-wrapper {
+	position: relative;
+	height: 100%;
+	width: 120%;
+	overflow: hidden;
+}
+
+.headshot__mask--box {
+	position: absolute;
+	z-index: 9; // higher than highest headshot, lower than bio__text
+	height: 100%;
+	width: 100%;
+
+	/* background-color: black; */
+
+	backface-visibility: hidden;
+	transform-origin: center left;
+	background-color: #8FC93A;
+
+	/* transform: scale(1); */
+	/* transform: translate3d(0, 0, 0); */
+	/* transform: matrix(0, 0, 0, 1, 0, 0); */
+
+	/* background: linear-gradient(to bottom, rgba(255,50,207,0) 0%, $yellow 100% ); */
+	/* background: linear-gradient(to bottom, $yellow 0%, rgba(255,50,207,0) 100%); */
+}
+
+.headshot__mask--color {
+	position: absolute;
+	z-index: 8; // higher than highest headshot, lower than bio__text, lower than mask--box
+	height: 100%;
+	width: 100%;
+	background-color: green;
+	backface-visibility: hidden;
+	transform-origin: center left;
+	/* mix-blend-mode: darken; */
+  /* mix-blend-mode: saturation; */          
+  /* mix-blend-mode: hard-light; */
+	background-color: #8FC93A;
+}
+
+.bio__text {
+	grid-area: text-;
+
+	// to bring this above the headshot image 
+	// which gets pulled out of the Grid's stacking
+	// because of the transform Greensock gives the headshot image
+
+	// ensure hugher value than highest headshot image z-indexes
+	z-index: 10;
+
+	column-gap: 2rem;
+	column-width: 275px;
+	column-rule: solid 1px #b3b3b3;
+
+  	padding: 4rem 0;
+
+	/* overflow: auto; */
+	max-width: 700px;
+
+	/* opacity: 0.5; */
+
+	/* 	
+	text-overflow: ellipsis;
+
+	Required for text-overflow to do anything
+	white-space: nowrap;
+	overflow: hidden; 
+	*/
+
+	/* transform: translateX(100px); */
+	/* transform: rotate(-2.5deg); */
+	opacity: 1;
+}
+
+.bio__text--mask {
+	position: absolute;
+	height: 100%;
+	width: 500px; 
+	opacity: 1;
+	background-color: #00FDDC;
+	transform-origin: center left;
+
+	backface-visibility: hidden;
+	/* border-bottom: 10px solid green; */
+	/* box-sizing: border-box; */
+}
+
+.bio__text p {
+	background: #b8bdc2;
+	color: #276688;
+}
+
+.bio__paragraph--large {
+	font-family: 'MKG', sans-serif;
+	font-size: 1.2rem; 
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+	padding: 0.75rem;
+}
+
+.bio__paragraph {
+	font-family: 'Eczar', serif;
+	line-height: 1.45;
+	padding: 0.5rem;
+}
+
+.bio__tab {
+	grid-area: tab-;
+	writing-mode: vertical-lr;
+	font-family: 'RKG', sans-serif;
+	font-size: 1.1rem;
+	color: #A9ABB7;
+	text-transform: uppercase;
+	transform: rotate(180deg);
+	letter-spacing: 1px;
+	margin: 0 0.8rem;
+}
+
+.bio__tab-border {
+	grid-area: tab-;
+	justify-self: end;
+	background-color: #55DDE0;
+	width: 3px;
+	/* position: relative; */
+	/* left: 51px; */
+	transform: scaleY(0.3);
+}
+
+.bio__caption {
+	grid-area: caption-;
+	justify-self: flex-end;
+	/* justify-self: end; */
+	color: #7b7b7b;
+	font-family: "RKG";
+	padding: 0.5rem 0;
+	/* margin: 1.5rem 0; */
+	z-index: 1;
+}
+
+.caption {
+	font-size: 0.8rem;
+}
+
+.caption__label {
+	font-family: "MKG";
+}
+
+.caption__text {
+	font-size: 0.8rem;
+	font-family: "RKG";
+}
+
+.button--download-pdf {
+	grid-area: button--download-pdf-;
+	align-self: flex-end;
+	justify-self: flex-end;
+	position: absolute;
+	z-index: 11;
+	height: 4rem;
+	text-transform: uppercase;
+	font-family: "MKG";
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	color: white;
+	border: 5px solid #FAFFD8;
+	top: -2.7rem;
+	transition: background-color border-color , 0.3s ease-in-out;
+}
+
+.button--download-pdf:hover {
+	border-color: white;
+	background: #CEE0DC;
+	color: #269CC8;
+}
+
+.tile {
+	background-repeat: repeat;
+}
