@@ -68,7 +68,7 @@ collections:
                   - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
 
               - label: art project type
-                name: art-project-type
+                name: art-project--type
                 widget: select
                 options:
                  - { label: live art, value: 1 }
