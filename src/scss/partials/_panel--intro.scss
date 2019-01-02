@@ -1,6 +1,6 @@
 @import "_colors";
 
-.panel--mast {
+.panel--intro {
 	position: relative;
 	display: grid;
 
@@ -78,7 +78,7 @@
 
 }
 
-.mast__image {
+.intro__image {
 	position: absolute;
 	object-fit: cover;
 	width: 100vw;
@@ -86,7 +86,7 @@
 	opacity: 0;
 }
 
-.mast__wrapper {
+.intro__wrapper {
 	grid-area: a;
 	align-self: center;
 	z-index: 3;
@@ -102,7 +102,7 @@
   }
 }
 
-.mast__wrapper span, 
+.intro__wrapper span, 
 a {
 
   @include mq('xxs') { 
@@ -142,13 +142,13 @@ a {
 
 }
 
-.mast__text {
+.intro__text {
  	font-family: 'RKG' , sans-serif;
 	margin: 1rem 0;
 	color: white;
 }
 
-.mast__link {
+.intro__link {
 	visibility: inherit;
 	padding: 0.2rem 0;
 
@@ -171,11 +171,11 @@ a {
 }
 
 
-.mast__link:nth-of-type(5n+1):hover { background-color: #00FDDC; border: 0; }
-.mast__link:nth-of-type(5n+2):hover { background-color: #276688; border: 0; }
-.mast__link:nth-of-type(5n+3):hover { background-color: #A9ABB7; border: 0; }
-.mast__link:nth-of-type(5n+4):hover { background-color: #55DDE0; border: 0; }
-.mast__link:nth-of-type(5n+5):hover { background-color: #6EABC2; border: 0; }
+.intro__link:nth-of-type(5n+1):hover { background-color: #00FDDC; border: 0; }
+.intro__link:nth-of-type(5n+2):hover { background-color: #276688; border: 0; }
+.intro__link:nth-of-type(5n+3):hover { background-color: #A9ABB7; border: 0; }
+.intro__link:nth-of-type(5n+4):hover { background-color: #55DDE0; border: 0; }
+.intro__link:nth-of-type(5n+5):hover { background-color: #6EABC2; border: 0; }
 
 
   @include mq('xl') { 
@@ -187,17 +187,17 @@ a {
 		paragraphs
 	*/
 
-	.mast__link:nth-of-type(5n+1) { background: #00FDDC; color: #276688;  }
-	.mast__link:nth-of-type(5n+2) { background: #276688; }
-	.mast__link:nth-of-type(5n+3) { background: #A9ABB7; }
-	.mast__link:nth-of-type(5n+4) { background: #55DDE0; color: #276688; }
-	.mast__link:nth-of-type(5n+5) { background: #6EABC2;}
+	.intro__link:nth-of-type(5n+1) { background: #00FDDC; color: #276688;  }
+	.intro__link:nth-of-type(5n+2) { background: #276688; }
+	.intro__link:nth-of-type(5n+3) { background: #A9ABB7; }
+	.intro__link:nth-of-type(5n+4) { background: #55DDE0; color: #276688; }
+	.intro__link:nth-of-type(5n+5) { background: #6EABC2;}
 
   }
 
 
 
-.mast__link:hover {
+.intro__link:hover {
 	opacity: 0.8;
 	text-decoration: none;
 }
@@ -268,7 +268,7 @@ a {
 	font-size: 1rem; 
 }
 
-.mast__diags {
+.intro__diags {
 	position: absolute;
 	z-index: 11;
 	width: 100vw;
