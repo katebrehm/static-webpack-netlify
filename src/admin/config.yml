@@ -31,8 +31,8 @@ collections:
                 name: intro--fragment-type
                 widget: select
                 options:
-                 - { label: plain, value: 1 }
-                 - { label: hoverable, value: 2 }
+                 - { label: plain, value: 0 }
+                 - { label: hoverable, value: 1 }
 
               - label: text fragment
                 name: intro--fragment-text
