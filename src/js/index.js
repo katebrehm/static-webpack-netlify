@@ -12,7 +12,6 @@ import Glide from '@glidejs/glide'
 import fullpage from "fullpage.js"
 import '../scss/index.scss';
 
-// for testing handlebars
 import lodash from 'lodash';
 
 // app utils
@@ -22,16 +21,13 @@ import lodash from 'lodash';
 import introDataObjAsBEM from '../../content/intro.json';
 
 // @todo: move this to dedicated webpack. JS files.
-// import paragraphFragments from '../templates/test.hbs';
-// import paragraphFragments from 'handlebars-loader!../templates/test.hbs';
 import paragraphFragmentsTemplate from '../templates/home/sections/intro/paragraph-fragments.hbs';
 import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hover-photo-collection.hbs';
 
 
 (function () {
 
-    
-// https://stackoverflow.com/questions/12931828/convert-returned-json-object-properties-to-lower-first-camelcase
+    // https://stackoverflow.com/questions/12931828/convert-returned-json-object-properties-to-lower-first-camelcase
     const transformToCamelCase = (obj) => {
       if (!_.isObject(obj)) {
         return obj;
@@ -45,9 +41,6 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
         };
       }, {});
     }; 
-
-
-    // var a = introDataObjAsBEM;
 
     // clean and prep the data object from 
     // content submitted via Netlify admin
@@ -65,7 +58,6 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
         .html(hoverPhotosCollectionTemplate({ hoverPhotos }));
 
 /*
-
     Application js
 */
     new fullpage("#fullpage", {
@@ -425,14 +417,16 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                     console.log( $( this ).text() );
                     fullpage_api.moveSectionDown();
                 });
-
-
             }
-       
-
         });
-
-
-
-
 }());
+
+
+
+
+
+
+
+
+
+

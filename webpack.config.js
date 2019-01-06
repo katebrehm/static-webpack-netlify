@@ -143,20 +143,12 @@ module.exports = (env, argv) => ({
 			{
 				test: /\.hbs$/, 
 				exclude: /node_modules/,
-				loader: 'handlebars-loader'
-
-				// should be done automatically
-				// helpers: {
-				// 	projectHelpers: path.join(__dirname, 'src', 'js', 'helpers', '*.helper.js')
-				// },
-				
-				// // folder/filename is unique
-				// partials: [
-				//     // path.join(process.cwd(), "app", "src", "components", "*", "*.hbs")
-				// 	path.join(__dirname, 'src', 'templates', 'partials', '*', '*.hbs')
-				// ],
-
-
+				loader: 'handlebars-loader',
+				options: {
+					helperDirs: [
+						path.join(__dirname, 'src', 'templates', 'helpers')
+					]
+				}
 			}
 
 		]

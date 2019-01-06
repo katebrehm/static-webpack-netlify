@@ -1,7 +1,7 @@
 {{#each hoverPhotos as | hoverPhoto i|}}
-	{{#if introFragmentType}}
+	{{#ifEquals introFragmentType "hoverable"}}
 		<img class="intro__image 
-					js--project--{{introFragmentKey}}" 
-			src=".{{introFragmentImagePath}}">
-	{{/if}}
+					js--project--{{ introFragmentKey }}" 
+			src=".{{ introFragmentImagePath }}">
+	{{/ifEquals}}
 {{/each}}

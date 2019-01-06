@@ -1,25 +1,25 @@
 {
   "intro--fragment-list": [
     {
-      "intro--fragment-type": 1,
+      "intro--fragment-type": "plain",
       "intro--fragment-text": "Kate Brehm is an artist and movement director specializing in",
       "intro--fragment-key": "",
       "intro--fragment-image-path": ""
     },
     {
-      "intro--fragment-type": 2,
+      "intro--fragment-type": "hoverable",
       "intro--fragment-text": "puppetry, ",
       "intro--fragment-key": "puppetry",
       "intro--fragment-image-path": "/images/content/Doll1-cloesup500wb.jpg"
     },
     {
-      "intro--fragment-type": 1,
+      "intro--fragment-type": "plain",
       "intro--fragment-text": "scenic dramaturgy, and ",
       "intro--fragment-key": "",
       "intro--fragment-image-path": ""
     },
     {
-      "intro--fragment-type": 2,
+      "intro--fragment-type": "hoverable",
       "intro--fragment-text": "physical acting.",
       "intro--fragment-key": "physical-acting",
       "intro--fragment-image-path": "/images/content/eyeball---kbrehm--costume.jpg"

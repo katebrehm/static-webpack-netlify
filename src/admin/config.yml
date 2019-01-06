@@ -27,23 +27,17 @@ collections:
             name: intro--fragment-list
             widget: list
             fields:
-              - label: text fragment type
-                name: intro--fragment-type
-                widget: select
-                options:
-                 - { label: plain, value: 0 }
-                 - { label: hoverable, value: 1 }
 
               - label: text fragment
                 name: intro--fragment-text
                 widget: string
 
-              - label: unique key
-                name: intro--fragment-key
-                hint: only letters and dashes.
-                widget: string
-               
-
+             - label: text fragment type
+                name: intro--fragment-type
+                widget: select
+                options:
+                 - { label: plain, value: "plain" }
+                 - { label: hoverable, value: "hoverable" }
 
               - label: hoverable image
                 name: intro--fragment-image-path
@@ -54,6 +48,13 @@ collections:
                   - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
                   - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
 
+              - label: unique key
+                name: intro--fragment-key
+                hint: only lower case letters and dashes
+                required: false
+                widget: string
+                pattern: 
+                  - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
 
       - name: art-projects
         label: Art projects section

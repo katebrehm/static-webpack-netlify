@@ -1,30 +1,84 @@
-Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
+#### dev
+$ npm install
+$ npm run dev
+
+#### build prod
+
+dont use the name build: https://www.netlify.com/docs/build-gotchas/#build-command
+$ npm run siteBuild
+
+# deploy
+automatically happens on Netlify when commits are pushed
+
+---
 
 #### todo
 
-- intro: split into paragraphs? or use <br> somehow?
-- intro: wire images/media
-- intro: video?
-- intro: transform JSON data structure from introData-admin to introData
-
-- netlify: image regex validation?
-- netlify: disappearing label?
 - routes 
-- set up Uploadcare https://github.com/uploadcare/uploadcare-netlifycms
-- moves assets to project root
-- separate add from (Netlify) content images
-- use npm package instead of CDN for Netlify admin js
+- nav: top and bottom only
+
+- wire projects carousel
+    - move to 2nd panel
+    - lighten bg
+    - add masks to types
+    - 
+    - make admin content
+    - 6/8 projects
+    - disable full page on narrow. stack on mobile with window matchmedia
+
+- project detail template
+    - Full width image
+    - next back buttons. ie, Gatsby examples page
+    - vimeo embed
+    - back link / close
+    - 
+- headshot
+    - Photo, not Ken Burns, others yes
+    - headshot narrower, pull text left.
+    - text taller, more space for words
+
+- commerical work
+     background change from Art project
+     a diff set of shapes 
+
+ - What is a Movement Director
+    use same project detail plumbing
+    typeset, layout
+    HIRE ME 
+
+- add typefaces/fonts back
+- nav: arrow line longer
+- bio: iterate on grid
+    - image aspect ratio : https://css-tricks.com/aspect-ratios-grid-items/
+    - responsive
+
+
+#### later
+
+- dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
+- intro: split into paragraphs. <br> as an item? refactor intro to rich text?
+- fullPage license as ENV key, to webpack
+- fix jumping: https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
 - set up SSL
 - set up custom domain
-- analytics https://github.com/colbyfayock/html-webpack-partials-plugin
-- convert to Gatsby
-- netlify: possible to add a list singular label?
-- update to fullpage 3, get GNU license key
-- page transitions with swup
-- add typefaces/fonts back
-- webpack to load fullpage license key without commiting it to repo
-- fix jumping: https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
-- what's the connection of literal 'numbers' data across the functions and the hbs?
-- extract compile hbs into static js code to separate webpack.xxx.js files
+- netlify: disappearing label?
+- intro: wire video
+- moves assets to project root
+- netlify: image regex validation?
+- change colors of diagnal lines on first panel?
+- use npm package instead of CDN for Netlify admin js
 - preload / lazyload images
-- fullPage license as ENV key, to webpack
+- netlify: possible to add a list singular label?
+- intro panel: Animate test on with boxes, U /D /L/ R
+
+
+- #### nice to have
+
+- intro: boxes granim test
+- loader to get images 
+- try the "what is a movement director" idea
+- set up Uploadcare https://github.com/uploadcare/uploadcare-netlifycms
+- extract compile hbs into static js code to separate webpack.xxx.js files
+- page transitions with swup
+- analytics https://github.com/colbyfayock/html-webpack-partials-plugin
+- convert to Gatsby / React or Vue
