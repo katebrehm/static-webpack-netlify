@@ -1,8 +1,7 @@
 {{#each hoverPhotos as | hoverPhoto i|}}
-    {{#if intro--text-fragment-type}}
-        <img class="intro__image project--{{intro--text-fragment}}" 
-        src="./images/content/{{intro--text-hoverable-image}}">
-    {{/if}}
+	{{#if intro--fragment-type}}
+		<img class="intro__image 
+					js--project--{{intro--fragment-key}}" 
+			src=".{{intro--fragment-image-path}}">
+	{{/if}}
 {{/each}}
-
-

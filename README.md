@@ -26,3 +26,5 @@ Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
 - fix jumping: https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
 - what's the connection of literal 'numbers' data across the functions and the hbs?
 - extract compile hbs into static js code to separate webpack.xxx.js files
+- preload / lazyload images
+- fullPage license as ENV key, to webpack

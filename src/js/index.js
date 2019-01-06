@@ -57,33 +57,35 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
     var introData = [
     
         {
-          "intro--text-fragment": "Kate Brehm is an artist and movement director specializing in",
-          "intro--text-fragment-type": 0
+          "intro--fragment": "Kate Brehm is an artist and movement director specializing in",
+          "intro--fragment-type": 0
         },
         {
-          "intro--text-fragment": "puppetry, ",
-          "intro--text-fragment-type": 1,
-          "intro--text-hoverable-image": "/images/c.png"
+          "intro--fragment-key": "puppetry",
+          "intro--fragment-type": 1,
+          "intro--fragment": "puppetry, ",
+          "intro--fragment-image-path": "/images/content/Doll1-cloesup500wb.jpg"
         },
         {
-          "intro--text-fragment": "scenic dramaturgy, and ",
-          "intro--text-fragment-type": 0
+          "intro--fragment": "scenic dramaturgy, and ",
+          "intro--fragment-type": 0
         },
         {
-          "intro--text-fragment": "physical acting.",
-          "intro--text-fragment-type":  1,
-          "intro--text-hoverable-image": "/images/r.png"
+          "intro--fragment-key": "physical-acting",
+          "intro--fragment-type":  1,
+          "intro--fragment": "physical acting.",
+          "intro--fragment-image-path": "/images/content/eyeball---kbrehm--costume.jpg"
         }
       ];   
 
-      // not sure why this proxy var is necessary
+    // not sure why this proxy var is necessary
     var paragraphFragments = introData;
     var hoverPhotos = introData;
 
-    $('.js-hbs-inject--intro__paragraph-fragments')
+    $('.js--hbs-inject--intro__paragraph-fragments')
         .html(paragraphFragmentsTemplate({ paragraphFragments }));
 
-    $('.js-hbs-inject--intro__hover-photo-collection')
+    $('.js--hbs-inject--intro__hover-photo-collection')
         .html(hoverPhotosCollectionTemplate({ hoverPhotos }));
 
 
@@ -353,8 +355,6 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                     return tl;
                 }
 
-
-
                 function playVideo(video){
                     // video.play();
                 }
@@ -366,9 +366,9 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                     }
                 }
 
-                var showIntroProject = function(project) {
+                var showIntroProject = function(e) {
                     var $otherLinks = $(".intro__wrapper a").not(this);
-                    var $project = $(project.data.projectName);
+                    var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
 
                     var t = new TimelineMax ({paused:true});
                     
@@ -397,18 +397,18 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                     }
 
                     var options = { $mediaElement: $project, $linkElement: $(this) }
-                    var tDetail = tooltipReveal(options);
+                    // var tDetail = tooltipReveal(options);
 
                     t
-                        .add(tDetail.play(), "beginPlay-=0.25" )
+                        // .add(tDetail.play(), "beginPlay-=0.25" )
                         .set(".material-icon__arrow--down", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
                         .play();
                 }
 
-                var hideIntroProject = function(project) {
+                var hideIntroProject = function(e) {
                 
                     var t = new TimelineMax ({paused:true});
-                    var $project = $(project.data.projectName);
+                    var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
 
                     t 
                         .addLabel('beginStop') 
@@ -426,13 +426,13 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                         .set(['.intro__wrapper p span', ".intro__wrapper a"], { autoAlpha: 1 }, 'beginStop' )
                         .play();
 
-                    if(($project).is("video")){
-                        t.call(
-                          stopVideo, 
-                          [ $project[0] ], // param, the video element
-                          'beginStop'
-                        ) 
-                    }
+                    // if(($project).is("video")){
+                    //     t.call(
+                    //       stopVideo, 
+                    //       [ $project[0] ], // param, the video element
+                    //       'beginStop'
+                    //     ) 
+                    // }
 
                     t.play();
                     
@@ -442,58 +442,9 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                     TweenLite.to(".material-icon__arrow--down", 0.1, { autoAlpha: 1 });
                 }
 
-                $(".js-hover__puppet")
-                    .on('mouseenter', { projectName: ".project--puppetry" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--puppetry" }, hideIntroProject);
-
-                $('.js-hover__events')
-                    .on('mouseenter', { projectName: ".project--events" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--events" }, hideIntroProject);
-
-                // $('.js-hover__basil')
-                //  .on('mouseenter', { projectName: ".i6" }, showIntroProject)
-                //  .on('mouseleave', { projectName: ".i6" }, hideIntroProject);
-
-                $('.js-hover__basil')
-                    .on('mouseenter', { projectName: ".project--basil" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--basil" }, hideIntroProject);
-
-                $('.js-hover__perf')
-                    .on('mouseenter', { projectName: ".project--perf" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--perf" }, hideIntroProject);
-
-                $('.js-hover__teaches')
-                    .on('mouseenter', { projectName: ".project--teaches" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--teaches" }, hideIntroProject);
-
-                $('.js-hover__poof')
-                    .on('mouseenter', { projectName: ".project--poof" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--poof" }, hideIntroProject);
-
-                $('.js-hover__costumes')
-                    .on('mouseenter', { projectName: ".project--costume" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--costume" }, hideIntroProject);
-
-                $('.js-hover__broadway--off')
-                    .on('mouseenter', { projectName: ".project--off-broadway" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--off-broadway" }, hideIntroProject);
-
-                $('.js-hover__broadway--on')
-                    .on('mouseenter', { projectName: ".project--on-broadway" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--on-broadway" }, hideIntroProject);
-
-                $('.js-hover__theater-productions')
-                    .on('mouseenter', { projectName: ".project--theater-productions" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--theater-productions" }, hideIntroProject);
-
-                $('.js-hover__margolis')
-                    .on('mouseenter', { projectName: ".project--margolis" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--margolis" }, hideIntroProject);
-
-                $('.js-hover__explore')
-                    .on('mouseenter', { projectName: ".project--explore" }, showIntroProject)
-                    .on('mouseleave', { projectName: ".project--explore" }, hideIntroProject);
-
+                $(".js--intro-fragment-hover")
+                    .on('mouseenter', showIntroProject)
+                    .on('mouseleave', hideIntroProject);
 
                 $( ".material-icon__arrow--down" ).on( "click", function() {
                     console.log( $( this ).text() );
