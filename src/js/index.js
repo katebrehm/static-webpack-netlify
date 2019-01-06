@@ -15,79 +15,54 @@ import '../scss/index.scss';
 // for testing handlebars
 import lodash from 'lodash';
 
+// app utils
+// import transformToCamelCase from './utils/transformToCamelCase';
+
+// app data
+import introDataObjAsBEM from '../../content/intro.json';
+
 // @todo: move this to dedicated webpack. JS files.
 // import paragraphFragments from '../templates/test.hbs';
 // import paragraphFragments from 'handlebars-loader!../templates/test.hbs';
 import paragraphFragmentsTemplate from '../templates/home/sections/intro/paragraph-fragments.hbs';
 import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hover-photo-collection.hbs';
 
+
 (function () {
 
-    // @todo: what's the connection of literal 'numbers' across the functions and in the hbs?
-    // let numbers = [31,23,35,224,535,682];
-    // console.log(numbers[2]);
-
-    // contents of /content/intro.json, which is generated dynamically from content submitted via Netlify admin
-    // var introData-admin = {
-    // "intro--text-fragment-list": [
-    //     {
-    //       "intro--text-fragment": "Kate Brehm is an artist and movement director specializing in",
-    //       "intro--text-fragment-type": 1
-    //     },
-    //     {
-    //       "intro--text-fragment": "puppetry, ",
-    //       "intro--text-fragment-type": 2,
-    //       "intro--text-hoverable-image": "/images/c.png"
-    //     },
-    //     {
-    //       "intro--text-fragment": "scenic dramaturgy, and ",
-    //       "intro--text-fragment-type": 1
-    //     },
-    //     {
-    //       "intro--text-fragment": "physical acting.",
-    //       "intro--text-fragment-type": 2,
-    //       "intro--text-hoverable-image": ""
-    //     }
-    //   ]
-    // };   
-
-
-// transform data from introData-admin to introData
-
-    var introData = [
     
-        {
-          "intro--fragment": "Kate Brehm is an artist and movement director specializing in",
-          "intro--fragment-type": 0
-        },
-        {
-          "intro--fragment-key": "puppetry",
-          "intro--fragment-type": 1,
-          "intro--fragment": "puppetry, ",
-          "intro--fragment-image-path": "/images/content/Doll1-cloesup500wb.jpg"
-        },
-        {
-          "intro--fragment": "scenic dramaturgy, and ",
-          "intro--fragment-type": 0
-        },
-        {
-          "intro--fragment-key": "physical-acting",
-          "intro--fragment-type":  1,
-          "intro--fragment": "physical acting.",
-          "intro--fragment-image-path": "/images/content/eyeball---kbrehm--costume.jpg"
-        }
-      ];   
+// https://stackoverflow.com/questions/12931828/convert-returned-json-object-properties-to-lower-first-camelcase
+    const transformToCamelCase = (obj) => {
+      if (!_.isObject(obj)) {
+        return obj;
+      } else if (_.isArray(obj)) {
+        return obj.map((v) => transformToCamelCase(v));
+      }
+      return _.reduce(obj, (r, v, k) => {
+        return { 
+          ...r, 
+          [_.camelCase(k)]: transformToCamelCase(v) 
+        };
+      }, {});
+    }; 
 
-    // not sure why this proxy var is necessary
-    var paragraphFragments = introData;
-    var hoverPhotos = introData;
 
+    // var a = introDataObjAsBEM;
+
+    // clean and prep the data object from 
+    // content submitted via Netlify admin
+    // to format we need 
+    var introDataObjAsProps = transformToCamelCase(introDataObjAsBEM);
+    var introDataArray = introDataObjAsProps.introFragmentList;
+
+    var paragraphFragments = introDataArray;
+    var hoverPhotos = introDataArray;
+    
     $('.js--hbs-inject--intro__paragraph-fragments')
         .html(paragraphFragmentsTemplate({ paragraphFragments }));
 
     $('.js--hbs-inject--intro__hover-photo-collection')
         .html(hoverPhotosCollectionTemplate({ hoverPhotos }));
-
 
 /*
 

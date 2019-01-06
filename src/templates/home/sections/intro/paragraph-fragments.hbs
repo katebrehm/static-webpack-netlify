@@ -1,14 +1,14 @@
 {{#each paragraphFragments as | paragraphFragment i|}}
-    {{#if intro--fragment-type}}
+    {{#if introFragmentType}}
         <a href="#" 
-            data-intro-fragment-key="{{intro--fragment-key}}"
+            data-intro-fragment-key="{{introFragmentKey}}"
             class="intro__link 
                    js--intro-fragment-hover"
         >
-                {{intro--fragment}}
+                {{introFragmentText}}
         </a>
     {{else}}
-        <span>{{intro--fragment}}</span>
+        <span>{{introFragmentText}}</span>
     {{/if}}
 {{/each}}
 

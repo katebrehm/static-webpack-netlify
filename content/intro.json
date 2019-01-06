@@ -1,22 +1,28 @@
 {
-  "intro--text-fragment-list": [
-    {
-      "intro--text-fragment": "Kate Brehm is an artist and movement director specializing in",
-      "intro--text-fragment-type": 1
-    },
-    {
-      "intro--text-fragment": "puppetry, ",
-      "intro--text-fragment-type": 2,
-      "intro--text-hoverable-image": "/images/c.png"
-    },
-    {
-      "intro--text-fragment": "scenic dramaturgy, and ",
-      "intro--text-fragment-type": 1
-    },
-    {
-      "intro--text-fragment": "physical acting.",
-      "intro--text-fragment-type": 2,
-      "intro--text-hoverable-image": ""
-    }
-  ]
-}
+    "intro--fragment-list": [
+        {
+          "intro--fragment-type": 0,
+          "intro--fragment-key": "",
+          "intro--fragment-text": "Kate Brehm is an artist and movement director specializing in",
+          "intro--fragment-image-path": ""
+        },
+        {
+          "intro--fragment-type": 1,
+          "intro--fragment-key": "puppetry",
+          "intro--fragment-text": "puppetry, ",
+          "intro--fragment-image-path": "/images/content/Doll1-cloesup500wb.jpg"
+        },
+        {
+          "intro--fragment-type": 0,
+          "intro--fragment-key": "",
+          "intro--fragment-text": "scenic dramaturgy, and ",
+          "intro--fragment-image-path": ""
+        },
+        {
+          "intro--fragment-type":  1,
+          "intro--fragment-key": "physical-acting",
+          "intro--fragment-text": "physical acting.",
+          "intro--fragment-image-path": "/images/content/eyeball---kbrehm--costume.jpg"
+        }
+      ]
+  }

@@ -24,22 +24,29 @@ collections:
         file: content/intro.json
         fields:
           - label: text fragments
-            name: intro--text-fragment-list
+            name: intro--fragment-list
             widget: list
             fields:
-              - label: text fragment
-                name: intro--text-fragment 
-                widget: string
-                 
               - label: text fragment type
-                name: intro--text-fragment-type
+                name: intro--fragment-type
                 widget: select
                 options:
                  - { label: plain, value: 1 }
                  - { label: hoverable, value: 2 }
 
+              - label: text fragment
+                name: intro--fragment-text
+                widget: string
+
+              - label: unique key
+                name: intro--fragment-key
+                hint: only letters and dashes.
+                widget: string
+               
+
+
               - label: hoverable image
-                name: intro--text-hoverable-image
+                name: intro--fragment-image-path
                 widget: image
                 required: false
                 hint: Only select/upload an image if this fragment is hoverable. Otherwise leave blank
