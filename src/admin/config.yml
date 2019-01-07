@@ -11,7 +11,7 @@ collections:
   - name: pages
     label: Pages 
     label_singular: Page
-    description: 
+    description: vertical pages
     format: json
     delete: false
     create: false
