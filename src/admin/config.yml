@@ -32,7 +32,7 @@ collections:
                 name: intro--fragment-text
                 widget: string
 
-             - label: text fragment type
+              - label: text fragment type
                 name: intro--fragment-type
                 widget: select
                 options:
