@@ -13,7 +13,7 @@
       "intro--fragment-key": "artist"
     },
     {
-      "intro--fragment-text": " and ",
+      "intro--fragment-text": "  and ",
       "intro--fragment-type": "plain"
     },
     {
@@ -23,7 +23,7 @@
       "intro--fragment-key": "movement-director"
     },
     {
-      "intro--fragment-text": "specializing in",
+      "intro--fragment-text": " specializing in ",
       "intro--fragment-type": "plain"
     },
     {
@@ -49,7 +49,7 @@
       "intro--fragment-key": "physical-acting"
     },
     {
-      "intro--fragment-text": "She is professionally certified in the",
+      "intro--fragment-text": " She is professionally certified in the",
       "intro--fragment-type": "plain"
     },
     {
