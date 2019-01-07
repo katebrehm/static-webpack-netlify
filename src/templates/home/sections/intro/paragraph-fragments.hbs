@@ -1,5 +1,5 @@
 {{#each paragraphFragments as | paragraphFragment i|}}
-    {{#if introFragmentType}}
+    {{#ifEquals introFragmentType "hoverable"}}
         <a href="#" 
             data-intro-fragment-key="{{introFragmentKey}}"
             class="intro__link 
@@ -8,5 +8,5 @@
         </a>
     {{else}}
         <span>{{introFragmentText}}</span>
-    {{/if}}
+    {{/ifEquals}}
 {{/each}}
