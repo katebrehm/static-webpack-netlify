@@ -16,7 +16,7 @@ automatically happens on Netlify when commits are pushed
 
 
 - wire projects carousel
-    - move to 2nd panel
+    - move to 2nd section
     - lighten bg
     - add masks to types
     - 
@@ -83,11 +83,11 @@ automatically happens on Netlify when commits are pushed
 - intro: wire video
 - moves assets to project root
 - netlify: image regex validation?
-- change colors of diagnal lines on first panel?
+- change colors of diagnal lines on first section?
 - use npm package instead of CDN for Netlify admin js
 - preload / lazyload images
 - netlify: possible to add a list singular label?
-- intro panel: Animate test on with boxes, U /D /L/ R
+- intro section: Animate test on with boxes, U /D /L/ R
 - intro: optimize js-hover
 
 - #### nice to have

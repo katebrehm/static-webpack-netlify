@@ -1,4 +1,4 @@
-.panel--bio {
+.section--bio {
 	position: relative;
 
 
@@ -10,7 +10,7 @@
 			the track widths
 	*/
 	grid-template-columns: 
-		[ panel--start  
+		[ section--start  
 		  dark-bg--start 
 		  nav-hover--start ] 
 
@@ -59,7 +59,7 @@
 
 				minmax(20px, 40px) 
 
-		[ panel--end ];
+		[ section--end ];
 
 	/*
 		[ Grid lines names. 
@@ -70,7 +70,7 @@
 	
 	*/
 	grid-template-rows: 
-		[ panel--start
+		[ section--start
 		  gutter--top--start
 		  dark-bg--start
 		  nav-content--start ] 
@@ -105,7 +105,7 @@
 			
 			minmax(20px, 100px)
 		
-		[ panel--end 
+		[ section--end 
 		  gutter--last--end
 		  dark-bg--end
 		  nav-content--end 
@@ -327,7 +327,7 @@
 	justify-self: flex-end;
 	/* justify-self: end; */
 	color: #7b7b7b;
-	font-family: "RKG";
+	font-family: "K-Regular";
 	padding: 0.5rem 0;
 	/* margin: 1.5rem 0; */
 	z-index: 1;
@@ -338,12 +338,12 @@
 }
 
 .caption__label {
-	font-family: "MKG";
+	font-family: "K-Medium";
 }
 
 .caption__text {
 	font-size: 0.8rem;
-	font-family: "RKG";
+	font-family: "K-Regular";
 }
 
 .button--download-pdf {
@@ -354,7 +354,7 @@
 	z-index: 11;
 	height: 4rem;
 	text-transform: uppercase;
-	font-family: "MKG";
+	font-family: "K-Medium";
 	font-size: 0.9rem;
 	letter-spacing: 1px;
 	padding: 1rem 2rem;

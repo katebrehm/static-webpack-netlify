@@ -14,8 +14,6 @@ const providePluginList = {
 	'window.jQuery': 'jquery',
 }
 
-
-
 module.exports = (env, argv) => ({
 	entry: {
 		bundle: path.join(__dirname, 'src', 'js', 'index.js'),
@@ -30,8 +28,6 @@ module.exports = (env, argv) => ({
 	performance: {
 		hints: false
 	},
-
-
 
 	stats: 'verbose',
 
@@ -159,9 +155,54 @@ module.exports = (env, argv) => ({
                         outputPath: 'type/'
                     }
                 }]
-            }
+            },
 
+            // has trouble picking up the dynamic content that handlebars constructs
+            // so commenting for now and will set up properly later when need
+            // to implement optimization
+			{
+			  test: /\.(gif|png|jpe?g|svg)$/i,
+			   use: [
+			    'file-loader',
+			    {
+			      loader: 'image-webpack-loader',
+			      options: {
+			      	/*
+			      		No processing is done when webpack 'debug' mode is used and 
+			      		the loader acts as a regular file-loader. 
+			      		Use this to speed up initial and, to a lesser extent, 
+			      		subsequent compilations while developing or using webpack-dev-server. 
+			      		Normal builds are processed normally, outputting optimized files.
+			      	*/
+			      	disable: true,
 
+			        mozjpeg: {
+			          progressive: true,
+			          quality: 70
+			        },
+
+			        // optipng.enabled: false will disable optipng
+			        optipng: {
+			          enabled: false,
+			        },
+
+			        pngquant: {
+			          quality: '65-90',
+			          speed: 4
+			        },
+
+			        gifsicle: {
+			          interlaced: false,
+			        },
+
+			        // the webp option will enable WEBP
+			        webp: {
+			          quality: 75
+			        }
+			      }
+			    },
+			  ],
+			}
 		]
 	},
 
@@ -223,6 +264,8 @@ module.exports = (env, argv) => ({
 						template: './src/index.html',
 						inject: 'body'
 				}),
+
+
 				new CopyWebpackPlugin([
 					{ from: 'src/images', to: 'images' },
 					{ from: 'src/admin', to: 'admin' }

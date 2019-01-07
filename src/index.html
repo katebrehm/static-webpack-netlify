@@ -13,8 +13,8 @@
 
 
         <div id="fullpage">
-            <div class="section" id="section1">
-                <div class="panel--intro">
+            <div class="section section--intro">
+                <div class="section--intro">
                 	{{> arrow }}
 
                     <div class="intro__image-wrapper
@@ -31,9 +31,10 @@
                 </div>
             </div>
 
-            <div class="section panel--art-projects" id="section3">
-                <div class="js--glide--art-projets">
-                    <div class="glide__track"  glide-el="track">
+            <div class="section section--art-projects">
+                <div class="js--glide ">
+                    <div class="glide__track"  
+                         data-glide-el="track"> 
                         <ul class="glide__slides">
                             <li class="glide__slide">
                                 <h2 class="h1--sans slide__title">
@@ -85,8 +86,8 @@
                 </div>
             </div>
 
-            <div class="section" id="section2">
-                <div class="panel--bio">
+            <div class="section" >
+                <div class="section--bio">
                     <div class="bio__nav-bg">
                     </div>
                     <div class="bio__nav">
@@ -146,14 +147,11 @@
                 </div>
             </div>
 
-
             <div class="section 
-                        panel--commercial-projects 
-                        panel--projects" 
-                 id="section4">
+                        section--commercial-projects">
 
-                <div class="glide--commercial-projets">
-                    <div class="glide__track"  glide-el="track">
+                <div class="js--glide glide">
+                    <div class="glide__track"  data-glide-el="track">
                         <ul class="glide__slides">
                             <li class="glide__slide">
                                 <h2 class="h1--sans slide__title">
@@ -201,7 +199,6 @@
                             <i class="material-icons ">arrow_forward</i>
                         </button>
                     </div>
-
                 </div>
             </div>
             

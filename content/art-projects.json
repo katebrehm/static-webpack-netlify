@@ -2,13 +2,13 @@
   "title": [
     {
       "art-project--title": "Discrepancies",
-      "art-project--image": "/images/content/screen-shot-2018-12-31-at-8.19.58-pm.png",
+      "art-project--thumbnail-image": "/images/content/screen-shot-2018-12-31-at-8.19.58-pm.png",
       "art-project-type": 1,
       "art-project--description": "project description here project description here project description here project description here project description here "
     },
     {
       "art-project--title": "Puppet theater",
-      "art-project--image": "/images/content/doll1-cloesup500wb.jpg",
+      "art-project--thumbnail-image": "/images/content/doll1-cloesup500wb.jpg",
       "art-project-type": 2,
       "art-project--description": "project desc project desc project desc project desc project desc project desc"
     }

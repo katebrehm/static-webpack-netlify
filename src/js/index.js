@@ -198,7 +198,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                 if (nextIndex != 2){
                     // $('#fpnav').hide();
                     // TweenMax.to(".nav", 0.5, { className: "-=nav--slide-2" });
-                    // TweenMax.to(".bio__frame--panel", 0.75, { borderWidth: "50rem", ease: Quint.easeOut });
+                    // TweenMax.to(".bio__frame--section", 0.75, { borderWidth: "50rem", ease: Quint.easeOut });
                     
                     // if (timelines.revealHeadshot.progress()){
                     //  timelines.revealHeadshot.reverse();
@@ -226,8 +226,20 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                 var inDuration = 0.125;
                 var scale = 1.025;
 
+                // @todo: reuse code with single mount instance
+                //  https://github.com/glidejs/glide/issues/202
+                // var sliders = document.querySelectorAll('.glide');
 
-                new Glide('.js--glide--art-projets', 
+                // for (var i = 0; i < sliders.length; i++) {
+                //   var glide = new Glide(sliders[i], {
+                //     gap: 15,
+                //   });
+                  
+                //   glide.mount();
+                // }
+
+                var el0 = $('.js--glide')[0];
+                new Glide(el0, 
                     {
                         // bpoints should match _mq.scss
                         // 1280 +
@@ -237,7 +249,8 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                         focusAt: 'center',
                         animationDuration: 250,
                         peek: { before: 100, after: 100 },
-                        dragThreshold: false,
+                        // dragThreshold: false,
+                        perTouch: 1,
 
                         breakpoints: { 
 
@@ -246,7 +259,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                                 perView: 3,
                                 gap: 16,
                                 peek: { before: 32, after: 32 },
-                                dragThreshold: false
+                                // dragThreshold: false
                             },
 
                             // 861 to 1030
@@ -254,7 +267,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                                 perView: 2,
                                 gap: 16,
                                 peek: { before: 50, after: 50 },
-                                dragThreshold: false
+                                // dragThreshold: false
                             },
 
                             // 651 to 860 
@@ -262,7 +275,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                                 perView: 1,
                                 gap: 16,
                                 peek: { before: 50, after: 50 },
-                                dragThreshold: 120
+                                // dragThreshold: 120
                             },
 
                             // up to 650 
@@ -270,60 +283,60 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                                 perView: 1,
                                 gap: 0,
                                 peek: 0,
-                                dragThreshold: 120
+                                // dragThreshold: 120
                             }
                         }
                     }
                 ).mount()
-        
-                new Glide('.js--glide--commerical-projets', 
-                    {
-                        // bpoints should match _mq.scss
-                        // 1280 +
-                        type: 'carousel',
-                        gap: 32,
-                        perView: 3,
-                        focusAt: 'center',
-                        animationDuration: 250,
-                        peek: { before: 100, after: 100 },
-                        dragThreshold: false,
 
-                        breakpoints: { 
+                // var el1 = $('.js--glide')[1];
+                // new Glide(el1, {
+                //         // bpoints should match _mq.scss
+                //         // 1280 +
+                //         type: 'carousel',
+                //         gap: 32,
+                //         perView: 3,
+                //         focusAt: 'center',
+                //         animationDuration: 250,
+                //         peek: { before: 100, after: 100 },
+                //         dragThreshold: false,
 
-                            // 1031 to 1200
-                            1200: {
-                                perView: 3,
-                                gap: 16,
-                                peek: { before: 32, after: 32 },
-                                dragThreshold: false
-                            },
+                //         breakpoints: { 
 
-                            // 861 to 1030
-                            1030: {
-                                perView: 2,
-                                gap: 16,
-                                peek: { before: 50, after: 50 },
-                                dragThreshold: false
-                            },
+                //             // 1031 to 1200
+                //             1200: {
+                //                 perView: 3,
+                //                 gap: 16,
+                //                 peek: { before: 32, after: 32 },
+                //                 dragThreshold: false
+                //             },
 
-                            // 651 to 860 
-                            860: {
-                                perView: 1,
-                                gap: 16,
-                                peek: { before: 50, after: 50 },
-                                dragThreshold: 120
-                            },
+                //             // 861 to 1030
+                //             1030: {
+                //                 perView: 2,
+                //                 gap: 16,
+                //                 peek: { before: 50, after: 50 },
+                //                 dragThreshold: false
+                //             },
 
-                            // up to 650 
-                            650: {
-                                perView: 1,
-                                gap: 0,
-                                peek: 0,
-                                dragThreshold: 120
-                            }
-                        }
-                    }
-                ).mount()
+                //             // 651 to 860 
+                //             860: {
+                //                 perView: 1,
+                //                 gap: 16,
+                //                 peek: { before: 50, after: 50 },
+                //                 dragThreshold: 120
+                //             },
+
+                //             // up to 650 
+                //             650: {
+                //                 perView: 1,
+                //                 gap: 0,
+                //                 peek: 0,
+                //                 dragThreshold: 120
+                //             }
+                //         }
+                //     }
+                // ).mount()
 
 /*
                 function tooltipReveal(options){

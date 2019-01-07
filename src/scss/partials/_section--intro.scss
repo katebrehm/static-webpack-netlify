@@ -1,6 +1,6 @@
 @import "_colors";
 
-.panel--intro {
+.section--intro {
 	position: relative;
 	display: grid;
 
@@ -64,7 +64,6 @@
 													". . a a a a a a a a . ."
 													". . a a a a a a a a . ."
 													". . . . . . . . . . . .";
-
 	}
 
 
@@ -176,7 +175,7 @@
 	}
 }
 
-
+// @todo: make color vars
 .intro__link:nth-of-type(5n+1):hover { background-color: #00FDDC; border: 0; }
 .intro__link:nth-of-type(5n+2):hover { background-color: #276688; border: 0; }
 .intro__link:nth-of-type(5n+3):hover { background-color: #A9ABB7; border: 0; }

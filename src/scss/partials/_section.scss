@@ -1,0 +1,35 @@
+.section {
+	position: relative;
+}
+
+.section--art-projects {
+	background: linear-gradient(171deg, #f9fdfc  55%, #00FDDC 170%)
+}
+
+.section--commerical-projects {
+	background: linear-gradient(180deg, #05070b 0, #17171d);
+}
+
+
+// @todo: make color vars
+// #00FDDC
+// #276688
+// #A9ABB7
+// #55DDE0
+// #6EABC2
+
+
+.material-icon__arrow--down {
+	position: absolute;
+	z-index: 5;
+	opacity: 1;
+	left: 4rem;
+	bottom: 2rem;
+	font-size: 2rem !important;
+	transition: opacity, 0.16s ease-in-out;
+	cursor: pointer;
+}
+
+.material-icon__arrow--down:hover {
+	color: white;
+}
