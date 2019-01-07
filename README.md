@@ -43,8 +43,23 @@ automatically happens on Netlify when commits are pushed
 
  - What is a Movement Director
     use same project detail plumbing
-    typeset, layout
+    typeset, layout, some animated gifs
     HIRE ME 
+
+- Research
+    paragraph
+    links table
+        PUBLICATIONS
+        EXperiments
+
+- Huff Post quote
+    link to artcle
+
+- Teaching
+    Lectures
+    Workshops
+    Book me
+
 
 - add typefaces/fonts back
 - nav: arrow line longer
@@ -73,7 +88,7 @@ automatically happens on Netlify when commits are pushed
 
 
 - #### nice to have
-
+- fix fout https://css-tricks.com/fighting-foit-and-fout-together/
 - intro: boxes granim test
 - loader to get images 
 - try the "what is a movement director" idea
