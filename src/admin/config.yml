@@ -8,10 +8,10 @@ public_folder: /images/content
 collections:
 
   # Used in routes, e.g., /admin/collections/sections. Must be unique.
-  - name: sections
-    label: Sections 
-    label_singular: Section
-    description: the site sections / panels
+  - name: pages
+    label: Pages 
+    label_singular: Page
+    description: 
     format: json
     delete: false
     create: false
@@ -20,7 +20,7 @@ collections:
 
     files:
       - name: intro
-        label: Intro section
+        label: Intro Page
         file: content/intro.json
         fields:
           - label: text fragments
@@ -50,14 +50,14 @@ collections:
 
               - label: unique key
                 name: intro--fragment-key
-                hint: only lower case letters and dashes
+                hint: A unique back-end field to identify this fragment. It's arbitrary, pick anything as long as it's unique to other keys in the intro page. Only lower case letters and dashes
                 required: false
                 widget: string
                 pattern: 
-                  - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                  - '^[a-zA-Z_\-]$' 
 
       - name: art-projects
-        label: Art projects section
+        label: Art projects Page
         file: content/art-projects.json
         fields:
           - label: Art projects
