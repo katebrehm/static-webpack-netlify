@@ -43,8 +43,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
     }; 
 
     // clean and prep the data object from 
-    // content submitted via Netlify admin
-    // to format we need 
+    // to format we need content submitted via Netlify admin  
     var introDataObjAsProps = transformToCamelCase(introDataObjAsBEM);
     var introDataArray = introDataObjAsProps.introFragmentList;
 
@@ -60,7 +59,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
 /*
     Application js
 */
-    new fullpage("#fullpage", {
+    var fullPageInstance = new fullpage("#fullpage", {
             licenseKey: '',
             // verticalCentered: true,
             // menu: '#menu',
