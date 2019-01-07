@@ -103,49 +103,48 @@
 
 .hide-xs {
 	display: none;
-	@include mq('md') { 
+	@include mq('md') {
 		display: inline;
   }
 }
 
 .intro__wrapper span, 
-a {
+	a {
 
-  @include mq('xxs') { 
-	font-size: 1.2rem;
-	line-height: 1.7;
+	  @include mq('xxs') {
+		font-size: 1.2rem;
+		line-height: 1.7;
+		}
+
+	  @include mq('sm') {
+		font-size: 1.2rem;
+		line-height: 1.7;
+		}
+
+	  @include mq('md') {
+		font-size: 1.2rem;
+		line-height: 1.6;
+	  }
+
+	  @include mq('lg') {
+		font-size: 1.4rem;
+		line-height: 1.45;
+	  }
+
+	  @include mq('xl') {
+		font-size: 1.4rem;
+		line-height: 1.6;
+	  }
+
+	  @include mq('xxl') {
+	  	font-size: 1.5rem;
+		line-height: 1.5;
+		}
+
+	   @include mq('xxxl') {
+	  	font-size: 1.7rem;
+		line-height: 1.6;
 	}
-
-  @include mq('sm') { 
-	font-size: 1.2rem;
-	line-height: 1.7;
-	}
-
-  @include mq('md') { 
-	font-size: 1.2rem;
-	line-height: 1.6;
-  }
-
-  @include mq('lg') { 
-	font-size: 1.4rem;
-	line-height: 1.45;
-  }
-
-  @include mq('xl') { 
-	font-size: 1.4rem;
-	line-height: 1.6;
-  }
-
-  @include mq('xxl') { 
-  	font-size: 1.5rem;
-	line-height: 1.5;
-	}
-
-   @include mq('xxxl') { 
-  	font-size: 1.7rem;
-	line-height: 1.6;
-}
-
 }
 
 .intro__text {
@@ -156,19 +155,19 @@ a {
 
 .intro__link {
 	visibility: inherit;
-	padding: 0.2rem 0;
+	padding: 0.2rem 0.1rem 0.2rem 0.5rem;
 
 	color: white;
     opacity: 1;
 
 	font-family: 'MKG';
-	letter-spacing: .01rem;
+	letter-spacing: 0.01rem;
 
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	transition: text-decoration padding opacity background-color border color , 0.3s ease-in-out;
 
-	@include mq('xl') { 
+	@include mq('xl') {
  		font-family: 'RKG' , sans-serif;
  		border: 0;
 		padding: 0.2rem 0.5rem;
@@ -200,8 +199,6 @@ a {
 	.intro__link:nth-of-type(5n+5) { background: #6EABC2;}
 
   }
-
-
 
 .intro__link:hover {
 	opacity: 0.8;

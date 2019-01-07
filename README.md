@@ -7,7 +7,7 @@ $ npm run dev
 dont use the name build: https://www.netlify.com/docs/build-gotchas/#build-command
 $ npm run siteBuild
 
-# deploy
+#### deploy
 automatically happens on Netlify when commits are pushed
 
 ---
@@ -70,6 +70,7 @@ automatically happens on Netlify when commits are pushed
 
 #### later
 
+- conditional logic in admin - intro: if it's a plain fragment, how to hide key + image fields?
 - dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
 - intro: split into paragraphs. <br> as an item? refactor intro to rich text?
 - fullPage license as ENV key, to webpack
@@ -86,7 +87,7 @@ automatically happens on Netlify when commits are pushed
 - preload / lazyload images
 - netlify: possible to add a list singular label?
 - intro panel: Animate test on with boxes, U /D /L/ R
-
+- intro: optimize js-hover
 
 - #### nice to have
 - fix fout https://css-tricks.com/fighting-foit-and-fout-together/
@@ -98,3 +99,26 @@ automatically happens on Netlify when commits are pushed
 - page transitions with swup
 - analytics https://github.com/colbyfayock/html-webpack-partials-plugin
 - convert to Gatsby / React or Vue
+
+#### review
+- take notes in google doc
+- email notifications on each deploy?
+- accept login
+- intro fragments. 
+    no space in hoverable. 
+    spaces after hoverable. 
+    order. 
+    image filename. 
+    key name. 
+    image ratios. 
+    compression auto
+    key name and image not really optional.
+    what happens on the backend, deploy timing.
+
+
+
+
+
+
+
+
