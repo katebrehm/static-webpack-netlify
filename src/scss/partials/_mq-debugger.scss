@@ -24,7 +24,7 @@
 // corresponds to breakpoints in mediaqueries.scss
 .breakpoint:after {
   font-size: 1rem;
-  font-family: 'RKG' , sans-serif;
+  font-family: 'K-Regular' , sans-serif;
 
   @include mq('xxs') { content: 'XXS'; }
   @include mq('xs') { content: 'XS'; }

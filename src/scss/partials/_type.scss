@@ -1,18 +1,54 @@
-.serif {
-  // display: inline-block;
-  font-family: 'IBDF', serif;
+@font-face {
+    font-family:"K-Super";
+    src:
+      url("../type/k/k--super.woff2") format("woff2"),
+      url("../type/k/k--super.woff") format("woff"),
+      url("../type/k/k--super.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family:"K-Regular";
+    src:
+      url("../type/k/k--regular.woff2") format("woff2"),
+      url("../type/k/k--regular.woff") format("woff"),
+      url("../type/k/k--regular.otf") format("opentype"),
+      url("../type/k/k--regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+} 
+
+@font-face {
+    font-family:"K-Medium";
+    src:
+      url("../type/k/k--medium.woff2") format("woff2"),
+      url("../type/k/k--medium.woff") format("woff"),
+      url("../type/k/k--medium.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family:"K-RegularItalic";
+    src:
+      url("../type/k/k--regular-italic.woff2") format("woff2"),
+      url("../type/k/k--regular-italic.woff") format("woff"),
+      url("../type/k/k--regular-italic.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6, 
 .h1, .h2, .h3, .h4, .h5, .h6,
 p, .p {
-  font-family: 'RKG', sans-serif;
+  font-family: 'K-Regular', sans-serif;
 } 
 
 h1,
 .h1 {
   font-size: 1.3rem; 
-  font-family: 'SKG', sans-serif;
+  font-family: 'K-Super', sans-serif;
   font-weight: normal;
   letter-spacing: -5px;
 }
@@ -26,7 +62,7 @@ h2,
 
 h3,
 .h3 {
-  font-family: 'MKG', sans-serif;
+  font-family: 'K-Medium', sans-serif;
   font-size: 1.2rem; 
   line-height: 1.5;
 }

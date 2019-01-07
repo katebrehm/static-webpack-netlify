@@ -10,7 +10,7 @@ import Glide from '@glidejs/glide'
 // import scrollama from 'scrollama';
 
 import fullpage from "fullpage.js"
-import '../scss/index.scss';
+import '../scss/app.scss';
 
 import lodash from 'lodash';
 
@@ -334,7 +334,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                 }
 
                 var showIntroProject = function(e) {
-                    var $otherLinks = $(".intro__wrapper a").not(this);
+                    var $otherLinks = $(".intro__text-wrapper a").not(this);
                     var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
 
                     var t = new TimelineMax ({paused:true});
@@ -353,7 +353,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                           'beginPlay'
                        )
 
-                        .set(['.intro__wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  );
+                        .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  );
 
                     if(($project).is("video")){
                         t.call(
@@ -390,7 +390,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                           'beginStop'
                        )
 
-                        .set(['.intro__wrapper p span', ".intro__wrapper a"], { autoAlpha: 1 }, 'beginStop' )
+                        .set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
                         .play();
 
                     // if(($project).is("video")){

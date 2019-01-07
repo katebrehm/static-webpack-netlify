@@ -75,11 +75,12 @@
 													". a a ."
 													". . . .";
 	}
-
 }
 
 .intro__image-wrapper {
-
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
 }
 
 .intro__image {
@@ -92,7 +93,7 @@
 	z-index: 1;
 }
 
-.intro__wrapper {
+.intro__text-wrapper {
 	grid-area: a;
 	align-self: center;
 	z-index: 3;
@@ -108,7 +109,7 @@
   }
 }
 
-.intro__wrapper span, 
+.intro__text-wrapper span, 
 	a {
 
 	  @include mq('xxs') {
@@ -148,7 +149,7 @@
 }
 
 .intro__text {
- 	font-family: 'RKG' , sans-serif;
+ 	font-family: 'K-Regular' , sans-serif;
 	margin: 1rem 0;
 	color: white;
 }
@@ -160,15 +161,15 @@
 	color: white;
     opacity: 1;
 
-	font-family: 'MKG';
+	font-family: 'K-Medium';
 	letter-spacing: 0.01rem;
 
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	transition: text-decoration padding opacity background-color border color , 0.3s ease-in-out;
+	transition: text-decoration padding opacity background-color border color, 0.3s ease-in-out;
 
 	@include mq('xl') {
- 		font-family: 'RKG' , sans-serif;
+ 		font-family: 'K-Regular' , sans-serif;
  		border: 0;
 		padding: 0.2rem 0.5rem;
 		white-space: nowrap;
@@ -205,21 +206,6 @@
 	text-decoration: none;
 }
 
-.project--explore {
-	background-color: black;
-	object-fit: contain;
-}
-
-.project--explore::after {
-	content: '?';
-	position: absolute;
-	font-size: 50vw;
-	color: white;
-	left: 1rem;
-	bottom: 1rem;
-	z-index: 1000;
-}
-
 .project__detail-tooltip {
 	position: absolute;
 	display: flex;
@@ -254,13 +240,13 @@
 }
 
 .tooltip__title {
-	font-family: 'MKG', sans-serif;
+	font-family: 'K-Medium', sans-serif;
 	font-size: 1.2rem; 
 	letter-spacing: 1px;
 }
 
 .tooltip__small {
-	font-family: 'RKG', sans-serif;
+	font-family: 'K-Regular', sans-serif;
 	font-size: 1.1rem; 
 }
 
