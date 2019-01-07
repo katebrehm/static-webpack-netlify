@@ -1,11 +1,6 @@
 {{#each paragraphFragments as | paragraphFragment i|}}
     {{#ifEquals introFragmentType "hoverable"}}
-        <a href="#" 
-            data-intro-fragment-key="{{introFragmentKey}}"
-            class="intro__link 
-                   js--intro-fragment-hover">
-            {{introFragmentText}}
-        </a>
+        <a href="#" data-intro-fragment-key="{{introFragmentKey}}" class="intro__link js--intro-fragment-hover">{{introFragmentText}}</a>
     {{else}}
         <span>{{introFragmentText}}</span>
     {{/ifEquals}}
