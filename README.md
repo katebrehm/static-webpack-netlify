@@ -76,6 +76,7 @@ automatically happens on Netlify when commits are pushed
 - fix jumping: https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
 - set up SSL
 - set up custom domain
+- webpack image optimizer step
 - netlify: disappearing label?
 - intro: wire video
 - moves assets to project root
