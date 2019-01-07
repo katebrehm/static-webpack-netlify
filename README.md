@@ -14,8 +14,6 @@ automatically happens on Netlify when commits are pushed
 
 #### todo
 
-- routes 
-- nav: top and bottom only
 
 - wire projects carousel
     - move to 2nd panel
@@ -24,14 +22,17 @@ automatically happens on Netlify when commits are pushed
     - 
     - make admin content
     - 6/8 projects
-    - disable full page on narrow. stack on mobile with window matchmedia
+    - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
 
-- project detail template
+
+- project detail template (routes)
     - Full width image
     - next back buttons. ie, Gatsby examples page
     - vimeo embed
     - back link / close
-    - 
+
+- nav: top and bottom only
+
 - headshot
     - Photo, not Ken Burns, others yes
     - headshot narrower, pull text left.
@@ -60,8 +61,6 @@ automatically happens on Netlify when commits are pushed
     Workshops
     Book me
 
-
-- add typefaces/fonts back
 - nav: arrow line longer
 - bio: iterate on grid
     - image aspect ratio : https://css-tricks.com/aspect-ratios-grid-items/
@@ -70,6 +69,8 @@ automatically happens on Netlify when commits are pushed
 
 #### later
 
+- fix validation
+- set up handlebars-helper webpack plugin
 - conditional logic in admin - intro: if it's a plain fragment, how to hide key + image fields?
 - dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
 - intro: split into paragraphs. <br> as an item? refactor intro to rich text?

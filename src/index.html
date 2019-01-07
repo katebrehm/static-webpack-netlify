@@ -30,6 +30,61 @@
                     <div class="intro__diags"></div>
                 </div>
             </div>
+
+            <div class="section panel--art-projects" id="section3">
+                <div class="js--glide--art-projets">
+                    <div class="glide__track"  glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <h2 class="h1--sans slide__title">
+                                    Discrepencies                 
+                                </h2>
+                            </li>
+                            <li class="glide__slide">
+                                <h2 class="h1--sans slide__title">
+                                    Poof                 
+                                </h2>
+                            </li>
+                            <li class="glide__slide">
+                                <h2 class="h1--sans slide__title">
+                                    Discrepencies                 
+                                </h2>
+                            </li>
+                            <li class="glide__slide">
+                                <h2 class="h1--sans slide__title">
+                                    Poof                 
+                                </h2>
+                            </li>
+                            <li class="glide__slide">
+                                <h2 class="h1--sans slide__title">
+                                    Discrepencies                 
+                                </h2>
+                            </li>
+                            <li class="glide__slide">
+                                <h2 class="h1--sans slide__title">
+                                    Poof                 
+                                </h2>
+                            </li>
+                            <li class="glide__slide">
+                                <h2 class="h1--sans slide__title">
+                                    Discrepencies                 
+                                </h2>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                            <i class="material-icons ">arrow_backward</i>
+                        </button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                            <i class="material-icons ">arrow_forward</i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="section" id="section2">
                 <div class="panel--bio">
                     <div class="bio__nav-bg">
@@ -90,9 +145,15 @@
                     </div>
                 </div>
             </div>
-            <div class="section  panel--projects" id="section2">
-                <div class="glide">
-                    <div class="glide__track" data-glide-el="track">
+
+
+            <div class="section 
+                        panel--commercial-projects 
+                        panel--projects" 
+                 id="section4">
+
+                <div class="glide--commercial-projets">
+                    <div class="glide__track"  glide-el="track">
                         <ul class="glide__slides">
                             <li class="glide__slide">
                                 <h2 class="h1--sans slide__title">
@@ -142,23 +203,22 @@
                     </div>
 
                 </div>
-
-
             </div>
+            
+
         </div>
 
-
-				<script>
-					if (window.netlifyIdentity) {
-						window.netlifyIdentity.on("init", user => {
-							if (!user) {
-								window.netlifyIdentity.on("login", () => {
-									document.location.href = "/admin/";
-								});
-							}
+		<script>
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on("init", user => {
+					if (!user) {
+						window.netlifyIdentity.on("login", () => {
+							document.location.href = "/admin/";
 						});
 					}
-				</script>
+				});
+			}
+		</script>
 
 	</body>
 </html>

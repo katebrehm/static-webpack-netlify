@@ -223,7 +223,11 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
 
             afterRender: function(){
 
-                new Glide('.glide', 
+                var inDuration = 0.125;
+                var scale = 1.025;
+
+
+                new Glide('.js--glide--art-projets', 
                     {
                         // bpoints should match _mq.scss
                         // 1280 +
@@ -270,14 +274,58 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                             }
                         }
                     }
+                ).mount()
+        
+                new Glide('.js--glide--commerical-projets', 
+                    {
+                        // bpoints should match _mq.scss
+                        // 1280 +
+                        type: 'carousel',
+                        gap: 32,
+                        perView: 3,
+                        focusAt: 'center',
+                        animationDuration: 250,
+                        peek: { before: 100, after: 100 },
+                        dragThreshold: false,
 
+                        breakpoints: { 
+
+                            // 1031 to 1200
+                            1200: {
+                                perView: 3,
+                                gap: 16,
+                                peek: { before: 32, after: 32 },
+                                dragThreshold: false
+                            },
+
+                            // 861 to 1030
+                            1030: {
+                                perView: 2,
+                                gap: 16,
+                                peek: { before: 50, after: 50 },
+                                dragThreshold: false
+                            },
+
+                            // 651 to 860 
+                            860: {
+                                perView: 1,
+                                gap: 16,
+                                peek: { before: 50, after: 50 },
+                                dragThreshold: 120
+                            },
+
+                            // up to 650 
+                            650: {
+                                perView: 1,
+                                gap: 0,
+                                peek: 0,
+                                dragThreshold: 120
+                            }
+                        }
+                    }
                 ).mount()
 
-        
-                var inDuration = 0.125;
-                var scale = 1.025;
-
-
+/*
                 function tooltipReveal(options){
 
                     // console.log($project[0].clientHeight);
@@ -332,6 +380,7 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
                         video.currentTime = 0;
                     }
                 }
+*/
 
                 var showIntroProject = function(e) {
                     var $otherLinks = $(".intro__text-wrapper a").not(this);
@@ -355,15 +404,15 @@ import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hove
 
                         .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  );
 
-                    if(($project).is("video")){
-                        t.call(
-                          playVideo, 
-                          [ $project[0] ], // param, the video element
-                          'beginPlay'
-                        ) 
-                    }
+                    // if(($project).is("video")){
+                    //     t.call(
+                    //       playVideo, 
+                    //       [ $project[0] ], // param, the video element
+                    //       'beginPlay'
+                    //     ) 
+                    // }
 
-                    var options = { $mediaElement: $project, $linkElement: $(this) }
+                    // var options = { $mediaElement: $project, $linkElement: $(this) }
                     // var tDetail = tooltipReveal(options);
 
                     t
