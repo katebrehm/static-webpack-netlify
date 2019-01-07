@@ -61,6 +61,11 @@
     {
       "intro--fragment-text": "She lectures and leads workshops for theater and live art. Her company, imnotlost, produces puppet shows, plays, and interactive events in NYC.   Her research explores a critical history of performing design and proposes that scenography may effectively be puppeteered.  She tours internationally with critically acclaimed puppeteers and works as a theater technician.  ",
       "intro--fragment-type": "plain"
+    },
+    {
+      "intro--fragment-text": "test",
+      "intro--fragment-type": "hoverable",
+      "intro--fragment-image-path": "/images/content/screen-shot-2019-01-07-at-1.38.07-pm.png"
     }
   ]
 }
