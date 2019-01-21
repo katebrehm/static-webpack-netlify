@@ -120,7 +120,8 @@
     {
       "intro__fragment-text": "scenography",
       "intro__fragment-type": "hoverable",
-      "intro__fragment-image-path": "/images/content/scenography1280.jpg"
+      "intro__fragment-image-path": "/images/content/scenography1280.jpg",
+      "intro__fragment-key": "scenography"
     },
     {
       "intro__fragment-text": " may effectively be puppeteered.  She ",
