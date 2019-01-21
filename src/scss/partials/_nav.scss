@@ -1,67 +1,3 @@
-.nav {
-  display: none !important;
-  position: absolute;
-  z-index: 3;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backface-visibility: hidden;
-  transform: scale(1);
-  transform: translate3d(0, 0, 0);
-  top: 77vh;
-}
-
-.menu {
-  display: none;
-  height: auto !important;
-  padding-left: 1rem;
-}
-
-.menu li {
-  display: inline-block;
-  padding: 0.5rem 1.4rem;
-  box-shadow: inset 0 -0.3rem 0 0 transparent;
-  transition: all 0.1s ease-out;
-}
-
-/* .menu li.active { color: $teal-7; } */
-
-.menu li a {
-  display: block;
-  color: $teal-6;
-  font-family: 'K-Regular', sans-serif;
-  font-size: 1.3rem;
-  padding: 0.75rem 0;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-
-  transition: all 0.1s ease-out;
-}
-
-.menu--on-dark li:hover a { color: $teal-2;}
-.menu--on-light li:hover a { color: $teal-10; }
-
-.menu li.active a {
-  color: $teal-2;
-  box-shadow: inset 0 -0.3rem 0 0 cyan;
-}
-/* 
-.menu li:hover {
-  box-shadow: inset 0 -0.3rem 0 0 cyan;
-}
- */
-.menu li:hover a {
-  box-shadow: inset 0 -0.3rem 0 0 cyan;
-}
-
-
-.menu--on-dark {
-}
-
-.menu--on-light {
-}
-
-.menu--on-dark li.active a { color: $teal-2; }
-.menu--on-light li.active a { color: $teal-10; }
 
 #fp-nav {
   display: none;
@@ -101,14 +37,5 @@
   font-size: 1rem !important;
   font-family: 'K-Regular', sans-serif;
   top: 0 !important
-}
-
-.nav--on-light {
-  /* background: rgba($teal-3, 0.4); */
-    /* border-bottom: 0.35rem solid #47e1ff; */
-  /* background: #e0e9ff54; */
-  /*     backface-visibility: hidden;
-  transform: scale(1);
-  transform: translate3d(0, 0, 0); */
 }
 

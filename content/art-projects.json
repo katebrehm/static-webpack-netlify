@@ -1,16 +1,46 @@
 {
-  "title": [
+  "art-projects__list": [
     {
       "art-project--title": "Discrepancies",
-      "art-project--thumbnail-image": "/images/content/screen-shot-2018-12-31-at-8.19.58-pm.png",
-      "art-project-type": 1,
-      "art-project--description": "project description here project description here project description here project description here project description here "
+      "art-project--description": "project description here project description here project description here project description here project description here ",
+      "art-project--type": 1,
+      "art-project--image-path": "/images/content/imp-6321-1600.jpg"
+    },
+    {
+      "art-project--title": "The Eye Which We Do Not Have",
+      "art-project--description": "",
+      "art-project--type": 2,
+      "art-project--image-path": "/images/content/hallwaydoor.jpg"
+    },
+    {
+      "art-project--title": "Dark Space",
+      "art-project--description": "",
+      "art-project--type": 2,
+      "art-project--image-path": "/images/content/31398373244tumblr-n4jvn2pfrw1qa4iv8o2-500.gif"
+    },
+    {
+      "art-project--title": "The Poofs",
+      "art-project--description": "",
+      "art-project--type": 2,
+      "art-project--image-path": "/images/content/poof.png"
+    },
+    {
+      "art-project--title": "Do You Copy?",
+      "art-project--description": "",
+      "art-project--type": 2,
+      "art-project--image-path": "/images/content/eyeball-kbrehm-costume.jpg"
+    },
+    {
+      "art-project--title": "A Seemingly Unified Spectacle",
+      "art-project--description": "",
+      "art-project--type": 2,
+      "art-project--image-path": "/images/content/slidesp3.jpg"
     },
     {
       "art-project--title": "Puppet theater",
-      "art-project--thumbnail-image": "/images/content/doll1-cloesup500wb.jpg",
-      "art-project-type": 2,
-      "art-project--description": "project desc project desc project desc project desc project desc project desc"
+      "art-project--description": "",
+      "art-project--type": 2,
+      "art-project--image-path": "/images/content/img0293.jpg"
     }
   ]
 }

@@ -11,94 +11,33 @@
 	<body>
 		<div class="breakpoint"></div>
 
-
         <div id="fullpage">
             <div class="section section--intro">
                 <div class="section--intro">
-                	{{> arrow }}
+                    <div class="js--hbs-inject--arrow"></div>
 
                     <div class="intro__image-wrapper
-                                js--hbs-inject--intro__hover-photo-collection">
-                            <!-- hover-photo-collection.hbs-->
+                                js--hbs-inject--intro__hover-image-collection">
                     </div>
 
                     <div class="intro__text-wrapper">
-                        <p class="intro__text js--hbs-inject--intro__paragraph-fragments">
-                        	<!-- paragraph-fragments.hbs-->
+                        <p class="intro__text 
+                                  js--hbs-inject--intro__paragraph-fragments">
                         </p>
                     </div>
                     <div class="intro__diags"></div>
                 </div>
             </div>
 
-            <div class="section section--art-projects">
-                <div class="js--glide ">
-                    <div class="glide__track"  
-                         data-glide-el="track"> 
-                        <ul class="glide__slides">
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Poof                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Poof                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Poof                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="glide__arrows" data-glide-el="controls">
-                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                            <i class="material-icons ">arrow_backward</i>
-                        </button>
-                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                            <i class="material-icons ">arrow_forward</i>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
             <div class="section" >
                 <div class="section--bio">
-                    <div class="bio__nav-bg">
-                    </div>
-                    <div class="bio__nav">
-                    </div>
+                    <div class="bio__nav-bg"></div>
+                    <div class="bio__nav"></div>
                     <div class="bio__headshot">
-                        <div class="headshot__mask-wrapper">
+                        <div class="headshot__mask-wrapper 
+                                    js--hbs-inject--bio__headshot-collection">
                             <div class="headshot__mask--box"></div>
                             <!-- <div class="headshot__mask--color"></div> -->
-                            <div class="headshot__image 1" ></div>
-                            <div class="headshot__image 2" ></div>
-                            <div class="headshot__image 3" ></div>
                         </div>
                     </div>
                     <div class="bio__text">
@@ -133,62 +72,26 @@
                             -->
                     </div>
                     <div class="bio__tab">
-                        Artist Statement
+                        Kate Brehm
                     </div>
                     <div class="bio__tab-border"></div>
-                    <div class="bio__caption">
+                    <!-- <div class="bio__caption">
                         <span class="caption caption__label">Photo credit</span>
                         <span class="caption caption__text">Ai Weiwei</span>
-                    </div>
-                    <div class="button--download-pdf">
-                        Download PDF
+                    </div> -->
+                    <div class="button--resume-pdf">
+                        View Resume PDF
                         <div class="bio__diags"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="section 
-                        section--commercial-projects">
 
+            <div class="section section--art-projects">
                 <div class="js--glide glide">
-                    <div class="glide__track"  data-glide-el="track">
-                        <ul class="glide__slides">
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Poof                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Poof                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Poof                 
-                                </h2>
-                            </li>
-                            <li class="glide__slide">
-                                <h2 class="h1--sans slide__title">
-                                    Discrepencies                 
-                                </h2>
-                            </li>
-                        </ul>
+                    <div class="glide__track 
+                                js--hbs-inject--art-projects__image-collection"  
+                         data-glide-el="track">
                     </div>
 
                     <div class="glide__arrows" data-glide-el="controls">
@@ -199,10 +102,9 @@
                             <i class="material-icons ">arrow_forward</i>
                         </button>
                     </div>
+
                 </div>
             </div>
-            
-
         </div>
 
 		<script>

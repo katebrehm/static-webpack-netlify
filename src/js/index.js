@@ -19,467 +19,712 @@ import lodash from 'lodash';
 
 // app data
 import introDataObjAsBEM from '../../content/intro.json';
+import bioDataObjAsBEM from '../../content/bio.json';
+import artProjectsDataObjAsBEM from '../../content/art-projects.json';
+
+var partials = {};
 
 // @todo: move this to dedicated webpack. JS files.
 import paragraphFragmentsTemplate from '../templates/home/sections/intro/paragraph-fragments.hbs';
-import hoverPhotosCollectionTemplate from '../templates/home/sections/intro/hover-photo-collection.hbs';
+import hoverImagesCollectionTemplate from '../templates/home/sections/intro/hover-image-collection.hbs';
+import headshotCollectionTemplate from '../templates/home/sections/bio/headshot-collection.hbs';
+import artProjectsCollectionTemplate from '../templates/home/sections/art-projects/art-projects-images-collection.hbs';
+
+// @todo: make submodule to import all partials/helpers
+// https://stackoverflow.com/questions/32124640/how-to-import-into-properties-using-es6-module-syntax-destructing
+// partials
+import arrowPartial from '../templates/partials/arrow.hbs';
+
+
+function bounceIntroArrow(){
+
+  var el = $(".button--arrow-down");
+
+  var overshoot = 1.2;
+  var period = 0.5;
+
+  var heartbeatTl = new TimelineMax({
+    repeat: -1
+  });
+
+  heartbeatTl
+   // .to(el, 0.5, { scale: 0.9 })
+   .to(
+      el,
+      0.4,
+      {
+        autoAlpha: 0,
+        y: -6,
+        // opacity: 0
+        // scale: 1,
+        // transformOrigin:"50% 50%",
+        // ease: Back.easeOut,
+      }
+      // "+=1.5x"
+    )
+    
+    .to(
+      el,
+      1,
+      {
+        y: 0,
+        autoAlpha: 1,
+        ease: Elastic.easeOut,
+        easeParams:[ overshoot, period]
+      }
+    )
+
+    // filler, as a delay before the next bounce
+    .to(el, 1, { opacity: 1 })
+
+  return heartbeatTl;
+}
+
 
 
 (function () {
 
-    // https://stackoverflow.com/questions/12931828/convert-returned-json-object-properties-to-lower-first-camelcase
-    const transformToCamelCase = (obj) => {
-      if (!_.isObject(obj)) {
-        return obj;
-      } else if (_.isArray(obj)) {
-        return obj.map((v) => transformToCamelCase(v));
-      }
-      return _.reduce(obj, (r, v, k) => {
-        return { 
-          ...r, 
-          [_.camelCase(k)]: transformToCamelCase(v) 
-        };
-      }, {});
-    }; 
 
-    // clean and prep the data object from 
-    // to format we need content submitted via Netlify admin  
-    var introDataObjAsProps = transformToCamelCase(introDataObjAsBEM);
-    var introDataArray = introDataObjAsProps.introFragmentList;
+	// workaround for fullpage history bug. Add #intro only if page loads without a deep link
+	// https://github.com/alvarotrigo/fullPage.js/issues/950#issuecomment-69156110
+	// https://stackoverflow.com/questions/24078332/is-it-secure-to-use-window-location-href-directly-without-validation/24089350
+	if (!window.location.href.includes("#")) {
+		window.location.href = window.location.href + "#intro";
+	}
 
-    var paragraphFragments = introDataArray;
-    var hoverPhotos = introDataArray;
-    
-    $('.js--hbs-inject--intro__paragraph-fragments')
-        .html(paragraphFragmentsTemplate({ paragraphFragments }));
+	var timelines = [];
+	var $headerOne              = $('.h1__1');
+	var $headshotMaskBox        = $('.headshot__mask--box');
+	var $headshotMaskColor      = $('.headshot__mask--color');
+	var $bioTextMask            = $('.bio__text--mask');
+	var $bioText                = $('.bio__text');
+	var $headshotImage          = $('.headshot__image');
+	var $bioNavBGMask           = $('.bio__nav-bg--mask');
 
-    $('.js--hbs-inject--intro__hover-photo-collection')
-        .html(hoverPhotosCollectionTemplate({ hoverPhotos }));
+	// var tlArrowDown = new TimelineMax();
+  
+ //   tl
+    // .addLabel("load") // for a slight delay for page to render
+    // .set('.nav__link', { autoAlpha: 0, y: 10 })
+    // .staggerFromTo('.nav__link', 2, { autoAlpha: 0 }, { y: 0, autoAlpha: 1, ease: Power4.easeOut }, 0.1, "load+=0.5")
+    // .to('.button--arrow-down', 1, { opacity: 1, autoAlpha: 1, ease: Power4.easeOut }, "load+=0.5")
+    // .to('.button--arrow-down', 1, { opacity: 1, autoAlpha: 1, ease: Power4.easeOut })
+    // .call (tlArrowDown)
+
+
+	// function playBioTl(){
+	function makeBioTl(){
+
+		
+	// https://codepen.io/mikeK/pen/zdKjNr
+		// var transitionSpeed = 1.25;
+		// var msBetweenChange = 2000
+		// var imgs = $.makeArray( $('.headshot__image') );
+
+		// if (imgs.length === 1) { return false } 
+
+	 //    imgs.reverse();
+	 //    // imgs.pop(imgs.unshift());
+
+		// function crossfade(){
+
+		//     TweenMax.to(imgs[0], transitionSpeed, {autoAlpha:0}) 
+		//     TweenMax.to(imgs[1], transitionSpeed, {autoAlpha:1})
+		//     imgs.push( imgs.shift() )
+		//   }
+
+		// var bioImgLoopTimeoutHandle = setInterval(crossfade,msBetweenChange)
+		// return bioImgLoopTimeoutHandle;
+
+		//////////////
+		// adapted from https://codepen.io/GreenSock/pen/WEGLYq
+		var duration = 2;
+		var delay = 2;
+		// var tl = new TimelineMax({  paused: true });
+		var tl = new TimelineMax({ onComplete:onComplete, onStart:onStart, paused: true });
+
+		var $bioImages = $(".headshot__image");
+		$bioImages.each(function(index, element) {
+			// insert first animation at a time of 0 or all other animations at a time that 
+			// will overlap with the previous animation fading out.
+			var offset = index === 0 ? 0 : "-=" + duration; 
+			console.log(index);
+			
+			tl.to(
+				element, 
+				duration, 
+				{
+					autoAlpha: 1,
+					ease: Power3.EaseIn,
+					repeat: 1, 
+					yoyo:true, 
+					repeatDelay: delay
+				}, 
+				offset
+			)
+			
+			// when the last image fades out we need to cross-fade the first image
+			if (index === ($(".headshot__image").length - 1)){
+				tl.to(
+					$(".headshot__image")[0], 
+					duration, 
+					{  
+						autoAlpha: 1,
+						ease: Power3.EaseIn
+					}, 
+					offset
+				)
+			}
+		});
+
+		function onComplete() {
+		  tl.play(duration);
+		  console.log('biol onComplete, repeat');
+		};
+
+		function onStart() {
+		  console.log('biol onStart, starting play');
+		};
+
+		console.log('made bio tl', tl);
+		return tl;
+	}
+
+	timelines.revealHeadshot = new TimelineMax ({ paused: true });
+	timelines.bioTl = makeBioTl();
+	// timelines.bioTl.play();
+	
+	// https://stackoverflow.com/questions/12931828/convert-returned-json-object-properties-to-lower-first-camelcase
+	const transformToCamelCase = (obj) => {
+	  if (!_.isObject(obj)) {
+		return obj;
+	  } else if (_.isArray(obj)) {
+		return obj.map((v) => transformToCamelCase(v));
+	  }
+	  return _.reduce(obj, (r, v, k) => {
+		return { 
+		  ...r, 
+		  [_.camelCase(k)]: transformToCamelCase(v) 
+		};
+	  }, {});
+	}; 
+
+	// @todo: make injectTemplates module
+	// clean and prep the data object from 
+	// to format we need 
+	// content submitted via Netlify admin  
+	var introDataObj = transformToCamelCase(introDataObjAsBEM);
+	var introDataArray = introDataObj.introFragmentList;
+
+	var paragraphFragments = introDataArray;
+	var hoverImages = introDataArray;
+	$('.js--hbs-inject--intro__paragraph-fragments')
+		.html(paragraphFragmentsTemplate({ paragraphFragments }));
+
+	$('.js--hbs-inject--intro__hover-image-collection')
+		.html(hoverImagesCollectionTemplate({ hoverImages }));
+
+	///////////////
+	var bioDataObj = transformToCamelCase(bioDataObjAsBEM);
+	var headshotImagesArray = bioDataObj.bioHeadshotImagesList;
+	var headshotImages = headshotImagesArray;
+
+	$(headshotCollectionTemplate({ headshotImages }))
+		.appendTo(".js--hbs-inject--bio__headshot-collection");
+
+	///////////////
+	var artProjectsDataObj = transformToCamelCase(artProjectsDataObjAsBEM);
+	var artProjectsImagesArray = artProjectsDataObj.artProjectsList;
+	var artProjectsImages = artProjectsImagesArray;
+
+	// insert in Glide on mount.before, otherwise Glide crashes for some reason
+
+	///////////////
+	$('.js--hbs-inject--arrow')
+		.html(arrowPartial);
+
 
 /*
-    Application js
+	Application js
 */
-    var fullPageInstance = new fullpage("#fullpage", {
-            licenseKey: '',
-            // verticalCentered: true,
-            // menu: '#menu',
-            // anchors: ['intro', 'work', 'projects', 'workshops', 'bio'],
-            // easingcss3: "linear"
-            // responsiveWidth: 400,
-            // responsiveHeight: 400
-            // autoScrolling: false,
-            // fadingEffect: true,
-            // fadingEffect: 'slides'
-            // slidesNavigation: true,
-            scrollingSpeed: 600,
-            slidesNavigation: true,
-            scrollBar: false,
-            navigation: true,
-            navigationPosition: 'left',
-            navigationTooltips: ['Kate Brehm', 'Work', 'Projects', 'Workshops', 'Bio'],
+	// var bioImgLoopTimeoutHandle;
 
-            onLeave: function(index, nextIndex, direction){
-                var leavingSection = $(this);
-                
-                // console.log('onLeave');
-                // console.log('index: ', index); // leaving this index, 1-indexed array
-                // console.log('nextIndex: ', nextIndex); // arriving at this index ,  1-indexed array
-                // console.log('direction: ', direction);
-                // console.log('=========');
+	var fullPageInstance = new fullpage("#fullpage", {
+			licenseKey: '',
+			// verticalCentered: true,
+			// menu: '#menu',
+			anchors: ['intro', 'bio', 'art-projects'],
+			// easingcss3: "linear"
+			// responsiveWidth: 400,
+			// responsiveHeight: 400
+			// autoScrolling: false,
+			// fadingEffect: true,
+			// fadingEffect: 'slides'
+			// slidesNavigation: true,
+			recordHistory: true,
+			scrollingSpeed: 600,
+			slidesNavigation: true,
+			scrollBar: false,
+			navigation: true,
+			navigationPosition: 'left',
+			navigationTooltips: ['Kate Brehm', 'Bio', 'Art Projects'],
 
-                // leaving section 1
-                if(nextIndex === 2){
-                    console.log('bio');
+			// when arrived to a new section
+			afterLoad: function(origin, destination, direction){
+				var loadedSection = origin;
+					// console.log(direction);
 
-                    // $('.menu').removeClass("menu--on-dark").addClass( "menu--on-light" );
-                    // $('.intro__image').hide();
+					// if (destination.anchor === 'intro') {
+					// 	bounceIntroArrow().play();
+					// }
 
-                    // $('#fpnav').show();
+					// else {
+					// 	bounceIntroArrow().stop();
+					// }
+			},
 
-                    var kenBurns = loopBioHeadshot();
+			// before scroll animation begins
+			onLeave: function(origin, destination, direction){
+				var index = origin.index;
+				// var leavingSection = $(this);
+				// console.log(bioTl);
 
-                    timelines.revealHeadshot
-                        .addLabel('begin')
-                        // .to(".nav", 0.5, { className: "+=nav--on-light" }, "begin+=0.01")
-                        .to(
-                            [ $headshotMaskBox ],
-                            0.7, 
-                            { 
-                                scaleX: 0, 
-                                ease: Power4.easeIn 
-                            },
-                            "begin+=0.15"
-                        )
+				// if (bioTl.isActive()) {
+				// 	console.log('active');
+				// }
 
-                        .to(
-                            [ $headshotImage ] ,
-                            0.5, 
-                            { 
-                                autoAlpha: 1,
-                                ease: Power4.easeIn 
-                            }, 
-                            "begin+=0.075"
-                        )
-
-                        .addLabel('beginText')
-
-                        .to(
-                            [ $bioTextMask ],
-                            0.6, 
-                            { 
-                                scaleX: 0, 
-                                // autoAlpha: 0, 
-                                ease: Power4.easeInOut
-                            }, 
-                            "begin+=0.075"
-                        )
-
-                        .to(
-                            [ $bioText ],
-                            1.5, 
-                            { 
-                                autoAlpha: 1, 
-                                ease: Power4.easeInOut 
-                            }, 
-                            "begin+=0.1"
-                        )
-
-                        .to(
-                            [ $bioNavBGMask ],
-                            0.8, 
-                            { 
-                                scaleX: 0, 
-                                ease: Power4.easeInOut 
-                            }, 
-                            "begin+=.175"
-                        )
-
-                        .to(
-                            [ ".bio__tab-border" ],
-                            0.3, 
-                            { 
-                                scaleY: 1, 
-                                ease: Expo.easeIn
-                                // width: 3 
-                            }, 
-                            "begin+=0.7 "
-                        )
-
-                        .add(kenBurns.play(), "begin+=2" )
-
-                        .to(
-                            [ ".button--download-pdf" ],
-                            0.75, 
-                            { 
-                                scaleY: 1, 
-                                ease: Elastic.easeOut.config(1, 0.3), 
-                                height: "11.5rem"
-                                // width: 3 
-                            }, 
-                            "begin+=1"
-                        )
-                        // .to(
-                        //  [ $headshotMaskColor ],
-                        //  2, 
-                        //  { 
-                        //      autoAlpha: 0, 
-                        //      ease: Power4.easeOut 
-                        //  },
-                        //  "beginText-=0.1"
-                        // )
-
-                        // .timeScale( .2 )
-                        .play()
-
-                }
+				// console.log('onLeave');
+				// console.log('source.index: ', source.index); 
+				// console.log('destination.index: ', destination.index); 
+				// console.log('direction: ', direction);
+				// console.log('=========');
 
 
-                if (nextIndex != 2){
-                    // $('#fpnav').hide();
-                    // TweenMax.to(".nav", 0.5, { className: "-=nav--slide-2" });
-                    // TweenMax.to(".bio__frame--section", 0.75, { borderWidth: "50rem", ease: Quint.easeOut });
-                    
-                    // if (timelines.revealHeadshot.progress()){
-                    //  timelines.revealHeadshot.reverse();
-                    // }
+				// if leaving bio
+				if(origin.anchor === "bio"){
+					// if (bioImgLoopTimeoutHandle) { 
+						// console.log('stopping bio tl');
+					// 	clearTimeout(bioImgLoopTimeoutHandle);
+					// };
+							// if (bioTl.isActive()) {
+				// 	console.log('active');
+				// }
+				console.log('bioTl active?' , timelines.bioTl.isActive());
+
+				timelines.bioTl.pause();
+					// if(bioImgLoopTimeoutHandle.isActive()){
+						console.log('stopping bio tl');
+					// }
+				}
+				// entering bio
+				if(destination.anchor === "bio"){
+					console.log('in bio');
+					// bioImgLoopTimeoutHandle = playBioTl(); // run
+					// if (!bioImgLoopTimeoutHandle) {
+					// 	bioImgLoopTimeoutHandle = makeBioTl();
+					// }
+
+					// $('.menu').removeClass("menu--on-dark").addClass( "menu--on-light" );
+					// $('.intro__image').hide();
+
+					// $('#fpnav').show();
+
+					timelines.revealHeadshot
+						.addLabel('begin')
+						// .to(".nav", 0.5, { className: "+=nav--on-light" }, "begin+=0.01")
+						.to(
+							[ $headshotMaskBox ],
+							0.7, 
+							{ 
+								scaleX: 0, 
+								ease: Power4.easeIn 
+							},
+							"begin+=0.15"
+						)
+
+						.to(
+							[ $headshotImage ] ,
+							0.5, 
+							{ 
+								autoAlpha: 1,
+								ease: Power4.easeIn 
+							}, 
+							"begin+=0.075"
+						)
+
+						.addLabel('beginText')
+
+						.to(
+							[ $bioTextMask ],
+							0.6, 
+							{ 
+								scaleX: 0, 
+								// autoAlpha: 0, 
+								ease: Power4.easeInOut
+							}, 
+							"begin+=0.075"
+						)
+
+						.to(
+							[ $bioText ],
+							1.5, 
+							{ 
+								autoAlpha: 1, 
+								ease: Power4.easeInOut 
+							}, 
+							"begin+=0.1"
+						)
+
+						.to(
+							[ $bioNavBGMask ],
+							0.8, 
+							{ 
+								scaleX: 0, 
+								ease: Power4.easeInOut 
+							}, 
+							"begin+=.175"
+						)
+
+						.to(
+							[ ".bio__tab-border" ],
+							0.3, 
+							{ 
+								scaleY: 1, 
+								ease: Expo.easeIn
+								// width: 3 
+							}, 
+							"begin+=0.7 "
+						)
+
+						.add(timelines.bioTl.play(), "begin+=2" )
+
+						.to(
+							[ ".button--resume-pdf" ],
+							0.75, 
+							{ 
+								scaleY: 1, 
+								ease: Elastic.easeOut.config(1, 0.3), 
+								height: "11.5rem"
+								// width: 3 
+							}, 
+							"begin+=1"
+						)
+						// .to(
+						//  [ $headshotMaskColor ],
+						//  2, 
+						//  { 
+						//      autoAlpha: 0, 
+						//      ease: Power4.easeOut 
+						//  },
+						//  "beginText-=0.1"
+						// )
+
+						// .timeScale( .2 )
+						.play()
+
+				}
 
 
-                }
+				if (destination.anchor != 'bio'){
+					// playBioTl = null;
+					// $('#fpnav').hide();
+					// TweenMax.to(".nav", 0.5, { className: "-=nav--slide-2" });
+					// TweenMax.to(".bio__frame--section", 0.75, { borderWidth: "50rem", ease: Quint.easeOut });
+					
+					// if (timelines.revealHeadshot.progress()){
+					//  timelines.revealHeadshot.reverse();
+					// }
+				}
 
-                // // entering it
-                // else if(index == 0 && direction == 'up'){
-                //      TweenMax.to(".nav", 0.1, { autoAlpha: 0, ease: Quint.easeOut } );
-                //      // TweenMax.to(".nav", 0.1, { backgroundColor: "transparent", ease: Quint.easeOut } );
-                // }
-            },
+				// // entering it
+				// else if(destination.anchor == 'intro' && direction == 'up'){
+				//      TweenMax.to(".nav", 0.1, { autoAlpha: 0, ease: Quint.easeOut } );
+				//      // TweenMax.to(".nav", 0.1, { backgroundColor: "transparent", ease: Quint.easeOut } );
+				// }
+			},
 
-            /*
-                This callback is fired just after the structure of the page is generated.
-                This is the callback you want to use to initialize other plugins or fire 
-                any code which requires the document to be ready (as this plugin modifies 
-                the DOM to create the resulting structure)
-            */
+			/*
+				This callback is fired just after the structure of the page is generated.
+				This is the callback you want to use to initialize other plugins or fire 
+				any code which requires the document to be ready (as this plugin modifies 
+				the DOM to create the resulting structure)
+			*/
 
-            afterRender: function(){
+			afterRender: function(){
 
-                var inDuration = 0.125;
-                var scale = 1.025;
+				// for project
+				var inDuration = 0.125;
+				var scale = 1.025;
 
-                // @todo: reuse code with single mount instance
-                //  https://github.com/glidejs/glide/issues/202
-                // var sliders = document.querySelectorAll('.glide');
+				// @todo: reuse code with single mount instance
+				//  https://github.com/glidejs/glide/issues/202
+				// var sliders = document.querySelectorAll('.glide');
 
-                // for (var i = 0; i < sliders.length; i++) {
-                //   var glide = new Glide(sliders[i], {
-                //     gap: 15,
-                //   });
-                  
-                //   glide.mount();
-                // }
+				// for (var i = 0; i < sliders.length; i++) {
+				//   var glide = new Glide(sliders[i], {
+				//     gap: 15,
+				//   });
+				  
+				//   glide.mount();
+				// }
 
-                var el0 = $('.js--glide')[0];
-                new Glide(el0, 
-                    {
-                        // bpoints should match _mq.scss
-                        // 1280 +
-                        type: 'carousel',
-                        gap: 32,
-                        perView: 3,
-                        focusAt: 'center',
-                        animationDuration: 250,
-                        peek: { before: 100, after: 100 },
-                        // dragThreshold: false,
-                        perTouch: 1,
+				var el0 = $('.js--glide')[0];
+				new Glide(el0, 
+					{
+						// bpoints should match _mq.scss
+						// 1280 +
+						type: 'carousel',
+						gap: 32,
+						perView: 3,
+						focusAt: 'center',
+						animationDuration: 250,
+						peek: { before: 100, after: 100 },
+						dragThreshold: false,
+						perTouch: 2,
+						breakpoints: { 
 
-                        breakpoints: { 
+							// 1031 to 1200
+							1200: {
+								perView: 3,
+								gap: 16,
+								peek: { before: 32, after: 32 },
+								dragThreshold: false
+							},
 
-                            // 1031 to 1200
-                            1200: {
-                                perView: 3,
-                                gap: 16,
-                                peek: { before: 32, after: 32 },
-                                // dragThreshold: false
-                            },
+							// 861 to 1030
+							1030: {
+								perView: 2,
+								gap: 16,
+								peek: { before: 50, after: 50 },
+								dragThreshold: 1,
+								swipeThreshold: 1
+							},
 
-                            // 861 to 1030
-                            1030: {
-                                perView: 2,
-                                gap: 16,
-                                peek: { before: 50, after: 50 },
-                                // dragThreshold: false
-                            },
+							// 651 to 860 
+							860: {
+								perView: 1,
+								gap: 16,
+								peek: { before: 50, after: 50 },
+								dragThreshold: true,
+								dragThreshold: 1,
+								swipeThreshold: 1
+							},
 
-                            // 651 to 860 
-                            860: {
-                                perView: 1,
-                                gap: 16,
-                                peek: { before: 50, after: 50 },
-                                // dragThreshold: 120
-                            },
+							// up to 650 
+							650: {
+								perView: 1,
+								gap: 0,
+								peek: 0,
+								dragThreshold: true,
+								dragThreshold: 1,
+								swipeThreshold: 1
+							}
+						}
+					}
+				)
 
-                            // up to 650 
-                            650: {
-                                perView: 1,
-                                gap: 0,
-                                peek: 0,
-                                // dragThreshold: 120
-                            }
-                        }
-                    }
-                ).mount()
+				// insert DOM here, otherwise Glide crashes for some reason
+				// probably some timing thing where the DOM isnt there
+				// yet before Glide initializes
+				.on('mount.before', function() {
+					$('.js--hbs-inject--art-projects__image-collection')
+						.html(artProjectsCollectionTemplate({ artProjectsImages }));
+				})
 
-                // var el1 = $('.js--glide')[1];
-                // new Glide(el1, {
-                //         // bpoints should match _mq.scss
-                //         // 1280 +
-                //         type: 'carousel',
-                //         gap: 32,
-                //         perView: 3,
-                //         focusAt: 'center',
-                //         animationDuration: 250,
-                //         peek: { before: 100, after: 100 },
-                //         dragThreshold: false,
+				.mount();
 
-                //         breakpoints: { 
+				// var el1 = $('.js--glide')[1];
+				// new Glide(el1, {
+				//         // bpoints should match _mq.scss
+				//         // 1280 +
+				//         type: 'carousel',
+				//         gap: 32,
+				//         perView: 3,
+				//         focusAt: 'center',
+				//         animationDuration: 250,
+				//         peek: { before: 100, after: 100 },
+				//         dragThreshold: false,
 
-                //             // 1031 to 1200
-                //             1200: {
-                //                 perView: 3,
-                //                 gap: 16,
-                //                 peek: { before: 32, after: 32 },
-                //                 dragThreshold: false
-                //             },
+				//         breakpoints: { 
 
-                //             // 861 to 1030
-                //             1030: {
-                //                 perView: 2,
-                //                 gap: 16,
-                //                 peek: { before: 50, after: 50 },
-                //                 dragThreshold: false
-                //             },
+				//             // 1031 to 1200
+				//             1200: {
+				//                 perView: 3,
+				//                 gap: 16,
+				//                 peek: { before: 32, after: 32 },
+				//                 dragThreshold: false
+				//             },
 
-                //             // 651 to 860 
-                //             860: {
-                //                 perView: 1,
-                //                 gap: 16,
-                //                 peek: { before: 50, after: 50 },
-                //                 dragThreshold: 120
-                //             },
+				//             // 861 to 1030
+				//             1030: {
+				//                 perView: 2,
+				//                 gap: 16,
+				//                 peek: { before: 50, after: 50 },
+				//                 dragThreshold: false
+				//             },
 
-                //             // up to 650 
-                //             650: {
-                //                 perView: 1,
-                //                 gap: 0,
-                //                 peek: 0,
-                //                 dragThreshold: 120
-                //             }
-                //         }
-                //     }
-                // ).mount()
+				//             // 651 to 860 
+				//             860: {
+				//                 perView: 1,
+				//                 gap: 16,
+				//                 peek: { before: 50, after: 50 },
+				//                 dragThreshold: 120
+				//             },
+
+				//             // up to 650 
+				//             650: {
+				//                 perView: 1,
+				//                 gap: 0,
+				//                 peek: 0,
+				//                 dragThreshold: 120
+				//             }
+				//         }
+				//     }
+				// ).mount()
 
 /*
-                function tooltipReveal(options){
+				function tooltipReveal(options){
 
-                    // console.log($project[0].clientHeight);
-                    // console.log($project[0].clientWidth);
-                    // console.log($project[0].getBoundingClientRect());
+					// console.log($project[0].clientHeight);
+					// console.log($project[0].clientWidth);
+					// console.log($project[0].getBoundingClientRect());
 
-                    var rect = options.$linkElement[0].getClientRects()[0];
+					var rect = options.$linkElement[0].getClientRects()[0];
 
-                    var growByX = 200; 
-                    var growByY = 100; 
+					var growByX = 200; 
+					var growByY = 100; 
 
-                    var container = document.createElement('div');
-                    $(container)
-                      // .attr("class", "project__detail-tooltip")
-                      // .height(rect.height + growByY)
-                      // .width(rect.width + growByX)
+					var container = document.createElement('div');
+					$(container)
+					  // .attr("class", "project__detail-tooltip")
+					  // .height(rect.height + growByY)
+					  // .width(rect.width + growByX)
 
-                      // top left
-                      // .css({'transform' : 'translate(' + (rect.left ) + 'px, ' + (rect.top) + 'px)' })
+					  // top left
+					  // .css({'transform' : 'translate(' + (rect.left ) + 'px, ' + (rect.top) + 'px)' })
 
-                      // overlapping
-                      // .css({ 'transform' : 'translate(' + (rect.left + (growByX / 2)) + 'px, ' + (rect.top - (growByY / 2)) + 'px) scale(0)' 
-                
-                      // centered
-                      // .css({ 'transform' : 'translate(' + (rect.left - (growByX / 2)) + 'px, ' + (rect.top - (growByY / 2)) + 'px) scale(0)' 
-                      // })
+					  // overlapping
+					  // .css({ 'transform' : 'translate(' + (rect.left + (growByX / 2)) + 'px, ' + (rect.top - (growByY / 2)) + 'px) scale(0)' 
+				
+					  // centered
+					  // .css({ 'transform' : 'translate(' + (rect.left - (growByX / 2)) + 'px, ' + (rect.top - (growByY / 2)) + 'px) scale(0)' 
+					  // })
 
-                      .prependTo($("body"));
+					  .prependTo($("body"));
 
-                    // var $ptip = $(".project__detail-tooltip");
-                    // $ptip.appendTo($(container));
+					// var $ptip = $(".project__detail-tooltip");
+					// $ptip.appendTo($(container));
 
-                    var tl = new TimelineMax({paused: true});
-                    tl
-                        .addLabel('beginPlay') 
-                        // .to(container, 0.2, { autoAlpha: 1, scaleY: 1 })
-                        // .to($ptip, 0.2, { autoAlpha: 1 }, 'beginPlay+=0.5')
-                        // .to(".project__detail-tooltip span", 0.3, { autoAlpha: 1, y: 0 }, 'beginPlay+=0.25')
-                        // .set($ptip, { autoAlpha: 1 }, 'beginPlay')
-                        // .to(".tooltip__logo", 0.2, { autoAlpha: 1, ease: Expo.easeOut }, "+=0.1");
+					var tl = new TimelineMax({paused: true});
+					tl
+						.addLabel('beginPlay') 
+						// .to(container, 0.2, { autoAlpha: 1, scaleY: 1 })
+						// .to($ptip, 0.2, { autoAlpha: 1 }, 'beginPlay+=0.5')
+						// .to(".project__detail-tooltip span", 0.3, { autoAlpha: 1, y: 0 }, 'beginPlay+=0.25')
+						// .set($ptip, { autoAlpha: 1 }, 'beginPlay')
+						// .to(".tooltip__logo", 0.2, { autoAlpha: 1, ease: Expo.easeOut }, "+=0.1");
 
-                    return tl;
-                }
+					return tl;
+				}
 
-                function playVideo(video){
-                    // video.play();
-                }
+				function playVideo(video){
+					// video.play();
+				}
 
-                function stopVideo(video){
-                    if (!video.ended){
-                        video.pause();
-                        video.currentTime = 0;
-                    }
-                }
+				function stopVideo(video){
+					if (!video.ended){
+						video.pause();
+						video.currentTime = 0;
+					}
+				}
 */
 
-                var showIntroProject = function(e) {
-                    var $otherLinks = $(".intro__text-wrapper a").not(this);
-                    var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
+				var showIntroProject = function(e) {
+					var $otherLinks = $(".intro__text-wrapper a").not(this);
+					var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
 
-                    var t = new TimelineMax ({paused:true});
-                    
-                    t 
-                        .addLabel('beginPlay') 
-                        .to(
-                            $project, 
-                          inDuration,
-                          { 
-                            autoAlpha: 1, 
-                            ease: Power1.easeIn, 
-                            scale: scale, 
-                            transformOrigin:"50% 50%" 
-                          },
-                          'beginPlay'
-                       )
+					var t = new TimelineMax ({paused:true});
+					
+					t 
+						.addLabel('beginPlay') 
+						.to(
+							$project, 
+						  inDuration,
+						  { 
+							autoAlpha: 1, 
+							ease: Power1.easeIn, 
+							scale: scale, 
+							transformOrigin:"50% 50%" 
+						  },
+						  'beginPlay'
+					   )
 
-                        .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  );
+						.set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  );
 
-                    // if(($project).is("video")){
-                    //     t.call(
-                    //       playVideo, 
-                    //       [ $project[0] ], // param, the video element
-                    //       'beginPlay'
-                    //     ) 
-                    // }
+					// if(($project).is("video")){
+					//     t.call(
+					//       playVideo, 
+					//       [ $project[0] ], // param, the video element
+					//       'beginPlay'
+					//     ) 
+					// }
 
-                    // var options = { $mediaElement: $project, $linkElement: $(this) }
-                    // var tDetail = tooltipReveal(options);
+					// var options = { $mediaElement: $project, $linkElement: $(this) }
+					// var tDetail = tooltipReveal(options);
 
-                    t
-                        // .add(tDetail.play(), "beginPlay-=0.25" )
-                        .set(".material-icon__arrow--down", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
-                        .play();
-                }
+					t
+						// .add(tDetail.play(), "beginPlay-=0.25" )
+						.set(".button--arrow-down", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
+						.play();
+				}
 
-                var hideIntroProject = function(e) {
-                
-                    var t = new TimelineMax ({paused:true});
-                    var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
+				var hideIntroProject = function(e) {
+				
+					var t = new TimelineMax ({paused:true});
+					var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
 
-                    t 
-                        .addLabel('beginStop') 
-                        .to(
-                            $project, 
-                          0.1,
-                          { 
-                            autoAlpha: 0, 
-                            ease: Power0.easeNone, 
-                            scale: 1 
-                          },
-                          'beginStop'
-                       )
+					t 
+						.addLabel('beginStop') 
+						.to(
+							$project, 
+						  0.1,
+						  { 
+							autoAlpha: 0, 
+							ease: Power0.easeNone, 
+							scale: 1 
+						  },
+						  'beginStop'
+					   )
 
-                        .set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
-                        .play();
+						.set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
+						.play();
 
-                    // if(($project).is("video")){
-                    //     t.call(
-                    //       stopVideo, 
-                    //       [ $project[0] ], // param, the video element
-                    //       'beginStop'
-                    //     ) 
-                    // }
+					// if(($project).is("video")){
+					//     t.call(
+					//       stopVideo, 
+					//       [ $project[0] ], // param, the video element
+					//       'beginStop'
+					//     ) 
+					// }
 
-                    t.play();
-                    
-                    // var $ptip = $(".project__detail-tooltip");
-                    // TweenLite.to(".tooltip__logo", 0.1, { autoAlpha: 0 });
-                    // TweenLite.to($ptip, 0.1, { autoAlpha: 0 });
-                    TweenLite.to(".material-icon__arrow--down", 0.1, { autoAlpha: 1 });
-                }
+					t.play();
+					
+					// var $ptip = $(".project__detail-tooltip");
+					// TweenLite.to(".tooltip__logo", 0.1, { autoAlpha: 0 });
+					// TweenLite.to($ptip, 0.1, { autoAlpha: 0 });
+					TweenLite.to(".button--arrow-down", 0.1, { autoAlpha: 1 });
+				}
 
-                $(".js--intro-fragment-hover")
-                    .on('mouseenter', showIntroProject)
-                    .on('mouseleave', hideIntroProject);
+				$(".js--intro-fragment-hover")
+					.on('mouseenter', showIntroProject)
+					.on('mouseleave', hideIntroProject);
 
-                $( ".material-icon__arrow--down" ).on( "click", function() {
-                    console.log( $( this ).text() );
-                    fullpage_api.moveSectionDown();
-                });
-            }
-        });
+				$( ".button--arrow-down" ).on( "click", function() {
+					console.log( $( this ).text() );
+					fullpage_api.moveSectionDown();
+				});
+			}
+		});
 }());
 
 

@@ -1,0 +1,10 @@
+<ul class="glide__slides">
+    {{#each artProjectsImages as | artProjectsImage i|}}
+        <li class="glide__slide
+                    art-project__type--{{ artProjectType }}">
+            <img class="slide__image" src=".{{ artProjectImagePath }}">
+            <h2 class="slide__description h1--sans slide__title">{{ artProjectTitle }}</h2>
+            {{!-- <p class="">{{ artProjectDescription }}</p> --}}
+        </li>
+    {{/each}}
+</ul>

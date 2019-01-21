@@ -14,16 +14,29 @@ automatically happens on Netlify when commits are pushed
 
 #### todo
 
+- add checks for empty json data
 
-- wire projects carousel
-    - move to 2nd section
-    - lighten bg
+- intro
+    - nav: arrow line longer
+    - animate fragments, boxes
+    - first load Flash unstyled content
+
+- headshot
+    - mount image loop on section enter/exit
+    - headshot narrower, pull text left.
+    - text taller, more space for words
+    - bio: iterate on grid
+    - image aspect ratio : https://css-tricks.com/aspect-ratios-grid-items/
+    - responsive
+
+- art projects 
     - add masks to types
-    - 
-    - make admin content
-    - 6/8 projects
+    - stagger items 
+    - mount/unmount on section enter/exit
+    - 6/8 projects + view, only on active glide
     - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
-
+    - quotes ticker, add to admin
+    - hover over projects, no cursor on large bpoints where cant drag
 
 - project detail template (routes)
     - Full width image
@@ -33,10 +46,7 @@ automatically happens on Netlify when commits are pushed
 
 - nav: top and bottom only
 
-- headshot
-    - Photo, not Ken Burns, others yes
-    - headshot narrower, pull text left.
-    - text taller, more space for words
+
 
 - commerical work
      background change from Art project
@@ -61,21 +71,21 @@ automatically happens on Netlify when commits are pushed
     Workshops
     Book me
 
-- nav: arrow line longer
-- bio: iterate on grid
-    - image aspect ratio : https://css-tricks.com/aspect-ratios-grid-items/
-    - responsive
 
 
 #### later
 
+- host images outside of GH? 
+    https://github.com/netlify/netlify-cms/issues/432
+    https://github.com/netlify/netlify-cms/pull/1602
 - fix validation
 - set up handlebars-helper webpack plugin
+- why isnt handlebars being hot reloaded?
 - conditional logic in admin - intro: if it's a plain fragment, how to hide key + image fields?
 - dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
 - intro: split into paragraphs. <br> as an item? refactor intro to rich text?
-- fullPage license as ENV key, to webpack
-- fix jumping: https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
+- fullPage license as ENV key, to webpack https://github.com/alvarotrigo/fullPage.js/issues/3544
+- fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
 - set up SSL
 - set up custom domain
 - webpack image optimizer step
@@ -89,6 +99,8 @@ automatically happens on Netlify when commits are pushed
 - netlify: possible to add a list singular label?
 - intro section: Animate test on with boxes, U /D /L/ R
 - intro: optimize js-hover
+- do we want o keep katebrehm GH page.
+- project page:  Next / previous project.
 
 - #### nice to have
 - fix fout https://css-tricks.com/fighting-foit-and-fout-together/

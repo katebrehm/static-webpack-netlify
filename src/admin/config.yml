@@ -24,56 +24,77 @@ collections:
         file: content/intro.json
         fields:
           - label: text fragments
-            name: intro--fragment-list
+            name: intro__fragment-list
             widget: list
             fields:
 
               - label: text fragment
-                name: intro--fragment-text
+                name: intro__fragment-text
                 widget: string
 
               - label: text fragment type
-                name: intro--fragment-type
+                name: intro__fragment-type
                 widget: select
                 options:
                  - { label: plain, value: "plain" }
                  - { label: hoverable, value: "hoverable" }
 
               - label: hoverable image
-                name: intro--fragment-image-path
+                name: intro__fragment-image-path
                 widget: image
                 required: false
                 hint: Only select/upload an image if this fragment is hoverable. Otherwise leave blank
-                pattern: 
-                  - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
-                  - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
+                # pattern: 
+                  # - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                  # - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
 
               - label: unique key
-                name: intro--fragment-key
+                name: intro__fragment-key
                 hint: A unique back-end field to identify this fragment. It's arbitrary, pick anything as long as it's unique to other keys in the intro page. Only lower case letters and dashes
                 required: false
                 widget: string
                 pattern: 
                   - '^[a-zA-Z_\-]$' 
 
+      - name: bio
+        label: Bio Page
+        file: content/bio.json
+        fields:
+          - label: headshot images
+            name: bio__headshot-images-list
+            widget: list
+            fields:
+
+              - label: headshot image path
+                name: bio__headshot-image-path
+                widget: image
+                required: true
+                # pattern: 
+                #   - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                #   - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
+          - label: Resume PDF
+            name: bio__resume-pdf
+            widget: file
+            # default: /uploads/kate-brehm-resume.pdf
+            media_library:
+              config:
+                multiple: false
+
       - name: art-projects
         label: Art projects Page
         file: content/art-projects.json
         fields:
           - label: Art projects
-            name: title
+            name: art-projects__list
             widget: list
             fields:
               - label: art project name 
                 name: art-project--title 
                 widget: string
-             
-              - label: art project thumbnail image 
-                name: art-project--thumbnail-image 
-                widget: image
-                pattern: 
-                  - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
-                  - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
+
+              - label: art project description 
+                name: art-project--description 
+                widget: string
 
               - label: art project type
                 name: art-project--type
@@ -82,6 +103,9 @@ collections:
                  - { label: live art, value: 1 }
                  - { label: devising + directing, value: 2 }
 
-              - label: art project description 
-                name: art-project--description 
-                widget: string
+              - label: art project image path 
+                name: art-project--image-path 
+                widget: image
+                pattern: 
+                  # - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                  # - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)

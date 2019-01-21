@@ -1,66 +1,62 @@
 {
-  "intro--fragment-list": [
+  "intro__fragment-list": [
     {
-      "intro--fragment-text": "Kate Brehm is an ",
-      "intro--fragment-type": "plain",
-      "intro--fragment-image-path": "",
-      "intro--fragment-key": ""
+      "intro__fragment-text": "Kate Brehm is an ",
+      "intro__fragment-type": "plain",
+      "intro__fragment-image-path": "",
+      "intro__fragment-key": ""
     },
     {
-      "intro--fragment-text": "artist",
-      "intro--fragment-type": "hoverable",
-      "intro--fragment-image-path": "/images/content/_MP_6371.jpg",
-      "intro--fragment-key": "artist"
+      "intro__fragment-text": "artist",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/imp-6371.jpg",
+      "intro__fragment-key": "artist"
     },
     {
-      "intro--fragment-text": "  and ",
-      "intro--fragment-type": "plain"
+      "intro__fragment-text": "  and ",
+      "intro__fragment-type": "plain"
     },
     {
-      "intro--fragment-text": "movement director",
-      "intro--fragment-type": "hoverable",
-      "intro--fragment-image-path": "/images/content/3-1398373244tumblr_n4jvn2pfrW1qa4iv8o2_500.gif",
-      "intro--fragment-key": "movement-director"
+      "intro__fragment-text": "movement director",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/31398373244tumblr-n4jvn2pfrw1qa4iv8o2-500.gif",
+      "intro__fragment-key": "movement-director"
     },
     {
-      "intro--fragment-text": " specializing in ",
-      "intro--fragment-type": "plain"
+      "intro__fragment-text": " specializing in ",
+      "intro__fragment-type": "plain"
     },
     {
-      "intro--fragment-text": "puppetry,",
-      "intro--fragment-type": "hoverable",
-      "intro--fragment-image-path": "/images/content/IMG_1243--1800.jpg",
-      "intro--fragment-key": "puppetry"
+      "intro__fragment-text": "puppetry,",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/img1243-1800.jpg",
+      "intro__fragment-key": "puppetry"
     },
     {
-      "intro--fragment-text": "performing objects,",
-      "intro--fragment-type": "hoverable",
-      "intro--fragment-image-path": "/images/content/poof--edit--poster.jpg",
-      "intro--fragment-key": "performing-objects"
+      "intro__fragment-text": "performing objects,",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/poof-edit-poster.jpg",
+      "intro__fragment-key": "performing-objects"
     },
     {
-      "intro--fragment-text": "and ",
-      "intro--fragment-type": "plain"
+      "intro__fragment-text": "and ",
+      "intro__fragment-type": "plain"
     },
     {
-      "intro--fragment-text": "physical acting.",
-      "intro--fragment-type": "hoverable",
-      "intro--fragment-image-path": "/images/content/bdr8-06_2wb.jpg",
-      "intro--fragment-key": "physical-acting"
+      "intro__fragment-text": "physical acting.",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/bdr806-2wb.jpg",
+      "intro__fragment-key": "physical-acting"
     },
     {
-      "intro--fragment-text": " She is professionally certified in the",
-      "intro--fragment-type": "plain"
+      "intro__fragment-text": " She is professionally certified in the",
+      "intro__fragment-type": "plain"
     },
     {
-      "intro--fragment-text": "Margolis Method.",
-      "intro--fragment-type": "hoverable",
-      "intro--fragment-image-path": "/images/content/margolis-method.jpg",
-      "intro--fragment-key": "margolis-method"
-    },
-    {
-      "intro--fragment-text": "She lectures and leads workshops for theater and live art. Her company, imnotlost, produces puppet shows, plays, and interactive events in NYC.   Her research explores a critical history of performing design and proposes that scenography may effectively be puppeteered.  She tours internationally with critically acclaimed puppeteers and works as a theater technician.  ",
-      "intro--fragment-type": "plain"
+      "intro__fragment-text": "Margolis Method.",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/margolis-method.jpg",
+      "intro__fragment-key": "margolis-method"
     }
   ]
 }

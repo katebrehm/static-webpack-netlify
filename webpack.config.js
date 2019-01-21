@@ -143,7 +143,10 @@ module.exports = (env, argv) => ({
 				options: {
 					helperDirs: [
 						path.join(__dirname, 'src', 'templates', 'helpers')
-					]
+					],
+					partialDirs: [
+						path.join(__dirname, 'src', 'templates', 'partials')
+					],				
 				}
 			},
 			{

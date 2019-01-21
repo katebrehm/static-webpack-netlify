@@ -1,7 +1,5 @@
 .section--bio {
 	position: relative;
-
-
 	display: grid;
 
 	/*
@@ -42,14 +40,14 @@
 
 		[ text--start 
 		  gutter--before-text--end 
-		  button--download-pdf--start 
+		  button--resume-pdf--start 
 		  tab--start ] 
 
 				1fr 
 
 		[ text--end 
 		  gutter--after-text--start 
-		  button--download-pdf--end  
+		  button--resume-pdf--end  
 		  tab--end ] 
 
 				40px 
@@ -96,7 +94,7 @@
 		[ text--end
 		  headshot--end 
 		  caption--start
-		  button--download-pdf--start  ] 
+		  button--resume-pdf--start  ] 
 		
 			min-content 
 		
@@ -109,7 +107,7 @@
 		  gutter--last--end
 		  dark-bg--end
 		  nav-content--end 
-		  button--download-pdf--end ];
+		  button--resume-pdf--end ];
 
 
 	height: 100vh;
@@ -133,7 +131,8 @@
 	*/
 	grid-area: dark-bg-;
 	/* background-color: #484865; */
-	background-color: #34344A;
+	// background-color: #34344A;
+	background-color: $palette--navy;
 }
 
 .bio__nav-bg--mask {
@@ -145,7 +144,7 @@
 	z-index: 5;
 }
 
-.bio__nav { 
+.bio__nav {
 	width: 100%;
 	grid-area: nav-content-;
 	align-self: flex-end;
@@ -176,27 +175,55 @@
 	opacity: 0.25;
 }
 
-.headshot__image {
-	position: absolute;
-	width: 120%; // original value;
+.headshot__image{
+/*   width:100%;
+  height:100%; */
+  position:absolute;
+  top:0;
+  left:0;
 	height: 100%;
-	/* object-fit: cover; */
-	/* opacity: 1; */
-	/* transform: translateX(-75px); */
-	
-	background-repeat: no-repeat;
-  	background-size: cover;
-	background-position: center;
-}/* 
+  width: 100%;
+  object-fit: cover;
+	// background-repeat: no-repeat;
+	// background-size: cover;
+	// background-position: center;
+}
 
-.headshot__image:nth-of-type(2){ background-image: url('../.././images/photos/content/smersideface.jpeg'); z-index: 3; }
-.headshot__image:nth-of-type(3){ background-image: url('../.././images/photos/content/1280here_thingsfallapart_067.jpg'); z-index: 2; }
-.headshot__image:nth-of-type(4){ background-image: url('../.././images/photos/content/katediscfaace.jpg'); z-index: 1; }
- */
+.headshot__mask-wrapper {
+	height: 100%;
+  // width:400px;
+  // height:200px;
+  overflow:hidden;
+  position:relative;
+}
+
+// .headshot__image {
+// 	position: absolute;
+// 	// top: 0;
+// 	// left: 0;
+// 	opacity: 0;
+
+// 	// width: 120%; // original value;
+// 	height: 100%;
+// 	/* object-fit: cover; */
+// 	/* opacity: 1; */
+// 	/* transform: translateX(-75px); */
+	
+// 	background-repeat: no-repeat;
+// 	background-size: cover;
+// 	background-position: center;
+// }
+
+// .headshot__image:first-child {
+// 	opacity: 1;
+//   // position:relative;
+// }
+
 .headshot__mask-wrapper {
 	position: relative;
 	height: 100%;
-	width: 120%;
+	// width: 120%;
+	width: 100%;
 	overflow: hidden;
 }
 
@@ -248,7 +275,7 @@
 	column-width: 275px;
 	column-rule: solid 1px #b3b3b3;
 
-  	padding: 4rem 0;
+	padding: 4rem 0;
 
 	/* overflow: auto; */
 	max-width: 700px;
@@ -346,8 +373,8 @@
 	font-family: "K-Regular";
 }
 
-.button--download-pdf {
-	grid-area: button--download-pdf-;
+.button--resume-pdf {
+	grid-area: button--resume-pdf-;
 	align-self: flex-end;
 	justify-self: flex-end;
 	position: absolute;
@@ -365,7 +392,7 @@
 	transition: background-color border-color , 0.3s ease-in-out;
 }
 
-.button--download-pdf:hover {
+.button--resume-pdf:hover {
 	border-color: white;
 	background: #CEE0DC;
 	color: #269CC8;

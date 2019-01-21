@@ -1,12 +1,11 @@
 @import "_colors";
 
-
 .glide__track {
 	overflow: visible;
 }
 
 .glide__slides {
-	height: 60vh;
+	height: 60vh; 
 	@include mq('md') { height: 400px; }
 	@include mq('lg') { height: 400px; }
 	@include mq('xl') { height: 350px; }
@@ -31,7 +30,6 @@
 .glide__slide {
 	background-size: cover;
 	background-position: center center;
-	
 	@include mq('lg') {
 		opacity: 0.6;
 		transition: opacity 0.1s ease-in-out;
@@ -42,14 +40,11 @@
 	opacity: 1 !important;
 }
 
-.glide__arrows { 
+.glide__arrows {
 	display: flex;
-	position: absolute;
-    bottom: -13vh;
-    right: 0;
 }
 
-.glide__arrow { 
+.glide__arrow {
 	position: static;
 	top: auto;
 	left: auto; 
@@ -61,43 +56,18 @@
 	text-shadow: none;
 	border-radius: 0;
 	border: 0;
-	color: #82C345;
+	color: $palette--green;
 	line-height: normal;
 	i { width: 20px !important; }
  }
 
  .glide__arrow--left {
 	margin-left: auto;
-
  }
 
  .glide__arrow--right {
 	margin-right: 3rem;
 }
-
-.glide__slide:nth-of-type(1) { background-image: url('../images/content/_MG_5563.jpg');	}
-.glide__slide:nth-of-type(2) { background-image: url('../images/content/IMG_1243--1800.jpg');	}
-.glide__slide:nth-of-type(3) { background-image: url('../images/content/_MG_5625.jpg');	}
-.glide__slide:nth-of-type(4) { background-image: url('../images/content/_MP_6321--1600.jpg');	}
-.glide__slide:nth-of-type(5) { background-image: url('../images/content/chi-cth-blue-man-group-2017-ct0047554800-20170210.jpg');	}
-.glide__slide:nth-of-type(6) { background-image: url('../images/content/eyeball---kbrehm--costume.jpg');	}
-.glide__slide:nth-of-type(7) { background-image: url('../images/content/poof.png');	}
-
-.glide__slide:nth-of-type(8) { background-image: url('../images/content/_MG_5563.jpg');	}
-.glide__slide:nth-of-type(9) { background-image: url('../images/content/IMG_1243--1800.jpg');	}
-.glide__slide:nth-of-type(10) { background-image: url('../images/content/_MG_5625.jpg');	}
-.glide__slide:nth-of-type(11) { background-image: url('../images/content/_MP_6321--1600.jpg');	}
-.glide__slide:nth-of-type(12) { background-image: url('../images/content/chi-cth-blue-man-group-2017-ct0047554800-20170210.jpg');	}
-.glide__slide:nth-of-type(13) { background-image: url('../images/content/eyeball---kbrehm--costume.jpg');	}
-.glide__slide:nth-of-type(14) { background-image: url('../images/content/poof.png');	}
-
-.glide__slide:nth-of-type(15) { background-image: url('../images/content/_MG_5563.jpg');	}
-.glide__slide:nth-of-type(16) { background-image: url('../images/content/IMG_1243--1800.jpg');	}
-.glide__slide:nth-of-type(17) { background-image: url('../images/content/_MG_5625.jpg');	}
-.glide__slide:nth-of-type(18) { background-image: url('../images/content/_MP_6321--1600.jpg');	}
-.glide__slide:nth-of-type(19) { background-image: url('../images/content/chi-cth-blue-man-group-2017-ct0047554800-20170210.jpg');	}
-.glide__slide:nth-of-type(20) { background-image: url('../images/content/eyeball---kbrehm--costume.jpg');	}
-.glide__slide:nth-of-type(21) { background-image: url('../images/content/poof.png');	}
 
 .slide__image {
 	object-fit: cover;
@@ -105,18 +75,23 @@
 	height: 100%;
 }
 
+.glide__slide:hover {
+	opacity: 0.8;
+}
+
 .slide__title {
 	position: relative;
 	margin: 1rem;
 	top: -3.4rem;
 	user-select: text;
-	color: $gray--dark;
+	color: $gray--light;
 	/* box-shadow: 1rem 1rem rgba($teal-2, 0.4); */
 }
 
-.container__arrow:hover {
-	opacity: 1;
-}
+// .container__arrow:hover {
+// 	opacity: 1;
+// }
+
 
 //////////////////
 // video, HTML el

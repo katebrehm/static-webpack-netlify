@@ -3,30 +3,24 @@
 }
 
 .section--art-projects {
-	background: linear-gradient(171deg, #f9fdfc  55%, #00FDDC 170%)
+	// background: linear-gradient(171deg, #f9fdfc  55%, #00FDDC 170%);
+	background-color: #222629;
 }
 
 .section--commerical-projects {
-	background: linear-gradient(180deg, #05070b 0, #17171d);
+	// background: linear-gradient(171deg, #f9fdfc  55%, #00FDDC 170%);
+	// background: linear-gradient(180deg, #05070b 0, #17171d);
 }
-
-
-// @todo: make color vars
-// #00FDDC
-// #276688
-// #A9ABB7
-// #55DDE0
-// #6EABC2
-
 
 .material-icon__arrow--down {
 	position: absolute;
 	z-index: 5;
+	color: $palette--green;
 	opacity: 1;
 	left: 4rem;
 	bottom: 2rem;
 	font-size: 2rem !important;
-	transition: opacity, 0.16s ease-in-out;
+	transition: opacity , 0.16s ease-in-out;
 	cursor: pointer;
 }
 

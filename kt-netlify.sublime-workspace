@@ -8,10 +8,10 @@
 	"buffers":
 	[
 		{
-			"file": "webpack.config.js",
+			"file": "src/scss/partials/_section.scss",
 			"settings":
 			{
-				"buffer_size": 6019,
+				"buffer_size": 554,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -29,7 +29,7 @@
 			"file": "src/scss/partials/_section--intro.scss",
 			"settings":
 			{
-				"buffer_size": 5794,
+				"buffer_size": 5819,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -38,7 +38,7 @@
 			"file": "src/scss/partials/_section--projects.scss",
 			"settings":
 			{
-				"buffer_size": 4422,
+				"buffer_size": 4293,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -47,7 +47,16 @@
 			"file": "src/js/index.js",
 			"settings":
 			{
-				"buffer_size": 18224,
+				"buffer_size": 18307,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 3430,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -56,7 +65,7 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 13821,
+				"buffer_size": 13793,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -71,6 +80,14 @@
 			}
 		},
 		{
+			"file": "src/scss/partials/_nav.scss",
+			"settings":
+			{
+				"buffer_size": 1958,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "src/templates/home/sections/intro/paragraph-fragments.hbs",
 			"settings":
 			{
@@ -80,22 +97,11 @@
 			}
 		},
 		{
-			"file": "src/templates/home/sections/intro/hover-photo-collection.hbs",
-			"settings":
-			{
-				"buffer_size": 212,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "{\n  \"title\": [\n    {\n      \"art-project--title\": \"Discrepancies\",\n      \"art-project--thumbnail-image\": \"/images/content/screen-shot-2018-12-31-at-8.19.58-pm.png\",\n      \"art-project-type\": 1,\n      \"art-project--description\": \"project description here project description here project description here project description here project description here \"\n    },\n    {\n      \"art-project--title\": \"Puppet theater\",\n      \"art-project--thumbnail-image\": \"/images/content/doll1-cloesup500wb.jpg\",\n      \"art-project-type\": 2,\n      \"art-project--description\": \"project desc project desc project desc project desc project desc project desc\"\n    }\n  ]\n}",
 			"file": "content/art-projects.json",
-			"file_size": 628,
-			"file_write_time": 131912268260115181,
 			"settings":
 			{
 				"buffer_size": 648,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -112,6 +118,10 @@
 		"selected_items":
 		[
 			[
+				"postsc",
+				"Set Syntax: PostCSS"
+			],
+			[
 				"post",
 				"Set Syntax: PostCSS"
 			],
@@ -125,10 +135,6 @@
 			],
 			[
 				"pos",
-				"Set Syntax: PostCSS"
-			],
-			[
-				"postsc",
 				"Set Syntax: PostCSS"
 			],
 			[
@@ -207,6 +213,11 @@
 	],
 	"file_history":
 	[
+		"/Users/cycles/Code/kt-netlify/package.json",
+		"/Users/cycles/Code/kt-netlify/src/templates/home/sections/intro/hover-photo-collection.hbs",
+		"/Users/cycles/Code/kt-netlify/src/scss/partials/_colors.scss",
+		"/Users/cycles/Code/kt-netlify/webpack.config.js",
+		"/Users/cycles/Code/kt-netlify/.gitignore",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_nav.scss",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_panel--projects.scss",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_panel--bio.scss",
@@ -214,14 +225,12 @@
 		"/Users/cycles/Code/kt-netlify/src/scss/app.scss",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_section.scss",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_panel--intro.scss",
-		"/Users/cycles/Code/kt-netlify/webpack.config.js",
 		"/Users/cycles/Code/kt-netlify/content/intro.json",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_type.scss",
 		"/Users/cycles/Code/kt-netlify/src/type/k/k--regular.css",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_fonts.scss",
 		"/Users/cycles/Code/kt-netlify/src/templates/partials/arrow.hbs",
 		"/Users/cycles/Code/kt-netlify/src/scss/index.scss",
-		"/Users/cycles/Code/kt-netlify/package.json",
 		"/Users/cycles/Code/kt-netlify/src/type/k/k--super.css",
 		"/Users/cycles/Code/kt-netlify/src/scss/partials/_mq-debugger.scss",
 		"/Users/cycles/Code/kt-netlify/src/type/k/k--medium.css",
@@ -230,7 +239,6 @@
 		"/Users/cycles/Code/kt-netlify/src/templates/helpers/testHelper.js",
 		"/Users/cycles/Code/kt-netlify/src/templates/helpers/ifEquals.js",
 		"/Users/cycles/Code/kt-netlify/src/js/utils/transformToCamelCase.js",
-		"/Users/cycles/Code/kt-netlify/src/templates/home/sections/intro/hover-photo-collection.hbs",
 		"/Users/cycles/Code/katebrehm/src/js/index.js",
 		"/Users/cycles/Desktop/demodata-attachments.txt",
 		"/Users/cycles/.gitconfig",
@@ -268,6 +276,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"././",
+			"./",
+			".././images/content/_MG_5625.jpg",
+			"color",
+			": ",
+			"#F5F5F5;",
+			"#55DDE0",
+			"js--glide--commerical-projects",
 			"panel",
 			".section",
 			"panel--projects",
@@ -404,34 +420,36 @@
 			[
 				{
 					"buffer": 0,
-					"file": "webpack.config.js",
+					"file": "src/scss/partials/_section.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6019,
+						"buffer_size": 554,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3199,
-								3199
+								302,
+								222
 							]
 						],
 						"settings":
 						{
-							"SL.45.region_keys":
+							"SL.84.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Syntax Highlighting for PostCSS/Syntaxes/PostCSS.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2710.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -497,7 +515,7 @@
 						"translation.y": 1441.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -506,15 +524,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5794,
+						"buffer_size": 5819,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28,
-								28
+								3952,
+								3529
 							]
 						],
 						"settings":
@@ -539,10 +557,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 996.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -551,46 +569,40 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4422,
+						"buffer_size": 4293,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28,
-								28
-							],
-							[
-								83,
-								83
+								691,
+								693
 							]
 						],
 						"settings":
 						{
 							"SL.56.region_keys":
 							[
-								"SL.stylelint.Highlights.|5cf673cd50001423a089823123cfe77f3b45ce7b79450e260c314a420f4fa45e|region.yellowish markup.warning.sublime_linter|32",
-								"SL.stylelint.Highlights.|cf0597c6bedc4dab03290c422e5128acdb6ffcd54bf56f5989924895b5f89c2c|region.yellowish markup.warning.sublime_linter|32",
-								"SL.stylelint.Highlights.|3dafa85041da95c903584ab30058a6cfe0062f287be7f747f61fd1bf8b299829|region.yellowish markup.warning.sublime_linter|32",
-								"SL.stylelint.Highlights.|1253ca0e9a6ac85c6d5d1bde688f0312f966169288b5626069dbaf198599d46a|region.redish markup.error.sublime_linter|32",
+								"SL.stylelint.Highlights.|c0d4487eb2d8eff458c70226bc5ddb7cc3c5d6c803b27a4d328c54362c0ff160|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|810f3cc75bbb29ad41446364db2040b0522c5f1def0b0c34dde3a5ea8f087a27|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|ab3c071ca299fe388e20737cce2d4aebfc6cbd3b87c61e0ba19e9be962853471|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|7d6f13e9e76f90aa2b94b26787dd74c482d5709967a1e8d5987bea8f18b25e43|region.redish markup.error.sublime_linter|32",
 								"SL.stylelint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.stylelint.Highlights.|4a94b3ed5f13b58b1e643aca582c03627bf6cb7d6762d3aae9f4cf45deaadfe7|region.yellowish markup.warning.sublime_linter|32",
-								"SL.stylelint.Highlights.|fb97416a9c7f6c30e66756c4c391f55c15fa6f7f420bbd620de95afbd85c8a93|region.yellowish markup.warning.sublime_linter|32",
-								"SL.stylelint.Highlights.|75fab3794d893039715990f3674d0267e6ed67f72b6235a64ca27234b9bb682b|region.redish markup.error.sublime_linter|32",
+								"SL.stylelint.Highlights.|e23d371859e5bbca55c986b33ded7c6ab72f896e885990c88986db7569a936d3|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|2a0e207a14d7c8d5897cd405dd429ae1d76759d41e5645698a4f875f41a887eb|region.redish markup.error.sublime_linter|32",
 								"SL.stylelint.Gutter.|region.redish markup.error.sublime_linter|dot",
 								"sublime_linter.protected_regions",
-								"SL.stylelint.Highlights.|8b49d5a7254c4700de01ae30c3b3c6e12426617fc3dfc7b0d3521114e576276f|region.redish markup.error.sublime_linter|32",
-								"SL.stylelint.Highlights.|7ab830cc1d5e5e1d843c7aebf28d200ae878c6072ba48483ad5ac68ab9fb1b62|region.yellowish markup.warning.sublime_linter|32"
+								"SL.stylelint.Highlights.|9e6ceba5a95c3e3ec3ef598850c553f6be2b4cfc8d3cfa4998f416515a5a8d05|region.redish markup.error.sublime_linter|32"
 							],
 							"syntax": "Packages/SCSS/SCSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 98.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -599,15 +611,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18224,
+						"buffer_size": 18307,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7113,
-								7113
+								9181,
+								9181
 							]
 						],
 						"settings":
@@ -620,43 +632,63 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3135.0,
+						"translation.y": 4018.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "src/index.html",
+					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13821,
+						"buffer_size": 3430,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								560,
-								560
-							],
+								1929,
+								1929
+							]
+						],
+						"settings":
+						{
+							"SL.104.region_keys":
 							[
-								605,
-								605
 							],
+							"SL.130.region_keys":
 							[
-								1263,
-								1263
 							],
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1040.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13793,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								3947,
-								3947
-							],
-							[
-								10929,
-								10929
+								1318,
+								1318
 							]
 						],
 						"settings":
@@ -672,14 +704,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1279.0,
+						"translation.y": 1174.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "src/admin/config.yml",
 					"semi_transient": false,
 					"settings":
@@ -691,8 +723,8 @@
 						"selection":
 						[
 							[
-								1584,
-								1584
+								673,
+								673
 							]
 						],
 						"settings":
@@ -713,15 +745,65 @@
 					},
 					"stack_index": 2,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 7,
+					"buffer": 8,
+					"file": "src/scss/partials/_nav.scss",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1958,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.110.region_keys":
+							[
+								"SL.stylelint.Highlights.|d8aa43ad37ea57c57615fe8c2db017fcaa2e3d7e313af1d3500a35c39803975f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|d638db75718b55b1bce1173a2f253c320f5a46ea30a823292713c5a0f5857894|region.redish markup.error.sublime_linter|32",
+								"SL.stylelint.Highlights.|c0cbc216c2785e33e2e4db91c602575b8547d0f19010c898426d4ada688d5015|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|953136eff141f7119c9c57016227425d2637f1427e471e99f642bde184606475|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|1bd885f1b9a87d4c54d4675fa2426ed78b8f5fb3271c9191671ebf6bc9907710|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|fbae01e71efd332e4973a350eada49285073a14a7a3c6993e73c99f6db4ffeaf|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|7e98e0619dab1dc54f8404b19014e7ab61e08167c18141f90d179bd63653ed2e|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.stylelint.Highlights.|731920e004b740ed747aad696c490996063bee26587c23b3031267f8c141ef2c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|6fd3c27fe45e94dca39ccc679c2261f1c0fa5595622c9c540d38227c5e1188ca|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|a9a3a3a5e86c60088117bc7a40c989d8cd77fc0bf2950905bf405886f648c672|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|03fb1eda4573027f722abe6aa2e37f55d6f932ca0de931a6efae43ad0d499b11|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|edbdc7751825d425f05e79a4bf27931d403bc402df1e99d9cffaa7ea1e3c3e89|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|bd1ee0f2f30ee429c6b8fb5a811347ae124f59e3585cc47269d7effa14360cca|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|d9e34bddb6efc532210f9092297ce06384f52461dc34ef8f3e48a3970031d398|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|c0a1e7880d1718ae75eec250da44c912761c8fdb185fb54db344cb3a963e3e35|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|068c6d16066070211de17036860ddd2feb6b4b66f83aaa57db1828b356e0b118|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|1b49c737a2c78a36c3e39b483a27b0c823a7e4c03ecec1aa31528e1de6739ea0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.stylelint.Highlights.|58eb687ae16508f9445a01ce7ff0613f4b7144ba527a518064b8a3141ee4732c|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.stylelint.Highlights.|0ce5a635913d78384d215380fb5c08a3af143f1c8bfedbf821096a5247f0ec7e|region.yellowish markup.warning.sublime_linter|32",
+								"SL.stylelint.Highlights.|2c1e67d06279acd2e8e7912809c16422cec11eb103f0a200eae6db81cee68fb0|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
 					"file": "src/templates/home/sections/intro/paragraph-fragments.hbs",
 					"semi_transient": false,
 					"settings":
@@ -751,43 +833,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "src/templates/home/sections/intro/hover-photo-collection.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 212,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								150,
-								150
-							]
-						],
-						"settings":
-						{
-							"SL.41.region_keys":
-							[
-							],
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "content/art-projects.json",
 					"semi_transient": false,
 					"settings":
@@ -799,8 +849,8 @@
 						"selection":
 						[
 							[
-								361,
-								361
+								367,
+								367
 							]
 						],
 						"settings":
@@ -814,7 +864,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -837,18 +887,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.571126028046,
 			1.0
 		],
 		"rows":
@@ -880,6 +923,10 @@
 		"selected_items":
 		[
 			[
+				"package.js",
+				"package.json"
+			],
+			[
 				"app.scss",
 				"src/scss/app.scss"
 			],
@@ -898,10 +945,6 @@
 			[
 				"web",
 				"webpack.config.js"
-			],
-			[
-				"package.js",
-				"package.json"
 			],
 			[
 				"readme",
@@ -936,7 +979,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 297.0,
+	"side_bar_width": 133.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
