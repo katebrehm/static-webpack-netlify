@@ -1,6 +1,8 @@
 {
   "bio__headshot-images-list": [
-    {}
+    {
+      "bio__headshot-image-path": "/images/content/smersideface.jpeg"
+    }
   ],
   "bio__resume-pdf": "/images/content/kate-brehm-resume.pdf"
 }
