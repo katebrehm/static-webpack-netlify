@@ -36,49 +36,49 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
 import arrowPartial from '../templates/partials/arrow.hbs';
 
 
-function bounceIntroArrow(){
+// function bounceIntroArrow(){
 
-  var el = $(".button--arrow-down");
+//   var el = $(".button--arrow-down");
 
-  var overshoot = 1.2;
-  var period = 0.5;
+//   var overshoot = 1.2;
+//   var period = 0.5;
 
-  var heartbeatTl = new TimelineMax({
-    repeat: -1
-  });
+//   var heartbeatTl = new TimelineMax({
+//     repeat: -1
+//   });
 
-  heartbeatTl
-   // .to(el, 0.5, { scale: 0.9 })
-   .to(
-      el,
-      0.4,
-      {
-        autoAlpha: 0,
-        y: -6,
-        // opacity: 0
-        // scale: 1,
-        // transformOrigin:"50% 50%",
-        // ease: Back.easeOut,
-      }
-      // "+=1.5x"
-    )
+//   heartbeatTl
+//    // .to(el, 0.5, { scale: 0.9 })
+//    .to(
+//       el,
+//       0.4,
+//       {
+//         autoAlpha: 0,
+//         y: -6,
+//         // opacity: 0
+//         // scale: 1,
+//         // transformOrigin:"50% 50%",
+//         // ease: Back.easeOut,
+//       }
+//       // "+=1.5x"
+//     )
     
-    .to(
-      el,
-      1,
-      {
-        y: 0,
-        autoAlpha: 1,
-        ease: Elastic.easeOut,
-        easeParams:[ overshoot, period]
-      }
-    )
+//     .to(
+//       el,
+//       1,
+//       {
+//         y: 0,
+//         autoAlpha: 1,
+//         ease: Elastic.easeOut,
+//         easeParams:[ overshoot, period]
+//       }
+//     )
 
-    // filler, as a delay before the next bounce
-    .to(el, 1, { opacity: 1 })
+//     // filler, as a delay before the next bounce
+//     .to(el, 1, { opacity: 1 })
 
-  return heartbeatTl;
-}
+//   return heartbeatTl;
+// }
 
 
 
@@ -260,7 +260,7 @@ function bounceIntroArrow(){
 			licenseKey: '',
 			// verticalCentered: true,
 			// menu: '#menu',
-			anchors: ['intro', 'bio', 'art-projects'],
+			anchors: ['intro', 'bio', 'art-projects', 'what-is', 'professional-work'],
 			// easingcss3: "linear"
 			// responsiveWidth: 400,
 			// responsiveHeight: 400
@@ -536,6 +536,7 @@ function bounceIntroArrow(){
 				// probably some timing thing where the DOM isnt there
 				// yet before Glide initializes
 				.on('mount.before', function() {
+					// $('.glide__slide').addClass('.slide__bg-block'); 
 					$('.js--hbs-inject--art-projects__image-collection')
 						.html(artProjectsCollectionTemplate({ artProjectsImages }));
 				})
@@ -753,6 +754,14 @@ function bounceIntroArrow(){
 					console.log( $( this ).text() );
 					fullpage_api.moveSectionDown();
 				});
+
+				$( ".js--nav__section-line-active--intro" ).on( "click", function() {
+					// console.log( $( this ).text() );
+					fullpage_api.moveSectionDown();
+				});
+
+				
+
 			}
 		});
 }());

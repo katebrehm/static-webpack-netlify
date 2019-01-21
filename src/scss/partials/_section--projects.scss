@@ -32,26 +32,47 @@
  */
 
 .glide__slide {
+	opacity: 1;
 	    position: relative;
 	background-size: cover;
 	background-position: center center;
 	@include mq('lg') {
-		opacity: 0.6;
+		// opacity: 0.6;
 		transition: opacity 0.1s ease-in-out;
 	}
+
+	img {
+		opacity: 0.6;
+	}
 }
+
+.glide__slide--active {
+	img { opacity: 1;}
+}
+
+// // so nav line doesnt show thru
+// .slide__bg-block {
+// 	position: absolute;
+// 	height: 100%;
+// 	width: 100%;
+// 	background: black;
+// }
+
+
+
+
+
+
 
 // http://bennettfeely.com/clippy/
 .art-project__type--1 {
 }
 
 .art-project__type--2 {
-	clip-path: circle(50% at 50% 50%);
+	// clip-path: circle(50% at 50% 50%);
 }
 
-.glide__slide--active {
-	opacity: 1 !important;
-}
+
 
 .glide__arrows {
 	display: flex;
@@ -62,7 +83,7 @@
 	top: auto;
 	left: auto; 
 	right: auto;
-	margin: 1rem;
+	margin: 3rem 1rem;
 	padding: 0;
 	transform: none;
 	box-shadow: none;
@@ -88,12 +109,12 @@
 	height: 100%;
 }
 
-.glide__slide:hover {
+.glide__slide:hover img{
 	opacity: 0.8;
 }
 
 .slide__title {
-	position: relative;
+	position: absolute;
 	margin: 1rem;
 	top: -3.4rem;
 	user-select: text;
@@ -109,24 +130,35 @@
 	content: 'production';
 }
 
-.tag--1:before {
-	content: 'production';
+.tag--2:before {
+	content: 'event';
 }
 
 .slide__position-counter {
+	display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    /* width: 100%; */
+    padding: 0.5rem;
+    flex-grow: 1;
+    color: $palette--green;
+
 	color: white;
   font-family: 'K-Regular', sans-serif;
-	
+
 }
 .slide__tag {
-	background: $palette--glacier;
-	padding: 0.15rem;
-	border-radius: 2px;
-	color: white;
-	font-size: 0.7rem;
-	position: absolute;
-	bottom: -3rem;
-	right: 0
+	// background: #5d6163;
+    padding: 0.15rem 0.25rem 0.2rem 0.25rem;
+    border-radius: 2px;
+    color: white;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -2rem;
+    left: 0.25rem;
+    font-family: sans-serif;
+    opacity: 0.9;
+    border-bottom: 1px solid gray;
 }
 
 

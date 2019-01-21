@@ -55,6 +55,7 @@ $nav--item-left-offset: 6rem;
   display: flex;
   user-select: none;
   left: 2rem ;
+  z-index: 1;
 }
 
 .nav__item--this {
@@ -63,8 +64,9 @@ $nav--item-left-offset: 6rem;
 
 .nav__item--previous { 
     top: 1.5rem;
-  cursor: pointer;
+    cursor: pointer;
 }
+
 
 .nav__item--next { 
     bottom: 1.5rem;
@@ -86,11 +88,37 @@ $nav--item-left-offset: 6rem;
   background-color: $palette--green;
 }
 
+.nav__section--intro {
+  .nav__section-line-bg {
+    height: 100px;
+    justify-content: flex-end;
+    top: auto;
+    bottom: 0;
+  }
+
+  .nav__section-line-active {
+    bottom: 3.25rem;
+    top: auto;
+    animation: flickerAnimation 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+  }
+}
+
+
+
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+
 .nav__section-line-active {
   position: absolute;
-  top: 3rem;
+  top: 3.2rem;
   height: 3rem ;
-  left: $nav--item-left-offset;
+  left: calc(#{$nav--item-left-offset} + 0.9px);
   width: 4px;
   background-color: $palette--green;
   // border-right: 1px solid $palette--green;
@@ -104,6 +132,7 @@ $nav--item-left-offset: 6rem;
   font-size: 0.8rem;
   color: #ABAFB2;
   margin-right: 0.5rem;
+
 }
 
 .nav__item-label {
