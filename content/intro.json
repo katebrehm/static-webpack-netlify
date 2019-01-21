@@ -1,26 +1,26 @@
 {
   "intro__fragment-list": [
     {
-      "intro__fragment-text": "Kate Brehm is an ",
+      "intro__fragment-text": "Kate Brehm is a ",
       "intro__fragment-type": "plain",
       "intro__fragment-image-path": "",
       "intro__fragment-key": ""
     },
     {
-      "intro__fragment-text": "artist",
+      "intro__fragment-text": "movement director",
       "intro__fragment-type": "hoverable",
-      "intro__fragment-image-path": "/images/content/imp-6371.jpg",
-      "intro__fragment-key": "artist"
+      "intro__fragment-image-path": "/images/content/md71280.jpg",
+      "intro__fragment-key": "movement-director"
     },
     {
       "intro__fragment-text": "  and ",
       "intro__fragment-type": "plain"
     },
     {
-      "intro__fragment-text": "movement director",
+      "intro__fragment-text": "artist",
       "intro__fragment-type": "hoverable",
-      "intro__fragment-image-path": "/images/content/31398373244tumblr-n4jvn2pfrw1qa4iv8o2-500.gif",
-      "intro__fragment-key": "movement-director"
+      "intro__fragment-image-path": "/images/content/artist1280.jpg",
+      "intro__fragment-key": "artist"
     },
     {
       "intro__fragment-text": " specializing in ",
@@ -29,13 +29,13 @@
     {
       "intro__fragment-text": "puppetry,",
       "intro__fragment-type": "hoverable",
-      "intro__fragment-image-path": "/images/content/img1243-1800.jpg",
+      "intro__fragment-image-path": "/images/content/puppets1280.jpg",
       "intro__fragment-key": "puppetry"
     },
     {
       "intro__fragment-text": "performing objects,",
       "intro__fragment-type": "hoverable",
-      "intro__fragment-image-path": "/images/content/poof-edit-poster.jpg",
+      "intro__fragment-image-path": "/images/content/perfobj11280.jpg",
       "intro__fragment-key": "performing-objects"
     },
     {
@@ -45,7 +45,7 @@
     {
       "intro__fragment-text": "physical acting.",
       "intro__fragment-type": "hoverable",
-      "intro__fragment-image-path": "/images/content/bdr806-2wb.jpg",
+      "intro__fragment-image-path": "/images/content/physact1280.jpg",
       "intro__fragment-key": "physical-acting"
     },
     {
@@ -55,7 +55,7 @@
     {
       "intro__fragment-text": "Margolis Method.",
       "intro__fragment-type": "hoverable",
-      "intro__fragment-image-path": "/images/content/margolis-method.jpg",
+      "intro__fragment-image-path": "/images/content/margolis1280-upleft.jpg",
       "intro__fragment-key": "margolis-method"
     }
   ]
