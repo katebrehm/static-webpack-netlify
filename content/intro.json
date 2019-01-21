@@ -102,6 +102,35 @@
       "intro__fragment-type": "hoverable",
       "intro__fragment-image-path": "/images/content/intevents1280.jpg",
       "intro__fragment-key": "interactiveevents"
+    },
+    {
+      "intro__fragment-text": " in NYC.   Her research explores a critical history of ",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": "performing design",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/perfdes1280.jpg",
+      "intro__fragment-key": "performingdesign"
+    },
+    {
+      "intro__fragment-text": " and proposes that scenography may effectively be puppeteered.  She ",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": "tours",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/tour1280.jpg",
+      "intro__fragment-key": "tours"
+    },
+    {
+      "intro__fragment-text": " internationally with critically acclaimed puppeteers and also works as a theater ",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": "technician. ",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/technician1280.jpg"
     }
   ]
 }
