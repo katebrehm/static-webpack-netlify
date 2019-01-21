@@ -74,7 +74,34 @@
     },
     {
       "intro__fragment-text": "imnotlost",
-      "intro__fragment-type": "hoverable"
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/imnotlost1280.jpg"
+    },
+    {
+      "intro__fragment-text": ", produces ",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": "puppet shows, ",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/puppetshow1280.jpg",
+      "intro__fragment-key": "puppetshows"
+    },
+    {
+      "intro__fragment-text": "plays, ",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/plays1280.jpg",
+      "intro__fragment-key": "plays"
+    },
+    {
+      "intro__fragment-text": "and",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": " interactive events",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/intevents1280.jpg",
+      "intro__fragment-key": "interactiveevents"
     }
   ]
 }
