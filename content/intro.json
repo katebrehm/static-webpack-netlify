@@ -114,7 +114,16 @@
       "intro__fragment-key": "performingdesign"
     },
     {
-      "intro__fragment-text": " and proposes that scenography may effectively be puppeteered.  She ",
+      "intro__fragment-text": " and proposes that",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": "scenography",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/scenography1280.jpg"
+    },
+    {
+      "intro__fragment-text": " may effectively be puppeteered.  She ",
       "intro__fragment-type": "plain"
     },
     {
