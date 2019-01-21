@@ -4,6 +4,10 @@
 	overflow: visible;
 }
 
+.glide--art-projects {
+    margin-top: 10%;
+}
+
 .glide__slides {
 	height: 60vh; 
 	@include mq('md') { height: 400px; }
@@ -28,12 +32,21 @@
  */
 
 .glide__slide {
+	    position: relative;
 	background-size: cover;
 	background-position: center center;
 	@include mq('lg') {
 		opacity: 0.6;
 		transition: opacity 0.1s ease-in-out;
 	}
+}
+
+// http://bennettfeely.com/clippy/
+.art-project__type--1 {
+}
+
+.art-project__type--2 {
+	clip-path: circle(50% at 50% 50%);
 }
 
 .glide__slide--active {
@@ -92,6 +105,40 @@
 // 	opacity: 1;
 // }
 
+.tag--1:before {
+	content: 'production';
+}
+
+.tag--1:before {
+	content: 'production';
+}
+
+.slide__position-counter {
+	color: white;
+  font-family: 'K-Regular', sans-serif;
+	
+}
+.slide__tag {
+	background: $palette--glacier;
+	padding: 0.15rem;
+	border-radius: 2px;
+	color: white;
+	font-size: 0.7rem;
+	position: absolute;
+	bottom: -3rem;
+	right: 0
+}
+
+
+// $gray--light: #F5F5F5;
+// $gray--mid: #B8BDC2;
+
+// $palette--calypso: #276688;
+// $palette--mint: #00FDDC;
+// $palette--pearl: #A9ABB7;
+// $palette--turquoise-blue: #55DDE0;
+// $palette--glacier: #6EABC2;
+
 
 //////////////////
 // video, HTML el
@@ -106,29 +153,6 @@ $poofheight: 90vh;
 
 
 
-/* .fp-controlArrow {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	z-index: 1 !important;
-	top: 0 !important;
-	bottom: 0 !important;
-	height: 100vh !important;
-	
-	transform: none !important;
-	width: auto !important;
-	border: none !important;
-	margin: 0 !important;
-	border-width: 0 !important;
-	border-color: none !important;
-}
-
-.fp-controlArrow.fp-prev,
-.fp-controlArrow.fp-next {
-	left: auto !important;
-	width: auto !important;
-	border: none !important;
-}
 //	*/
 // video {
 //	object-fit: cover;

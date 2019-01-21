@@ -1,6 +1,6 @@
 
 #fp-nav {
-  display: none;
+  display: block;
 }
 
 #fp-nav.left {
@@ -39,3 +39,83 @@
   top: 0 !important
 }
 
+$nav--item-height: 5rem;
+$nav--item-left-offset: 6rem;
+
+
+.nav__section {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+.nav__item { 
+  position: absolute;
+  // height: $nav--item-height;
+  display: flex;
+  user-select: none;
+  left: 2rem ;
+}
+
+.nav__item--this {
+    top: 4rem;
+}
+
+.nav__item--previous { 
+    top: 1.5rem;
+  cursor: pointer;
+}
+
+.nav__item--next { 
+    bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.yo {
+  background-color: yellow;
+    position: absolute;
+    bottom: 13rem;
+}
+
+.nav__section-line-bg {
+  position: absolute;
+  top: 0;
+  left: $nav--item-left-offset;
+  height: 100vh;
+  width: 1px;
+  background-color: $palette--green;
+}
+
+.nav__section-line-active {
+  position: absolute;
+  top: 3rem;
+  height: 3rem ;
+  left: $nav--item-left-offset;
+  width: 4px;
+  background-color: $palette--green;
+  // border-right: 1px solid $palette--green;
+}
+
+.nav__item-number {
+  color: white;
+  text-align: left;
+  white-space: wrap;
+  font-family: 'K-Regular', sans-serif;
+  font-size: 0.8rem;
+  color: #ABAFB2;
+  margin-right: 0.5rem;
+}
+
+.nav__item-label {
+  color: white;
+  text-align: right;
+  font-family: 'K-Regular', sans-serif;
+  font-size: 0.8rem;
+  color: #ABAFB2;
+}
+
+.nav__item-label--this {
+  margin-left: 5.5rem;
+      font-size: 1rem;
+    color: white;
+}

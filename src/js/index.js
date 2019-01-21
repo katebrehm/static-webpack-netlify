@@ -243,6 +243,13 @@ function bounceIntroArrow(){
 	$('.js--hbs-inject--arrow')
 		.html(arrowPartial);
 
+	$('.js--nav__item--previous').on('click', function(){
+		fullpage_api.moveSectionUp();
+	})
+
+	$('.js--nav__item--next').on('click', function(){
+		fullpage_api.moveSectionDown();
+	})
 
 /*
 	Application js
@@ -265,9 +272,9 @@ function bounceIntroArrow(){
 			scrollingSpeed: 600,
 			slidesNavigation: true,
 			scrollBar: false,
-			navigation: true,
-			navigationPosition: 'left',
-			navigationTooltips: ['Kate Brehm', 'Bio', 'Art Projects'],
+			navigation: false,
+			// navigationPosition: 'left',
+			// navigationTooltips: ['Kate Brehm', 'Bio', 'Art Projects'],
 
 			// when arrived to a new section
 			afterLoad: function(origin, destination, direction){
@@ -331,6 +338,8 @@ function bounceIntroArrow(){
 
 					timelines.revealHeadshot
 						.addLabel('begin')
+						.set($bioTextMask, { width: 500})
+
 						// .to(".nav", 0.5, { className: "+=nav--on-light" }, "begin+=0.01")
 						.to(
 							[ $headshotMaskBox ],
@@ -469,7 +478,7 @@ function bounceIntroArrow(){
 				// }
 
 				var el0 = $('.js--glide')[0];
-				new Glide(el0, 
+				var newGlide = new Glide(el0, 
 					{
 						// bpoints should match _mq.scss
 						// 1280 +
@@ -529,6 +538,27 @@ function bounceIntroArrow(){
 				.on('mount.before', function() {
 					$('.js--hbs-inject--art-projects__image-collection')
 						.html(artProjectsCollectionTemplate({ artProjectsImages }));
+				})
+
+				.on('run.before', function() {
+					// @todo: animate these out
+					$('.yo').remove();
+					$('.slide__position-counter').remove() 
+				})
+
+				.on('run.after', function() {
+					// console.log('glide:move.after');
+					// console.log($('.glide__slide--active'));
+					// console.log(newGlide.index);
+					var string = 
+					`
+						<div class='slide__position-counter'>
+							<span class="slide__position-number">` + newGlide.index + `</span>
+							<span class="slide__position-number"> / </span>
+							<span class="slide__position-number">` + $('.glide__slide').length + `</span>
+						</div>
+					`;
+				  	$(string).appendTo('.glide__slide--active')
 				})
 
 				.mount();

@@ -75,7 +75,6 @@ collections:
           - label: Resume PDF
             name: bio__resume-pdf
             widget: file
-            # default: /uploads/kate-brehm-resume.pdf
             media_library:
               config:
                 multiple: false
@@ -100,8 +99,8 @@ collections:
                 name: art-project--type
                 widget: select
                 options:
-                 - { label: live art, value: 1 }
-                 - { label: devising + directing, value: 2 }
+                 - { label: event, value: 1 }
+                 - { label: production, value: 2 }
 
               - label: art project image path 
                 name: art-project--image-path 

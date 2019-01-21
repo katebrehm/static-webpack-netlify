@@ -22,7 +22,7 @@ automatically happens on Netlify when commits are pushed
     - next back buttons. ie, Gatsby examples page
     - vimeo embed
     - back link / close
-    
+
 - intro
     - animate fragments, boxes
     - first load Flash unstyled content
@@ -72,6 +72,7 @@ automatically happens on Netlify when commits are pushed
 
 #### later
 
+- rename images/content to content/images 
 - add checks for empty json data
 - host images outside of GH? 
     https://github.com/netlify/netlify-cms/issues/432
