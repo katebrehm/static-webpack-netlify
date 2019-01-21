@@ -14,10 +14,16 @@ automatically happens on Netlify when commits are pushed
 
 #### todo
 
-- add checks for empty json data
 
+- nav: top and bottom only
+
+- project detail template (routes)
+    - Full width image
+    - next back buttons. ie, Gatsby examples page
+    - vimeo embed
+    - back link / close
+    
 - intro
-    - nav: arrow line longer
     - animate fragments, boxes
     - first load Flash unstyled content
 
@@ -37,15 +43,6 @@ automatically happens on Netlify when commits are pushed
     - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
     - quotes ticker, add to admin
     - hover over projects, no cursor on large bpoints where cant drag
-
-- project detail template (routes)
-    - Full width image
-    - next back buttons. ie, Gatsby examples page
-    - vimeo embed
-    - back link / close
-
-- nav: top and bottom only
-
 
 
 - commerical work
@@ -75,6 +72,7 @@ automatically happens on Netlify when commits are pushed
 
 #### later
 
+- add checks for empty json data
 - host images outside of GH? 
     https://github.com/netlify/netlify-cms/issues/432
     https://github.com/netlify/netlify-cms/pull/1602
