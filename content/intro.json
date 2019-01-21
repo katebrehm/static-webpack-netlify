@@ -57,6 +57,24 @@
       "intro__fragment-type": "hoverable",
       "intro__fragment-image-path": "/images/content/margolis1280-upleft.jpg",
       "intro__fragment-key": "margolis-method"
+    },
+    {
+      "intro__fragment-text": "She lectures and leads",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": "workshops",
+      "intro__fragment-type": "hoverable",
+      "intro__fragment-image-path": "/images/content/workshop1280.jpg",
+      "intro__fragment-key": "workshops"
+    },
+    {
+      "intro__fragment-text": "for theater and live art. Her company, ",
+      "intro__fragment-type": "plain"
+    },
+    {
+      "intro__fragment-text": "imnotlost",
+      "intro__fragment-type": "hoverable"
     }
   ]
 }
