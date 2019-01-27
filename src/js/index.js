@@ -433,6 +433,53 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
 				}
 
+				if(destination.anchor === "art-projects"){
+					var tl = new TimelineMax();
+					tl
+						.addLabel('beginPlay') 
+
+						.staggerTo(
+							".glide__slide", 
+							0.1, 
+							{ 
+								autoAlpha: 0.8, 
+								ease: Expo.easeOut
+								// ease: Quint.easeOut 
+							},
+							0.1,
+							'beginPlay+=0.1'
+						)
+
+						.staggerFromTo(
+							".glide__slide:nth-child(odd) .slide__image", 
+							0.3,
+							{ 
+								y: 30
+							},
+							{ 
+								y: 0,
+								ease: Quint.easeOut 
+								// ease: Expo.easeOut
+							},
+							0.2,
+							'beginPlay+=0.2'
+						)
+
+						.staggerFromTo(
+							".glide__slide:nth-child(even) .slide__image", 
+							0.3,
+							{ 
+								x: 30
+							},
+							{ 
+								x: 0,
+								ease: Quint.easeOut 
+								// ease: Expo.easeOut
+							},
+							0.2,
+							'beginPlay+=0.2'
+						)
+				}
 
 				if (destination.anchor != 'bio'){
 					// playBioTl = null;
