@@ -14,6 +14,7 @@ automatically happens on Netlify when commits are pushed
 
 #### todo
 
+- Remove nav on mobile
 
 - project detail template (routes)
     - Full width image
@@ -24,6 +25,7 @@ automatically happens on Netlify when commits are pushed
 - intro
     - animate fragments, boxes
     - first load Flash unstyled content
+    - reponsive content.
 
 - headshot
     - mount image loop on section enter/exit
@@ -36,9 +38,11 @@ automatically happens on Netlify when commits are pushed
 - art projects 
     - stagger items 
     - mount/unmount on section enter/exit
-    - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
+    <!-- - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections -->
     - quotes ticker, add to admin
     - hover over projects, no cursor on large bpoints where cant drag
+    - auto height: https://github.com/glidejs/glide/issues/236
+    - carousel broken on swipe
 
 - commerical work
      background change from Art project

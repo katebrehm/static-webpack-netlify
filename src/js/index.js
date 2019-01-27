@@ -251,6 +251,13 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 		fullpage_api.moveSectionDown();
 	})
 
+
+function toggleProjectsByType() {
+
+
+}
+
+
 /*
 	Application js
 */
@@ -529,7 +536,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 					{
 						// bpoints should match _mq.scss
 						// 1280 +
-						type: 'carousel',
+						type: 'slider',
 						gap: 32,
 						perView: 3,
 						focusAt: 'center',
@@ -537,6 +544,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 						peek: { before: 100, after: 100 },
 						dragThreshold: false,
 						perTouch: 2,
+						rewind: false,
 						breakpoints: { 
 
 							// 1031 to 1200

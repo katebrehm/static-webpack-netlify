@@ -150,14 +150,11 @@
 
 .slide__tag,
 .projects__menu-tag {
-	// background: #5d6163;
 	padding: 0.15rem 0.25rem 0.2rem 0.25rem;
-    border-radius: 2px;
     color: #afafaf;
     font-size: 0.8rem;
     font-family: sans-serif;
     opacity: 0.9;
-    background-color: #3a3a3a;
 	cursor: pointer;
 }
 
@@ -165,8 +162,30 @@
     position: absolute;
     bottom: -2rem;
     left: 0.25rem;
+    background-color: #3a3a3a;
+    border-radius: 2px;
+	transition: all 0.1s ease-in-out;
 }
 
+.projects__menu-tag {
+	padding: 0.15rem 0.25rem 0.2rem 0.25rem;
+    color: #afafaf;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    opacity: 0.9;
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
+	background-color: none;
+}
+
+.projects__menu-tag.active {
+    border-bottom: 1px solid $palette--green;
+}
+
+.projects__menu-tag:hover {
+	border: none;
+    border-bottom: 1px solid $palette--green;
+}
 
 .slide__tag:hover,
 .projects__menu-tag:hover {
