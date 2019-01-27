@@ -36,7 +36,6 @@ automatically happens on Netlify when commits are pushed
 - art projects 
     - stagger items 
     - mount/unmount on section enter/exit
-    - 6/8 projects + view, only on active glide
     - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
     - quotes ticker, add to admin
     - hover over projects, no cursor on large bpoints where cant drag

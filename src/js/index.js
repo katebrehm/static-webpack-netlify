@@ -542,7 +542,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 							// 1031 to 1200
 							1200: {
 								perView: 3,
-								gap: 16,
+								gap: 32,
 								peek: { before: 32, after: 32 },
 								dragThreshold: false
 							},
@@ -550,7 +550,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 							// 861 to 1030
 							1030: {
 								perView: 2,
-								gap: 16,
+								gap: 32,
 								peek: { before: 50, after: 50 },
 								dragThreshold: 1,
 								swipeThreshold: 1
