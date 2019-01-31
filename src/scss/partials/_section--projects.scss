@@ -57,18 +57,32 @@
 
 
 
+.art-project__type--1 img, 
+.art-project__type--2 img { 
+  // display: inline-block;
+  // width: 250px;
+  // height: 250px;
+  // background: orange;
+  // cursor: pointer;
+  // clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0 100%);
+  // clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+  // animation: polygons 2s ease-in-out;
 
+    // X
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 
-
-
-// http://bennettfeely.com/clippy/
-.art-project__type--1 img {
-	clip-path: polygon(13% 0, 100% 0%, 88% 100%, 0% 100%);
 }
 
-.art-project__type--2 img {
-	clip-path: polygon(50% 0%, 100% 14%, 100% 87%, 50% 100%, 0 85%, 0 13%);
-}
+
+
+// // http://bennettfeely.com/clippy/
+// .art-project__type--1 img {
+// 	clip-path: polygon(13% 0, 100% 0%, 88% 100%, 0% 100%);
+// }
+
+// .art-project__type--2 img {
+// 	clip-path: polygon(50% 0%, 100% 14%, 100% 87%, 50% 100%, 0 85%, 0 13%);
+// }
 
 
 .glide__arrows {
@@ -122,7 +136,7 @@
 .slide__title {
 	position: absolute;
 	margin: 1rem;
-	top: -3.4rem;
+    right: 0;
 	user-select: none;
 	color: $gray--light;
 	/* box-shadow: 1rem 1rem rgba($teal-2, 0.4); */

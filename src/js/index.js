@@ -251,9 +251,153 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 		fullpage_api.moveSectionDown();
 	})
 
+	$('.js--projects__menu-toggle').on('click', function(e){
+		toggleProjectsByType(e);
+	})
 
-function toggleProjectsByType() {
+var newGlide;
+var el0 = $('.js--glide')[0];
 
+var projectCarouselOptions = {
+	// bpoints should match _mq.scss
+	// 1280 +
+	type: 'slider',
+	gap: 32,
+	perView: 3,
+	focusAt: 'center',
+	animationDuration: 250,
+	peek: { before: 100, after: 100 },
+	dragThreshold: false,
+	perTouch: 2,
+	rewind: false,
+	breakpoints: { 
+
+		// 1031 to 1200
+		1200: {
+			perView: 3,
+			gap: 32,
+			peek: { before: 32, after: 32 },
+			dragThreshold: false
+		},
+
+		// 861 to 1030
+		1030: {
+			perView: 2,
+			gap: 32,
+			peek: { before: 50, after: 50 },
+			dragThreshold: 1,
+			swipeThreshold: 1
+		},
+
+		// 651 to 860 
+		860: {
+			perView: 1,
+			gap: 16,
+			peek: { before: 50, after: 50 },
+			dragThreshold: true,
+			dragThreshold: 1,
+			swipeThreshold: 1
+		},
+
+		// up to 650 
+		650: {
+			perView: 1,
+			gap: 0,
+			peek: 0,
+			dragThreshold: true,
+			dragThreshold: 1,
+			swipeThreshold: 1
+		}
+	}
+};
+
+
+
+function toggleProjectsByType(e) {
+	// if clicked and acftive are the same, exit
+	newGlide.disable();
+
+	// otherwise
+	// roll up, and hide
+	TweenMax.staggerTo(
+		".glide__slide", 
+		0.2, 
+		{ 
+			autoAlpha: 0, 
+			ease: Expo.easeOut
+			// ease: Quint.easeOut 
+		},
+		-0.05 // start from the end
+		// ,
+		// 'beginPlay+=0.1'
+	)
+
+	newGlide.destroy();
+
+	newGlide = new Glide(el0, projectCarouselOptions)
+
+		// insert DOM here, otherwise Glide crashes for some reason
+		// probably some timing thing where the DOM isnt there
+		// yet before Glide initializes
+	
+		// from original mount. Dont need this here because All projects arleady exist
+		// from the JSON data
+		.on('mount.before', function() {
+			// $('.glide__slide').addClass('.slide__bg-block'); 
+
+			// load all projects
+			$('.js--hbs-inject--art-projects__image-collection')
+				.html(artProjectsCollectionTemplate({ artProjectsImages }));
+
+			$('.art-project__type--2').remove();
+
+		})
+
+		.on('run.before', function() {
+			$('.slide__position-counter').remove() 
+		})
+
+		.on('run.after', function() {
+			// console.log('glide:move.after');
+			// console.log($('.glide__slide--active'));
+			// console.log(newGlide.index);
+			var string = 
+			`
+				<div class='slide__position-counter'>
+					<span class="slide__position-number">` + newGlide.index + `</span>
+					<span class="slide__position-number"> / </span>
+					<span class="slide__position-number">` + $('.glide__slide').length + `</span>
+				</div>
+			`;
+		  	$(string).appendTo('.glide__slide--active')
+		})
+
+	.mount();
+
+
+	TweenMax.staggerTo(
+		".glide__slide", 
+		0.2, 
+		{ 
+			autoAlpha: 0.8, 
+			ease: Expo.easeOut
+			// ease: Quint.easeOut 
+		},
+		0.05 
+	);
+
+	TweenMax.staggerTo(
+		".glide__slide img", 
+		3, 
+		{ 
+			clipPath: "none", 
+			ease: Expo.easeOut
+			// ease: Quint.easeOut 
+		},
+		0.05 
+	);
+
+	newGlide.enable();
 
 }
 
@@ -441,6 +585,34 @@ function toggleProjectsByType() {
 				}
 
 				if(destination.anchor === "art-projects"){
+					// first attempt with CSS
+					// https://codepen.io/lifeinchords/pen/gqgVMa
+					// got complex to manage
+					// GSAP CSS tween didnt work properly
+
+					// diagonal
+					// clip-path: polygon( 100% 0%, 100% 0%, 0% 100%, 0 100%);
+					var diagonalClipPath = "polygon( 100% 0%, 100% 0%, 0% 100%, 0 100%)"
+
+					// parallelogram
+					// clip-path: polygon( 20% 0%, 100% 38%, 70% 90%, 0% 100%);
+				    // clip-path: polygon( 70% 0%, 100% 0%, 30% 100%, 0% 100%);
+
+				    //  square
+				    // clip-path: polygon( 0 0, 100% 0%, 100% 100%, 0% 100%);
+				    // clip-path: ;
+					var squareClipPath = "polygon( 0 0, 100% 0%, 100% 100%, 0% 100%)";
+
+  					// X
+  					// clip-path: polygon( 20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+					var xClipPath = "polygon( 20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%)";
+
+  					var fromClipPath = { value: xClipPath  };
+  					var toClipPath = { value: squareClipPath };
+
+					// var clipPath = { value:"inset(100% 0% 0% 0%)" } // original example, note fromat, clippath attr name, no semicolon
+					var element = document.querySelectorAll('.glide__slide .slide__image')[0];
+
 					var tl = new TimelineMax();
 					tl
 						.addLabel('beginPlay') 
@@ -465,10 +637,9 @@ function toggleProjectsByType() {
 							},
 							{ 
 								y: 0,
-								ease: Quint.easeOut 
-								// ease: Expo.easeOut
+								ease: Quint.easeOut
 							},
-							0.2,
+							3,
 							'beginPlay+=0.2'
 						)
 
@@ -486,6 +657,35 @@ function toggleProjectsByType() {
 							0.2,
 							'beginPlay+=0.2'
 						)
+
+						// this doesnt work properly
+						// .to(
+						// 	".glide__slide .slide__image", 
+						// 	7,
+						// 	{ 
+						// 		css: { clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" },
+						// 		ease: Quint.easeOut 
+						// 		// ease: Expo.easeOut
+						// 	},
+						// 	'beginPlay+=1'
+						// )
+
+						// alternate solution
+						// https://greensock.com/forums/topic/15842-problem-on-animate-clip-path/
+						// but still doesnt work because the number of points differs between the from and to paths
+						.to(
+							fromClipPath, 
+							4, 
+							{
+							    value: toClipPath.value,
+							    onUpdate: function () {
+							      element.style.clipPath = fromClipPath.value;
+							    }
+						  	},
+							'beginPlay+=0.2'
+						  );
+
+								
 				}
 
 				if (destination.anchor != 'bio'){
@@ -531,91 +731,40 @@ function toggleProjectsByType() {
 				//   glide.mount();
 				// }
 
-				var el0 = $('.js--glide')[0];
-				var newGlide = new Glide(el0, 
-					{
-						// bpoints should match _mq.scss
-						// 1280 +
-						type: 'slider',
-						gap: 32,
-						perView: 3,
-						focusAt: 'center',
-						animationDuration: 250,
-						peek: { before: 100, after: 100 },
-						dragThreshold: false,
-						perTouch: 2,
-						rewind: false,
-						breakpoints: { 
 
-							// 1031 to 1200
-							1200: {
-								perView: 3,
-								gap: 32,
-								peek: { before: 32, after: 32 },
-								dragThreshold: false
-							},
 
-							// 861 to 1030
-							1030: {
-								perView: 2,
-								gap: 32,
-								peek: { before: 50, after: 50 },
-								dragThreshold: 1,
-								swipeThreshold: 1
-							},
+				newGlide = new Glide(el0, projectCarouselOptions)
 
-							// 651 to 860 
-							860: {
-								perView: 1,
-								gap: 16,
-								peek: { before: 50, after: 50 },
-								dragThreshold: true,
-								dragThreshold: 1,
-								swipeThreshold: 1
-							},
+					// insert DOM here, otherwise Glide crashes for some reason
+					// probably some timing thing where the DOM isnt there
+					// yet before Glide initializes
+					.on('mount.before', function() {
+						// $('.glide__slide').addClass('.slide__bg-block'); 
 
-							// up to 650 
-							650: {
-								perView: 1,
-								gap: 0,
-								peek: 0,
-								dragThreshold: true,
-								dragThreshold: 1,
-								swipeThreshold: 1
-							}
-						}
-					}
-				)
+						// load all projects
+						$('.js--hbs-inject--art-projects__image-collection')
+							.html(artProjectsCollectionTemplate({ artProjectsImages }));
+					})
 
-				// insert DOM here, otherwise Glide crashes for some reason
-				// probably some timing thing where the DOM isnt there
-				// yet before Glide initializes
-				.on('mount.before', function() {
-					// $('.glide__slide').addClass('.slide__bg-block'); 
-					$('.js--hbs-inject--art-projects__image-collection')
-						.html(artProjectsCollectionTemplate({ artProjectsImages }));
-				})
+					.on('run.before', function() {
+						// @todo: animate these out
+						$('.slide__position-counter').remove() 
+					})
 
-				.on('run.before', function() {
-					// @todo: animate these out
-					$('.yo').remove();
-					$('.slide__position-counter').remove() 
-				})
-
-				.on('run.after', function() {
-					// console.log('glide:move.after');
-					// console.log($('.glide__slide--active'));
-					// console.log(newGlide.index);
-					var string = 
-					`
-						<div class='slide__position-counter'>
-							<span class="slide__position-number">` + newGlide.index + `</span>
-							<span class="slide__position-number"> / </span>
-							<span class="slide__position-number">` + $('.glide__slide').length + `</span>
-						</div>
-					`;
-				  	$(string).appendTo('.glide__slide--active')
-				})
+					.on('run.after', function() {
+						// console.log('glide:move.after');
+						// console.log($('.glide__slide--active'));
+						// console.log(newGlide.index);
+						var string = 
+						`
+							<div class='slide__position-counter'>
+								<span class="slide__position-number">` + newGlide.index + `</span>
+								<span class="slide__position-number"> / </span>
+								<span class="slide__position-number">` + $('.glide__slide').length + `</span>
+							</div>
+						`;
+					  	$(string).appendTo('.glide__slide--active')
+					})
 
 				.mount();
 

@@ -15,7 +15,7 @@
     {
       "art-project--title": "The Poofs",
       "art-project--description": "",
-      "art-project--type": 2,
+      "art-project--type": 1,
       "art-project--image-path": "/images/content/poof.png"
     },
     {
@@ -27,7 +27,7 @@
     {
       "art-project--title": "A Seemingly Unified Spectacle",
       "art-project--description": "",
-      "art-project--type": 2,
+      "art-project--type": 1,
       "art-project--image-path": "/images/content/slidesp3.jpg"
     },
     {
