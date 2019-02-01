@@ -30,18 +30,18 @@ automatically happens on Netlify when commits are pushed
 
 - Remove nav on mobile
 
-
 - intro: animate fragments, boxes
 - intro: first load Flash unstyled content
-- intro: reponsive content.
+- intro: reponsive content
 
-- projects: fade non-selected items
-- projects:  mount/unmount on section enter/exit
+- projects:  enable/disable on section enter/exit
 - projects: !-- - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections -->
 - projects:  quotes ticker, add to admin
 - projects:  hover over projects, no cursor on large bpoints where cant drag
 - projects:  auto height: https://github.com/glidejs/glide/issues/236
 - projects:  carousel broken on swipe
+- projects: dont allow click past edges of carousel
+- projects: refactor Glide code
 
 
  - What is a Movement Director

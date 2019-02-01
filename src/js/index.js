@@ -148,7 +148,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 			// insert first animation at a time of 0 or all other animations at a time that 
 			// will overlap with the previous animation fading out.
 			var offset = index === 0 ? 0 : "-=" + duration; 
-			console.log(index);
+			// console.log(index);
 			
 			tl.to(
 				element, 
@@ -179,14 +179,14 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
 		function onComplete() {
 		  tl.play(duration);
-		  console.log('biol onComplete, repeat');
+		  // console.log('biol onComplete, repeat');
 		};
 
 		function onStart() {
-		  console.log('biol onStart, starting play');
+		  // console.log('biol onStart, starting play');
 		};
 
-		console.log('made bio tl', tl);
+		// console.log('made bio tl', tl);
 		return tl;
 	}
 
@@ -267,7 +267,7 @@ var projectCarouselOptions = {
 	focusAt: 'center',
 	animationDuration: 250,
 	peek: { before: 100, after: 100 },
-	dragThreshold: false,
+	dragThreshold: 1,
 	perTouch: 2,
 	rewind: false,
 	breakpoints: { 
@@ -277,7 +277,7 @@ var projectCarouselOptions = {
 			perView: 3,
 			gap: 32,
 			peek: { before: 32, after: 32 },
-			dragThreshold: false
+			dragThreshold: 1
 		},
 
 		// 861 to 1030
@@ -310,6 +310,7 @@ var projectCarouselOptions = {
 		}
 	}
 };
+
 
 
 
@@ -354,22 +355,33 @@ function toggleProjectsByType(e) {
 		})
 
 		.on('run.before', function() {
-			$('.slide__position-counter').remove() 
+			$('.slide__position-counter').remove();
+			// $( ".slide__title").unbind( "click" );
+
 		})
 
 		.on('run.after', function() {
+
 			// console.log('glide:move.after');
 			// console.log($('.glide__slide--active'));
 			// console.log(newGlide.index);
+
+			// console.log('counter: ', $('.slide__position-counter'));
+			// run this instead when person arrives to Bio section
 			var string = 
 			`
 				<div class='slide__position-counter'>
-					<span class="slide__position-number">` + newGlide.index + `</span>
+					<span class="slide__position-number">` + ( newGlide.index + 1 ) + `</span>
 					<span class="slide__position-number"> / </span>
 					<span class="slide__position-number">` + $('.glide__slide').length + `</span>
 				</div>
 			`;
-		  	$(string).appendTo('.glide__slide--active')
+		  	$(string).appendTo('.glide__slide--active');
+		  	TweenLite.to('.slide__position-counter', 0.25, { autoAlpha: 1});
+
+		  	// $('.slide__title').on('click', function(e){
+		  	// 	console.log(this, " clicked");
+		  	// });
 		})
 
 	.mount();
@@ -585,6 +597,7 @@ function toggleProjectsByType(e) {
 				}
 
 				if(destination.anchor === "art-projects"){
+					/*
 					// first attempt with CSS
 					// https://codepen.io/lifeinchords/pen/gqgVMa
 					// got complex to manage
@@ -592,26 +605,47 @@ function toggleProjectsByType(e) {
 
 					// diagonal
 					// clip-path: polygon( 100% 0%, 100% 0%, 0% 100%, 0 100%);
-					var diagonalClipPath = "polygon( 100% 0%, 100% 0%, 0% 100%, 0 100%)"
+					var diagonalClipPath = "polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%)";
 
 					// parallelogram
 					// clip-path: polygon( 20% 0%, 100% 38%, 70% 90%, 0% 100%);
 				    // clip-path: polygon( 70% 0%, 100% 0%, 30% 100%, 0% 100%);
+				    // clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+
+					var parallelogramClipPath = "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)";
 
 				    //  square
 				    // clip-path: polygon( 0 0, 100% 0%, 100% 100%, 0% 100%);
 				    // clip-path: ;
-					var squareClipPath = "polygon( 0 0, 100% 0%, 100% 100%, 0% 100%)";
+					var squareClipPath = "polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%)";
 
   					// X
   					// clip-path: polygon( 20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 					var xClipPath = "polygon( 20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%)";
 
-  					var fromClipPath = { value: xClipPath  };
-  					var toClipPath = { value: squareClipPath };
+					var frameClipPath = "polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);"
+
+  					var fromClipPathO = { value: frameClipPath  };
+  					var toClipPathO = { value: squareClipPath };
+
+					var fromClipPathE = { value: parallelogramClipPath  };
+  					var toClipPathE = { value: squareClipPath };
 
 					// var clipPath = { value:"inset(100% 0% 0% 0%)" } // original example, note fromat, clippath attr name, no semicolon
-					var element = document.querySelectorAll('.glide__slide .slide__image')[0];
+					var elementEven = document.querySelectorAll('.glide__slide:nth-child(even) .slide__image')[0];
+					var elementOdd = document.querySelectorAll('.glide__slide:nth-child(odd) .slide__image')[0];
+*/
+				
+					var first = $(".glide__slide").first();
+					var string = 
+					`
+						<div class='slide__position-counter'>
+							<span class="slide__position-number">` + ( newGlide.index + 1 ) + `</span>
+							<span class="slide__position-number"> / </span>
+							<span class="slide__position-number">` + $('.glide__slide').length + `</span>
+						</div>
+					`;
+					$(string).appendTo('.glide__slide--active');
 
 					var tl = new TimelineMax();
 					tl
@@ -619,73 +653,106 @@ function toggleProjectsByType(e) {
 
 						.staggerTo(
 							".glide__slide", 
-							0.1, 
+							0.15, 
 							{ 
-								autoAlpha: 0.8, 
+								autoAlpha: 0.6, 
+								// clipPath: squareClipPath,
 								ease: Expo.easeOut
 								// ease: Quint.easeOut 
 							},
-							0.1,
-							'beginPlay+=0.1'
+							0.075,
+							'beginPlay+=1'
 						)
 
-						.staggerFromTo(
-							".glide__slide:nth-child(odd) .slide__image", 
-							0.3,
-							{ 
-								y: 30
-							},
-							{ 
-								y: 0,
-								ease: Quint.easeOut
-							},
-							3,
-							'beginPlay+=0.2'
-						)
+						.to([ first, ".slide__position-counter" ], 0.2, { autoAlpha: 1 })
 
-						.staggerFromTo(
-							".glide__slide:nth-child(even) .slide__image", 
-							0.3,
-							{ 
-								x: 30
-							},
-							{ 
-								x: 0,
-								ease: Quint.easeOut 
-								// ease: Expo.easeOut
-							},
-							0.2,
-							'beginPlay+=0.2'
-						)
+					// $('.glide__slide')[0].addClass('glide__slide--active');
 
-						// this doesnt work properly
+/*
+
+						// .staggerFromTo(
+						// 	".glide__slide:nth-child(odd) .slide__image", 
+						// 	0.5,
+						// 	// { 
+						// 	// 	y: 50
+						// 	// },
+						// 	// { 
+						// 	// 	y: 0,
+						// 	// 	ease: Quint.easeOut
+						// 	// },
+						// 	{ 
+						// 		objectPosition: "50% 20%"
+						// 	},
+						// 	{ 
+						// 		objectPosition: "50% 50%",
+						// 		ease: Quint.easeOut
+						// 	},
+						// 	3,
+						// 	'beginPlay+=1.1'
+						// )
+
+						// .staggerFromTo(
+						// 	".glide__slide:nth-child(even) .slide__image", 
+						// 	0.2,
+						// 	// { 
+						// 	// 	x: 50
+						// 	// },
+						// 	// { 
+						// 	// 	x: 0,
+						// 	// 	ease: Quint.easeOut 
+						// 	// 	// ease: Expo.easeOut
+						// 	// },
+						// 	{ 
+						// 		objectPosition: "20% 50%"
+						// 	},
+						// 	{ 
+						// 		objectPosition: "50% 50%",
+						// 		ease: Quint.easeOut
+						// 	},
+						// 	0.2,
+						// 	'beginPlay+=1'
+						// )
+
 						// .to(
 						// 	".glide__slide .slide__image", 
 						// 	7,
 						// 	{ 
-						// 		css: { clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" },
+						// 		clipPath: squareClipPath,
 						// 		ease: Quint.easeOut 
 						// 		// ease: Expo.easeOut
 						// 	},
-						// 	'beginPlay+=1'
+						// 	'beginPlay'
 						// )
 
 						// alternate solution
 						// https://greensock.com/forums/topic/15842-problem-on-animate-clip-path/
 						// but still doesnt work because the number of points differs between the from and to paths
-						.to(
-							fromClipPath, 
-							4, 
-							{
-							    value: toClipPath.value,
-							    onUpdate: function () {
-							      element.style.clipPath = fromClipPath.value;
-							    }
-						  	},
-							'beginPlay+=0.2'
-						  );
+						// .to(
+						// 	fromClipPathO, 
+						// 	0.3, 
+						// 	{
+						// 	    value: toClipPathO.value,
+						// 	    onUpdate: function () {
+						// 	      elementEven.style.clipPath = fromClipPathO.value;
+						// 	    }
+						//   	},
+						// 	'beginPlay+=1.2'
+						//   )
 
-								
+						// .to(
+						// 	fromClipPathE, 
+						// 	0.3, 
+						// 	{
+						// 	    value: toClipPathE.value,
+						// 	    onUpdate: function () {
+						// 	      elementOdd.style.clipPath = fromClipPathE.value;
+						// 	    }
+						//   	},
+						// 	'beginPlay+=1.2'
+						//   );
+*/
+						
+
 				}
 
 				if (destination.anchor != 'bio'){
@@ -746,9 +813,29 @@ function toggleProjectsByType(e) {
 							.html(artProjectsCollectionTemplate({ artProjectsImages }));
 					})
 
-					.on('run.before', function() {
+					.on('build.after', function() {
+						console.log("done building");
+						// console.log("init slide index: ", newGlide.index );
+					})
+
+					.on('run.before', function(direction) {
 						// @todo: animate these out
-						$('.slide__position-counter').remove() 
+						$('.slide__position-counter').remove();
+		  				TweenLite.to('.glide__slide--active', 0.25, { autoAlpha: 0.6});
+						console.log('leaving slide: ', newGlide.index);
+						console.log('direction: ', direction);
+
+						// do this here so there's no delay perception when moving slides
+						if (direction.direction === ">") {
+							// newGlide.index + 1;
+							// var el = 
+		  					TweenLite.to($( ".glide__slide--active" ).next(), 0.05, { autoAlpha: 1});
+						}
+
+						else if (direction.direction === "<") {
+							// newGlide.index - 1;
+		  					TweenLite.to($( ".glide__slide--active" ).prev(), 0.05, { autoAlpha: 1});
+						}
 					})
 
 					.on('run.after', function() {
@@ -758,12 +845,13 @@ function toggleProjectsByType(e) {
 						var string = 
 						`
 							<div class='slide__position-counter'>
-								<span class="slide__position-number">` + newGlide.index + `</span>
+								<span class="slide__position-number">` + ( newGlide.index + 1 ) +  `</span>
 								<span class="slide__position-number"> / </span>
 								<span class="slide__position-number">` + $('.glide__slide').length + `</span>
 							</div>
-						`;
+						// `;
 					  	$(string).appendTo('.glide__slide--active')
+		  				TweenLite.to('.slide__position-counter', 0.1, { autoAlpha: 1});
 					})
 
 				.mount();
@@ -955,7 +1043,7 @@ function toggleProjectsByType(e) {
 					.on('mouseleave', hideIntroProject);
 
 				$( ".button--arrow-down" ).on( "click", function() {
-					console.log( $( this ).text() );
+					// console.log( $( this ).text() );
 					fullpage_api.moveSectionDown();
 				});
 
