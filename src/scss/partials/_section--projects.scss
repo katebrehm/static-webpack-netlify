@@ -78,8 +78,8 @@
 
 }
 
-.art-project__type--1 { border-bottom: 2px solid #FAFFD8; }
-.art-project__type--2 { border-top: 2px solid #55DDE0; }
+.art-project__type--1 { border-top: 3px solid #FAFFD8; }
+.art-project__type--2 { border-top: 3px solid #55DDE0; }
 
 
 // // http://bennettfeely.com/clippy/
@@ -142,12 +142,12 @@
 
 .slide__title {
 	position: absolute;
-	margin: 1rem;
+	margin: 0.5rem 0.25rem;
     right: 0;
     font-family: 'K-Regular', sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 	color: $gray--light;
-	box-shadow: 1rem 1rem rgba(red, 0.4);
+	// box-shadow: 1rem 1rem rgba(red, 0.4);
     user-select: none;
 }
 

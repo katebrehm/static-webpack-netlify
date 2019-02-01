@@ -85,6 +85,127 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 (function () {
 
 
+	var projectCarouselOptions = {
+		// bpoints should match _mq.scss
+		// 1280 +
+		type: 'slider',
+		gap: 32,
+		perView: 3,
+		focusAt: 'center',
+		animationDuration: 250,
+		peek: { before: 100, after: 100 },
+		dragThreshold: 1,
+		perTouch: 2,
+		rewind: false,
+		breakpoints: { 
+
+			// 1031 to 1200
+			1200: {
+				perView: 3,
+				gap: 32,
+				peek: { before: 32, after: 32 },
+				dragThreshold: 1
+			},
+
+			// 861 to 1030
+			1030: {
+				perView: 2,
+				gap: 32,
+				peek: { before: 50, after: 50 },
+				dragThreshold: 1,
+				swipeThreshold: 1
+			},
+
+			// 651 to 860 
+			860: {
+				perView: 1,
+				gap: 16,
+				peek: { before: 50, after: 50 },
+				dragThreshold: true,
+				dragThreshold: 1,
+				swipeThreshold: 1
+			},
+
+			// up to 650 
+			650: {
+				perView: 1,
+				gap: 0,
+				peek: 0,
+				dragThreshold: true,
+				dragThreshold: 1,
+				swipeThreshold: 1
+			}
+		}
+	};
+
+	var glideArt;
+	var glideArt2;
+
+	function initGlide(glideInstance){
+		glideInstance = new Glide($('.js--glide')[0], projectCarouselOptions);
+		glideInstance
+
+			// insert DOM here, otherwise Glide crashes for some reason
+			// probably some timing thing where the DOM isnt there
+			// yet before Glide initializes
+			.on('mount.before', function() {
+				// $('.glide__slide').addClass('.slide__bg-block'); 
+
+				// load all projects
+				$('.js--hbs-inject--art-projects__image-collection')
+					.html(artProjectsCollectionTemplate({ artProjectsImages }));
+
+				// $('.art-project__type--2').remove();
+
+			})
+
+			.on('build.after', function() {
+				console.log("done building");
+				// console.log("init slide index: ", glideInstance.index );
+			})
+
+			.on('run.before', function(direction) {
+				// @todo: animate these out
+				$('.slide__position-counter').remove();
+  				TweenLite.to('.glide__slide--active', 0.25, { autoAlpha: 0.6});
+				// console.log('leaving slide: ', glideInstance.index);
+				// console.log('direction: ', direction);
+
+				// do this here so there's no delay perception when moving slides
+				if (direction.direction === ">") {
+					// glideInstance.index + 1;
+					// var el = 
+  					TweenLite.to($( ".glide__slide--active" ).next(), 0.05, { autoAlpha: 1});
+				}
+
+				else if (direction.direction === "<") {
+					// glideInstance.index - 1;
+  					TweenLite.to($( ".glide__slide--active" ).prev(), 0.05, { autoAlpha: 1});
+				}
+			})
+
+			.on('run.after', function() {
+				// console.log('glide:move.after');
+				// console.log($('.glide__slide--active'));
+				// console.log(glideInstance.index);
+				var string = 
+				`
+					<div class='slide__position-counter'>
+						<span class="slide__position-number">` + ( glideInstance.index + 1 ) +  `</span>
+						<span class="slide__position-number"> / </span>
+						<span class="slide__position-number">` + $('.glide__slide').length + `</span>
+					</div>
+				// `;
+			  	$(string).appendTo('.glide__slide--active')
+  				TweenLite.to('.slide__position-counter', 0.1, { autoAlpha: 1});
+			})
+
+		.mount();
+
+		return glideInstance;
+	}
+
+
 	// workaround for fullpage history bug. Add #intro only if page loads without a deep link
 	// https://github.com/alvarotrigo/fullPage.js/issues/950#issuecomment-69156110
 	// https://stackoverflow.com/questions/24078332/is-it-secure-to-use-window-location-href-directly-without-validation/24089350
@@ -103,7 +224,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
 	// var tlArrowDown = new TimelineMax();
   
- //   tl
+ 	//   tl
     // .addLabel("load") // for a slight delay for page to render
     // .set('.nav__link', { autoAlpha: 0, y: 10 })
     // .staggerFromTo('.nav__link', 2, { autoAlpha: 0 }, { y: 0, autoAlpha: 1, ease: Power4.easeOut }, 0.1, "load+=0.5")
@@ -251,167 +372,134 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 		fullpage_api.moveSectionDown();
 	})
 
-	$('.js--projects__menu-toggle').on('click', function(e){
-		toggleProjectsByType(e);
-	})
 
-var newGlide;
-var el0 = $('.js--glide')[0];
+// function greet( event ) {
+//   alert( "Hello " + event.data.name );
+// }
 
-var projectCarouselOptions = {
-	// bpoints should match _mq.scss
-	// 1280 +
-	type: 'slider',
-	gap: 32,
-	perView: 3,
-	focusAt: 'center',
-	animationDuration: 250,
-	peek: { before: 100, after: 100 },
-	dragThreshold: 1,
-	perTouch: 2,
-	rewind: false,
-	breakpoints: { 
-
-		// 1031 to 1200
-		1200: {
-			perView: 3,
-			gap: 32,
-			peek: { before: 32, after: 32 },
-			dragThreshold: 1
-		},
-
-		// 861 to 1030
-		1030: {
-			perView: 2,
-			gap: 32,
-			peek: { before: 50, after: 50 },
-			dragThreshold: 1,
-			swipeThreshold: 1
-		},
-
-		// 651 to 860 
-		860: {
-			perView: 1,
-			gap: 16,
-			peek: { before: 50, after: 50 },
-			dragThreshold: true,
-			dragThreshold: 1,
-			swipeThreshold: 1
-		},
-
-		// up to 650 
-		650: {
-			perView: 1,
-			gap: 0,
-			peek: 0,
-			dragThreshold: true,
-			dragThreshold: 1,
-			swipeThreshold: 1
-		}
-	}
-};
+// $( "button" ).on( "click", { name: "Karl" }, greet );
 
 
 
 
-function toggleProjectsByType(e) {
+// function toggleProjectsByType(e) {
 	// if clicked and acftive are the same, exit
-	newGlide.disable();
 
 	// otherwise
 	// roll up, and hide
-	TweenMax.staggerTo(
-		".glide__slide", 
-		0.2, 
-		{ 
-			autoAlpha: 0, 
-			ease: Expo.easeOut
-			// ease: Quint.easeOut 
-		},
-		-0.05 // start from the end
-		// ,
-		// 'beginPlay+=0.1'
-	)
+	// TweenMax.staggerTo(
+	// 	".glide__slide", 
+	// 	0.2, 
+	// 	{ 
+	// 		autoAlpha: 0, 
+	// 		ease: Expo.easeOut
+	// 		// ease: Quint.easeOut 
+	// 	},
+	// 	-0.05 // start from the end
+	// 	// ,
+	// 	// 'beginPlay+=0.1'
+	// )
 
-	newGlide.destroy();
 
-	newGlide = new Glide(el0, projectCarouselOptions)
+	// glideArt.destroy();
 
-		// insert DOM here, otherwise Glide crashes for some reason
-		// probably some timing thing where the DOM isnt there
-		// yet before Glide initializes
+	// $('.glide__slide').removeAttr("style");
+	// $('.glide__slides').removeAttr("style");
+	// $('.art-project__type--2').remove();
+	// $('.slide__position-counter').remove();
+	// $('.js--glide').removeClass('glide--swipeable');
+
+	// glideArt = null;
+	// console.log(el0);
+	// console.log(glideArt);
+
+	// var b = new Glide($('.js--glide')[0], projectCarouselOptions)
+
+	// 	// insert DOM here, otherwise Glide crashes for some reason
+	// 	// probably some timing thing where the DOM isnt there
+	// 	// yet before Glide initializes
 	
-		// from original mount. Dont need this here because All projects arleady exist
-		// from the JSON data
-		.on('mount.before', function() {
-			// $('.glide__slide').addClass('.slide__bg-block'); 
+	// 	// from original mount. Dont need this here because All projects arleady exist
+	// 	// from the JSON data
+	// 	.on('mount.before', function() {
+	// 		// $('.glide__slide').addClass('.slide__bg-block'); 
 
-			// load all projects
-			$('.js--hbs-inject--art-projects__image-collection')
-				.html(artProjectsCollectionTemplate({ artProjectsImages }));
+	// 		// // load all projects
+	// 		// $('.js--hbs-inject--art-projects__image-collection')
+	// 		// 	.html(artProjectsCollectionTemplate({ artProjectsImages }));
 
-			$('.art-project__type--2').remove();
+	// 	})
 
-		})
+	// 	.on('run.before', function() {
+	// 		$('.slide__position-counter').remove();
+	// 	  	TweenLite.to('.glide__slide--active', 0.25, { autoAlpha: 0.6});
+	// 		// $( ".slide__title").unbind( "click" );
 
-		.on('run.before', function() {
-			$('.slide__position-counter').remove();
-			// $( ".slide__title").unbind( "click" );
+	// 		// do this here so there's no delay perception when moving slides
+	// 		if (direction.direction === ">") {
+	// 			// glideArt.index + 1;
+	// 			// var el = 
+	// 				TweenLite.to($( ".glide__slide--active" ).next(), 0.05, { autoAlpha: 1});
+	// 		}
 
-		})
+	// 		else if (direction.direction === "<") {
+	// 			// glideArt.index - 1;
+	// 				TweenLite.to($( ".glide__slide--active" ).prev(), 0.05, { autoAlpha: 1});
+	// 		}
+	// 	})
 
-		.on('run.after', function() {
+	// 	.on('run.after', function() {
 
-			// console.log('glide:move.after');
-			// console.log($('.glide__slide--active'));
-			// console.log(newGlide.index);
+	// 		// console.log('glide:move.after');
+	// 		// console.log($('.glide__slide--active'));
+	// 		// console.log(glideArt.index);
 
-			// console.log('counter: ', $('.slide__position-counter'));
-			// run this instead when person arrives to Bio section
-			var string = 
-			`
-				<div class='slide__position-counter'>
-					<span class="slide__position-number">` + ( newGlide.index + 1 ) + `</span>
-					<span class="slide__position-number"> / </span>
-					<span class="slide__position-number">` + $('.glide__slide').length + `</span>
-				</div>
-			`;
-		  	$(string).appendTo('.glide__slide--active');
-		  	TweenLite.to('.slide__position-counter', 0.25, { autoAlpha: 1});
+	// 		// console.log('counter: ', $('.slide__position-counter'));
+	// 		// run this instead when person arrives to Bio section
+	// 		var string = 
+	// 		`
+	// 			<div class='slide__position-counter'>
+	// 				<span class="slide__position-number">` + ( glideArt.index + 1 ) + `</span>
+	// 				<span class="slide__position-number"> / </span>
+	// 				<span class="slide__position-number">` + $('.glide__slide').length + `</span>
+	// 			</div>
+	// 		`;
+	// 	  	$(string).appendTo('.glide__slide--active');
+	// 	  	TweenLite.to('.slide__position-counter', 0.25, { autoAlpha: 1});
 
-		  	// $('.slide__title').on('click', function(e){
-		  	// 	console.log(this, " clicked");
-		  	// });
-		})
+	// 	  	// $('.slide__title').on('click', function(e){
+	// 	  	// 	console.log(this, " clicked");
+	// 	  	// });
+	// 	})
 
-	.mount();
+	// .mount();
 
 
-	TweenMax.staggerTo(
-		".glide__slide", 
-		0.2, 
-		{ 
-			autoAlpha: 0.8, 
-			ease: Expo.easeOut
-			// ease: Quint.easeOut 
-		},
-		0.05 
-	);
+	// TweenMax.staggerTo(
+	// 	".glide__slide", 
+	// 	0.2, 
+	// 	{ 
+	// 		autoAlpha: 0.8, 
+	// 		ease: Expo.easeOut
+	// 		// ease: Quint.easeOut 
+	// 	},
+	// 	0.05 
+	// );
 
-	TweenMax.staggerTo(
-		".glide__slide img", 
-		3, 
-		{ 
-			clipPath: "none", 
-			ease: Expo.easeOut
-			// ease: Quint.easeOut 
-		},
-		0.05 
-	);
+	// TweenMax.staggerTo(
+	// 	".glide__slide img", 
+	// 	3, 
+	// 	{ 
+	// 		clipPath: "none", 
+	// 		ease: Expo.easeOut
+	// 		// ease: Quint.easeOut 
+	// 	},
+	// 	0.05 
+	// );
 
-	newGlide.enable();
+	// glideArt.enable();
 
-}
+// }
 
 
 /*
@@ -636,16 +724,17 @@ function toggleProjectsByType(e) {
 					var elementOdd = document.querySelectorAll('.glide__slide:nth-child(odd) .slide__image')[0];
 */
 				
-					var first = $(".glide__slide").first();
-					var string = 
-					`
-						<div class='slide__position-counter'>
-							<span class="slide__position-number">` + ( newGlide.index + 1 ) + `</span>
-							<span class="slide__position-number"> / </span>
-							<span class="slide__position-number">` + $('.glide__slide').length + `</span>
-						</div>
-					`;
-					$(string).appendTo('.glide__slide--active');
+
+					// var first = $(".glide__slide").first();
+					// var string = 
+					// `
+					// 	<div class='slide__position-counter'>
+					// 		<span class="slide__position-number">` + ( glideArt.index + 1 ) + `</span>
+					// 		<span class="slide__position-number"> / </span>
+					// 		<span class="slide__position-number">` + $('.glide__slide').length + `</span>
+					// 	</div>
+					// `;
+					// $(string).appendTo('.glide__slide--active');
 
 					var tl = new TimelineMax();
 					tl
@@ -664,7 +753,7 @@ function toggleProjectsByType(e) {
 							'beginPlay+=1'
 						)
 
-						.to([ first, ".slide__position-counter" ], 0.2, { autoAlpha: 1 })
+						// .to([ first, ".slide__position-counter" ], 0.2, { autoAlpha: 1 })
 
 					// $('.glide__slide')[0].addClass('glide__slide--active');
 
@@ -798,63 +887,54 @@ function toggleProjectsByType(e) {
 				//   glide.mount();
 				// }
 
+				glideArt = initGlide(glideArt);
 
+				$('.js--projects__menu-toggle').on(
+					'click', 
+					{ gInstance: glideArt },
+					toggleProjects
+				);
 
-				newGlide = new Glide(el0, projectCarouselOptions)
+				function toggleProjects(event) {
+					var glideI = event.data.gInstance;
 
-					// insert DOM here, otherwise Glide crashes for some reason
-					// probably some timing thing where the DOM isnt there
-					// yet before Glide initializes
-					.on('mount.before', function() {
-						// $('.glide__slide').addClass('.slide__bg-block'); 
+					glideI.disable();
+					glideI.destroy();
 
-						// load all projects
-						$('.js--hbs-inject--art-projects__image-collection')
-							.html(artProjectsCollectionTemplate({ artProjectsImages }));
-					})
+					$('.glide__slide').removeAttr("style");
+					$('.glide__slides').removeAttr("style");
+					$('.js--glide').removeClass('glide--swipeable');
 
-					.on('build.after', function() {
-						console.log("done building");
-						// console.log("init slide index: ", newGlide.index );
-					})
+					$('.slide__position-counter').remove();
 
-					.on('run.before', function(direction) {
-						// @todo: animate these out
-						$('.slide__position-counter').remove();
-		  				TweenLite.to('.glide__slide--active', 0.25, { autoAlpha: 0.6});
-						console.log('leaving slide: ', newGlide.index);
-						console.log('direction: ', direction);
+					$('.art-project__type--2').remove();
 
-						// do this here so there's no delay perception when moving slides
-						if (direction.direction === ">") {
-							// newGlide.index + 1;
-							// var el = 
-		  					TweenLite.to($( ".glide__slide--active" ).next(), 0.05, { autoAlpha: 1});
-						}
+					glideI = null;
+					console.log(glideI);
 
-						else if (direction.direction === "<") {
-							// newGlide.index - 1;
-		  					TweenLite.to($( ".glide__slide--active" ).prev(), 0.05, { autoAlpha: 1});
-						}
-					})
+					glideArt = initGlide(glideArt);
 
-					.on('run.after', function() {
-						// console.log('glide:move.after');
-						// console.log($('.glide__slide--active'));
-						// console.log(newGlide.index);
-						var string = 
-						`
-							<div class='slide__position-counter'>
-								<span class="slide__position-number">` + ( newGlide.index + 1 ) +  `</span>
-								<span class="slide__position-number"> / </span>
-								<span class="slide__position-number">` + $('.glide__slide').length + `</span>
-							</div>
-						// `;
-					  	$(string).appendTo('.glide__slide--active')
-		  				TweenLite.to('.slide__position-counter', 0.1, { autoAlpha: 1});
-					})
+		var tl = new TimelineMax();
+					tl
+						.addLabel('beginPlay') 
 
-				.mount();
+						.staggerTo(
+							".glide__slide", 
+							0.15, 
+							{ 
+								autoAlpha: 0.6, 
+								// clipPath: squareClipPath,
+								ease: Expo.easeOut
+								// ease: Quint.easeOut 
+							},
+							0.075,
+							'beginPlay+=1'
+						)
+						
+					// var b = new Glide($('.js--glide')[0], projectCarouselOptions)
+					// initGlide(glideArt2);
+				}
+
 
 				// var el1 = $('.js--glide')[1];
 				// new Glide(el1, {
@@ -1057,6 +1137,9 @@ function toggleProjectsByType(e) {
 			}
 		});
 }());
+
+
+
 
 
 
