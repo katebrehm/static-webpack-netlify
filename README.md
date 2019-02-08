@@ -20,7 +20,11 @@ automatically happens on Netlify when commits are pushed
 - headshot: content: text taller, more space for words
 - headshot: image aspect ratio : https://css-tricks.com/aspect-ratios-grid-items/
 - headshot: responsive
-- fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
+
+- bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
+- bug: projects layout when destroy / rebuild switching types
+
+- nav: hit area bigger
 
 - project detail template (routes)
     - Full width image
@@ -112,3 +116,41 @@ https://www.awwwards.com/
 
 
 
+
+https://github.com/glidejs/glide/issues/271
+https://github.com/glidejs/glide/issues/222#issuecomment-391385045
+
+throttle
+https://github.com/glidejs/glide/issues/265
+
+flash
+https://github.com/glidejs/glide/issues/269
+
+
+box-shadow: 1rem 1rem rgba(255, 0, 0, 0.4)
+
+
+
+
+<!-- 
+
+/*   
+/*   inset
+/*     clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%); 
+   animation-name: diagnol;
+ animation-duration: 0.85s; /* or: Xms */
+ animation-iteration-count: infinite;
+/*  animation-direction: alternate; /* or: normal */ 
+ animation-timing-function: cubic-bezier(.17,.67,.38,1.04); /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+ animation-fill-mode: forwards; /* or: backwards, both, none, forwards */
+/*  animation-delay: 2s; /* or: Xms */ 
+   */
+
+
+
+    to-parallelogram 4s infinite forwards cubic-bezier(.17,.67,.38,1.04) 
+    to-square 2s infinite forwards cubic-bezier(.17,.67,.38,1.04);
+
+
+
+ -->

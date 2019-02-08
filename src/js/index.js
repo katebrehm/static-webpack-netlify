@@ -141,9 +141,13 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 	var glideArt;
 	var glideArt2;
 
-	function initGlide(glideInstance){
-		glideInstance = new Glide($('.js--glide')[0], projectCarouselOptions);
-		glideInstance
+	// function initGlide(glideInstance){
+	function initGlide(which){
+		test = "c";
+		console.log("test ", test);
+
+		// glideInstance = new Glide($('.js--glide')[0], projectCarouselOptions);
+		gi = new Glide($('.js--glide')[0], projectCarouselOptions)
 
 			// insert DOM here, otherwise Glide crashes for some reason
 			// probably some timing thing where the DOM isnt there
@@ -151,12 +155,30 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 			.on('mount.before', function() {
 				// $('.glide__slide').addClass('.slide__bg-block'); 
 
-				// load all projects
-				$('.js--hbs-inject--art-projects__image-collection')
-					.html(artProjectsCollectionTemplate({ artProjectsImages }));
+				// if it's the first load, read all from disk
+				if ($('.glide__slide').length === 0) {
+					// load all projects
+					$('.js--hbs-inject--art-projects__image-collection')
+						.html(artProjectsCollectionTemplate({ artProjectsImages }));
+				}
+				
+				else {
+					$('.glide__slide').remove();
+					$('.js--hbs-inject--art-projects__image-collection')
+						.html(artProjectsCollectionTemplate({ artProjectsImages }));
 
-				// $('.art-project__type--2').remove();
+					if(which === 1) {
+						$('.art-project__type--2').remove();
+					}
 
+					else if (which === 2) {
+						$('.art-project__type--1').remove();
+					}
+
+					else if (which === 3) {
+						// do nothing, use all 
+					}
+				}
 			})
 
 			.on('build.after', function() {
@@ -191,18 +213,39 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 				var string = 
 				`
 					<div class='slide__position-counter'>
-						<span class="slide__position-number">` + ( glideInstance.index + 1 ) +  `</span>
+						<span class="slide__position-number">` + ( gi.index + 1 ) +  `</span>
 						<span class="slide__position-number"> / </span>
 						<span class="slide__position-number">` + $('.glide__slide').length + `</span>
 					</div>
 				// `;
 			  	$(string).appendTo('.glide__slide--active')
-  				TweenLite.to('.slide__position-counter', 0.1, { autoAlpha: 1});
+
+			 
 			})
 
-		.mount();
+			.mount();
 
-		return glideInstance;
+ 		var tl = new TimelineMax();
+		tl
+			.addLabel('beginPlay') 
+
+			.staggerTo(
+				".glide__slide", 
+				0.15, 
+				{ 
+					autoAlpha: 0.6, 
+					// clipPath: squareClipPath,
+					ease: Expo.easeOut
+					// ease: Quint.easeOut 
+				},
+				0.075,
+				'beginPlay+=1'
+			)
+
+				.to('.slide__position-counter', 0.1, { autoAlpha: 1});
+
+		// return glideInstance;
+		// return glideInstance;
 	}
 
 
@@ -501,7 +544,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
 // }
 
-
+var test = "a";
+var gi;
 /*
 	Application js
 */
@@ -685,6 +729,75 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 				}
 
 				if(destination.anchor === "art-projects"){
+
+									// glideArt = initGlide(glideArt);
+				initGlide(1); //all
+
+				console.log(gi);
+
+				// $('.js--projects__menu-toggle').on(
+				// 	'click', 
+				// 	{ gInstance: glideArt },
+				// 	toggleProjects
+				// );
+
+				$('.js--projects__menu-toggle').on(
+					'click', 
+					toggleProjects
+				)
+
+				function toggleProjects() {
+				// function toggleProjects(event) {
+					// var glideI = event.data.gInstance;
+					console.log("test", test);
+					test = "d";
+					console.log("toggle test", test);
+
+					// glideI.disable();
+					// glideI.destroy();
+					gi.destroy();
+
+					$('.art-project__type--2').remove();
+
+					// glideI.update(projectCarouselOptions);
+					// glideI.enable();
+
+					$('.glide__slide').removeAttr("style");
+					$('.glide__slides').removeAttr("style");
+					$('.js--glide').removeClass('glide--swipeable');
+					$('.slide__position-counter').remove();
+
+					gi = null;
+					// event.data.gInstance = null;
+					// console.log(glideI);
+					// console.log(glideArt2);
+					// console.log(event.data.gInstance);
+
+					// glideArt2 = initGlide(glideArt2);
+					initGlide(1);
+
+					// var tl = new TimelineMax();
+					// tl
+					// 	.addLabel('beginPlay') 
+
+					// 	.staggerTo(
+					// 		".glide__slide", 
+					// 		0.15, 
+					// 		{ 
+					// 			autoAlpha: 0.6, 
+					// 			// clipPath: squareClipPath,
+					// 			ease: Expo.easeOut
+					// 			// ease: Quint.easeOut 
+					// 		},
+					// 		0.075,
+					// 		'beginPlay+=1'
+					// 	)
+
+					// 			// var b = new Glide($('.js--glide')[0], projectCarouselOptions)
+					// 			// initGlide(glideArt2);
+				}
+
+				
 					/*
 					// first attempt with CSS
 					// https://codepen.io/lifeinchords/pen/gqgVMa
@@ -736,22 +849,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 					// `;
 					// $(string).appendTo('.glide__slide--active');
 
-					var tl = new TimelineMax();
-					tl
-						.addLabel('beginPlay') 
-
-						.staggerTo(
-							".glide__slide", 
-							0.15, 
-							{ 
-								autoAlpha: 0.6, 
-								// clipPath: squareClipPath,
-								ease: Expo.easeOut
-								// ease: Quint.easeOut 
-							},
-							0.075,
-							'beginPlay+=1'
-						)
+		
 
 						// .to([ first, ".slide__position-counter" ], 0.2, { autoAlpha: 1 })
 
@@ -887,53 +985,15 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 				//   glide.mount();
 				// }
 
-				glideArt = initGlide(glideArt);
+				// load all projects
+				// $('.js--hbs-inject--art-projects__image-collection')
+				// 	.html(artProjectsCollectionTemplate({ artProjectsImages }));
 
-				$('.js--projects__menu-toggle').on(
-					'click', 
-					{ gInstance: glideArt },
-					toggleProjects
-				);
+				console.log("test", test);
+				test = "b";
+				console.log("test", test);
 
-				function toggleProjects(event) {
-					var glideI = event.data.gInstance;
 
-					glideI.disable();
-					glideI.destroy();
-
-					$('.glide__slide').removeAttr("style");
-					$('.glide__slides').removeAttr("style");
-					$('.js--glide').removeClass('glide--swipeable');
-
-					$('.slide__position-counter').remove();
-
-					$('.art-project__type--2').remove();
-
-					glideI = null;
-					console.log(glideI);
-
-					glideArt = initGlide(glideArt);
-
-		var tl = new TimelineMax();
-					tl
-						.addLabel('beginPlay') 
-
-						.staggerTo(
-							".glide__slide", 
-							0.15, 
-							{ 
-								autoAlpha: 0.6, 
-								// clipPath: squareClipPath,
-								ease: Expo.easeOut
-								// ease: Quint.easeOut 
-							},
-							0.075,
-							'beginPlay+=1'
-						)
-						
-					// var b = new Glide($('.js--glide')[0], projectCarouselOptions)
-					// initGlide(glideArt2);
-				}
 
 
 				// var el1 = $('.js--glide')[1];

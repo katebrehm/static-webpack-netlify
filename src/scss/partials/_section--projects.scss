@@ -35,7 +35,8 @@
 	position: relative;
 	background-size: cover;
 	background-position: center center;
-	opacity: 0;
+	// opacity: 0;
+        min-width: 300px;
 
 	img {
 		// opacity: 0.6;
