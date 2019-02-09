@@ -177,6 +177,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         fullpage_api.moveSectionDown();
     })
 
+    $('.js--button--resume-pdf').attr('href',bioDataObj.bioResumePdf);
+
     var gi;
 
     var fullPageInstance = new fullpage("#fullpage", {
