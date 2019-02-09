@@ -5,21 +5,6 @@
     },
     {
       "bio__headshot-image-path": "/images/content/headpoof-sagesfous.jpg"
-    },
-    {
-      "bio__headshot-image-path": "/images/content/headtfa-bheller.jpg"
-    },
-    {
-      "bio__headshot-image-path": "/images/content/headww-cantiel.jpg"
-    },
-    {
-      "bio__headshot-image-path": "/images/content/headww2-cantiel.jpg"
-    },
-    {
-      "bio__headshot-image-path": "/images/content/headdisc3-tmurray.jpg"
-    },
-    {
-      "bio__headshot-image-path": "/images/content/headdsic2-tmurray.jpg"
     }
   ],
   "bio__resume-pdf": "/images/content/kbrehm-resumeweb.pdf"
