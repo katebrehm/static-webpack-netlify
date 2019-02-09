@@ -383,7 +383,8 @@
 	color: white;
 	border: 5px solid #FAFFD8;
 	top: -2.7rem;
-	transition: background-color border-color , 0.3s ease-in-out;
+	transition: background-color border-color 0.3s ease-in-out;
+	user-select: none;
 }
 
 .button--resume-pdf:hover {
