@@ -23,7 +23,7 @@ automatically happens on Netlify when commits are pushed
 
 - bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
 - bug: projects layout when destroy / rebuild switching types
-
+- bug:  drag and drop intermittent
 - nav: hit area bigger
 
 - project detail template (routes)
