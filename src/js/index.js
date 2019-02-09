@@ -193,14 +193,14 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             var loadedSection = origin;
 
             // might be the first section, or a deep link arrival
-            if(origin) {
-                console.log('=========');
-                console.log('afterLoad');
-                console.log('origin.index: ', origin.index); 
-                console.log('destination.index: ', destination.index); 
-                console.log('direction: ', direction);
-                console.log('=========');
-            }
+            // if(origin) {
+            //     console.log('=========');
+            //     console.log('afterLoad');
+            //     console.log('origin.index: ', origin.index); 
+            //     console.log('destination.index: ', destination.index); 
+            //     console.log('direction: ', direction);
+            //     console.log('=========');
+            // }
         },
 
         // before scroll animation begins
@@ -208,17 +208,12 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             var index = origin.index;
             var leavingSection = $(this);
 
-            if (timelines.bioTl.isActive()) {
-                console.log('bioTl active');
-            }
-
-            console.log('=========');
-            console.log('onLeave');
-            console.log('origin.index: ', origin.index); 
-            console.log('destination.index: ', destination.index); 
-            console.log('direction: ', direction);
-            console.log('=========');
-
+            // console.log('=========');
+            // console.log('onLeave');
+            // console.log('origin.index: ', origin.index); 
+            // console.log('destination.index: ', destination.index); 
+            // console.log('direction: ', direction);
+            // console.log('=========');
 
             // if leaving bio
             if(origin.anchor === "bio"){
@@ -226,13 +221,17 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 // if (timelines.bioTl.isActive()) {
                 //  console.log('bioTl active');
                 // }
-                timelines.bioTl.pause();
+                if (timelines.bioTl.isActive()) {
+                    timelines.bioTl.pause();
+                    // console.log('bioTl active');
+                }
             }
 
             // entering bio
             if(destination.anchor === "bio"){
-                console.log('entered bio section');
+                // console.log('entered bio section');
                 timelines.revealHeadshot.play();
+                timelines.bioTl.resume();
 
                 // if (timelines.bioTl.isActive()) {
                 //  console.log('bioTl active');
@@ -244,7 +243,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 // glideArt = initGlide(glideArt);
                 initGlide(1); //all
 
-                console.log(gi);
+                // console.log(gi);
 
                 // $('.js--projects__menu-toggle').on(
                 //  'click', 
@@ -510,7 +509,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             // if there are 0 or 1 headshots, the tl will just display for the headshot
             // otherwise, construct and start the slideshow
-            .add(timelines.bioTl.play(), "begin+=0.75" )
+            .add(timelines.bioTl.play(), "begin+=0.5")
 
             .to(
                 [ ".button--resume-pdf" ],
@@ -535,29 +534,29 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             // .timeScale( .2 )
 
+            // console.log("bio tl: ", tl);
         return tl;
     };
         
-
-
     function makeBioTl(){
         var $bioImages = $(".headshot__image");
         var numHeadshotsImages = $bioImages.length;
+        var fadeDuration = 2.8;
+        var showSlideFor = 3.5;
 
         if (numHeadshotsImages > 1)  {
-            var fadeDuration = 1;
-            
             var tl = new TimelineMax({ 
                 onComplete: onComplete, 
-                onCompleteParams:[ "{self}" ],
-                paused: true
-                // repeat: -1
+                paused: true,
+                repeat: -1,
+                smoothChildTiming: true
             });
 
-            $bioImages.each(function(index, element) {
-                // assign indexes
-                 // $(element).css('z-index', numHeadshotsImages - index);
+            var $reversed = _.reverse($bioImages);
+            var $f = _.first($bioImages);
+            var $l = _.last($bioImages)
 
+            $reversed.each(function(index, element) {
 
                 /*
 
@@ -569,7 +568,17 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
                     ------------------------
 
-                        img: opacity
+                    Transition each image's opacity from 1 to 0,
+                    revealing what's under it visually (the image that's earlier in the source)
+
+                    On the last image of the stack, fade it with the first image,
+                    and set a callback to reset to the beginning state for looping
+
+                        s                                         e
+                        t                                         n
+                        a                                         d
+                        r
+                        t
 
                         D: 1      D: 1      D: 1       D: 1   ->  D: 0   
                         C: 1      C: 1      C: 1   ->  C: 0       C: 0   
@@ -579,51 +588,39 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                         .to()    .to()      .to()      .to()     .to() with onComplete(e)
                                                                     
                         onComplete(e){ 
-                            // everything but A
+                            // rest opacity of everything but A
                             D: 1, 
                             C: 1, 
                             B, 1 
                         };
-
                 */
-                 if (index === _.last(numHeadshotsImages)) {
 
+                // image A
+                 if (index === $bioImages.length - 1) {
+                    tl.addLabel("swapFirstAndLast", "+=" + showSlideFor);
+                    tl.to( $f, fadeDuration, { autoAlpha: 1, ease: Power1.EaseIn }, "swapFirstAndLast" );
+                    tl.to( $l, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "swapFirstAndLast" );
                  }
 
-
+                // everything but A
                  else {
-                    tl.to( element, fadeDuration, { autoAlpha: 0, ease: Power3.EaseIn, delay: 2.5 } )
+                    tl.to( element, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "+=" + showSlideFor)
                  }
-
-             
-
             });
 
-            function onComplete(tween) {
-
-                // console.log('tween done: ', tween.target.innerHTML);
-                console.log('tween done: ', tween);
-                // var previous = $(tween.target).prev();
-                // console.log('previous: ', previous);
-
-                // TweenLite.set(element)
-
-                // var tl = new TimelineMax();
-                // tl.to(
-                //   previous, 
-                //   0.5, 
-                //   { 
-                //     opacity: 0, 
-                //     ease: Power4.easeOut,
-                //     autoAlpha: 0
-                //   })
+            function onComplete() {
+                /*
+                    At this point, the last image in the DOM source order is showing 
+                    (which is the first image the admin wants to see in the slideshow)
+                    begin the scenesm reset the opacity to the start state
+                */
+                TweenLite.set(_.initial($bioImages), { autoAlpha: 1 });
             }
-
          }
 
          else {
             var tl = new TimelineMax({ paused: true });
-            tl.to($('.headshot__image'), 1, { autoAlpha: 1});
+            tl.to($bioImages, 1, { autoAlpha: 1});
          }
 
         return tl;
