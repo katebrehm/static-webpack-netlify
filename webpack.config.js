@@ -240,6 +240,9 @@ module.exports = (env, argv) => ({
 					// filename: path.join(__dirname, 'dist', 'app.dist.css')
 					filename: 'app.dist.css'
 				}),
+
+				// during dev/build, output will complain that entrypoint is undefined
+				// safely ignore: https://github.com/jantimon/html-webpack-plugin/issues/895
 				new HtmlWebpackPlugin({
 						template: './src/index.html',
 						filename: 'index.html',
@@ -274,6 +277,9 @@ module.exports = (env, argv) => ({
 						filename: 'index.html',
 						inject: 'body'
 				}),
+				
+				// during dev/build, output will complain that entrypoint is undefined
+				// safely ignore: https://github.com/jantimon/html-webpack-plugin/issues/895
 				new HtmlWebpackPlugin({
 						template: './src/project1.html',
 						filename: 'project1.html',

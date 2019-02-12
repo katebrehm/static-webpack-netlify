@@ -49,6 +49,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
 (function () {
 
+
+
     // var options = {
     //  bio: {
     //      makeSlideshow: false // if there more than 2 images, build bio timeline
@@ -273,7 +275,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         },
 
         afterRender: function(){
-
+            
             timelines.bioTl = makeBioTl();
 
             // needs to be declared after bioTl

@@ -3,14 +3,37 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- 
+            fouc happens in dev bc of Webpack's HMR
+            https://github.com/gmrchk/swup/issues/63
+            https://gist.github.com/johnpolacek/3827270
+            $('body').attr('style', '');
+        -->
+        <style>
+            #p1 {
+                transition: all 0.2s ease-in-out;
+            }
+        </style>
+
+        <script type="text/javascript">
+            window.addEventListener( 'load', function( event ) {
+                // document.body.removeAttribute("style");
+                    
+                console.log('window load');
+                var p1 = document.getElementById("p1");
+                p1.removeAttribute("style");
+            });
+        </script>
+
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Eczar:400,500,600,800" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
-    <body class="project-bg--start">
+    <body class=">
         <div class="breakpoint"></div>
-        <div id="fullpage" class="transition-fade project-bg--end">
+        <div id="p1" class="transition-fade project-bg--end">
                 project 1
                 <a href="/index.html">index</a>
         </div>
