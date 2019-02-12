@@ -62,8 +62,11 @@ html.is-animating .transition-fade {
     }
 }
 
+.project-bg--start {
+    background-color: $palette--navy;
+}
 
-.project-bg {
+.project-bg--end {
     background-color: $palette--turquoise-blue;
     color: white;
 }

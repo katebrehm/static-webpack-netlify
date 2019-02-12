@@ -20,7 +20,9 @@ import Swup from 'swup';
 var options = {
     elements: ['#fullpage'],
     scroll: false,
-    debugMode: true
+    debugMode: true,
+    preload: true,
+    cache: true
 }
 
 // app utils
