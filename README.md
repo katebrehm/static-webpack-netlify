@@ -16,7 +16,9 @@ automatically happens on Netlify when commits are pushed
 
 - headshot: content: headshot narrower, pull text left.
 - headshot: content: text taller, more space for words
-- headshot: image aspect ratio : https://css-tricks.com/aspect-ratios-grid-items/
+- headshot: image aspect ratio : 
+    https://css-tricks.com/aspect-ratios-grid-items/
+    https://www.cssgridplayground.com/ 
 - headshot: responsive
 
 - bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
@@ -66,8 +68,9 @@ automatically happens on Netlify when commits are pushed
     Book me
 
 
-
 #### later
+- bug: intro: "imnolist" flashes another image
+
 - fix line behind with a psuedo later
 - RAM footprint
 - rename images/content to content/images 
@@ -78,6 +81,7 @@ automatically happens on Netlify when commits are pushed
     https://github.com/netlify/netlify-cms/pull/1602
 - fix validation
 - why isnt handlebars being hot reloaded?
+
 - conditional logic in admin - intro: if it's a plain fragment, how to hide key + image fields?
 - dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
 - fullPage license as ENV key, to webpack https://github.com/alvarotrigo/fullPage.js/issues/3544
@@ -93,17 +97,25 @@ automatically happens on Netlify when commits are pushed
 - netlify: possible to add a list singular label?
 - intro: optimize js-hover
 - do we want o keep katebrehm GH page.
+- https://github.com/aFarkas/lazysizes
+
 
 - #### nice to have
 - fix fout https://css-tricks.com/fighting-foit-and-fout-together/
 - intro: boxes granim test
 - loader to get images 
+- responsive images
+https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+
 - set up Uploadcare https://github.com/uploadcare/uploadcare-netlifycms
 - extract compile hbs into static js code to separate webpack.xxx.js files
 - page transitions with swup
 - analytics https://github.com/colbyfayock/html-webpack-partials-plugin
-- convert to Gatsby / React or Vue
+- convert to Gatsby / React or Vue ./ https://github.com/giantcz/gia
 - optimize CSS load times https://csswizardry.com/2018/11/css-and-network-performance/
+
+- https://plyr.io/
+
 
 #### review
 - try on mobile. see intro text vs image?

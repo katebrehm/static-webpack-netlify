@@ -265,9 +265,14 @@ module.exports = (env, argv) => ({
 				new webpack.ProgressPlugin({ profile: false }),
 				new HtmlWebpackPlugin({
 						template: './src/index.html',
+						filename: 'index.html',
 						inject: 'body'
 				}),
-
+				new HtmlWebpackPlugin({
+						template: './src/project1.html',
+						filename: 'project1.html',
+						inject: 'body'
+				}),
 
 				new CopyWebpackPlugin([
 					{ from: 'src/images', to: 'images' },

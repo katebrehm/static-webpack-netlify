@@ -14,6 +14,15 @@ import '../scss/app.scss';
 
 import lodash from 'lodash';
 
+import Swup from 'swup';
+
+// @todo: remove dependency on fullpage, make page wrapper specifically for swup
+var options = {
+    elements: ['#fullpage'],
+    scroll: false,
+    debugMode: true
+}
+
 // app utils
 // import transformToCamelCase from './utils/transformToCamelCase';
 
@@ -495,7 +504,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                     scaleX: 0, 
                     ease: Power4.easeInOut 
                 }, 
-                "begin+=.175"
+                "begin+=0.175"
             )
 
             .to(
@@ -506,7 +515,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                     ease: Expo.easeIn
                     // width: 3 
                 }, 
-                "begin+=0.7 "
+                "begin+=0.7"
             )
 
             // if there are 0 or 1 headshots, the tl will just display for the headshot

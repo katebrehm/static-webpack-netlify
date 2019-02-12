@@ -36,3 +36,34 @@ body {
     position: relative;
     align-items: center;
 }
+
+
+// temp swup css animation code
+.transition-fade {
+    opacity: 1;
+    transition: 1s;
+}
+
+html.is-animating .transition-fade {
+    opacity: 0;
+}
+
+@keyframes animation {
+    0% {
+        background-position: 0% 0%
+    }
+
+    50% {
+        background-position: 100% 100%
+    }
+
+    100% {
+        background-position: 0% 00%
+    }
+}
+
+
+.project-bg {
+    background-color: $palette--turquoise-blue;
+    color: white;
+}
