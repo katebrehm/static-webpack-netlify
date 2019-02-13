@@ -14,117 +14,139 @@ automatically happens on Netlify when commits are pushed
 
 #### todo
 
-- headshot: content: headshot narrower, pull text left.
-- headshot: content: text taller, more space for words
-- headshot: image aspect ratio : 
-    https://css-tricks.com/aspect-ratios-grid-items/
-    https://www.cssgridplayground.com/ 
-- headshot: responsive
+bio
+    layout
+        headshot narrower, pull text left.
+        text taller, more space for words
+        responsive
+        image aspect ratio : 
+            https://css-tricks.com/aspect-ratios-grid-items/
+            https://www.cssgridplayground.com/ 
 
-- bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
-- bug: projects: layout when destroy / rebuild switching types
+bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
+projects: bug: layout when destroy / rebuild switching types
 
-- nav: hit area bigger
+nav: hit area bigger
 
-- project detail template (routes)
-    - Full width image
-    - next back buttons. ie, Gatsby examples page
-    - vimeo embed
-    - back link / close
+project detail
+    swupjs with GSAP
+    wire admin 
+    retain section link when going back
+        https://github.com/gmrchk/swup#skip-popstate-handling  ?
+    templating via webpack 
+        https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
+        https://dev.to/rodeghiero_/multiple-html-files-with-htmlwebpackplugin-19bf
+        https://github.com/mariorodeghiero/mariorodeghiero.github.io/blob/master/webpack.config.js
+    layout
+        Full width image
+        vimeo embed https://plyr.io/
+        back link / close
+        next / prev project 
+            https://kyledecker.me/work/dropbox
+            https://www.gatsbyjs.org/showcase/gm.capitalone.com
 
-- Remove nav on mobile
+Remove nav on mobile
 
-- intro: animate fragments, boxes
-- intro: first load Flash unstyled content
-- intro: reponsive content
+intro
+    animate fragments, boxes
+    reponsive content
 
-- projects:  enable/disable on section enter/exit
-- projects: !-- - disable full page on narrow. stack on mobile with window matchmedia https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections -->
-- projects:  quotes ticker, add to admin
-- projects:  hover over projects, no cursor on large bpoints where cant drag
-- projects:  auto height: https://github.com/glidejs/glide/issues/236
-- projects:  carousel broken on swipe
-- projects: dont allow click past edges of carousel
-- projects: refactor Glide code
+projects: enable/disable on section enter/exit
+    disable full page on narrow. stack on mobile with window matchmedia 
+        https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
+    quotes ticker, add to admin
+    hover over projects, no cursor on large bpoints where cant drag
+    auto height: https://github.com/glidejs/glide/issues/236
+    carousel broken on swipe 
+        https://github.com/glidejs/glide/issues/311
+        https://github.com/glidejs/glide/issues/309
+    dont allow click past edges of carousel
+    refactor Glide code
 
 
- - What is a Movement Director
+ What is a Movement Director
     use same project detail plumbing
     typeset, layout, some animated gifs
     HIRE ME 
 
-- Research
+Research
     paragraph
     links table
         PUBLICATIONS
         EXperiments
 
-- Huff Post quote
+Huff Post quote
     link to artcle
 
-- Teaching
+Teaching
     Lectures
     Workshops
     Book me
 
 
 #### later
-- bug: intro: "imnolist" flashes another image
 
-- fix line behind with a psuedo later
-- RAM footprint
-- rename images/content to content/images 
-- intro: split into paragraphs. <br> as an item? refactor intro to rich text?
-- add checks for empty json data
-- host images outside of GH? 
+bug: intro: "imnotlost" flashes another image
+move critical inline css to plugin if possible
+    https://medium.com/wizardnet972/https-medium-com-wizardnet972-make-your-page-rendering-faster-e14a95747c7a
+    https://vuejsdevelopers.com/2017/07/24/critical-css-webpack/
+fix line behind with a psuedo later
+RAM footprint
+rename images/content to content/images 
+intro: split into paragraphs. <br> as an item? refactor intro to rich text?
+host images outside of GH? 
     https://github.com/netlify/netlify-cms/issues/432
     https://github.com/netlify/netlify-cms/pull/1602
-- fix validation
-- why isnt handlebars being hot reloaded?
+fix validation
+split js into modules
+    https://webpack.js.org/guides/author-libraries/#expose-the-library
+why isnt handlebars being hot reloaded?
+fullPage license as ENV key, to webpack https://github.com/alvarotrigo/fullPage.js/issues/3544
+set up SSL
+set up custom domain
+webpack image optimizer step
+    dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
+netlify: 
+    disappearing label?
+    image regex validation?
+    use npm package instead of CDN for Netlify admin js
+    moves assets to project root
+    possible to add a list singular label?
+change colors of diagnal lines on first section?
+preload / lazyload images
+    https://github.com/aFarkas/lazysizes
+    set up data-swup-preload for images
 
-- conditional logic in admin - intro: if it's a plain fragment, how to hide key + image fields?
-- dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
-- fullPage license as ENV key, to webpack https://github.com/alvarotrigo/fullPage.js/issues/3544
-- set up SSL
-- set up custom domain
-- webpack image optimizer step
-- netlify: disappearing label?
-- moves assets to project root
-- netlify: image regex validation?
-- change colors of diagnal lines on first section?
-- use npm package instead of CDN for Netlify admin js
-- preload / lazyload images
-- netlify: possible to add a list singular label?
-- intro: optimize js-hover
-- do we want o keep katebrehm GH page.
-- https://github.com/aFarkas/lazysizes
-
-
-- #### nice to have
-- fix fout https://css-tricks.com/fighting-foit-and-fout-together/
-- intro: boxes granim test
-- loader to get images 
-- responsive images
-https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
-
-- set up Uploadcare https://github.com/uploadcare/uploadcare-netlifycms
-- extract compile hbs into static js code to separate webpack.xxx.js files
-- page transitions with swup
-- analytics https://github.com/colbyfayock/html-webpack-partials-plugin
-- convert to Gatsby / React or Vue ./ https://github.com/giantcz/gia
-- optimize CSS load times https://csswizardry.com/2018/11/css-and-network-performance/
-
-- https://plyr.io/
+intro: optimize js-hover
+clean up commit history to lf, with ktadmin GH account
 
 
-#### review
-- try on mobile. see intro text vs image?
+#### nice to have
 
-baking a cake, we dont modify the cake but ingredients and netlify bakes the cake 
-FWA
-https://www.awwwards.com/
+add checks for empty json data
+intro
+    admin: if it's a plain fragment, how to hide key + image fields?
+fix fout https://css-tricks.com/fighting-foit-and-fout-together/
+loader to get images 
+responsive images
+    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+switch to mini css extract plugin to fix FOUC in dev/HMR
+    https://git.avrami.me/rmit-coursework/sept-zulip/commit/64dadae697c9500835c7763d1416c6e2ac01bfe9
+    https://github.com/webpack-contrib/mini-css-extract-plugin/issues/34
+set up Uploadcare 
+    https://github.com/uploadcare/uploadcare-netlifycms
+extract compile hbs into static js code to separate webpack.xxx.js files
+analytics 
+    https://github.com/colbyfayock/html-webpack-partials-plugin
+convert to Gatsby / React or Vue 
+    https://github.com/giantcz/gia
+optimize CSS load times 
+    https://csswizardry.com/2018/11/css-and-network-performance/
+FWA https://www.awwwards.com/
+credits
 
 
+#### references
 
 
 https://github.com/glidejs/glide/issues/271
@@ -138,7 +160,6 @@ https://github.com/glidejs/glide/issues/269
 
 
 box-shadow: 1rem 1rem rgba(255, 0, 0, 0.4)
-
 
 
 
@@ -164,3 +185,27 @@ box-shadow: 1rem 1rem rgba(255, 0, 0, 0.4)
 
 
  -->
+
+
+https://kyledecker.me/work/swiftype
+https://www.elastic.co/products/stack/machine-learning
+https://www.cityblock.com/careers
+
+FOUC
+https://gist.github.com/johnpolacek/3827270
+https://stackoverflow.com/questions/46175558/preventing-fouc-when-calling-css-through-a-javascript
+https://stackoverflow.com/questions/42228423/set-div-to-hidden-then-visible-after-time-delay
+https://stackoverflow.com/questions/3221561/eliminate-flash-of-unstyled-content
+
+
+swup
+https://github.com/gmrchk/swupjs
+https://github.com/gmrchk/swupjs-gia-demo/blob/master/src/js/app.js
+https://github.com/gmrchk/swup/wiki/Common-Issues
+https://next.plnkr.co/edit/yED0KAV2hGsMjYyr?open=lib%2Fscript.js&preview
+
+
+
+
+
+
