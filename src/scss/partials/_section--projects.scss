@@ -1,15 +1,15 @@
 @import "_colors";
 
 
-
-
-
 .glide__track {
 	overflow: visible;
 }
 
 .glide--art-projects {
-    margin-top: 10%;
+    // margin-top: 10%;
+    display: flex;
+    align-items: center;
+
 }
 
 .glide__slides {
@@ -40,7 +40,10 @@
 	background-size: cover;
 	background-position: center center;
 	// opacity: 0;
-        min-width: 300px;
+    min-width: 300px;
+    
+    // @todo: only on non-swipe
+    cursor: default;
 
 	img {
 		// opacity: 0.6;
@@ -83,8 +86,8 @@
 
 }
 
-.art-project__type--1 { border-top: 3px solid #FAFFD8; }
-.art-project__type--2 { border-top: 3px solid #55DDE0; }
+// .art-project__type--1 { border-top: 3px solid $palette--light-yellow }
+// .art-project__type--2 { border-top: 3px solid $palette--turquoise-blue; }
 
 
 // // http://bennettfeely.com/clippy/
@@ -97,18 +100,19 @@
 // }
 
 
+
 .glide__arrows {
+    position: absolute;
+    width: 100vw;
 	display: flex;
+    cursor: default;
 }
 
 .glide__arrow {
-	top: 4rem;
     position: relative;
-    right: 1rem;
-
-	left: auto; 
-	margin: 3rem 1rem;
-	padding: 0;
+	top: auto;
+    padding: 2rem;
+    // margin: 3rem 1rem;
 	transform: none;
 	box-shadow: none;
 	text-shadow: none;
@@ -119,19 +123,18 @@
 	opacity: 0.9;
 
 
-	i { width: 20px !important; }
+	i { font-size: 2.25rem; }
  }
 
 .glide__arrow:hover {
 	opacity: 1;
 }
 
- .glide__arrow--left {
-	margin-left: auto;
+.glide__arrow--left {
+	margin-right: auto;
  }
 
- .glide__arrow--right {
-	margin-right: 3rem;
+.glide__arrow--right {
 }
 
 .slide__image {
@@ -146,6 +149,8 @@
 // }
 
 .slide__title {
+    display: flex;
+    align-items: center;
 	position: absolute;
 	margin: 0.5rem 0.25rem;
     right: 0;
@@ -155,6 +160,20 @@
 	// box-shadow: 1rem 1rem rgba(red, 0.4);
     user-select: none;
 }
+
+.slide__title-icon {
+    margin: 0 0.5rem;
+    position: relative;
+    top: -1px;
+}
+
+.slide__title-icon--square { font-size: 17px; top: 1px; position: relative; }
+.slide__title-icon--circle { font-size: 14px; }
+
+.material__icon--circle { color: $palette--light-yellow;  }
+.material__icon--square { color: $palette--turquoise-blue;  }
+
+
 
 // .container__arrow:hover {
 // 	opacity: 1;
@@ -195,16 +214,25 @@
 }
 
 .projects__menu-tag {
+    display: flex;
+    align-items: center;
 	padding: 0.15rem 0;
     margin: 0 0.5rem;
-    color: #afafaf;
     font-size: 0.8rem;
     font-family: sans-serif;
+    background-color: none;
+    color: #afafaf;
     opacity: 0.9;
 	cursor: pointer;
 	transition: all 0.1s ease-in-out;
-	background-color: none;
 }
+
+.projects__menu-icon {
+    margin: 0 0.25rem;
+}
+
+.projects__menu-icon__circle { font-size: 14px; }
+.projects__menu-icon__square { font-size: 17px; top: 1px; position: relative; }
 
 .projects__menu-tag.active {
     // border-bottom: 1px solid $palette--green;
@@ -215,8 +243,6 @@
     // border-bottom: 1px solid $palette--green;
 }
 
-.projects__menu-tag--productions { border-bottom: 2px solid #FAFFD8; }
-.projects__menu-tag--events { border-bottom: 2px solid #55DDE0; }
 
 .slide__tag:hover,
 .projects__menu-tag:hover {
@@ -230,16 +256,6 @@
 .tag--2:before {
 	content: 'event';
 }
-
-// $gray--light: #F5F5F5;
-// $gray--mid: #B8BDC2;
-
-// $palette--calypso: #276688;
-// $palette--mint: #00FDDC;
-// $palette--pearl: #A9ABB7;
-// $palette--turquoise-blue: #55DDE0;
-// $palette--glacier: #6EABC2;
-
 
 //////////////////
 // video, HTML el
@@ -261,16 +277,18 @@ $poofheight: 90vh;
 // }
 
 .projects__tag-types {
-	display: inline-block;
+	display: inline-flex;
+    flex-wrap: nowrap;
+    margin-left: 1rem;
 }
 
-.projects__tag-types:before {
-	content: ' ';
-	margin: 0 1.5rem;
-	background-color: $palette--green;
-	opacity: 0.3;
-	border-right: 1px solid $palette--green;
-}
+// .projects__tag-types:before {
+// 	content: ' ';
+// 	margin: 0 1.5rem;
+// 	background-color: $palette--green;
+// 	opacity: 0.3;
+// 	border-right: 1px solid $palette--green;
+// }
 
 .projects__menu-label {
     display: inline-block;

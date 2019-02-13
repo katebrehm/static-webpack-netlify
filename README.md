@@ -29,18 +29,13 @@ projects: bug: layout when destroy / rebuild switching types
 nav: hit area bigger
 
 project detail
-    swupjs with GSAP
     wire admin 
-    retain section link when going back
-        https://github.com/gmrchk/swup#skip-popstate-handling  ?
+    Back doesnt scroll down
     templating via webpack 
         https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
         https://dev.to/rodeghiero_/multiple-html-files-with-htmlwebpackplugin-19bf
         https://github.com/mariorodeghiero/mariorodeghiero.github.io/blob/master/webpack.config.js
     layout
-        Full width image
-        vimeo embed https://plyr.io/
-        back link / close
         next / prev project 
             https://kyledecker.me/work/dropbox
             https://www.gatsbyjs.org/showcase/gm.capitalone.com
@@ -50,6 +45,7 @@ Remove nav on mobile
 intro
     animate fragments, boxes
     reponsive content
+    social links
 
 projects: enable/disable on section enter/exit
     disable full page on narrow. stack on mobile with window matchmedia 
@@ -57,12 +53,13 @@ projects: enable/disable on section enter/exit
     quotes ticker, add to admin
     hover over projects, no cursor on large bpoints where cant drag
     auto height: https://github.com/glidejs/glide/issues/236
-    carousel broken on swipe 
-        https://github.com/glidejs/glide/issues/311
-        https://github.com/glidejs/glide/issues/309
+
     dont allow click past edges of carousel
     refactor Glide code
-
+    6/8 back
+    glide__slide, cursor default only on non-swipe
+    focus middle on load
+    scroll away, scroll back, projects change width
 
  What is a Movement Director
     use same project detail plumbing
@@ -203,9 +200,16 @@ https://github.com/gmrchk/swupjs
 https://github.com/gmrchk/swupjs-gia-demo/blob/master/src/js/app.js
 https://github.com/gmrchk/swup/wiki/Common-Issues
 https://next.plnkr.co/edit/yED0KAV2hGsMjYyr?open=lib%2Fscript.js&preview
+https://github.com/gmrchk/swup/issues/44
 
 
 
 
 
+    retain section link when going back
+        https://github.com/gmrchk/swup#skip-popstate-handling  ?
 
+
+            carousel broken on swipe 
+        https://github.com/glidejs/glide/issues/311
+        https://github.com/glidejs/glide/issues/309

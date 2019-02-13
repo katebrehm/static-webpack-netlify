@@ -21,6 +21,7 @@
 		"jquery-ui": "^1.12.1",
 		"jquery-ui-bundle": "^1.12.1",
 		"lodash": "^4.17.4",
+		"plyr": "^3.4.8",
 		"scrollama": "^1.4.4",
 		"verge": "^1.10.2",
 		"videojs": "^1.0.0",

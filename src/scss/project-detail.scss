@@ -1,0 +1,88 @@
+@import "partials/colors";
+
+.material-icon__clear {
+	position: absolute;
+	margin: 2rem;
+	right: 0;
+	color: white;
+}
+
+.project-detail__page {
+	position: relative;
+}
+
+.project-detail__hero {
+	width: 100vw;
+	height: 75vh;
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+}
+
+.project-detail__hero-image {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.project-detail__content-wrapper {
+	max-width: 600px;
+	padding: 0 1rem;
+	margin: 2rem auto;
+}
+
+.project-detail__hero-title {
+	color: $palette--navy;
+	padding: 1rem 0 0 0;
+	font-size: 2.25rem;
+	font-family: 'K-Medium', sans-serif;
+	letter-spacing: -0.06rem;
+}
+
+.project-detail__summary {
+	border-top: solid gray 1px;
+	padding: 2rem 0.5rem 0 0.5rem;
+	margin-top: 1.5rem;
+}
+
+.project-detail__video {
+	margin: 1rem 0;
+}
+
+.project-detail__paragraph--large {
+	font-family: 'K-Medium', sans-serif;
+	font-size: 1.2rem; 
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}
+
+.project-detail__paragraph {
+	font-family: 'Eczar', serif;
+	line-height: 1.45;
+	padding: 0.5rem;
+}
+
+.bg__diags--project-detail {
+	z-index: 11;
+	width: 100vw;
+	height: 40rem;
+	bottom: -25rem;
+	opacity: 0.25;
+	left: -85vw;
+}
+
+.js--project-detail__back-link {
+	display: block;
+	font-family: 'K-Medium', sans-serif;
+	font-size: 1rem; 
+	padding: 0.15rem 0.5rem;
+	margin: 3rem 0 7rem 0;
+	color: $palette--turquoise-blue;
+	cursor: pointer;
+	opacity: 0.9;
+	transition: all 0.1s ease-in-out;
+}
+
+.js--project-detail__back-link {
+	opacity: 1;
+}

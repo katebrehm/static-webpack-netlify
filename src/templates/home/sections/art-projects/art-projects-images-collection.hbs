@@ -7,7 +7,21 @@
                 
                 <span class="slide__tag tag--{{ artProjectType }}"></span>
             </h2> --}}
-            <a href="/project1.html" class="slide__title">{{ artProjectTitle }}</a>
+
+            
+            <a href="/project1.html" class="slide__title">
+                {{#ifEquals artProjectType "1"}}
+                    <i class="slide__title-icon 
+                                slide__title-icon--circle
+                                material-icons 
+                                material__icon--circle">fiber_manual_record</i>
+                {{else}}
+                    <i class="slide__title-icon 
+                            slide__title-icon--square
+                            material-icons 
+                            material__icon--square">stop</i>
+                {{/ifEquals}}
+            {{ artProjectTitle }}</a>
             
             {{!-- <div class="slide__ tag tag--{{ artProjectType }}"></div> --}}
 

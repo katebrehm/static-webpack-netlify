@@ -5,6 +5,7 @@
 import TweenMax from "greensock";
 import verge from "verge";
 import Glide from '@glidejs/glide'
+import Plyr from 'plyr'
 
 // import 'intersection-observer'
 // import scrollama from 'scrollama';
@@ -38,8 +39,6 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
 (function () {
 
-
-
     // var options = {
     //  bio: {
     //      makeSlideshow: false // if there more than 2 images, build bio timeline
@@ -49,7 +48,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     // workaround for fullpage history bug. Add #intro only if page loads without a deep link
     // https://github.com/alvarotrigo/fullPage.js/issues/950#issuecomment-69156110
     // https://stackoverflow.com/questions/24078332/is-it-secure-to-use-window-location-href-directly-without-validation/24089350
-    if (!window.location.href.includes("#")) {
+    if ((!window.location.href.includes("#")) && (!window.location.href.includes("project"))) {
         window.location.href = window.location.href + "#intro";
     }
 
@@ -58,14 +57,15 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     var projectCarouselOptions = {
         // bpoints should match _mq.scss
         // 1280 +
-        type: 'slider',
+        type: 'carousel',
         gap: 32,
         perView: 3,
         focusAt: 'center',
         animationDuration: 250,
         peek: { before: 100, after: 100 },
-        dragThreshold: 1,
-        perTouch: 2,
+        // dragThreshold: 1,
+        dragThreshold: false,
+        // perTouch: 2,
         rewind: false,
         breakpoints: { 
 
@@ -74,7 +74,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 perView: 3,
                 gap: 32,
                 peek: { before: 32, after: 32 },
-                dragThreshold: 1
+                // dragThreshold: 1
             },
 
             // 861 to 1030
@@ -82,7 +82,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 perView: 2,
                 gap: 32,
                 peek: { before: 50, after: 50 },
-                dragThreshold: 1,
+                // dragThreshold: 1,
                 swipeThreshold: 1
             },
 
@@ -91,8 +91,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 perView: 1,
                 gap: 16,
                 peek: { before: 50, after: 50 },
-                dragThreshold: true,
-                dragThreshold: 1,
+                // dragThreshold: true,
+                // dragThreshold: 1,
                 swipeThreshold: 1
             },
 
@@ -101,8 +101,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 perView: 1,
                 gap: 0,
                 peek: 0,
-                dragThreshold: true,
-                dragThreshold: 1,
+                // dragThreshold: true,
+                // dragThreshold: 1,
                 swipeThreshold: 1
             }
         }
@@ -180,6 +180,11 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     })
 
     $('.js--button--resume-pdf').attr('href',bioDataObj.bioResumePdf);
+
+
+    $('.js--project-detail__back-button').on('click', function(){
+        window.history.back();
+    })
 
     var gi;
 

@@ -20,7 +20,7 @@
             window.addEventListener( 'load', function( event ) {
                 // document.body.removeAttribute("style");
                     
-                console.log('window load');
+                // console.log('window load');
                 var p1 = document.getElementById("p1");
                 p1.removeAttribute("style");
             });
@@ -31,13 +31,48 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
-    <body class=">
+    <body>
         <div class="breakpoint"></div>
-        <div id="p1" class="transition-fade project-bg--end">
-                project 1
-                <a href="/index.html">index</a>
-        </div>
+        <div id="p1" class="project-detail__page">
+            <div class="project-detail__hero">
+                <a href="#" class="js--project-detail__back-button">
+                    <i class="material-icons material-icon__clear">clear</i>
+                </a>
+                <img class="project-detail__hero-image" src="./images/content/img0293.jpg">
+                <div class="bg__diags bg__diags--project-detail"></div>
 
+            </div>
+            <div class="project-detail__content-wrapper">
+                <div class="project-detail__hero-title">A Seemingly Unified Spectacle</div>
+
+                <p class="project-detail__paragraph--large project-detail__summary">
+                    The primary aim of my art-making is audience affect. I seek to create a visceral sensation of awe in my viewers. 
+                    I also aspire to provide them an experience of deeply ‘getting it,’ 
+                    but intellectual understanding is not required. The pursuit of such art 
+                    has led me to primarily employ methods of visual theater. 
+                </p>
+                <p  class="project-detail__paragraph">
+                    Over the last few years my puppets have become a kind of performing scenery. Currently, I am exploring the total puppetization of a performance’s scenography. (My definition of scenography being: the visual mode and means, made up of inanimate objects, elements, and rules, which creates a holistic theatrical consciousness that changes over time.) The drama of this theater is abstracted to pattern, repetition, and met or unmet expectations. This makes my ‘stories’ akin to music. I use recurring themes, crescendos, staccato, and legato phrases. I am also highly influenced by techniques from comics and cinematography, specifically those that harness the power of an audience’s imagination.  
+                </p>
+
+                <div class="project-detail__video plyr__video-embed" id="player" >
+                    <iframe src="https://player.vimeo.com/video/126093835?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen allowtransparency allow="autoplay"></iframe>
+                </div>
+
+                <p class="bio__paragraph">
+                    All of this points towards cross-disciplinary art-making, but none of it demonstrates a personal drive towards collaboration. Instead, it requires one. I am a collaborative maker because I must be so. My visions are larger than myself and therefore, I have learned the vitality of collaborative relationships. Art partnerships provide the simple strengths of sharing the burden of production and expanding the pathways of inspiration. However, the greatest asset these partnerships provide is a culture and a community. Each new group of collaborators creates a culture of expectations for listening, offering ideas, and supporting one another as a way of supporting the whole. The rituals we engage in as a group define us from other groups and enable us the means to build new structures, cross new bridges, and create alternative pathways.
+                </p>
+
+                <p >
+                     <a href="#" class="js--project-detail__back-link">
+                        Back to Home
+                    </a>
+                </p>
+
+               
+
+            </div>
+        </div>
     </body>
 </html>
 

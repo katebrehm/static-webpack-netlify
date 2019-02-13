@@ -128,7 +128,8 @@
 
 	  @include mq('lg') {
 		font-size: 1.4rem;
-		line-height: 1.45;
+		line-height: 1.5;
+		letter-spacing: -0.02rem;
 	  }
 
 	  @include mq('xl') {
@@ -138,7 +139,7 @@
 
 	  @include mq('xxl') {
 	  	font-size: 1.5rem;
-		line-height: 1.5;
+		line-height: 1.6;
 		}
 
 	   @include mq('xxxl') {
@@ -155,7 +156,7 @@
 
 .intro__link {
 	visibility: inherit;
-	padding: 0.2rem 0.1rem 0.2rem 0.5rem;
+	padding: 0.2rem 0.1rem 0.2rem 0.2rem;
 
 	color: white;
     opacity: 1;
@@ -179,7 +180,7 @@
 .intro__link:nth-of-type(5n+1):hover { background-color: #00FDDC; border: 0; }
 .intro__link:nth-of-type(5n+2):hover { background-color: #276688; border: 0; }
 .intro__link:nth-of-type(5n+3):hover { background-color: #A9ABB7; border: 0; }
-.intro__link:nth-of-type(5n+4):hover { background-color: #55DDE0; border: 0; }
+.intro__link:nth-of-type(5n+4):hover { background-color: $palette--turquoise-blue; border: 0; }
 .intro__link:nth-of-type(5n+5):hover { background-color: #6EABC2; border: 0; }
 
 
@@ -195,7 +196,7 @@
 	.intro__link:nth-of-type(5n+1) { background: #00FDDC; color: #276688;  }
 	.intro__link:nth-of-type(5n+2) { background: #276688; }
 	.intro__link:nth-of-type(5n+3) { background: #A9ABB7; }
-	.intro__link:nth-of-type(5n+4) { background: #55DDE0; color: #276688; }
+	.intro__link:nth-of-type(5n+4) { background: $palette--turquoise-blue; color: #276688; }
 	.intro__link:nth-of-type(5n+5) { background: #6EABC2;}
 
   }
@@ -271,16 +272,10 @@
 // 	font-size: 1rem; 
 // }
 
-.intro__diags {
-	position: absolute;
+.bg__diags--intro {
 	z-index: 11;
 	width: 100vw;
 	height: 13rem;
 	left: 160px;
 	bottom: -5rem;
-	pointer-events: none;
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAOklEQVQoU43MSwoAMAgD0eT+h7ZYaOlHo7N+DNHL2HAGgBWcyGcKbqTghTL4oQiG6IUpOqFEC5bI4QD8PAoKd9j4XwAAAABJRU5ErkJggg==);
-	mix-blend-mode: soft-light;
 }
-
-
