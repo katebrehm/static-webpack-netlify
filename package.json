@@ -22,7 +22,6 @@
 		"jquery-ui-bundle": "^1.12.1",
 		"lodash": "^4.17.4",
 		"scrollama": "^1.4.4",
-		"swup": "^1.9.0",
 		"verge": "^1.10.2",
 		"videojs": "^1.0.0",
 		"videojs-offset": "^2.0.0-beta.2"

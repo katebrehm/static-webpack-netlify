@@ -14,17 +14,6 @@ import '../scss/app.scss';
 
 import lodash from 'lodash';
 
-import Swup from 'swup';
-
-// @todo: remove dependency on fullpage, make page wrapper specifically for swup
-var options = {
-    elements: ['#fullpage'],
-    scroll: false,
-    debugMode: true,
-    preload: true,
-    cache: true
-}
-
 // app utils
 // import transformToCamelCase from './utils/transformToCamelCase';
 
