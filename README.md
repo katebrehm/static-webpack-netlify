@@ -24,42 +24,43 @@ bio
             https://www.cssgridplayground.com/ 
 
 bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
-projects: bug: layout when destroy / rebuild switching types
 
-nav: hit area bigger
+nav: 
+    hit area bigger
+    remove on mobile
+    nav__section-line-active  goes down on scroll sections
+
 
 project detail
+    barba transitions
     wire admin 
     Back doesnt scroll down
+    fix back button
     templating via webpack 
         https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
         https://dev.to/rodeghiero_/multiple-html-files-with-htmlwebpackplugin-19bf
         https://github.com/mariorodeghiero/mariorodeghiero.github.io/blob/master/webpack.config.js
-    layout
-        next / prev project 
-            https://kyledecker.me/work/dropbox
-            https://www.gatsbyjs.org/showcase/gm.capitalone.com
 
-Remove nav on mobile
 
-intro
-    animate fragments, boxes
-    reponsive content
-    social links
-
-projects: enable/disable on section enter/exit
+projects: 
+    6/8 back
+    fix stagger animation
+    fix destroy /disable 
+        scroll away, scroll back, projects change width
+        on section enter/exit, 
+        filtering
     disable full page on narrow. stack on mobile with window matchmedia 
         https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
     quotes ticker, add to admin
     hover over projects, no cursor on large bpoints where cant drag
     auto height: https://github.com/glidejs/glide/issues/236
-
-    dont allow click past edges of carousel
-    refactor Glide code
-    6/8 back
     glide__slide, cursor default only on non-swipe
     focus middle on load
-    scroll away, scroll back, projects change width
+
+intro
+    reponsive content
+    social links
+
 
  What is a Movement Director
     use same project detail plumbing
@@ -83,33 +84,40 @@ Teaching
 
 #### later
 
+consider switching from Glide to native: 
+    https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/
+    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap
+
 bug: intro: "imnotlost" flashes another image
+
 move critical inline css to plugin if possible
     https://medium.com/wizardnet972/https-medium-com-wizardnet972-make-your-page-rendering-faster-e14a95747c7a
     https://vuejsdevelopers.com/2017/07/24/critical-css-webpack/
-fix line behind with a psuedo later
+
 RAM footprint
-rename images/content to content/images 
+
 intro: split into paragraphs. <br> as an item? refactor intro to rich text?
-host images outside of GH? 
-    https://github.com/netlify/netlify-cms/issues/432
-    https://github.com/netlify/netlify-cms/pull/1602
-fix validation
-split js into modules
-    https://webpack.js.org/guides/author-libraries/#expose-the-library
+
 why isnt handlebars being hot reloaded?
-fullPage license as ENV key, to webpack https://github.com/alvarotrigo/fullPage.js/issues/3544
+
+fullPage license as ENV key, to webpack 
+    https://github.com/alvarotrigo/fullPage.js/issues/3544
+
 set up SSL
 set up custom domain
 webpack image optimizer step
     dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
+
 netlify: 
     disappearing label?
     image regex validation?
     use npm package instead of CDN for Netlify admin js
     moves assets to project root
     possible to add a list singular label?
-change colors of diagnal lines on first section?
+    host images outside of GH? 
+        https://github.com/netlify/netlify-cms/issues/432
+        https://github.com/netlify/netlify-cms/pull/1602
+        
 preload / lazyload images
     https://github.com/aFarkas/lazysizes
     set up data-swup-preload for images
@@ -117,28 +125,57 @@ preload / lazyload images
 intro: optimize js-hover
 clean up commit history to lf, with ktadmin GH account
 
+set up prefer-reduced-motion
+    https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
 #### nice to have
+project detail
+    layout
+        next / prev project 
+            https://kyledecker.me/work/dropbox
+            https://www.gatsbyjs.org/showcase/gm.capitalone.com
+
+split js into modules
+    https://webpack.js.org/guides/author-libraries/#expose-the-library
+
+projects
+    roll bio button up when get
+    
+    
+intro
+    animate fragments, boxes
 
 add checks for empty json data
+
 intro
     admin: if it's a plain fragment, how to hide key + image fields?
-fix fout https://css-tricks.com/fighting-foit-and-fout-together/
+
+fix fout 
+    https://css-tricks.com/fighting-foit-and-fout-together/
+
 loader to get images 
+
 responsive images
     https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+
 switch to mini css extract plugin to fix FOUC in dev/HMR
     https://git.avrami.me/rmit-coursework/sept-zulip/commit/64dadae697c9500835c7763d1416c6e2ac01bfe9
     https://github.com/webpack-contrib/mini-css-extract-plugin/issues/34
+
 set up Uploadcare 
     https://github.com/uploadcare/uploadcare-netlifycms
+
 extract compile hbs into static js code to separate webpack.xxx.js files
+
 analytics 
     https://github.com/colbyfayock/html-webpack-partials-plugin
+
 convert to Gatsby / React or Vue 
     https://github.com/giantcz/gia
+
 optimize CSS load times 
     https://csswizardry.com/2018/11/css-and-network-performance/
+
 FWA https://www.awwwards.com/
 credits
 
