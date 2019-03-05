@@ -2,7 +2,7 @@
 // https://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
 // require('file-loader?name=[name].[ext]!../index.html');
 
-import TweenMax from "greensock";
+import TweenMax from "gsap";
 import verge from "verge";
 import Glide from '@glidejs/glide'
 import Plyr from 'plyr'
@@ -184,6 +184,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     $('.js--project-detail__back-button').on('click', function(){
         window.history.back();
+        // console.log(document.referrer);
     })
 
     var gi;
@@ -236,6 +237,10 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 }
             }
 
+            if(origin.anchor === "art-projects"){
+                destroyAndCleanGlideInstance();
+            }
+
             // entering bio
             if(destination.anchor === "bio"){
                 // console.log('entered bio section');
@@ -250,20 +255,10 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             if(destination.anchor === "art-projects"){
 
                 // glideArt = initGlide(glideArt);
-                initGlide(1); //all
+                initGlide(0); // all
 
                 // console.log(gi);
 
-                // $('.js--projects__menu-toggle').on(
-                //  'click', 
-                //  { gInstance: glideArt },
-                //  toggleProjects
-                // );
-
-                $('.js--projects__menu-toggle').on(
-                    'click', 
-                    toggleProjects
-                )
 
             }
         },
@@ -342,49 +337,42 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         }
     });
 
-    // function initGlide(glideInstance){
+        // 0: "all", 
+         // 1: "events", 
+         // 2: "projects"
+    // function initGlide(glideInstance, which){
     function initGlide(which){
-        // glideInstance = new Glide($('.js--glide')[0], projectCarouselOptions);
+        // glideInstance 
         gi = new Glide($('.js--glide')[0], projectCarouselOptions)
 
             // insert DOM here, otherwise Glide crashes for some reason
             // probably some timing thing where the DOM isnt there
             // yet before Glide initializes
             .on('mount.before', function() {
+
+                console.log("mount.before");
                 // $('.glide__slide').addClass('.slide__bg-block'); 
-
-                // if it's the first load, read all from disk
                 if ($('.glide__slide').length === 0) {
-                    // load all projects
-                    $('.js--hbs-inject--art-projects__image-collection')
-                        .html(artProjectsCollectionTemplate({ artProjectsImages }));
-                }
-                
-                else {
-                    $('.glide__slide').remove();
-                    $('.js--hbs-inject--art-projects__image-collection')
-                        .html(artProjectsCollectionTemplate({ artProjectsImages }));
-
-                    if(which === 1) {
-                        $('.art-project__type--2').remove();
+                    if (which > 0) {
+                        var arr = _.filter(artProjectsImages, ['artProjectType', which]);
+                       $('.js--hbs-inject--art-projects__image-collection')
+                            .html(artProjectsCollectionTemplate({ arr }));
                     }
 
-                    else if (which === 2) {
-                        $('.art-project__type--1').remove();
-                    }
-
-                    else if (which === 3) {
-                        // do nothing, use all 
+                    else {
+                        $('.js--hbs-inject--art-projects__image-collection')
+                            .html(artProjectsCollectionTemplate({ artProjectsImages }));
                     }
                 }
             })
 
             .on('build.after', function() {
-                console.log("done building");
+                console.log("build.after");
                 // console.log("init slide index: ", glideInstance.index );
             })
 
             .on('run.before', function(direction) {
+                console.log("run.before");
                 // @todo: animate these out
                 $('.slide__position-counter').remove();
                 TweenLite.to('.glide__slide--active', 0.25, { autoAlpha: 0.6});
@@ -405,6 +393,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             })
 
             .on('run.after', function() {
+                console.log("run.after");
                 // console.log('glide:move.after');
                 // console.log($('.glide__slide--active'));
                 // console.log(glideInstance.index);
@@ -423,26 +412,46 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             .mount();
 
-        var tl = new TimelineMax();
-        tl
-            .addLabel('beginPlay') 
-
-            .staggerTo(
-                ".glide__slide", 
-                0.15, 
-                { 
-                    autoAlpha: 0.6, 
-                    // clipPath: squareClipPath,
-                    ease: Expo.easeOut
-                    // ease: Quint.easeOut 
-                },
-                0.075,
-                'beginPlay+=1'
+            $('.js--projects__menu-tag--productions').on(
+                'click', 
+                { which: 1 },
+                toggleProjects
             )
 
-                .to('.slide__position-counter', 0.1, { autoAlpha: 1});
+            $('.js--projects__menu-tag--events').on(
+                'click', 
+                { which: 2 },
+                toggleProjects
+            )
 
-        // return glideInstance;
+            $('.js--projects__menu-tag--all').on(
+                'click', 
+                { which: 0 },
+                toggleProjects
+            )
+
+        // var tl = new TimelineMax();
+        // tl
+        //     .addLabel('beginPlay') 
+
+        //     .staggerTo(
+        //         ".glide__slide", 
+        //         0.15, 
+        //         { 
+        //             autoAlpha: 0.6, 
+        //             // clipPath: squareClipPath,
+        //             ease: Expo.easeOut,
+        //             // ease: Quint.easeOut
+        //             yoyo: true,
+        //             y: 60,
+        //             scale: 0.1 
+        //         },
+        //         0.075,
+        //         'beginPlay+=1'
+        //     )
+
+        //         .to('.slide__position-counter', 0.1, { autoAlpha: 1});
+
         // return glideInstance;
     };
 
@@ -635,18 +644,17 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         return tl;
     };
 
-    function toggleProjects() {
-
+    function destroyAndCleanGlideInstance(){
         // glideI.disable();
         // glideI.destroy();
         gi.destroy();
 
-        $('.art-project__type--2').remove();
+        // $('.glide__slide').removeAttr("style");
+        $('.glide__slide').remove();
 
         // glideI.update(projectCarouselOptions);
         // glideI.enable();
 
-        $('.glide__slide').removeAttr("style");
         $('.glide__slides').removeAttr("style");
         $('.js--glide').removeClass('glide--swipeable');
         $('.slide__position-counter').remove();
@@ -655,11 +663,18 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         // event.data.gInstance = null;
         // console.log(glideI);
         // console.log(glideArt2);
-        // console.log(event.data.gInstance);
+
+        $('.js--projects__menu-tag--productions').unbind('click');
+        $('.js--projects__menu-tag--events').unbind('click');
+        $('.js--projects__menu-tag--all').unbind('click');
+    }
+
+    function toggleProjects(event) {
 
         // glideArt2 = initGlide(glideArt2);
-        initGlide(1);
-
+        destroyAndCleanGlideInstance();
+        initGlide(event.data.which);
+        
         // var tl = new TimelineMax();
         // tl
         //  .addLabel('beginPlay') 

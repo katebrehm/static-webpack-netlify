@@ -15,7 +15,7 @@
 		"chroma-js": "^2.0.2",
 		"fullpage.js": "^3.0.4",
 		"granim": "^2.0.0",
-		"greensock": "^1.20.2",
+		"gsap": "^2.1.1",
 		"intersection-observer": "^0.5.1",
 		"jquery": "^3.2.1",
 		"jquery-ui": "^1.12.1",
@@ -65,5 +65,8 @@
 		"webpack-dev-server": "^3.1.10",
 		"webpack-module-hot-accept": "^1.0.5",
 		"write-file-webpack-plugin": "^4.5.0"
+	},
+	"engines": {
+		"node": "10.15.2"
 	}
 }

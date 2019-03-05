@@ -35,7 +35,7 @@ project detail
     barba transitions
     wire admin 
     Back doesnt scroll down
-    fix back button
+    bug: broken back button
     templating via webpack 
         https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
         https://dev.to/rodeghiero_/multiple-html-files-with-htmlwebpackplugin-19bf
@@ -44,11 +44,12 @@ project detail
 
 projects: 
     6/8 back
-    fix stagger animation
-    fix destroy /disable 
+    bug: stagger animation
+    bug: destroy /disable 
         scroll away, scroll back, projects change width
         on section enter/exit, 
         filtering
+    bug: resizing https://katebrehm.surge.sh/
     disable full page on narrow. stack on mobile with window matchmedia 
         https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
     quotes ticker, add to admin
@@ -83,6 +84,18 @@ Teaching
 
 
 #### later
+
+ 
+:root {
+   --font-size: calc(18px + 0.25vw)
+}
+
+body {
+  font-size: var(--font-size);
+}
+ 
+ 
+https://frontendchecklist.io/
 
 consider switching from Glide to native: 
     https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/
@@ -121,6 +134,8 @@ netlify:
 preload / lazyload images
     https://github.com/aFarkas/lazysizes
     set up data-swup-preload for images
+    https://imagesloaded.desandro.com/
+    https://github.com/codrops/ImageRevealHover/blob/9d6991f0256b69e2f8a9cf9f289e040cdc32f7ce/js/demo.js#L1182
 
 intro: optimize js-hover
 clean up commit history to lf, with ktadmin GH account
@@ -232,7 +247,7 @@ https://stackoverflow.com/questions/42228423/set-div-to-hidden-then-visible-afte
 https://stackoverflow.com/questions/3221561/eliminate-flash-of-unstyled-content
 
 
-swup
+swup - tried, ran into errors
 https://github.com/gmrchk/swupjs
 https://github.com/gmrchk/swupjs-gia-demo/blob/master/src/js/app.js
 https://github.com/gmrchk/swup/wiki/Common-Issues
@@ -250,3 +265,10 @@ https://github.com/gmrchk/swup/issues/44
             carousel broken on swipe 
         https://github.com/glidejs/glide/issues/311
         https://github.com/glidejs/glide/issues/309
+
+
+
+https://tympanus.net/Development/ImageRevealHover/
+
+npm install -g zero
+
