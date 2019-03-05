@@ -14,53 +14,52 @@ automatically happens on Netlify when commits are pushed
 
 #### todo
 
+intro
+    bug: hover over underline wigs out
+    bug: hover intermittently shows all hoverable fragments, debounce
+        https://codepen.io/jonneal/pen/yybEbo/
+        https://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/
+    responsive:
+        text formatting, size
+    social links
+
 bio
+    reveal animation, reduce motion
+    responsive
+        remove reveal animation
+         add section header
     layout
         headshot narrower, pull text left.
         text taller, more space for words
-        responsive
         image aspect ratio : 
             https://css-tricks.com/aspect-ratios-grid-items/
-            https://www.cssgridplayground.com/ 
 
 bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
 
 nav: 
     hit area bigger
-    remove on mobile
     nav__section-line-active  goes down on scroll sections
-
 
 project detail
     barba transitions
     wire admin 
-    Back doesnt scroll down
-    bug: broken back button
+    bug: broken back link
     templating via webpack 
         https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
         https://dev.to/rodeghiero_/multiple-html-files-with-htmlwebpackplugin-19bf
         https://github.com/mariorodeghiero/mariorodeghiero.github.io/blob/master/webpack.config.js
 
-
 projects: 
     6/8 back
     bug: stagger animation
-    bug: destroy /disable 
-        scroll away, scroll back, projects change width
-        on section enter/exit, 
-        filtering
+    bug: destroy /disable on filtering
     bug: resizing https://katebrehm.surge.sh/
-    disable full page on narrow. stack on mobile with window matchmedia 
+    disable full page on narrow.
         https://github.com/alvarotrigo/fullPage.js#responsive-auto-height-sections
-    quotes ticker, add to admin
     hover over projects, no cursor on large bpoints where cant drag
     auto height: https://github.com/glidejs/glide/issues/236
     glide__slide, cursor default only on non-swipe
     focus middle on load
-
-intro
-    reponsive content
-    social links
 
 
  What is a Movement Director
@@ -106,6 +105,7 @@ bug: intro: "imnotlost" flashes another image
 move critical inline css to plugin if possible
     https://medium.com/wizardnet972/https-medium-com-wizardnet972-make-your-page-rendering-faster-e14a95747c7a
     https://vuejsdevelopers.com/2017/07/24/critical-css-webpack/
+    https://csswizardry.com/2018/11/css-and-network-performance/
 
 RAM footprint
 
@@ -132,13 +132,12 @@ netlify:
         https://github.com/netlify/netlify-cms/pull/1602
         
 preload / lazyload images
-    https://github.com/aFarkas/lazysizes
-    set up data-swup-preload for images
     https://imagesloaded.desandro.com/
+    https://github.com/aFarkas/lazysizes
     https://github.com/codrops/ImageRevealHover/blob/9d6991f0256b69e2f8a9cf9f289e040cdc32f7ce/js/demo.js#L1182
 
 intro: optimize js-hover
-clean up commit history to lf, with ktadmin GH account
+clean up commit history to steven.dale@, with ktadmin GH account
 
 set up prefer-reduced-motion
     https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
@@ -155,11 +154,8 @@ split js into modules
 
 projects
     roll bio button up when get
+    quotes ticker, add to admin
     
-    
-intro
-    animate fragments, boxes
-
 add checks for empty json data
 
 intro
@@ -188,15 +184,11 @@ analytics
 convert to Gatsby / React or Vue 
     https://github.com/giantcz/gia
 
-optimize CSS load times 
-    https://csswizardry.com/2018/11/css-and-network-performance/
-
 FWA https://www.awwwards.com/
 credits
 
 
 #### references
-
 
 https://github.com/glidejs/glide/issues/271
 https://github.com/glidejs/glide/issues/222#issuecomment-391385045
@@ -268,7 +260,7 @@ https://github.com/gmrchk/swup/issues/44
 
 
 
-https://tympanus.net/Development/ImageRevealHover/
-
 npm install -g zero
 
+https://www.cssgridplayground.com/ 
+https://www.matuzo.at/blog/the-dark-side-of-the-grid/

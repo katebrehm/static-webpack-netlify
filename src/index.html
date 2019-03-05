@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- ensure for proper fullpage.js functionality -->
 <html dir="ltr" lang="en" >
 	<head>
 		<meta charset="utf-8">
@@ -34,6 +34,12 @@
 	<body>
 		<div class="breakpoint"></div>
 
+        <!-- keep this here so on mobile it still takes up the full screen, if more than
+            the intro section shows -->
+        <div class="intro__image-wrapper
+                    js--hbs-inject--intro__hover-image-collection">
+        </div>
+
         <div id="fullpage" style="opacity: 0; visibility: hidden;">
             <div class="section section--intro">
                 <div class="section--intro">
@@ -56,9 +62,7 @@
 
                     <!-- <div class="js--hbs-inject--arrow"></div> -->
 
-                    <div class="intro__image-wrapper
-                                js--hbs-inject--intro__hover-image-collection">
-                    </div>
+
 
                     <div class="intro__text-wrapper">
                         <p class="intro__text 

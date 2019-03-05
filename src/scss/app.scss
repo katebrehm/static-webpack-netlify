@@ -39,6 +39,11 @@ body {
     align-items: center;
 }
 
+#fullpage {
+    // so image-wrapper, outside of the fullpage wrapper
+    // is on the same z-index, so the intro label fragment text hovers work 
+    position: relative;
+}
 
 .bg__diags {
     position: absolute;

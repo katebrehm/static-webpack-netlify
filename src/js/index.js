@@ -6,6 +6,7 @@ import TweenMax from "gsap";
 import verge from "verge";
 import Glide from '@glidejs/glide'
 import Plyr from 'plyr'
+import Verge from 'verge'
 
 // import 'intersection-observer'
 // import scrollama from 'scrollama';
@@ -108,6 +109,9 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         }
     };
 
+    var mobileWidth = 650;
+    var mobileHeight = 650;
+
     var glideArt;
     var glideArt2;
 
@@ -189,18 +193,86 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     var gi;
 
+    function makeNav(){
+
+    }
+
+    function destroyNav(){
+
+    }
+
+    var fullPageOptions = {};
+            console.log("page load width", verge.viewportW());
+
+    // we could use fullpage's responsiveWidth option, but it doesnt have the fitToSection
+    // so we calc the viewport ourselves
+    if(verge.viewportW() < mobileWidth || verge.viewportH() < mobileHeight) {
+        fullPageOptions.autoScrolling = false;
+        fullPageOptions.fitToSection = false;
+        console.log('going responsive');
+    }
+
+    else {
+        console.log('going full featured');
+        fullPageOptions.autoScrolling = true;
+        fullPageOptions.fitToSection = true;
+    }
+
     var fullPageInstance = new fullpage("#fullpage", {
         licenseKey: '',
         anchors: ['intro', 'bio', 'art-projects', 'what-is', 'professional-work'],
         recordHistory: true,
+        animateAnchor: false,
         scrollingSpeed: 600,
         slidesNavigation: true,
         scrollBar: false,
         navigation: false,
+        autoScrolling: fullPageOptions.autoScrolling,
+        fitToSection: fullPageOptions.fitToSection,
+
+        afterResize: function(width, height){
+            var fullpageContainer = this;
+            console.log("full page resize: width: ", width, ' height: ' , height);
+
+            if(width < mobileWidth || height < mobileWidth) {
+                console.log('going responsive');
+                fullpage_api.setAutoScrolling(false);
+                fullpage_api.setFitToSection(false);
+
+                $('.fp-tableCell').css('height', 'auto');
+                $('.fp-table').css('height', 'auto');
+                $('.fp-section').css('height', 'auto');
+
+                $('.js--nav__section').hide();
+            }
+
+            else {
+                console.log('going full featured');
+                fullpage_api.setAutoScrolling(true);
+                fullpage_api.setFitToSection(true);  
+                fullpage_api.moveTo('intro');
+                $('.js--nav__section').show();
+
+                fullpage_api.reBuild();
+                window.scrollTo(0, 0);
+            }
+
+            // so image-wrapper, outside of the fullpage wrapper
+            // is on the same z-index, so the intro label fragment text hovers work 
+            if(fullpage_api.getActiveSection().anchor === "intro"){
+                $('#fullpage').css('transform', 'none');
+            }
+        },
 
         // when arrived to a new section
         afterLoad: function(origin, destination, direction){
             var loadedSection = origin;
+
+            // so image-wrapper, outside of the fullpage wrapper
+            // is on the same z-index, so the intro label fragment text hovers work 
+            if(destination.anchor === "intro"){
+                $('#fullpage').css('transform', 'none');
+            }
 
             // might be the first section, or a deep link arrival
             // if(origin) {
@@ -241,6 +313,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 destroyAndCleanGlideInstance();
             }
 
+
+
             // entering bio
             if(destination.anchor === "bio"){
                 // console.log('entered bio section');
@@ -264,14 +338,28 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         },
 
         afterRender: function(){
-            
+
+
+            if(verge.viewportW() < mobileWidth || verge.viewportH() < mobileHeight) {
+                console.log('going responsive');
+                $('.fp-tableCell').css('height', 'auto');
+                $('.fp-table').css('height', 'auto');
+                $('.fp-section').css('height', 'auto');
+
+                // so image-wrapper, outside of the fullpage wrapper
+                // is on the same z-index, so the intro label fragment text hovers work 
+                $('#fullpage').css('transform', 'none');
+
+                $('.js--nav__section').hide();
+            }
+
             timelines.bioTl = makeBioTl();
 
             // needs to be declared after bioTl
             timelines.revealHeadshot = makeRevealHeadshot();
 
             // for project
-            var inDuration = 0.125;
+            var inDuration = 0.35;
             var scale = 1.025;
 
             // make named function so we can pass it to jquery event handler
@@ -287,14 +375,14 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                         inDuration,
                         { 
                             autoAlpha: 1, 
-                            ease: Power1.easeIn, 
+                            ease: Power1.easeInOut, 
                             scale: scale, 
                             transformOrigin:"50% 50%" 
                         },
                         'beginPlay'
                     )
                     .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  )
-                    .set(".button--arrow-down", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
+                    .set(".js--nav__section--intro", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
                     .play();
             };
 
@@ -307,18 +395,18 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                     .addLabel('beginStop') 
                     .to(
                         $project, 
-                      0.1,
-                      { 
-                        autoAlpha: 0, 
-                        ease: Power0.easeNone, 
-                        scale: 1 
-                      },
-                      'beginStop'
-                   )
+                          0.2,
+                          { 
+                            autoAlpha: 0, 
+                            ease: Power0.easeNone, 
+                            scale: 1 
+                          },
+                          'beginStop'
+                       )
                     .set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
                     .play();
                 
-                TweenLite.to(".button--arrow-down", 0.1, { autoAlpha: 1 });
+                TweenLite.to(".js--nav__section--intro", 0.1, { autoAlpha: 1 });
             };
 
             $(".js--intro-fragment-hover")
