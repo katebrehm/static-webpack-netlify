@@ -41,7 +41,8 @@ nav:
     nav__section-line-active  goes down on scroll sections
 
 project detail
-    barba transitions
+    barba transitions 
+        https://www.smashingmagazine.com/2016/07/improving-user-flow-through-page-transitions/
     wire admin 
     bug: broken back link
     templating via webpack 

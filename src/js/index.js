@@ -201,11 +201,11 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     }
 
     var fullPageOptions = {};
-            console.log("page load width", verge.viewportW());
+            console.log("page load width", Verge.viewportW());
 
     // we could use fullpage's responsiveWidth option, but it doesnt have the fitToSection
     // so we calc the viewport ourselves
-    if(verge.viewportW() < mobileWidth || verge.viewportH() < mobileHeight) {
+    if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
         fullPageOptions.autoScrolling = false;
         fullPageOptions.fitToSection = false;
         console.log('going responsive');
@@ -339,7 +339,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         afterRender: function(){
 
 
-            if(verge.viewportW() < mobileWidth || verge.viewportH() < mobileHeight) {
+            if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
                 console.log('going responsive');
                 $('.fp-tableCell').css('height', 'auto');
                 $('.fp-table').css('height', 'auto');
