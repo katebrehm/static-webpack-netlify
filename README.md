@@ -95,6 +95,8 @@ body {
  
  
 https://frontendchecklist.io/
+https://webaccessibility.guide/
+
 
 consider switching from Glide to native: 
     https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/

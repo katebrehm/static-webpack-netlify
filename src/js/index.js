@@ -3,7 +3,6 @@
 // require('file-loader?name=[name].[ext]!../index.html');
 
 import TweenMax from "gsap";
-import verge from "verge";
 import Glide from '@glidejs/glide'
 import Plyr from 'plyr'
 import Verge from 'verge'
