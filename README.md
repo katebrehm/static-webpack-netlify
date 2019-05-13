@@ -12,6 +12,8 @@ automatically happens on Netlify when commits are pushed
 
 ---
 
+test
+
 #### todo
 
 intro
@@ -21,37 +23,37 @@ intro
         https://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/
     responsive:
         text formatting, size
-    social links
 
 bio
-    reveal animation, reduce motion
+    PDF opens, not downloads
     responsive
         remove reveal animation
-         add section header
+        add section header
     layout
         headshot narrower, pull text left.
         text taller, more space for words
-        image aspect ratio : 
+        image aspect ratio :
             https://css-tricks.com/aspect-ratios-grid-items/
 
 bug: fix jumping with trackpad:?  https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions#fullpagejs-jumps-one-section
 
-nav: 
+nav:
     hit area bigger
     nav__section-line-active  goes down on scroll sections
 
 project detail
-    barba transitions 
+    barba transitions
         https://www.smashingmagazine.com/2016/07/improving-user-flow-through-page-transitions/
-    wire admin 
+    wire admin
     bug: broken back link
-    templating via webpack 
+    templating via webpack
         https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
         https://dev.to/rodeghiero_/multiple-html-files-with-htmlwebpackplugin-19bf
         https://github.com/mariorodeghiero/mariorodeghiero.github.io/blob/master/webpack.config.js
 
-projects: 
+projects:
     6/8 back
+    bug: filtering is broken
     bug: stagger animation
     bug: destroy /disable on filtering
     bug: resizing https://katebrehm.surge.sh/
@@ -66,7 +68,7 @@ projects:
  What is a Movement Director
     use same project detail plumbing
     typeset, layout, some animated gifs
-    HIRE ME 
+    HIRE ME
 
 Research
     paragraph
@@ -85,7 +87,7 @@ Teaching
 
 #### later
 
- 
+
 :root {
    --font-size: calc(18px + 0.25vw)
 }
@@ -93,13 +95,13 @@ Teaching
 body {
   font-size: var(--font-size);
 }
- 
- 
+
+
 https://frontendchecklist.io/
 https://webaccessibility.guide/
 
 
-consider switching from Glide to native: 
+consider switching from Glide to native:
     https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/
     https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap
 
@@ -116,7 +118,7 @@ intro: split into paragraphs. <br> as an item? refactor intro to rich text?
 
 why isnt handlebars being hot reloaded?
 
-fullPage license as ENV key, to webpack 
+fullPage license as ENV key, to webpack
     https://github.com/alvarotrigo/fullPage.js/issues/3544
 
 set up SSL
@@ -124,16 +126,16 @@ set up custom domain
 webpack image optimizer step
     dont host 10bm+ files https://www.netlify.com/docs/build-gotchas/#large-files-or-sites
 
-netlify: 
+netlify:
     disappearing label?
     image regex validation?
     use npm package instead of CDN for Netlify admin js
     moves assets to project root
     possible to add a list singular label?
-    host images outside of GH? 
+    host images outside of GH?
         https://github.com/netlify/netlify-cms/issues/432
         https://github.com/netlify/netlify-cms/pull/1602
-        
+
 preload / lazyload images
     https://imagesloaded.desandro.com/
     https://github.com/aFarkas/lazysizes
@@ -148,7 +150,7 @@ set up prefer-reduced-motion
 #### nice to have
 project detail
     layout
-        next / prev project 
+        next / prev project
             https://kyledecker.me/work/dropbox
             https://www.gatsbyjs.org/showcase/gm.capitalone.com
 
@@ -158,16 +160,16 @@ split js into modules
 projects
     roll bio button up when get
     quotes ticker, add to admin
-    
+
 add checks for empty json data
 
 intro
     admin: if it's a plain fragment, how to hide key + image fields?
 
-fix fout 
+fix fout
     https://css-tricks.com/fighting-foit-and-fout-together/
 
-loader to get images 
+loader to get images
 
 responsive images
     https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
@@ -176,15 +178,15 @@ switch to mini css extract plugin to fix FOUC in dev/HMR
     https://git.avrami.me/rmit-coursework/sept-zulip/commit/64dadae697c9500835c7763d1416c6e2ac01bfe9
     https://github.com/webpack-contrib/mini-css-extract-plugin/issues/34
 
-set up Uploadcare 
+set up Uploadcare
     https://github.com/uploadcare/uploadcare-netlifycms
 
 extract compile hbs into static js code to separate webpack.xxx.js files
 
-analytics 
+analytics
     https://github.com/colbyfayock/html-webpack-partials-plugin
 
-convert to Gatsby / React or Vue 
+convert to Gatsby / React or Vue
     https://github.com/giantcz/gia
 
 FWA https://www.awwwards.com/
@@ -207,23 +209,23 @@ box-shadow: 1rem 1rem rgba(255, 0, 0, 0.4)
 
 
 
-<!-- 
+<!--
 
-/*   
+/*
 /*   inset
-/*     clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%); 
+/*     clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
    animation-name: diagnol;
  animation-duration: 0.85s; /* or: Xms */
  animation-iteration-count: infinite;
-/*  animation-direction: alternate; /* or: normal */ 
+/*  animation-direction: alternate; /* or: normal */
  animation-timing-function: cubic-bezier(.17,.67,.38,1.04); /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
  animation-fill-mode: forwards; /* or: backwards, both, none, forwards */
-/*  animation-delay: 2s; /* or: Xms */ 
+/*  animation-delay: 2s; /* or: Xms */
    */
 
 
 
-    to-parallelogram 4s infinite forwards cubic-bezier(.17,.67,.38,1.04) 
+    to-parallelogram 4s infinite forwards cubic-bezier(.17,.67,.38,1.04)
     to-square 2s infinite forwards cubic-bezier(.17,.67,.38,1.04);
 
 
@@ -257,7 +259,7 @@ https://github.com/gmrchk/swup/issues/44
         https://github.com/gmrchk/swup#skip-popstate-handling  ?
 
 
-            carousel broken on swipe 
+            carousel broken on swipe
         https://github.com/glidejs/glide/issues/311
         https://github.com/glidejs/glide/issues/309
 
@@ -265,5 +267,5 @@ https://github.com/gmrchk/swup/issues/44
 
 npm install -g zero
 
-https://www.cssgridplayground.com/ 
+https://www.cssgridplayground.com/
 https://www.matuzo.at/blog/the-dark-side-of-the-grid/
