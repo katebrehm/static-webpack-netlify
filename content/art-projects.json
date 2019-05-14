@@ -4,37 +4,53 @@
       "art-project--title": "Discrepancies",
       "art-project--description": "description to be addended",
       "art-project--type": 2,
-      "art-project--image-path": "/images/content/discmain.jpeg"
+      "art-project--image-path": "/images/content/discmain.jpeg",
+      "art-project--detail-summary": "This was the most amazing project of all time.",
+      "art-projects__detail-photos": [
+        {
+          "art-project--detail--photo-name": "amazing photo 1",
+          "art-project--detail--image-path": "/images/content/eyeball-kbrehm-costume.jpg"
+        },
+        {
+          "art-project--detail--photo-name": "amazing photo 2",
+          "art-project--detail--image-path": "/images/content/hallwaydoor.jpg"
+        }
+      ]
     },
     {
       "art-project--title": "The Eye Which We Do Not Have",
       "art-project--description": "TBD",
       "art-project--type": 2,
-      "art-project--image-path": "/images/content/hallwaydoor.jpg"
+      "art-project--image-path": "/images/content/hallwaydoor.jpg",
+      "art-project--detail-summary": "Puppet Detail"
     },
     {
       "art-project--title": "The Poofs",
       "art-project--description": "TBD",
       "art-project--type": 1,
-      "art-project--image-path": "/images/content/poof.png"
+      "art-project--image-path": "/images/content/poof.png",
+      "art-project--detail-summary": "Puppet Detail"
     },
     {
       "art-project--title": "Do You Copy?",
       "art-project--description": "TBD",
       "art-project--type": 2,
-      "art-project--image-path": "/images/content/puppets1280.jpg"
+      "art-project--image-path": "/images/content/puppets1280.jpg",
+      "art-project--detail-summary": "Puppet Detail"
     },
     {
       "art-project--title": "A Seemingly Unified Spectacle",
       "art-project--description": "TBD",
       "art-project--type": 2,
-      "art-project--image-path": "/images/content/slidesp3.jpg"
+      "art-project--image-path": "/images/content/slidesp3.jpg",
+      "art-project--detail-summary": "Puppet Detail"
     },
     {
       "art-project--title": "Puppet theater",
       "art-project--description": "TBD",
       "art-project--type": 2,
-      "art-project--image-path": "/images/content/img0293.jpg"
+      "art-project--image-path": "/images/content/img0293.jpg",
+      "art-project--detail-summary": "Puppet Detail"
     }
   ]
 }
