@@ -9,6 +9,7 @@
 
 .project-detail__page {
 	position: relative;
+	display: none;
 }
 
 .project-detail__hero {
@@ -51,7 +52,7 @@
 
 .project-detail__paragraph--large {
 	font-family: 'K-Medium', sans-serif;
-	font-size: 1.2rem; 
+	font-size: 1.2rem;
 	line-height: 1.5;
 	margin-bottom: 1.5rem;
 }
@@ -74,7 +75,7 @@
 .js--project-detail__back-link {
 	display: block;
 	font-family: 'K-Medium', sans-serif;
-	font-size: 1rem; 
+	font-size: 1rem;
 	padding: 0.15rem 0.5rem;
 	margin: 3rem 0 7rem 0;
 	color: $palette--turquoise-blue;

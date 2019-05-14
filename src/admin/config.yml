@@ -9,7 +9,7 @@ collections:
 
   # Used in routes, e.g., /admin/collections/sections. Must be unique.
   - name: pages
-    label: Pages 
+    label: Pages
     label_singular: Page
     description: vertical pages
     format: json
@@ -44,8 +44,8 @@ collections:
                 widget: image
                 required: false
                 hint: Only select/upload an image if this fragment is hoverable. Otherwise leave blank
-                # pattern: 
-                  # - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                # pattern:
+                  # - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$'
                   # - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
 
               - label: unique key
@@ -53,8 +53,8 @@ collections:
                 hint: A unique back-end field to identify this fragment. It's arbitrary, pick anything as long as it's unique to other keys in the intro page. Only lower case letters and dashes
                 required: false
                 widget: string
-                pattern: 
-                  - '^[a-zA-Z_\-]$' 
+                pattern:
+                  - '^[a-zA-Z_\-]$'
 
       - name: bio
         label: Bio Page
@@ -69,8 +69,8 @@ collections:
                 name: bio__headshot-image-path
                 widget: image
                 required: true
-                # pattern: 
-                #   - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                # pattern:
+                #   - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$'
                 #   - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
           - label: Resume PDF
             name: bio__resume-pdf
@@ -87,12 +87,12 @@ collections:
             name: art-projects__list
             widget: list
             fields:
-              - label: art project name 
-                name: art-project--title 
+              - label: art project name
+                name: art-project--title
                 widget: string
 
-              - label: art project description 
-                name: art-project--description 
+              - label: art project description
+                name: art-project--description
                 widget: string
 
               - label: art project type
@@ -102,9 +102,28 @@ collections:
                  - { label: event, value: 1 }
                  - { label: production, value: 2 }
 
-              - label: art project image path 
-                name: art-project--image-path 
+              - label: art project image path
+                name: art-project--image-path
                 widget: image
-                pattern: 
-                  # - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$' 
+                pattern:
+                  # - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$'
                   # - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)
+
+              - label: art project detail summary
+                name: art-project--detail-summary
+                widget: string
+
+              - label: art project detail Photos
+                name: art-projects__detail-photos
+                widget: list
+                fields:
+                  - label: art project detail photo name
+                    name: art-project--detail--photo-name
+                    widget: string
+
+                  - label: art project detail image path
+                    name: art-project--detail--image-path
+                    widget: image
+                    pattern:
+                      # - '^[0-9a-zA-Z_\-.]+(\.(jpg|png|gif))$'
+                      # - Filenames can have only alphanumeric (a to z, A to Z, 0 - 9), dash and underscore. Either png, jpg or gif (Lowercase file extension)

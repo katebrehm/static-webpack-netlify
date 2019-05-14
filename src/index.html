@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-       <!-- 
+       <!--
             fouc happens in dev bc of Webpack's HMR
             https://github.com/gmrchk/swup/issues/63
             https://gist.github.com/johnpolacek/3827270
@@ -19,7 +19,7 @@
         <script type="text/javascript">
             window.addEventListener( 'load', function( event ) {
                 // document.body.removeAttribute("style");
-                    
+
                 console.log('window load');
                 var fullpage = document.getElementById("fullpage");
                 fullpage.removeAttribute("style");
@@ -32,7 +32,45 @@
 	</head>
 
 	<body>
-		<div class="breakpoint"></div>
+        <div class="breakpoint"></div>
+
+		<div class="project-detail__page">
+            <div class="project-detail__hero">
+                <a href="#" class="js--project-detail__back-button">
+                    <i class="material-icons material-icon__clear">clear</i>
+                </a>
+                <img class="project-detail__hero-image" src="./images/content/img0293.jpg">
+                <div class="bg__diags bg__diags--project-detail"></div>
+
+            </div>
+            <div class="project-detail__content-wrapper">
+                <div class="project-detail__hero-title">A Seemingly Unified Spectacle</div>
+
+                <p class="project-detail__paragraph--large project-detail__summary">
+                    The primary aim of my art-making is audience affect. I seek to create a visceral sensation of awe in my viewers.
+                    I also aspire to provide them an experience of deeply ‘getting it,’
+                    but intellectual understanding is not required. The pursuit of such art
+                    has led me to primarily employ methods of visual theater.
+                </p>
+                <p  class="project-detail__paragraph">
+                    Over the last few years my puppets have become a kind of performing scenery. Currently, I am exploring the total puppetization of a performance’s scenography. (My definition of scenography being: the visual mode and means, made up of inanimate objects, elements, and rules, which creates a holistic theatrical consciousness that changes over time.) The drama of this theater is abstracted to pattern, repetition, and met or unmet expectations. This makes my ‘stories’ akin to music. I use recurring themes, crescendos, staccato, and legato phrases. I am also highly influenced by techniques from comics and cinematography, specifically those that harness the power of an audience’s imagination.
+                </p>
+
+            <!--     <div class="project-detail__video plyr__video-embed" id="player" >
+                    <iframe src="https://player.vimeo.com/video/126093835?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen allowtransparency allow="autoplay"></iframe>
+                </div> -->
+
+                <p class="bio__paragraph">
+                    All of this points towards cross-disciplinary art-making, but none of it demonstrates a personal drive towards collaboration. Instead, it requires one. I am a collaborative maker because I must be so. My visions are larger than myself and therefore, I have learned the vitality of collaborative relationships. Art partnerships provide the simple strengths of sharing the burden of production and expanding the pathways of inspiration. However, the greatest asset these partnerships provide is a culture and a community. Each new group of collaborators creates a culture of expectations for listening, offering ideas, and supporting one another as a way of supporting the whole. The rituals we engage in as a group define us from other groups and enable us the means to build new structures, cross new bridges, and create alternative pathways.
+                </p>
+
+                <p >
+                     <a href="#" class="js--project-detail__back-link">
+                        Back to Home
+                    </a>
+                </p>
+            </div>
+        </div>
 
         <!-- keep this here so on mobile it still takes up the full screen, if more than
             the intro section shows -->
@@ -49,9 +87,9 @@
                                 nav__section
                                 nav__section--intro">
                         <div class="nav__section-line-bg"></div>
-                        <div class="nav__section-line-active 
+                        <div class="nav__section-line-active
                                     js--nav__section-line-active--intro"></div>
- 
+
                         <div class="js--nav__item--next
                                     nav__item
                                     nav__item--next">
@@ -65,7 +103,7 @@
 
 
                     <div class="intro__text-wrapper">
-                        <p class="intro__text 
+                        <p class="intro__text
                                   js--hbs-inject--intro__paragraph-fragments">
                         </p>
 
@@ -112,7 +150,7 @@
                     <div class="bio__nav-bg"></div>
                     <div class="bio__nav"></div>
                     <div class="bio__headshot">
-                        <div class="headshot__mask-wrapper 
+                        <div class="headshot__mask-wrapper
                                     js--hbs-inject--bio__headshot-collection">
                             <div class="headshot__mask--box"></div>
                             <!-- <div class="headshot__mask--color"></div> -->
@@ -121,10 +159,10 @@
                     <div class="bio__text">
                         <div class="bio__text--mask"></div>
                       <!--   <p class="bio__paragraph--large">
-                            The primary aim of my art-making is audience affect. I seek to create a visceral sensation of awe in my viewers. I also aspire to provide them an experience of deeply ‘getting it,’ but intellectual understanding is not required. The pursuit of such art has led me to primarily employ methods of visual theater. I am trained as both a physical actor and a puppeteer. I specialize in the dramaturgy of movement, whether it is through humans, puppets, or inanimate objects. 
+                            The primary aim of my art-making is audience affect. I seek to create a visceral sensation of awe in my viewers. I also aspire to provide them an experience of deeply ‘getting it,’ but intellectual understanding is not required. The pursuit of such art has led me to primarily employ methods of visual theater. I am trained as both a physical actor and a puppeteer. I specialize in the dramaturgy of movement, whether it is through humans, puppets, or inanimate objects.
                         </p> -->
                         <p  class="bio__paragraph">
-                            Over the last few years my puppets have become a kind of performing scenery. Currently, I am exploring the total puppetization of a performance’s scenography. (My definition of scenography being: the visual mode and means, made up of inanimate objects, elements, and rules, which creates a holistic theatrical consciousness that changes over time.) The drama of this theater is abstracted to pattern, repetition, and met or unmet expectations. This makes my ‘stories’ akin to music. I use recurring themes, crescendos, staccato, and legato phrases. I am also highly influenced by techniques from comics and cinematography, specifically those that harness the power of an audience’s imagination.  
+                            Over the last few years my puppets have become a kind of performing scenery. Currently, I am exploring the total puppetization of a performance’s scenography. (My definition of scenography being: the visual mode and means, made up of inanimate objects, elements, and rules, which creates a holistic theatrical consciousness that changes over time.) The drama of this theater is abstracted to pattern, repetition, and met or unmet expectations. This makes my ‘stories’ akin to music. I use recurring themes, crescendos, staccato, and legato phrases. I am also highly influenced by techniques from comics and cinematography, specifically those that harness the power of an audience’s imagination.
                         </p>
                         <p  class="bio__paragraph">
                             All of this points towards cross-disciplinary art-making, but none of it demonstrates a personal drive towards collaboration. Instead, it requires one. I am a collaborative maker because I must be so. My visions are larger than myself and therefore, I have learned the vitality of collaborative relationships. Art partnerships provide the simple strengths of sharing the burden of production and expanding the pathways of inspiration. However, the greatest asset these partnerships provide is a culture and a community. Each new group of collaborators creates a culture of expectations for listening, offering ideas, and supporting one another as a way of supporting the whole. The rituals we engage in as a group define us from other groups and enable us the means to build new structures, cross new bridges, and create alternative pathways.
@@ -132,19 +170,19 @@
                         <!--
                             <p  class="bio__paragraph">
                                 Fifteen years ago I was very involved in video design for theater because it seemed an excellent source for creating alternate realities, performing design, immersive spaces, and interactive inanimate elements. My incorporation of digital technology into my art fell away as I returned to an early interest in analog technology like pulleys and shadows. I now feel ready to reinvigorate my art with new technology that builds off of, and mixes and matches with old technology.
-                            
+
                                 Society’s changing relationship to technology over the last twenty-five years has rattled our collective conception of reality. Theater’s power to effect people together in real space gives it a unique ability to address this shift. I believe the primary task of theater today is to wrestle with what reality has become, where it is, and how to know whether we are in it. My specific endeavors with interactive illusions and affective performing scenery wrestle with this very human struggle.
-                            
+
                                 ​
-                            
+
                                 Technology is real, but it is ripe for creating supposed illusions. Like magic, technology enables us to believe in something we do not understand. Puppetry does the same thing. I often use the illusion-making power of puppetry to comment on the illusion-making power of technology. The content of my work grapples with the personal and societal repercussions of the psychological impacts of new technology.
-                            
+
                                 ​
-                            
+
                                 My intention for graduate school is to achieve a terminal degree, which will better enable me to engage in academia. I endeavor to teach courses in Visual Storytelling; Performing Design: its history and devising capabilities; the Performance of Space, Light, and Time; and Moving Objects, a performance class. I fully expect to continue my artistic work, it is a compulsion. However, the territory I wish to move into will support me writing a book about the critical history of scenography as puppetry with exercises for practical experiments. In the professional world I wish to provide a critical voice on visual theater, puppetry, and the changing nature of our perception of reality via lectures, curation, and critical analysis in the fields of both live art and theater.
-                            
+
                                 ​
-                            
+
                                 The PIMA program is a vehicle towards my goals. I am particularly excited to connect with many professors, visiting artists, and students. My interest has been peaked to know more about John J.A. Jannone, Jennifer McCoy, Helen E. Richardson, Chloe Bass, and Tal Yarden. I look forward to the opportunity to hone my ideas and methods of utilizing performing design through new technology.
                             </p>
                             -->
@@ -158,7 +196,7 @@
                         <span class="caption caption__text">Ai Weiwei</span>
                     </div> -->
                     <a class="button--resume-pdf
-                            js--button--resume-pdf" 
+                            js--button--resume-pdf"
                         download="Kate Brehm Resume.pdf">
                         View Resume PDF
                         <div class="bg__diags bg__diags--bio"></div>
@@ -192,27 +230,27 @@
                                     <span>Art Projects</span>
                                     <div class="projects__tag-types">
                                         <!-- <span class="projects__menu-label">View:</span>  -->
-                                        <span class="projects__menu-tag 
+                                        <span class="projects__menu-tag
                                                     projects__menu-tag--productions
                                                     js--projects__menu-tag--productions">
 
-                                            <i class="projects__menu-icon 
+                                            <i class="projects__menu-icon
                                                     projects__menu-icon__circle
-                                                    material-icons 
+                                                    material-icons
                                                     material__icon--circle">fiber_manual_record</i>
                                             productions
                                         </span>
-                                        <span class="projects__menu-tag 
+                                        <span class="projects__menu-tag
                                                     projects__menu-tag--events
                                                     js--projects__menu-tag--events">
-                                                    
-                                            <i class="projects__menu-icon 
+
+                                            <i class="projects__menu-icon
                                                         projects__menu-icon__square
-                                                        material-icons 
+                                                        material-icons
                                                         material__icon--square">stop</i>
                                             events
                                         </span>
-                                        <span class="projects__menu-tag 
+                                        <span class="projects__menu-tag
                                                     projects__menu-tag--all
                                                     js--projects__menu-tag--all">all</span>
                                     </div>
@@ -227,11 +265,11 @@
                     </div>
                 </div>
 
-                <div class="js--glide  
+                <div class="js--glide
                             glide
                             glide--art-projects">
-                    <div class="glide__track 
-                                js--hbs-inject--art-projects__image-collection"  
+                    <div class="glide__track
+                                js--hbs-inject--art-projects__image-collection"
                          data-glide-el="track">
                     </div>
 
@@ -256,7 +294,7 @@
                                 nav__section
                                 nav__section--what-is">
                         <div class="nav__section-line-bg"></div>
-                        <div class="nav__section-line-active 
+                        <div class="nav__section-line-active
                                     js--nav__section-line-active--what-is"></div>
 
 

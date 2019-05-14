@@ -4,29 +4,29 @@
                     art-project__type--{{ artProjectType }}">
             <img class="slide__image" src=".{{ artProjectImagePath }}">
 {{!--             <h2 class="slide__description">
-                
+
                 <span class="slide__tag tag--{{ artProjectType }}"></span>
             </h2> --}}
 
-            
-            <a href="/project1.html" class="slide__title">
+
+            <a href="#" class="slide__title js-slide-detail-link">
                 {{#ifEquals artProjectType "1"}}
-                    <i class="slide__title-icon 
+                    <i class="slide__title-icon
                                 slide__title-icon--circle
-                                material-icons 
+                                material-icons
                                 material__icon--circle">fiber_manual_record</i>
                 {{else}}
-                    <i class="slide__title-icon 
+                    <i class="slide__title-icon
                             slide__title-icon--square
-                            material-icons 
+                            material-icons
                             material__icon--square">stop</i>
                 {{/ifEquals}}
             {{ artProjectTitle }}</a>
-            
+
             {{!-- <div class="slide__ tag tag--{{ artProjectType }}"></div> --}}
 
             {{!-- <p class="">{{ artProjectDescription }}</p> --}}
-            
+
         </li>
     {{/each}}
 </ul>
