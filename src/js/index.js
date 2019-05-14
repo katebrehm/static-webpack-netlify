@@ -139,6 +139,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     var paragraphFragments = introDataArray;
     var hoverImages = introDataArray;
+
     $('.js--hbs-inject--intro__paragraph-fragments')
         .html(paragraphFragmentsTemplate({ paragraphFragments }));
 
@@ -431,19 +432,23 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             .on('mount.before', function() {
 
                 console.log("mount.before");
-                // $('.glide__slide').addClass('.slide__bg-block');
-                if ($('.glide__slide').length === 0) {
-                    if (which > 0) {
-                        var arr = _.filter(artProjectsImages, ['artProjectType', which]);
-                       $('.js--hbs-inject--art-projects__image-collection')
-                            .html(artProjectsCollectionTemplate({ arr }));
-                    }
 
-                    else {
-                        $('.js--hbs-inject--art-projects__image-collection')
+                $('.js--hbs-inject--art-projects__image-collection')
                             .html(artProjectsCollectionTemplate({ artProjectsImages }));
-                    }
-                }
+
+                // $('.glide__slide').addClass('.slide__bg-block');
+                // if ($('.glide__slide').length === 0) {
+                //     if (which > 0) {
+                //         var arr = _.filter(artProjectsImages, ['artProjectType', which]);
+                //         $('.js--hbs-inject--art-projects__image-collection')
+                //             .html(artProjectsCollectionTemplate({ arr }));
+                //     }
+
+                //     else {
+                //         $('.js--hbs-inject--art-projects__image-collection')
+                //             .html(artProjectsCollectionTemplate({ artProjectsImages }));
+                //     }
+                // }
             })
 
             .on('build.after', function() {
@@ -492,23 +497,23 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             .mount();
 
-            $('.js--projects__menu-tag--productions').on(
-                'click',
-                { which: 1 },
-                toggleProjects
-            )
+            // $('.js--projects__menu-tag--productions').on(
+            //     'click',
+            //     { which: 1 },
+            //     toggleProjects
+            // )
 
-            $('.js--projects__menu-tag--events').on(
-                'click',
-                { which: 2 },
-                toggleProjects
-            )
+            // $('.js--projects__menu-tag--events').on(
+            //     'click',
+            //     { which: 2 },
+            //     toggleProjects
+            // )
 
-            $('.js--projects__menu-tag--all').on(
-                'click',
-                { which: 0 },
-                toggleProjects
-            )
+            // $('.js--projects__menu-tag--all').on(
+            //     'click',
+            //     { which: 0 },
+            //     toggleProjects
+            // )
 
         // var tl = new TimelineMax();
         // tl
@@ -749,32 +754,32 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         $('.js--projects__menu-tag--all').unbind('click');
     }
 
-    function toggleProjects(event) {
+    // function toggleProjects(event) {
 
-        // glideArt2 = initGlide(glideArt2);
-        destroyAndCleanGlideInstance();
-        initGlide(event.data.which);
+    //     // glideArt2 = initGlide(glideArt2);
+    //     destroyAndCleanGlideInstance();
+    //     initGlide(event.data.which);
 
-        // var tl = new TimelineMax();
-        // tl
-        //  .addLabel('beginPlay')
+    //     // var tl = new TimelineMax();
+    //     // tl
+    //     //  .addLabel('beginPlay')
 
-        //  .staggerTo(
-        //      ".glide__slide",
-        //      0.15,
-        //      {
-        //          autoAlpha: 0.6,
-        //          // clipPath: squareClipPath,
-        //          ease: Expo.easeOut
-        //          // ease: Quint.easeOut
-        //      },
-        //      0.075,
-        //      'beginPlay+=1'
-        //  )
+    //     //  .staggerTo(
+    //     //      ".glide__slide",
+    //     //      0.15,
+    //     //      {
+    //     //          autoAlpha: 0.6,
+    //     //          // clipPath: squareClipPath,
+    //     //          ease: Expo.easeOut
+    //     //          // ease: Quint.easeOut
+    //     //      },
+    //     //      0.075,
+    //     //      'beginPlay+=1'
+    //     //  )
 
-        //          // var b = new Glide($('.js--glide')[0], projectCarouselOptions)
-        //          // initGlide(glideArt2);
-    };
+    //     //          // var b = new Glide($('.js--glide')[0], projectCarouselOptions)
+    //     //          // initGlide(glideArt2);
+    // };
 
 }());
 
