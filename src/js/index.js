@@ -63,46 +63,39 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         focusAt: 'center',
         animationDuration: 250,
         peek: { before: 100, after: 100 },
-        // dragThreshold: 1,
-        dragThreshold: false,
+        dragThreshold: 80,
         // perTouch: 2,
         rewind: false,
-        breakpoints: { 
+        breakpoints: {
 
             // 1031 to 1200
             1200: {
                 perView: 3,
-                gap: 32,
+                gap: 16,
                 peek: { before: 32, after: 32 },
-                // dragThreshold: 1
             },
 
             // 861 to 1030
             1030: {
                 perView: 2,
-                gap: 32,
-                peek: { before: 50, after: 50 },
-                // dragThreshold: 1,
-                swipeThreshold: 1
-            },
-
-            // 651 to 860 
-            860: {
-                perView: 1,
                 gap: 16,
                 peek: { before: 50, after: 50 },
-                // dragThreshold: true,
-                // dragThreshold: 1,
                 swipeThreshold: 1
             },
 
-            // up to 650 
+            // 651 to 860
+            860: {
+                perView: 1,
+                gap: 8,
+                peek: { before: 50, after: 50 },
+                swipeThreshold: 1
+            },
+
+            // up to 650
             650: {
                 perView: 1,
                 gap: 0,
                 peek: 0,
-                // dragThreshold: true,
-                // dragThreshold: 1,
                 swipeThreshold: 1
             }
         }
@@ -130,17 +123,17 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         return obj.map((v) => transformToCamelCase(v));
       }
       return _.reduce(obj, (r, v, k) => {
-        return { 
-          ...r, 
-          [_.camelCase(k)]: transformToCamelCase(v) 
+        return {
+          ...r,
+          [_.camelCase(k)]: transformToCamelCase(v)
         };
       }, {});
-    }; 
+    };
 
     // @todo: make injectTemplates module
-    // clean and prep the data object from 
-    // to format we need 
-    // content submitted via Netlify admin  
+    // clean and prep the data object from
+    // to format we need
+    // content submitted via Netlify admin
     var introDataObj = transformToCamelCase(introDataObjAsBEM);
     var introDataArray = introDataObj.introFragmentList;
 
@@ -248,7 +241,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             else {
                 console.log('going full featured');
                 fullpage_api.setAutoScrolling(true);
-                fullpage_api.setFitToSection(true);  
+                fullpage_api.setFitToSection(true);
                 fullpage_api.moveTo('intro');
                 $('.js--nav__section').show();
 
@@ -257,7 +250,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             }
 
             // so image-wrapper, outside of the fullpage wrapper
-            // is on the same z-index, so the intro label fragment text hovers work 
+            // is on the same z-index, so the intro label fragment text hovers work
             if(fullpage_api.getActiveSection().anchor === "intro"){
                 $('#fullpage').css('transform', 'none');
             }
@@ -268,7 +261,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             var loadedSection = origin;
 
             // so image-wrapper, outside of the fullpage wrapper
-            // is on the same z-index, so the intro label fragment text hovers work 
+            // is on the same z-index, so the intro label fragment text hovers work
             if(destination.anchor === "intro"){
                 $('#fullpage').css('transform', 'none');
             }
@@ -277,8 +270,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             // if(origin) {
             //     console.log('=========');
             //     console.log('afterLoad');
-            //     console.log('origin.index: ', origin.index); 
-            //     console.log('destination.index: ', destination.index); 
+            //     console.log('origin.index: ', origin.index);
+            //     console.log('destination.index: ', destination.index);
             //     console.log('direction: ', direction);
             //     console.log('=========');
             // }
@@ -291,8 +284,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             // console.log('=========');
             // console.log('onLeave');
-            // console.log('origin.index: ', origin.index); 
-            // console.log('destination.index: ', destination.index); 
+            // console.log('origin.index: ', origin.index);
+            // console.log('destination.index: ', destination.index);
             // console.log('direction: ', direction);
             // console.log('=========');
 
@@ -346,7 +339,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 $('.fp-section').css('height', 'auto');
 
                 // so image-wrapper, outside of the fullpage wrapper
-                // is on the same z-index, so the intro label fragment text hovers work 
+                // is on the same z-index, so the intro label fragment text hovers work
                 $('#fullpage').css('transform', 'none');
 
                 $('.js--nav__section').hide();
@@ -366,17 +359,17 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 var $otherLinks = $(".intro__text-wrapper a").not(this);
                 var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
                 var t = new TimelineMax ({paused:true});
-                
-                t 
-                    .addLabel('beginPlay') 
+
+                t
+                    .addLabel('beginPlay')
                     .to(
-                        $project, 
+                        $project,
                         inDuration,
-                        { 
-                            autoAlpha: 1, 
-                            ease: Power1.easeInOut, 
-                            scale: scale, 
-                            transformOrigin:"50% 50%" 
+                        {
+                            autoAlpha: 1,
+                            ease: Power1.easeInOut,
+                            scale: scale,
+                            transformOrigin:"50% 50%"
                         },
                         'beginPlay'
                     )
@@ -390,21 +383,21 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 var t = new TimelineMax ({paused:true});
                 var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
 
-                t 
-                    .addLabel('beginStop') 
+                t
+                    .addLabel('beginStop')
                     .to(
-                        $project, 
+                        $project,
                           0.2,
-                          { 
-                            autoAlpha: 0, 
-                            ease: Power0.easeNone, 
-                            scale: 1 
+                          {
+                            autoAlpha: 0,
+                            ease: Power0.easeNone,
+                            scale: 1
                           },
                           'beginStop'
                        )
                     .set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
                     .play();
-                
+
                 TweenLite.to(".js--nav__section--intro", 0.1, { autoAlpha: 1 });
             };
 
@@ -424,12 +417,12 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         }
     });
 
-        // 0: "all", 
-         // 1: "events", 
+        // 0: "all",
+         // 1: "events",
          // 2: "projects"
     // function initGlide(glideInstance, which){
     function initGlide(which){
-        // glideInstance 
+        // glideInstance
         gi = new Glide($('.js--glide')[0], projectCarouselOptions)
 
             // insert DOM here, otherwise Glide crashes for some reason
@@ -438,7 +431,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             .on('mount.before', function() {
 
                 console.log("mount.before");
-                // $('.glide__slide').addClass('.slide__bg-block'); 
+                // $('.glide__slide').addClass('.slide__bg-block');
                 if ($('.glide__slide').length === 0) {
                     if (which > 0) {
                         var arr = _.filter(artProjectsImages, ['artProjectType', which]);
@@ -469,7 +462,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 // do this here so there's no delay perception when moving slides
                 if (direction.direction === ">") {
                     // glideInstance.index + 1;
-                    // var el = 
+                    // var el =
                     TweenLite.to($( ".glide__slide--active" ).next(), 0.05, { autoAlpha: 1});
                 }
 
@@ -484,7 +477,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 // console.log('glide:move.after');
                 // console.log($('.glide__slide--active'));
                 // console.log(glideInstance.index);
-                var string = 
+                var string =
                 `
                     <div class='slide__position-counter'>
                         <span class="slide__position-number">` + ( gi.index + 1 ) +  `</span>
@@ -494,44 +487,44 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 // `;
                 $(string).appendTo('.glide__slide--active')
 
-             
+
             })
 
             .mount();
 
             $('.js--projects__menu-tag--productions').on(
-                'click', 
+                'click',
                 { which: 1 },
                 toggleProjects
             )
 
             $('.js--projects__menu-tag--events').on(
-                'click', 
+                'click',
                 { which: 2 },
                 toggleProjects
             )
 
             $('.js--projects__menu-tag--all').on(
-                'click', 
+                'click',
                 { which: 0 },
                 toggleProjects
             )
 
         // var tl = new TimelineMax();
         // tl
-        //     .addLabel('beginPlay') 
+        //     .addLabel('beginPlay')
 
         //     .staggerTo(
-        //         ".glide__slide", 
-        //         0.15, 
-        //         { 
-        //             autoAlpha: 0.6, 
+        //         ".glide__slide",
+        //         0.15,
+        //         {
+        //             autoAlpha: 0.6,
         //             // clipPath: squareClipPath,
         //             ease: Expo.easeOut,
         //             // ease: Quint.easeOut
         //             yoyo: true,
         //             y: 60,
-        //             scale: 0.1 
+        //             scale: 0.1
         //         },
         //         0.075,
         //         'beginPlay+=1'
@@ -551,64 +544,64 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             // .to(".nav", 0.5, { className: "+=nav--on-light" }, "begin+=0.01")
             .to(
                 [ $headshotMaskBox ],
-                0.7, 
-                { 
-                    scaleX: 0, 
-                    ease: Power4.easeIn 
+                0.7,
+                {
+                    scaleX: 0,
+                    ease: Power4.easeIn
                 },
                 "begin+=0.15"
             )
 
             .to(
                 [ $headshotImage ] ,
-                0.5, 
-                { 
+                0.5,
+                {
                     autoAlpha: 1,
-                    ease: Power4.easeIn 
-                }, 
+                    ease: Power4.easeIn
+                },
                 "begin+=0.075"
             )
 
             .addLabel('beginText')
             .to(
                 [ $bioTextMask ],
-                0.6, 
-                { 
-                    scaleX: 0, 
-                    // autoAlpha: 0, 
+                0.6,
+                {
+                    scaleX: 0,
+                    // autoAlpha: 0,
                     ease: Power4.easeInOut
-                }, 
+                },
                 "begin+=0.075"
             )
 
             .to(
                 [ $bioText ],
-                1.5, 
-                { 
-                    autoAlpha: 1, 
-                    ease: Power4.easeInOut 
-                }, 
+                1.5,
+                {
+                    autoAlpha: 1,
+                    ease: Power4.easeInOut
+                },
                 "begin+=0.1"
             )
 
             .to(
                 [ $bioNavBGMask ],
-                0.8, 
-                { 
-                    scaleX: 0, 
-                    ease: Power4.easeInOut 
-                }, 
+                0.8,
+                {
+                    scaleX: 0,
+                    ease: Power4.easeInOut
+                },
                 "begin+=0.175"
             )
 
             .to(
                 [ ".bio__tab-border" ],
-                0.3, 
-                { 
-                    scaleY: 1, 
+                0.3,
+                {
+                    scaleY: 1,
                     ease: Expo.easeIn
-                    // width: 3 
-                }, 
+                    // width: 3
+                },
                 "begin+=0.7"
             )
 
@@ -618,21 +611,21 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             .to(
                 [ ".button--resume-pdf" ],
-                0.75, 
-                { 
-                    scaleY: 1, 
-                    ease: Elastic.easeOut.config(1, 0.3), 
+                0.75,
+                {
+                    scaleY: 1,
+                    ease: Elastic.easeOut.config(1, 0.3),
                     height: "11.5rem"
-                    // width: 3 
-                }, 
+                    // width: 3
+                },
                 "begin+=1"
             )
             // .to(
             //  [ $headshotMaskColor ],
-            //  2, 
-            //  { 
-            //      autoAlpha: 0, 
-            //      ease: Power4.easeOut 
+            //  2,
+            //  {
+            //      autoAlpha: 0,
+            //      ease: Power4.easeOut
             //  },
             //  "beginText-=0.1"
             // )
@@ -642,7 +635,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             // console.log("bio tl: ", tl);
         return tl;
     };
-        
+
     function makeBioTl(){
         var $bioImages = $(".headshot__image");
         var numHeadshotsImages = $bioImages.length;
@@ -650,8 +643,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         var showSlideFor = 3.5;
 
         if (numHeadshotsImages > 1)  {
-            var tl = new TimelineMax({ 
-                onComplete: onComplete, 
+            var tl = new TimelineMax({
+                onComplete: onComplete,
                 paused: true,
                 repeat: -1,
                 smoothChildTiming: true
@@ -685,18 +678,18 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                         r
                         t
 
-                        D: 1      D: 1      D: 1       D: 1   ->  D: 0   
-                        C: 1      C: 1      C: 1   ->  C: 0       C: 0   
-                        B: 1      B: 1  ->  B: 0       B: 0       B: 0   
-                        A: 1  ->  A: 0      A: 0       A: 0   ->  A: 1   
-                        ----      ----      ----       ----       ----    
+                        D: 1      D: 1      D: 1       D: 1   ->  D: 0
+                        C: 1      C: 1      C: 1   ->  C: 0       C: 0
+                        B: 1      B: 1  ->  B: 0       B: 0       B: 0
+                        A: 1  ->  A: 0      A: 0       A: 0   ->  A: 1
+                        ----      ----      ----       ----       ----
                         .to()    .to()      .to()      .to()     .to() with onComplete(e)
-                                                                    
-                        onComplete(e){ 
+
+                        onComplete(e){
                             // rest opacity of everything but A
-                            D: 1, 
-                            C: 1, 
-                            B, 1 
+                            D: 1,
+                            C: 1,
+                            B, 1
                         };
                 */
 
@@ -715,7 +708,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             function onComplete() {
                 /*
-                    At this point, the last image in the DOM source order is showing 
+                    At this point, the last image in the DOM source order is showing
                     (which is the first image the admin wants to see in the slideshow)
                     begin the scenesm reset the opacity to the start state
                 */
@@ -761,19 +754,19 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         // glideArt2 = initGlide(glideArt2);
         destroyAndCleanGlideInstance();
         initGlide(event.data.which);
-        
+
         // var tl = new TimelineMax();
         // tl
-        //  .addLabel('beginPlay') 
+        //  .addLabel('beginPlay')
 
         //  .staggerTo(
-        //      ".glide__slide", 
-        //      0.15, 
-        //      { 
-        //          autoAlpha: 0.6, 
+        //      ".glide__slide",
+        //      0.15,
+        //      {
+        //          autoAlpha: 0.6,
         //          // clipPath: squareClipPath,
         //          ease: Expo.easeOut
-        //          // ease: Quint.easeOut 
+        //          // ease: Quint.easeOut
         //      },
         //      0.075,
         //      'beginPlay+=1'
