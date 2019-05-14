@@ -50,8 +50,8 @@ module.exports = (env, argv) => ({
 		rules: [
 			{
 				test: /\.scss$/,
-				use: 
-					argv.mode === 'production' ? 
+				use:
+					argv.mode === 'production' ?
 					ExtractTextPlugin.extract({
 						publicPath: '',
 						fallback: 'style-loader?sourceMap',
@@ -115,7 +115,7 @@ module.exports = (env, argv) => ({
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: 
+				use:
 					argv.mode === 'production' ?
 					[
 						{
@@ -137,7 +137,7 @@ module.exports = (env, argv) => ({
 					]
 			},
 			{
-				test: /\.hbs$/, 
+				test: /\.hbs$/,
 				exclude: /node_modules/,
 				loader: 'handlebars-loader',
 				options: {
@@ -146,7 +146,7 @@ module.exports = (env, argv) => ({
 					],
 					partialDirs: [
 						path.join(__dirname, 'src', 'templates', 'partials')
-					],				
+					],
 				}
 			},
 			{
@@ -171,10 +171,10 @@ module.exports = (env, argv) => ({
 			      loader: 'image-webpack-loader',
 			      options: {
 			      	/*
-			      		No processing is done when webpack 'debug' mode is used and 
-			      		the loader acts as a regular file-loader. 
-			      		Use this to speed up initial and, to a lesser extent, 
-			      		subsequent compilations while developing or using webpack-dev-server. 
+			      		No processing is done when webpack 'debug' mode is used and
+			      		the loader acts as a regular file-loader.
+			      		Use this to speed up initial and, to a lesser extent,
+			      		subsequent compilations while developing or using webpack-dev-server.
 			      		Normal builds are processed normally, outputting optimized files.
 			      	*/
 			      	disable: true,
@@ -223,16 +223,16 @@ module.exports = (env, argv) => ({
 		progress: true
 	},
 
-	devtool: 
-		argv.mode === 'production' ? 
+	devtool:
+		argv.mode === 'production' ?
 			'eval'  // @todo : disable for production
 			:
 			'eval',
 
-	plugins: 
-		argv.mode === 'production' ? 
+	plugins:
+		argv.mode === 'production' ?
 			[
-				new CleanWebpackPlugin(path.join(__dirname, 'dist')),
+				new CleanWebpackPlugin(),
 				new webpack.ProvidePlugin(providePluginList),
 				new ExtractTextPlugin({
 					// full dir path causes stuck at 95% emitted error
@@ -277,7 +277,7 @@ module.exports = (env, argv) => ({
 						filename: 'index.html',
 						inject: 'body'
 				}),
-				
+
 				// during dev/build, output will complain that entrypoint is undefined
 				// safely ignore: https://github.com/jantimon/html-webpack-plugin/issues/895
 				new HtmlWebpackPlugin({
