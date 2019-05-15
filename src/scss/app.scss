@@ -23,7 +23,7 @@
 @import 'project-detail';
 
 body {
-    // position: relative;
+    position: relative;
 
     // for some reason, when fullpage.js sets this,
     // when scrolling to a section that has a gradient applied,
@@ -31,7 +31,7 @@ body {
     // dont show, until animation is completed.
 
     // disabling this doesnt seem to have a negative effect
-    // overflow: visible !important;
+    overflow: visible !important;
 }
 
 // .fp-tableCell {
@@ -43,10 +43,7 @@ body {
 #fullpage {
     // so image-wrapper, outside of the fullpage wrapper
     // is on the same z-index, so the intro label fragment text hovers work
-    // position: relative;
-
-    // testing
-    display: none;
+    position: relative;
 }
 
 .bg__diags {
