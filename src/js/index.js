@@ -57,8 +57,10 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
     var projectCarouselOptions = {
         // bpoints should match _mq.scss
         // 1280 +
+        // type: 'slider',
         type: 'carousel',
         startAt: 0,
+        // rewind: false,
         perView: 3,
         dragThreshold: 1,
         focusAt: 'center',
