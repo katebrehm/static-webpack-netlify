@@ -2,15 +2,14 @@
     {{#each artProjectsImages as | artProjectsImage i|}}
         <li class="glide__slide
                     art-project__type--{{ artProjectType }}">
-            <img class="slide__image" src=".{{ artProjectImagePath }}">
+            {{!-- <img class="slide__image js-slide__image" src=".{{ artProjectImagePath }}"> --}}
 {{!--             <h2 class="slide__description">
 
                 <span class="slide__tag tag--{{ artProjectType }}"></span>
             </h2> --}}
-
-
-            <a href="#" class="slide__title js-slide-detail-link">
-{{!--                 {{#ifEquals artProjectType "1"}}
+            <span>0 {{ artProjectTitle }}</span>
+       {{!--      <a href="#" class="slide__title js-slide__title">
+                {{#ifEquals artProjectType "1"}}
                     <i class="slide__title-icon
                                 slide__title-icon--circle
                                 material-icons
@@ -20,9 +19,9 @@
                             slide__title-icon--square
                             material-icons
                             material__icon--square">stop</i>
-                {{/ifEquals}} --}}
+                {{/ifEquals}}
                 {{ artProjectTitle }}
-            </a>
+            </a> --}}
 
             {{!-- <div class="slide__ tag tag--{{ artProjectType }}"></div> --}}
 

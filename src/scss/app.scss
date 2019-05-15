@@ -1,28 +1,29 @@
 // Required Core Stylesheet
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+// @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 
 // Optional Theme Stylesheet
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+// @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
-@import "node_modules/plyr/src/sass/plyr";
+// @import "node_modules/plyr/src/sass/plyr";
 
-@import 'partials/mq';
-@import 'partials/mq-debugger';
-@import 'partials/colors';
-@import 'partials/base';
-@import 'partials/utilities';
-@import 'partials/type';
-@import 'partials/section';
-@import 'partials/nav';
+// @import 'partials/mq';
+// @import 'partials/mq-debugger';
+// @import 'partials/colors';
+// @import 'partials/base';
+// @import 'partials/utilities';
+@import 'partials/glide';
+// @import 'partials/type';
+// @import 'partials/section';
+// @import 'partials/nav';
 
-@import 'partials/section--intro';
-@import 'partials/section--bio';
-@import 'partials/section--projects';
-@import 'partials/section--what-is';
-@import 'project-detail';
+// @import 'partials/section--intro';
+// @import 'partials/section--bio';
+// @import 'partials/section--projects';
+// @import 'partials/section--what-is';
+// @import 'project-detail';
 
 body {
-    position: relative; 
+    // position: relative;
 
     // for some reason, when fullpage.js sets this,
     // when scrolling to a section that has a gradient applied,
@@ -30,19 +31,22 @@ body {
     // dont show, until animation is completed.
 
     // disabling this doesnt seem to have a negative effect
-    overflow: visible !important;
+    // overflow: visible !important;
 }
 
-.fp-tableCell {
-    display: flex !important;
-    position: relative;
-    align-items: center;
-}
+// .fp-tableCell {
+//     display: flex !important;
+//     position: relative;
+//     align-items: center;
+// }
 
 #fullpage {
     // so image-wrapper, outside of the fullpage wrapper
-    // is on the same z-index, so the intro label fragment text hovers work 
-    position: relative;
+    // is on the same z-index, so the intro label fragment text hovers work
+    // position: relative;
+
+    // testing
+    display: none;
 }
 
 .bg__diags {
@@ -50,3 +54,8 @@ body {
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAOklEQVQoU43MSwoAMAgD0eT+h7ZYaOlHo7N+DNHL2HAGgBWcyGcKbqTghTL4oQiG6IUpOqFEC5bI4QD8PAoKd9j4XwAAAABJRU5ErkJggg==);
     mix-blend-mode: soft-light;
 }
+
+// .glide__slide {
+//     background-color: lightgray;
+//     height:60vh;
+// }

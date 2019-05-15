@@ -20,7 +20,7 @@
 
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-		grid-template-areas:    					
+		grid-template-areas:
 													". . . . . . . ."
 													". a a a a a a ."
 													". a a a a a a ."
@@ -34,7 +34,7 @@
 
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-		grid-template-areas:    					
+		grid-template-areas:
 													". . . . . . . . . . . ."
 													". . a a a a a a a a . ."
 													". . a a a a a a a a . ."
@@ -58,6 +58,7 @@
 	height: 100vh;
 	position: absolute;
 	pointer-events: none;
+	display: none;
 }
 
 .intro__image {
@@ -91,7 +92,7 @@
   }
 }
 
-.intro__text-wrapper span, 
+.intro__text-wrapper span,
 	a {
 
 	  @include mq('xxs') {
@@ -170,7 +171,7 @@
 .intro__link:nth-of-type(5n+5):hover { background-color: #6EABC2; border: 0; }
 
 
-  @include mq('xl') { 
+  @include mq('xl') {
 
 	/*
 		5 before n being the total number of colors we want to cycle through
@@ -242,20 +243,20 @@
 
 // .tooltip__title {
 // 	font-family: 'K-Medium', sans-serif;
-// 	font-size: 1.2rem; 
+// 	font-size: 1.2rem;
 // 	letter-spacing: 1px;
 // }
 
 // .tooltip__small {
 // 	font-family: 'K-Regular', sans-serif;
-// 	font-size: 1.1rem; 
+// 	font-size: 1.1rem;
 // }
 
 // .tooltip__date {
 // 	position: relative;
 // 	top: 2px; // hacky fix
 // 	font-family: 'IRKG', sans-serif;
-// 	font-size: 1rem; 
+// 	font-size: 1rem;
 // }
 
 .bg__diags--intro {
