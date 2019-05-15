@@ -63,11 +63,11 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
         // rewind: false,
         perView: 3,
         dragThreshold: 1,
-        focusAt: 'center',
+        // focusAt: 'center', // causes flickering issue!
 
         // mouse clicks on slides dont register while animating
         // keep this low
-        animationDuration: 100,
+        animationDuration: 140,
         peek: { before: 100, after: 100 },
         gap: 5
         // swipeThreshold: false,
