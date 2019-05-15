@@ -2,15 +2,15 @@
 // https://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
 // require('file-loader?name=[name].[ext]!../index.html');
 
-// import TweenMax from "gsap";
+import TweenMax from "gsap";
 import Glide from '@glidejs/glide'
-// import Plyr from 'plyr'
-// import Verge from 'verge'
+import Plyr from 'plyr'
+import Verge from 'verge'
 
 // import 'intersection-observer'
 // import scrollama from 'scrollama';
 
-// import fullpage from "fullpage.js"
+import fullpage from "fullpage.js"
 import '../scss/app.scss';
 
 import lodash from 'lodash';
@@ -60,7 +60,7 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
         type: 'carousel',
         startAt: 0,
         perView: 3,
-        dragThreshold: 25   ,
+        dragThreshold: 1,
         focusAt: 'center',
 
         // mouse clicks on slides dont register while animating
