@@ -4,20 +4,20 @@
 // Optional Theme Stylesheet
 // @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
-// @import "node_modules/plyr/src/sass/plyr";
+@import "node_modules/plyr/src/sass/plyr";
 
-// @import 'partials/mq';
-// @import 'partials/mq-debugger';
-// @import 'partials/colors';
-// @import 'partials/base';
-// @import 'partials/utilities';
+@import 'partials/mq';
+@import 'partials/mq-debugger';
+@import 'partials/colors';
+@import 'partials/base';
+@import 'partials/utilities';
 @import 'partials/glide';
-// @import 'partials/type';
-// @import 'partials/section';
-// @import 'partials/nav';
+@import 'partials/type';
+@import 'partials/section';
+@import 'partials/nav';
 
-// @import 'partials/section--intro';
-// @import 'partials/section--bio';
+@import 'partials/section--intro';
+@import 'partials/section--bio';
 // @import 'partials/section--projects';
 // @import 'partials/section--what-is';
 // @import 'project-detail';

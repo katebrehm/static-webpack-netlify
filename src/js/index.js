@@ -62,7 +62,10 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
         perView: 3,
         dragThreshold: 25   ,
         focusAt: 'center',
-        animationDuration: 200,
+
+        // mouse clicks on slides dont register while animating
+        // keep this low
+        animationDuration: 100,
         peek: { before: 100, after: 100 },
         gap: 5
         // swipeThreshold: false,
@@ -494,6 +497,18 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
                 // }
             })
 
+            .on('mount.after', function(){
+
+
+                // $( ".glide__slide" ).on( "click", function() {
+                //     console.log("glide__track");
+                // });
+
+                // document.querySelector('.glide__slide').addEventListener('click', function(e) {
+                //     console.log("glide__track e");
+
+                // })
+            })
             // .on('build.after', function() {
             //     console.log("build.after");
             //     // console.log("init slide index: ", glideInstance.index );
