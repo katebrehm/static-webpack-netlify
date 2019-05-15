@@ -1,19 +1,19 @@
 <ul class="glide__slides">
     {{#each artProjectsImages as | artProjectsImage i|}}
+    <!-- don't forget the data-index attr, or weird flashing will happen on scroll -->
         <li data-index="{{@index}}"
             class="glide__slide
                     art-project__type--{{ artProjectType }}">
 
-            <span>{{@index}}</span>
-
-            {{!-- <img class="slide__image js-slide__image" src=".{{ artProjectImagePath }}"> --}}
+            <img class="slide__image js-slide__image"
+                src=".{{ artProjectImagePath }}">
 {{!--             <h2 class="slide__description">
 
                 <span class="slide__tag tag--{{ artProjectType }}"></span>
             </h2> --}}
 
-           {{!--  <a href="#" class="slide__title js-slide__title">
-                {{#ifEquals artProjectType "1"}}
+            <a href="#" class="slide__title js-slide__title">
+                {{!-- {{#ifEquals artProjectType "1"}}
                     <i class="slide__title-icon
                                 slide__title-icon--circle
                                 material-icons
@@ -23,9 +23,9 @@
                             slide__title-icon--square
                             material-icons
                             material__icon--square">stop</i>
-                {{/ifEquals}}
+                {{/ifEquals}} --}}
                 {{ artProjectTitle }}
-            </a> --}}
+            </a>
 
             {{!-- <div class="slide__ tag tag--{{ artProjectType }}"></div> --}}
 
