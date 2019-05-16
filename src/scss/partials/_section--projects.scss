@@ -1,6 +1,5 @@
 @import "_colors";
 
-
 .glide__track {
 	overflow: visible;
 }
@@ -9,7 +8,7 @@
     // margin-top: 10%;
     display: flex;
     align-items: center;
-
+x
 }
 
 .glide__slides {
@@ -21,19 +20,6 @@
 
 	overflow: visible;
 }
-
-/*
-    $breakpoints: (
-	    "xxs":  1px,
-	    "xs":   400px,
-	    "sm":   480px,
-	    "md":   650px,
-	    "lg":   860px,
-	    "xl":   1030px,
-	    "xxl":  1200px,
-	    "xxxl": 1600px
-	);
- */
 
 .glide__slide {
 	position: relative;

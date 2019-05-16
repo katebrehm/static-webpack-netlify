@@ -523,10 +523,9 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             .on('mount.after', function(){
 
-
-                // $( ".glide__slide" ).on( "click", function() {
-                //     console.log("glide__track");
-                // });
+                $( ".glide__slide" ).on( "click", function() {
+                    console.log("glide__track");
+                });
 
                 // document.querySelector('.glide__slide').addEventListener('click', function(e) {
                 //     console.log("glide__track e");
@@ -602,10 +601,6 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             // });
 
-
-                $( ".glide__slide" ).on( "click", function() {
-                    console.log("glide__track");
-                });
 
         // var tl = new TimelineMax();
         // tl
