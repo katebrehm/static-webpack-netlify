@@ -152,7 +152,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     var fullPageInstance = new fullpage('#fullpage', {
         licenseKey: fullpageKey,
-        anchors: ['intro', 'bio', 'art-projects', 'what-is', 'professional-work'],
+        anchors: ['intro', 'art-projects'],
+        // anchors: ['intro', 'bio', 'art-projects', 'what-is', 'professional-work'],
         recordHistory: true,
         animateAnchor: false,
         scrollingSpeed: 600,
@@ -361,6 +362,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     function initGlide(){
 
+        console.log(glideConfig)
         gi = new Glide($('.js--glide')[0], glideConfig)
 
             // insert DOM here, otherwise Glide crashes for some reason
