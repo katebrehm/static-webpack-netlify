@@ -1,52 +1,57 @@
-
 .glide__slide {
     /* position: relative; */
-    /* width: 200px; */
-    height: 400px;
-    /* min-width: 300px; */
-
     /* overflow: hidden; */
-    /* background-color: blue; */
+    /* width: 200px; */
+    /* min-width: 300px; */
+    height: 400px;
 
-    /* prevents white flash */
+    /* prevents white flash when using arrows */
     /* https://github.com/glidejs/glide/issues/269 */
+    transform: translate3d(0, 0, 0) !important;
 
     // doesnt work on images
     /* https://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform */
 
-      /* background-size: cover; */
-      /* background-position: center center; */
-
     /* transform-style: preserve-3d; */
-   /* transform: translateZ(0.01px); */
-   /* transform: perspective(1000px); */
-/*    backface-visibility: hidden;
-   transform: translate3d(0, 0, 0) !important;
-   height: 400px; */
+    /* transform: translateZ(0.01px); */
+    /* transform: perspective(1000px); */
+    /* backface-visibility: hidden;
+    */
 }
-
-.glide__slide img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-/*   height: 300px;
-width: 300px;
- */
-  }
 
 .slide__image {
-
-// causes flickering
-/*   object-fit: cover; */
-
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
-
 
 /* prevents flash and scroll snap jumps
 https://github.com/glidejs/glide/issues/269*/
-
-
 .glide__slide--active {
     position: relative;
     z-index: 1;
+}
+
+.glide__arrows {
+    display: flex;
+    position: absolute;
+    bottom: -13vh;
+    right: 0;
+}
+
+.glide__arrow {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 1rem;
+    padding: 0;
+    transform: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 0;
+    border: 0;
+    color: #82C345;
+    line-height: normal;
+    i { width: 20px !important; }
 }
