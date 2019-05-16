@@ -2,7 +2,7 @@
 // https://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
 // require('file-loader?name=[name].[ext]!../index.html');
 
-import TweenMax from "gsap";
+import TweenMax from 'gsap';
 import Glide from '@glidejs/glide'
 import Plyr from 'plyr'
 import Verge from 'verge'
@@ -10,13 +10,15 @@ import Verge from 'verge'
 import 'intersection-observer'
 import scrollama from 'scrollama';
 
-import fullpage from "fullpage.js"
+import fullpage from 'fullpage.js'
 import '../scss/app.scss';
 
 import lodash from 'lodash';
 
-// app utils
-// import transformToCamelCase from './utils/transformToCamelCase';
+import { glideConfig } from './config'
+import { transformToCamelCase } from './utils/utils'
+import { fullpageKey } from '../../fullpageKey.js'
+
 // var partials = {};
 
 // app data
@@ -35,7 +37,6 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
 // partials
 import arrowPartial from '../templates/partials/arrow.hbs';
 
-
 (function () {
 
     // var options = {
@@ -47,86 +48,14 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     // workaround for fullpage history bug. Add #intro only if page loads without a deep link
     // https://github.com/alvarotrigo/fullPage.js/issues/950#issuecomment-69156110
     // https://stackoverflow.com/questions/24078332/is-it-secure-to-use-window-location-href-directly-without-validation/24089350
-    // if ((!window.location.href.includes("#")) && (!window.location.href.includes("project"))) {
-    //     window.location.href = window.location.href + "#intro";
-    // }
+    if ((!window.location.href.includes('#')) && (!window.location.href.includes('project'))) {
+        window.location.href = window.location.href + '#intro';
+    }
 
     // window.timelines = {};
 
-    var projectCarouselOptions = {
-        // bpoints should match _mq.scss
-        // 1280 +
-
-        // has a snapping issue, where some slides snap after being swiped
-        // type: 'carousel',
-
-        // use this instead
-        // https://codepen.io/lifeinchords/pen/joBwWP
-        type: 'slider',
-        rewind: false,
-
-        startAt: 0,
-        perView: 3,
-        perTouch: 3,
-        swipeThreshold: 1,
-        dragThreshold: 25,
-
-        // mouse clicks on slides dont register while animating
-        // keep this
-        animationDuration: 200,
-
-        // either
-        // bound: true,
-
-        // or
-        focusAt: 'center',
-        // peek: { before: 100, after: 100 },
-        gap: 8,
-        perTouch: 2,
-        breakpoints: {
-
-            // 1031 to 1200
-            1200: {
-                perTouch: 3,
-                perView: 3,
-                // peek: { before: 32, after: 32 },
-                dragThreshold: 25,
-                swipeThreshold: 1
-            },
-
-            // 861 to 1030
-            1030: {
-                perView: 2,
-                perTouch: 3,
-                // peek: { before: 50, after: 50 },
-                dragThreshold: 25,
-                swipeThreshold: 1
-            },
-
-            // 651 to 860
-            860: {
-                perView: 1,
-                perTouch: 1,
-                // peek: { before: 50, after: 50 },
-                dragThreshold: 25,
-                swipeThreshold: 1
-            },
-
-            // up to 650
-            650: {
-                focusAt: 0,
-                perView: 1,
-                perTouch: 1,
-                gap: 0,
-                peek: 0,
-                dragThreshold: 25,
-                swipeThreshold: 1
-            }
-        }
-    };
-
-    // var mobileWidth = 650;
-    // var mobileHeight = 650;
+    const mobileWidth = 650;
+    const mobileHeight = 650;
 
     // var glideArt;
     // // var glideArt2;
@@ -139,36 +68,22 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     // var $headshotImage          = $('.headshot__image');
     // var $bioNavBGMask           = $('.bio__nav-bg--mask');
 
-    // https://stackoverflow.com/questions/12931828/convert-returned-json-object-properties-to-lower-first-camelcase
-    const transformToCamelCase = (obj) => {
-      if (!_.isObject(obj)) {
-        return obj;
-      } else if (_.isArray(obj)) {
-        return obj.map((v) => transformToCamelCase(v));
-      }
-      return _.reduce(obj, (r, v, k) => {
-        return {
-          ...r,
-          [_.camelCase(k)]: transformToCamelCase(v)
-        };
-      }, {});
-    };
 
     // @todo: make injectTemplates module
     // clean and prep the data object from
     // to format we need
     // content submitted via Netlify admin
-    // var introDataObj = transformToCamelCase(introDataObjAsBEM);
-    // var introDataArray = introDataObj.introFragmentList;
+    var introDataObj = transformToCamelCase(introDataObjAsBEM);
+    var introDataArray = introDataObj.introFragmentList;
 
-    // var paragraphFragments = introDataArray;
-    // var hoverImages = introDataArray;
+    var paragraphFragments = introDataArray;
+    var hoverImages = introDataArray;
 
-    // $('.js--hbs-inject--intro__paragraph-fragments')
-    //     .html(paragraphFragmentsTemplate({ paragraphFragments }));
+    $('.js--hbs-inject--intro__paragraph-fragments')
+        .html(paragraphFragmentsTemplate({ paragraphFragments }));
 
-    // $('.js--hbs-inject--intro__hover-image-collection')
-    //     .html(hoverImagesCollectionTemplate({ hoverImages }));
+    $('.js--hbs-inject--intro__hover-image-collection')
+        .html(hoverImagesCollectionTemplate({ hoverImages }));
 
     ///////////////
     // var bioDataObj = transformToCamelCase(bioDataObjAsBEM);
@@ -179,14 +94,14 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     // // options.bio.makeSlideshow = (headshotImages.length >= 1) ? true : false;
 
     // $(headshotCollectionTemplate({ headshotImages }))
-    //     .appendTo(".js--hbs-inject--bio__headshot-collection");
+    //     .appendTo('.js--hbs-inject--bio__headshot-collection');
 
     ///////////////
     var artProjectsDataObj = transformToCamelCase(artProjectsDataObjAsBEM);
     var artProjectsImagesArray = artProjectsDataObj.artProjectsList;
     var artProjectsImages = artProjectsImagesArray;
 
-    // insert in Glide on mount.before, otherwise Glide crashes for some reason
+    // insert in Glide on mount.before, otherwise Glide crashes
 
     ///////////////
     // $('.js--hbs-inject--arrow')
@@ -218,10 +133,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     // }
 
-    initGlide(); // all
-
     var fullPageOptions = {};
-    // console.log("page load width", Verge.viewportW());
+    // console.log('page load width', Verge.viewportW());
 
     // we could use fullpage's responsiveWidth option, but it doesnt have the fitToSection
     // so we calc the viewport ourselves
@@ -237,8 +150,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         fullPageOptions.fitToSection = true;
     }
 
-    var fullPageInstance = new fullpage("#fullpage", {
-        licenseKey: '',
+    var fullPageInstance = new fullpage('#fullpage', {
+        licenseKey: fullpageKey,
         anchors: ['intro', 'bio', 'art-projects', 'what-is', 'professional-work'],
         recordHistory: true,
         animateAnchor: false,
@@ -251,7 +164,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
         // afterResize: function(width, height){
         //     var fullpageContainer = this;
-        //     console.log("full page resize: width: ", width, ' height: ' , height);
+        //     console.log('full page resize: width: ', width, ' height: ' , height);
 
         //     if(width < mobileWidth || height < mobileWidth) {
         //         console.log('going responsive');
@@ -278,7 +191,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
         //     // so image-wrapper, outside of the fullpage wrapper
         //     // is on the same z-index, so the intro label fragment text hovers work
-        //     if(fullpage_api.getActiveSection().anchor === "intro"){
+        //     if(fullpage_api.getActiveSection().anchor === 'intro'){
         //         $('#fullpage').css('transform', 'none');
         //     }
         // },
@@ -289,7 +202,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
         //     // so image-wrapper, outside of the fullpage wrapper
         //     // is on the same z-index, so the intro label fragment text hovers work
-        //     if(destination.anchor === "intro"){
+        //     if(destination.anchor === 'intro'){
         //         $('#fullpage').css('transform', 'none');
         //     }
 
@@ -317,7 +230,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         //     // console.log('=========');
 
         //     // if leaving bio
-        //     if(origin.anchor === "bio"){
+        //     if(origin.anchor === 'bio'){
 
         //         // if (timelines.bioTl.isActive()) {
         //         //  console.log('bioTl active');
@@ -328,14 +241,14 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         //         }
         //     }
 
-        //     if(origin.anchor === "art-projects"){
+        //     if(origin.anchor === 'art-projects'){
         //         // destroyAndCleanGlideInstance();
         //     }
 
 
 
         //     // entering bio
-        //     if(destination.anchor === "bio"){
+        //     if(destination.anchor === 'bio'){
         //         // console.log('entered bio section');
         //         timelines.revealHeadshot.play();
         //         timelines.bioTl.resume();
@@ -345,7 +258,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         //         // }
         //     }
 
-        //     if(destination.anchor === "art-projects"){
+        //     if(destination.anchor === 'art-projects'){
 
         //         // glideArt = initGlide(glideArt);
         //         // initGlide(); // all
@@ -361,18 +274,18 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             initGlide(); // all
 
-            // if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
-            //     console.log('going responsive');
-            //     $('.fp-tableCell').css('height', 'auto');
-            //     $('.fp-table').css('height', 'auto');
-            //     $('.fp-section').css('height', 'auto');
+            if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
+                console.log('going responsive');
+                $('.fp-tableCell').css('height', 'auto');
+                $('.fp-table').css('height', 'auto');
+                $('.fp-section').css('height', 'auto');
 
-            //     // so image-wrapper, outside of the fullpage wrapper
-            //     // is on the same z-index, so the intro label fragment text hovers work
-            //     $('#fullpage').css('transform', 'none');
+                // so image-wrapper, outside of the fullpage wrapper
+                // is on the same z-index, so the intro label fragment text hovers work
+                $('#fullpage').css('transform', 'none');
 
-            //     $('.js--nav__section').hide();
-            // }
+                $('.js--nav__section').hide();
+            }
 
             // timelines.bioTl = makeBioTl();
 
@@ -380,114 +293,100 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             // timelines.revealHeadshot = makeRevealHeadshot();
 
             // // for project
-            // var inDuration = 0.35;
-            // var scale = 1.025;
+            var inDuration = 0.35;
+            var scale = 1.025;
 
             // make named function so we can pass it to jquery event handler
-            // var showIntroProject = function(e) {
-            //     var $otherLinks = $(".intro__text-wrapper a").not(this);
-            //     var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
-            //     var t = new TimelineMax ({paused:true});
+            var showIntroProject = function(e) {
+                var $otherLinks = $('.intro__text-wrapper a').not(this);
+                var $project = $('.js--project--' + $(e.target).data('introFragmentKey'));
+                var t = new TimelineMax ({paused:true});
 
-            //     t
-            //         .addLabel('beginPlay')
-            //         .to(
-            //             $project,
-            //             inDuration,
-            //             {
-            //                 autoAlpha: 1,
-            //                 ease: Power1.easeInOut,
-            //                 scale: scale,
-            //                 transformOrigin:"50% 50%"
-            //             },
-            //             'beginPlay'
-            //         )
-            //         .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  )
-            //         .set(".js--nav__section--intro", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
-            //         .play();
-            // };
+                t
+                    .addLabel('beginPlay')
+                    .to(
+                        $project,
+                        inDuration,
+                        {
+                            autoAlpha: 1,
+                            ease: Power1.easeInOut,
+                            scale: scale,
+                            transformOrigin:'50% 50%'
+                        },
+                        'beginPlay'
+                    )
+                    .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  )
+                    .set('.js--nav__section--intro', { autoAlpha: 0, ease: Elastic.easeInOut }, 'beginPlay' )
+                    .play();
+            };
 
             // // make named function so we can pass it to jquery event handler
-            // var hideIntroProject = function(e) {
-            //     var t = new TimelineMax ({paused:true});
-            //     var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
+            var hideIntroProject = function(e) {
+                var t = new TimelineMax ({paused:true});
+                var $project = $('.js--project--' + $(e.target).data('introFragmentKey'));
 
-            //     t
-            //         .addLabel('beginStop')
-            //         .to(
-            //             $project,
-            //               0.2,
-            //               {
-            //                 autoAlpha: 0,
-            //                 ease: Power0.easeNone,
-            //                 scale: 1
-            //               },
-            //               'beginStop'
-            //            )
-            //         .set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
-            //         .play();
+                t
+                    .addLabel('beginStop')
+                    .to(
+                        $project,
+                          0.2,
+                          {
+                            autoAlpha: 0,
+                            ease: Power0.easeNone,
+                            scale: 1
+                          },
+                          'beginStop'
+                       )
+                    .set(['.intro__text-wrapper p span', '.intro__text-wrapper a'], { autoAlpha: 1 }, 'beginStop' )
+                    .play();
 
-            //     TweenLite.to(".js--nav__section--intro", 0.1, { autoAlpha: 1 });
-            // };
+                TweenLite.to('.js--nav__section--intro', 0.1, { autoAlpha: 1 });
+            };
 
-            // $(".js--intro-fragment-hover")
-            //     .on('mouseenter', showIntroProject)
-            //     .on('mouseleave', hideIntroProject);
+            $('.js--intro-fragment-hover')
+                .on('mouseenter', showIntroProject)
+                .on('mouseleave', hideIntroProject);
 
-            // $( ".button--arrow-down" ).on( "click", function() {
-            //     // console.log( $( this ).text() );
-            //     fullpage_api.moveSectionDown();
-            // });
+            $( '.button--arrow-down' ).on( 'click', function() {
+                // console.log( $( this ).text() );
+                fullpage_api.moveSectionDown();
+            });
 
-            // $( ".js--nav__section-line-active--intro" ).on( "click", function() {
-            //     // console.log( $( this ).text() );
-            //     fullpage_api.moveSectionDown();
-            // });
+            $( '.js--nav__section-line-active--intro' ).on( 'click', function() {
+                // console.log( $( this ).text() );
+                fullpage_api.moveSectionDown();
+            });
         }
     });
 
-        // 0: "all",
-         // 1: "events",
-         // 2: "projects"
-    // function initGlide(glideInstance, which){
-    // function initGlide(which){
-
     function initGlide(){
 
-                    // inject all slides into the carousel,
-                // including thumbnail and title
-                // $('.js--hbs-inject--art-projects__image-collection')
-                //             .html(artProjectsCollectionTemplate({ artProjectsImages }));
-
-
-        // glideInstance
-        gi = new Glide($('.js--glide')[0], projectCarouselOptions)
-        // gi = new Glide($('.js--glide')[0])
+        gi = new Glide($('.js--glide')[0], glideConfig)
 
             // insert DOM here, otherwise Glide crashes for some reason
             // probably some timing thing where the DOM isnt there
             // yet before Glide initializes
             .on('mount.before', function() {
 
-                console.log("mount.before");
+                console.log('mount.before');
 
                 // function addProjectDetailClickHandlers(){
-                //     $(".js--intro-fragment-hover")
+                //     $('.js--intro-fragment-hover')
                 //         .on('mouseenter', showIntroProject)
                 //         .on('mouseleave', hideIntroProject);
                 // }
 
                 // make named function so we can pass it to jquery event handler
                 // var addProjectDetailClickHandler = function(e) {
-                //     var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
+                //     var $project = $('.js--project--' + $(e.target).data('introFragmentKey'));
                 // };
 
 
-                // $( ".js-slide__title" ).on( "click", function() {
-                //     console.log("js-slide__title");
+                // $( '.js-slide__title' ).on( 'click', function() {
+                //     console.log('js-slide__title');
                 //     // console.log( $( this ).text() );
                 //     // console.log( `
-                //         // js-slide-detail-link" ${js-slide-detail-link}
+                //         // js-slide-detail-link' ${js-slide-detail-link}
                 //     // `);
                 // });
 
@@ -499,8 +398,6 @@ import arrowPartial from '../templates/partials/arrow.hbs';
                 // now, add event handler so when person clicks the title,
                 // it injects the project detail page into the page <body> and shows it as a
                 // full viewport overlay.
-
-
 
                 // $('.glide__slide').addClass('.slide__bg-block');
                 // if ($('.glide__slide').length === 0) {
@@ -519,22 +416,22 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             .on('mount.after', function(){
 
-                $( ".glide__slide" ).on( "click", function() {
-                    console.log("glide__track");
+                $( '.glide__slide' ).on( 'click', function() {
+                    console.log('glide__track');
                 });
 
                 // document.querySelector('.glide__slide').addEventListener('click', function(e) {
-                //     console.log("glide__track e");
+                //     console.log('glide__track e');
 
                 // })
             })
             // .on('build.after', function() {
-            //     console.log("build.after");
-            //     // console.log("init slide index: ", glideInstance.index );
+            //     console.log('build.after');
+            //     // console.log('init slide index: ', glideInstance.index );
             // })
 
             // .on('run.before', function(direction) {
-            //     console.log("run.before");
+            //     console.log('run.before');
             //     // @todo: animate these out
             //     $('.slide__position-counter').remove();
             //     TweenLite.to('.glide__slide--active', 0.25, { autoAlpha: 0.6});
@@ -542,29 +439,29 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             //     // console.log('direction: ', direction);
 
             //     // do this here so there's no delay perception when moving slides
-            //     if (direction.direction === ">") {
+            //     if (direction.direction === '>') {
             //         // glideInstance.index + 1;
             //         // var el =
-            //         TweenLite.to($( ".glide__slide--active" ).next(), 0.05, { autoAlpha: 1});
+            //         TweenLite.to($( '.glide__slide--active' ).next(), 0.05, { autoAlpha: 1});
             //     }
 
-            //     else if (direction.direction === "<") {
+            //     else if (direction.direction === '<') {
             //         // glideInstance.index - 1;
-            //         TweenLite.to($( ".glide__slide--active" ).prev(), 0.05, { autoAlpha: 1});
+            //         TweenLite.to($( '.glide__slide--active' ).prev(), 0.05, { autoAlpha: 1});
             //     }
             // })
 
             // .on('run.after', function() {
-            //     console.log("run.after");
+            //     console.log('run.after');
             //     // console.log('glide:move.after');
             //     // console.log($('.glide__slide--active'));
             //     // console.log(glideInstance.index);
             //     var string =
             //     `
             //         <div class='slide__position-counter'>
-            //             <span class="slide__position-number">` + ( gi.index + 1 ) +  `</span>
-            //             <span class="slide__position-number"> / </span>
-            //             <span class="slide__position-number">` + $('.glide__slide').length + `</span>
+            //             <span class='slide__position-number'>` + ( gi.index + 1 ) +  `</span>
+            //             <span class='slide__position-number'> / </span>
+            //             <span class='slide__position-number'>` + $('.glide__slide').length + `</span>
             //         </div>
             //     // `;
             //     $(string).appendTo('.glide__slide--active')
@@ -574,26 +471,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             .mount();
 
-            // $('.js--projects__menu-tag--productions').on(
-            //     'click',
-            //     { which: 1 },
-            //     toggleProjects
-            // )
-
-            // $('.js--projects__menu-tag--events').on(
-            //     'click',
-            //     { which: 2 },
-            //     toggleProjects
-            // )
-
-            // $('.js--projects__menu-tag--all').on(
-            //     'click',
-            //     { which: 0 },
-            //     toggleProjects
-            // )
-
             // document.querySelector('.glide__slide').addEventListener('click', function(e) {
-            //         console.log("glide__track e");
+            //         console.log('glide__track e');
 
             // });
 
@@ -603,7 +482,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         //     .addLabel('beginPlay')
 
         //     .staggerTo(
-        //         ".glide__slide",
+        //         '.glide__slide',
         //         0.15,
         //         {
         //             autoAlpha: 0.6,
@@ -629,7 +508,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //         .addLabel('begin')
     //         .set($bioTextMask, { width: 500})
 
-    //         // .to(".nav", 0.5, { className: "+=nav--on-light" }, "begin+=0.01")
+    //         // .to('.nav', 0.5, { className: '+=nav--on-light' }, 'begin+=0.01')
     //         .to(
     //             [ $headshotMaskBox ],
     //             0.7,
@@ -637,7 +516,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //                 scaleX: 0,
     //                 ease: Power4.easeIn
     //             },
-    //             "begin+=0.15"
+    //             'begin+=0.15'
     //         )
 
     //         .to(
@@ -647,7 +526,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //                 autoAlpha: 1,
     //                 ease: Power4.easeIn
     //             },
-    //             "begin+=0.075"
+    //             'begin+=0.075'
     //         )
 
     //         .addLabel('beginText')
@@ -659,7 +538,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //                 // autoAlpha: 0,
     //                 ease: Power4.easeInOut
     //             },
-    //             "begin+=0.075"
+    //             'begin+=0.075'
     //         )
 
     //         .to(
@@ -669,7 +548,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //                 autoAlpha: 1,
     //                 ease: Power4.easeInOut
     //             },
-    //             "begin+=0.1"
+    //             'begin+=0.1'
     //         )
 
     //         .to(
@@ -679,34 +558,34 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //                 scaleX: 0,
     //                 ease: Power4.easeInOut
     //             },
-    //             "begin+=0.175"
+    //             'begin+=0.175'
     //         )
 
     //         .to(
-    //             [ ".bio__tab-border" ],
+    //             [ '.bio__tab-border' ],
     //             0.3,
     //             {
     //                 scaleY: 1,
     //                 ease: Expo.easeIn
     //                 // width: 3
     //             },
-    //             "begin+=0.7"
+    //             'begin+=0.7'
     //         )
 
     //         // if there are 0 or 1 headshots, the tl will just display for the headshot
     //         // otherwise, construct and start the slideshow
-    //         .add(timelines.bioTl.play(), "begin+=0.5")
+    //         .add(timelines.bioTl.play(), 'begin+=0.5')
 
     //         .to(
-    //             [ ".button--resume-pdf" ],
+    //             [ '.button--resume-pdf' ],
     //             0.75,
     //             {
     //                 scaleY: 1,
     //                 ease: Elastic.easeOut.config(1, 0.3),
-    //                 height: "11.5rem"
+    //                 height: '11.5rem'
     //                 // width: 3
     //             },
-    //             "begin+=1"
+    //             'begin+=1'
     //         )
     //         // .to(
     //         //  [ $headshotMaskColor ],
@@ -715,17 +594,17 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //         //      autoAlpha: 0,
     //         //      ease: Power4.easeOut
     //         //  },
-    //         //  "beginText-=0.1"
+    //         //  'beginText-=0.1'
     //         // )
 
     //         // .timeScale( .2 )
 
-    //         // console.log("bio tl: ", tl);
+    //         // console.log('bio tl: ', tl);
     //     return tl;
     // };
 
     // function makeBioTl(){
-    //     var $bioImages = $(".headshot__image");
+    //     var $bioImages = $('.headshot__image');
     //     var numHeadshotsImages = $bioImages.length;
     //     var fadeDuration = 2.8;
     //     var showSlideFor = 3.5;
@@ -783,14 +662,14 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     //             // image A
     //              if (index === $bioImages.length - 1) {
-    //                 tl.addLabel("swapFirstAndLast", "+=" + showSlideFor);
-    //                 tl.to( $f, fadeDuration, { autoAlpha: 1, ease: Power1.EaseIn }, "swapFirstAndLast" );
-    //                 tl.to( $l, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "swapFirstAndLast" );
+    //                 tl.addLabel('swapFirstAndLast', '+=' + showSlideFor);
+    //                 tl.to( $f, fadeDuration, { autoAlpha: 1, ease: Power1.EaseIn }, 'swapFirstAndLast' );
+    //                 tl.to( $l, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, 'swapFirstAndLast' );
     //              }
 
     //             // everything but A
     //              else {
-    //                 tl.to( element, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "+=" + showSlideFor)
+    //                 tl.to( element, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, '+=' + showSlideFor)
     //              }
     //         });
 
@@ -817,13 +696,13 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //     // glideI.destroy();
     //     gi.destroy();
 
-    //     // $('.glide__slide').removeAttr("style");
+    //     // $('.glide__slide').removeAttr('style');
     //     $('.glide__slide').remove();
 
     //     // glideI.update(projectCarouselOptions);
     //     // glideI.enable();
 
-    //     $('.glide__slides').removeAttr("style");
+    //     $('.glide__slides').removeAttr('style');
     //     $('.js--glide').removeClass('glide--swipeable');
     //     $('.slide__position-counter').remove();
 
@@ -848,7 +727,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     //     //  .addLabel('beginPlay')
 
     //     //  .staggerTo(
-    //     //      ".glide__slide",
+    //     //      '.glide__slide',
     //     //      0.15,
     //     //      {
     //     //          autoAlpha: 0.6,

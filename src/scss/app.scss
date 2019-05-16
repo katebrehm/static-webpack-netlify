@@ -26,9 +26,7 @@ body {
     // when scrolling to a section that has a gradient applied,
     // layers underneath it, whether text or images,
     // dont show, until animation is completed.
-
-    // disabling this doesnt seem to have a negative effect
-    // overflow: visible !important;
+    overflow: visible !important;
 }
 
 // .fp-tableCell {

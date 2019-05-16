@@ -8,4 +8,4 @@ npm-debug.log
 # for netlify
 static/admin/*.bundle.*
 
-*.sublime-project
+fullpageKey.js

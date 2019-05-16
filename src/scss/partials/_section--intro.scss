@@ -4,6 +4,10 @@
 	position: relative;
 	width: 100vw;
 
+    // // for truncating the diagnol lines
+    // // reset overflow, bc fullpage sets it
+    // overflow: hidden !important;
+
 	background-color: $palette--navy;
 
 	@include mq('md') {
@@ -82,7 +86,6 @@
 		grid-area: a;
 		align-self: center;
 	}
-
 }
 
 .hide-xs {
