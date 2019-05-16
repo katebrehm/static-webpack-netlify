@@ -2,15 +2,15 @@
 // https://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
 // require('file-loader?name=[name].[ext]!../index.html');
 
-// import TweenMax from "gsap";
+import TweenMax from "gsap";
 import Glide from '@glidejs/glide'
-// import Plyr from 'plyr'
-// import Verge from 'verge'
+import Plyr from 'plyr'
+import Verge from 'verge'
 
-// import 'intersection-observer'
-// import scrollama from 'scrollama';
+import 'intersection-observer'
+import scrollama from 'scrollama';
 
-// import fullpage from "fullpage.js"
+import fullpage from "fullpage.js"
 import '../scss/app.scss';
 
 import lodash from 'lodash';
@@ -19,22 +19,22 @@ import lodash from 'lodash';
 // import transformToCamelCase from './utils/transformToCamelCase';
 
 // app data
-// import introDataObjAsBEM from '../../content/intro.json';
-// import bioDataObjAsBEM from '../../content/bio.json';
+import introDataObjAsBEM from '../../content/intro.json';
+import bioDataObjAsBEM from '../../content/bio.json';
 import artProjectsDataObjAsBEM from '../../content/art-projects.json';
 
 // var partials = {};
 
 // @todo: move this to dedicated webpack. JS files.
-// import paragraphFragmentsTemplate from '../templates/home/sections/intro/paragraph-fragments.hbs';
-// import hoverImagesCollectionTemplate from '../templates/home/sections/intro/hover-image-collection.hbs';
-// import headshotCollectionTemplate from '../templates/home/sections/bio/headshot-collection.hbs';
+import paragraphFragmentsTemplate from '../templates/home/sections/intro/paragraph-fragments.hbs';
+import hoverImagesCollectionTemplate from '../templates/home/sections/intro/hover-image-collection.hbs';
+import headshotCollectionTemplate from '../templates/home/sections/bio/headshot-collection.hbs';
 import artProjectsCollectionTemplate from '../templates/home/sections/art-projects/art-projects-images-collection.hbs';
 
 // @todo: make submodule to import all partials/helpers
 // https://stackoverflow.com/questions/32124640/how-to-import-into-properties-using-es6-module-syntax-destructing
 // partials
-// import arrowPartial from '../templates/partials/arrow.hbs';
+import arrowPartial from '../templates/partials/arrow.hbs';
 
 
 (function () {
@@ -57,13 +57,13 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
     var projectCarouselOptions = {
         // bpoints should match _mq.scss
         // 1280 +
-        type: 'carousel',
+        // type: 'carousel',
 
         // or
         // this gets rid of the flickering issue
         // https://codepen.io/lifeinchords/pen/joBwWP
-        // type: 'slider',
-        // rewind: false,
+        type: 'slider',
+        rewind: false,
 
         startAt: 0,
         perView: 3,
@@ -76,13 +76,13 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
         animationDuration: 200,
 
         // either
-        // bound: true,
+        bound: true,
 
         // or
-        focusAt: 'center',
+        // focusAt: 'center',
         // peek: { before: 100, after: 100 },
 
-        gap: 5,
+        gap: 3,
         perTouch: 2,
         breakpoints: {
 
@@ -90,8 +90,9 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
             1200: {
                 perTouch: 3,
                 perView: 3,
-                gap: 16,
-                peek: { before: 32, after: 32 },
+                // focusAt: 'center',
+                gap: 3,
+                // peek: { before: 32, after: 32 },
                 dragThreshold: 25,
                 swipeThreshold: 1
             },
@@ -99,9 +100,10 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
             // 861 to 1030
             1030: {
                 perView: 2,
-                gap: 16,
+                // focusAt: 'center',
+                gap: 3,
                 perTouch: 3,
-                peek: { before: 50, after: 50 },
+                // peek: { before: 50, after: 50 },
                 dragThreshold: 25,
                 swipeThreshold: 1
             },
@@ -109,9 +111,9 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
             // 651 to 860
             860: {
                 perView: 1,
-                gap: 8,
+                gap: 3,
                 perTouch: 1,
-                peek: { before: 50, after: 50 },
+                // peek: { before: 50, after: 50 },
                 dragThreshold: 25,
                 swipeThreshold: 1
             },

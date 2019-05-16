@@ -3,11 +3,12 @@
     <!-- don't forget the data-index attr, or weird flashing will happen on scroll -->
         <li data-index="{{@index}}"
             class="glide__slide
-                    art-project__type--{{ artProjectType }}"
-            style="background-image: url('{{ artProjectImagePath }}'); ">
+                    art-project__type--{{ artProjectType }}">
 
-            {{!-- <img class="slide__image js-slide__image"
-                src=".{{ artProjectImagePath }}"> --}}
+            {{!-- style="background-image: url('{{ artProjectImagePath }}'); "> --}}
+
+            <img class="slide__image js-slide__image"
+                src=".{{ artProjectImagePath }}">
 {{!--             <h2 class="slide__description">
 
                 <span class="slide__tag tag--{{ artProjectType }}"></span>
