@@ -57,10 +57,11 @@ import arrowPartial from '../templates/partials/arrow.hbs';
     var projectCarouselOptions = {
         // bpoints should match _mq.scss
         // 1280 +
+
+        // has a snapping issue, where some slides snap after being swiped
         // type: 'carousel',
 
-        // or
-        // this gets rid of the flickering issue
+        // use this instead
         // https://codepen.io/lifeinchords/pen/joBwWP
         type: 'slider',
         rewind: false,
@@ -79,9 +80,8 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         bound: true,
 
         // or
-        // focusAt: 'center',
+        focusAt: 'center',
         // peek: { before: 100, after: 100 },
-
         gap: 3,
         perTouch: 2,
         breakpoints: {

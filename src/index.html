@@ -3,9 +3,33 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	</head>
+       <!--
+            fouc happens in dev bc of Webpack's HMR
+            https://github.com/gmrchk/swup/issues/63
+            https://gist.github.com/johnpolacek/3827270
+            $('body').attr('style', '');
+        -->
+        <style>
+            #fullpage {
+                transition: all 0.2s ease-in-out;
+            }
+        </style>
+
+        <script type="text/javascript">
+            window.addEventListener( 'load', function( event ) {
+                // console.log('window load');
+                var fullpage = document.getElementById("fullpage");
+                fullpage.removeAttribute("style");
+            });
+        </script>
+
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Eczar:400,500,600,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
 
 	<body>
+        <div class="breakpoint"></div>
         <div class="js--glide
                     glide
                     glide--art-projects">
@@ -14,7 +38,7 @@
                  data-glide-el="track">
             </div>
 
-             <div class="glide__arrows" data-glide-el="controls">
+            <div class="glide__arrows" data-glide-el="controls">
                 <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
                     <i class="material-icons ">arrow_backward</i>
                 </button>
@@ -23,5 +47,18 @@
                 </button>
             </div>
         </div>
+
+        <script>
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                    if (!user) {
+                        window.netlifyIdentity.on("login", () => {
+                            document.location.href = "/admin/";
+                        });
+                    }
+                });
+            }
+        </script>
+
 	</body>
 </html>
