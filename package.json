@@ -5,7 +5,7 @@
 	"main": "",
 	"repository": "n/a",
 	"scripts": {
-		"dev": "webpack-dev-server --config webpack.config.js --mode development",
+		"dev": "webpack-dev-server --host 0.0.0.0 --config webpack.config.js --mode development",
 		"buildSite": "webpack --config webpack.config.js --mode production"
 	},
 	"author": "",
