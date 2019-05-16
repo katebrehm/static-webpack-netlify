@@ -2,15 +2,15 @@
 // https://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
 // require('file-loader?name=[name].[ext]!../index.html');
 
-import TweenMax from "gsap";
+// import TweenMax from "gsap";
 import Glide from '@glidejs/glide'
-import Plyr from 'plyr'
-import Verge from 'verge'
+// import Plyr from 'plyr'
+// import Verge from 'verge'
 
 // import 'intersection-observer'
 // import scrollama from 'scrollama';
 
-import fullpage from "fullpage.js"
+// import fullpage from "fullpage.js"
 import '../scss/app.scss';
 
 import lodash from 'lodash';
@@ -52,22 +52,20 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
     //     window.location.href = window.location.href + "#intro";
     // }
 
-    window.timelines = {};
+    // window.timelines = {};
 
     var projectCarouselOptions = {
         // bpoints should match _mq.scss
         // 1280 +
-        // type: 'slider',
         type: 'carousel',
         startAt: 0,
-        // rewind: false,
         perView: 3,
-        dragThreshold: 1,
-        // focusAt: 'center', // causes flickering issue!
+        dragThreshold: 25   ,
+        // focusAt: 'center',
 
         // mouse clicks on slides dont register while animating
-        // keep this low
-        animationDuration: 140,
+        // keep this
+        animationDuration: 100,
         peek: { before: 100, after: 100 },
         gap: 5
         // swipeThreshold: false,
@@ -108,21 +106,20 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
         // }
     };
 
-    var mobileWidth = 650;
-    var mobileHeight = 650;
+    // var mobileWidth = 650;
+    // var mobileHeight = 650;
 
     // var glideArt;
     // // var glideArt2;
 
-    // var $headerOne              = $('.h1__1');
-    var $headshotMaskBox        = $('.headshot__mask--box');
-    // var $headshotMaskColor      = $('.headshot__mask--color');
-    var $bioTextMask            = $('.bio__text--mask');
-    var $bioText                = $('.bio__text');
-    var $headshotImage          = $('.headshot__image');
-    var $bioNavBGMask           = $('.bio__nav-bg--mask');
+    // // var $headerOne              = $('.h1__1');
+    // var $headshotMaskBox        = $('.headshot__mask--box');
+    // // var $headshotMaskColor      = $('.headshot__mask--color');
+    // var $bioTextMask            = $('.bio__text--mask');
+    // var $bioText                = $('.bio__text');
+    // var $headshotImage          = $('.headshot__image');
+    // var $bioNavBGMask           = $('.bio__nav-bg--mask');
 
-    // @todo: refactor out
     // https://stackoverflow.com/questions/12931828/convert-returned-json-object-properties-to-lower-first-camelcase
     const transformToCamelCase = (obj) => {
       if (!_.isObject(obj)) {
@@ -204,22 +201,22 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
 
     initGlide(); // all
 
-    var fullPageOptions = {};
+    // var fullPageOptions = {};
     //         console.log("page load width", Verge.viewportW());
 
     // we could use fullpage's responsiveWidth option, but it doesnt have the fitToSection
     // so we calc the viewport ourselves
-    if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
-        fullPageOptions.autoScrolling = false;
-        fullPageOptions.fitToSection = false;
-        console.log('going responsive');
-    }
+    // if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
+    //     fullPageOptions.autoScrolling = false;
+    //     fullPageOptions.fitToSection = false;
+    //     console.log('going responsive');
+    // }
 
-    else {
-        console.log('going full featured');
-        fullPageOptions.autoScrolling = true;
-        fullPageOptions.fitToSection = true;
-    }
+    // else {
+    //     console.log('going full featured');
+    //     fullPageOptions.autoScrolling = true;
+    //     fullPageOptions.fitToSection = true;
+    // }
 
     // var fullPageInstance = new fullpage("#fullpage", {
     //     licenseKey: '',
@@ -502,10 +499,6 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
 
             .on('mount.after', function(){
 
-    $( ".glide__slide" ).on( "click", function() {
-                    console.log("glide__track");
-                });
-
 
                 // $( ".glide__slide" ).on( "click", function() {
                 //     console.log("glide__track");
@@ -586,9 +579,9 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
             // });
 
 
-                // $( ".glide__slide" ).on( "click", function() {
-                //     console.log("glide__track");
-                // });
+                $( ".glide__slide" ).on( "click", function() {
+                    console.log("glide__track");
+                });
 
         // var tl = new TimelineMax();
         // tl
