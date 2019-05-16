@@ -69,6 +69,7 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
         perView: 3,
         perTouch: 3,
         swipeThreshold: 1,
+        dragThreshold: 25,
 
         // mouse clicks on slides dont register while animating
         // keep this
@@ -79,7 +80,7 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
 
         // or
         focusAt: 'center',
-        peek: { before: 100, after: 100 },
+        // peek: { before: 100, after: 100 },
 
         gap: 5,
         perTouch: 2,
@@ -87,9 +88,11 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
 
             // 1031 to 1200
             1200: {
+                perTouch: 3,
                 perView: 3,
                 gap: 16,
                 peek: { before: 32, after: 32 },
+                dragThreshold: 25,
                 swipeThreshold: 1
             },
 
@@ -97,7 +100,9 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
             1030: {
                 perView: 2,
                 gap: 16,
+                perTouch: 3,
                 peek: { before: 50, after: 50 },
+                dragThreshold: 25,
                 swipeThreshold: 1
             },
 
@@ -105,15 +110,19 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
             860: {
                 perView: 1,
                 gap: 8,
+                perTouch: 1,
                 peek: { before: 50, after: 50 },
+                dragThreshold: 25,
                 swipeThreshold: 1
             },
 
             // up to 650
             650: {
                 perView: 1,
+                perTouch: 1,
                 gap: 0,
                 peek: 0,
+                dragThreshold: 25,
                 swipeThreshold: 1
             }
         }
