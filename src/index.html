@@ -30,23 +30,30 @@
 
 	<body>
         <div class="breakpoint"></div>
-        <div class="js--glide
-                    glide
-                    glide--art-projects">
-            <div class="glide__track
-                        js--hbs-inject--art-projects__image-collection"
-                 data-glide-el="track">
-            </div>
 
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                    <i class="material-icons ">arrow_backward</i>
-                </button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                    <i class="material-icons ">arrow_forward</i>
-                </button>
+        <div id="fullpage" style="opacity: 0; visibility: hidden;">
+            <div class="section section--art-projects">
+                <div class="js--glide
+                            glide
+                            glide--art-projects">
+                    <div class="glide__track
+                                js--hbs-inject--art-projects__image-collection"
+                         data-glide-el="track">
+                    </div>
+
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                            <i class="material-icons ">arrow_backward</i>
+                        </button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                            <i class="material-icons ">arrow_forward</i>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
+        <div>
+
+
 
         <script>
             if (window.netlifyIdentity) {

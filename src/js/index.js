@@ -17,13 +17,12 @@ import lodash from 'lodash';
 
 // app utils
 // import transformToCamelCase from './utils/transformToCamelCase';
+// var partials = {};
 
 // app data
 import introDataObjAsBEM from '../../content/intro.json';
 import bioDataObjAsBEM from '../../content/bio.json';
 import artProjectsDataObjAsBEM from '../../content/art-projects.json';
-
-// var partials = {};
 
 // @todo: move this to dedicated webpack. JS files.
 import paragraphFragmentsTemplate from '../templates/home/sections/intro/paragraph-fragments.hbs';
@@ -77,12 +76,12 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         animationDuration: 200,
 
         // either
-        bound: true,
+        // bound: true,
 
         // or
         focusAt: 'center',
         // peek: { before: 100, after: 100 },
-        gap: 3,
+        gap: 8,
         perTouch: 2,
         breakpoints: {
 
@@ -90,8 +89,6 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             1200: {
                 perTouch: 3,
                 perView: 3,
-                // focusAt: 'center',
-                gap: 3,
                 // peek: { before: 32, after: 32 },
                 dragThreshold: 25,
                 swipeThreshold: 1
@@ -100,8 +97,6 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             // 861 to 1030
             1030: {
                 perView: 2,
-                // focusAt: 'center',
-                gap: 3,
                 perTouch: 3,
                 // peek: { before: 50, after: 50 },
                 dragThreshold: 25,
@@ -111,7 +106,6 @@ import arrowPartial from '../templates/partials/arrow.hbs';
             // 651 to 860
             860: {
                 perView: 1,
-                gap: 3,
                 perTouch: 1,
                 // peek: { before: 50, after: 50 },
                 dragThreshold: 25,
@@ -120,6 +114,7 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
             // up to 650
             650: {
+                focusAt: 0,
                 perView: 1,
                 perTouch: 1,
                 gap: 0,
@@ -225,230 +220,231 @@ import arrowPartial from '../templates/partials/arrow.hbs';
 
     initGlide(); // all
 
-    // var fullPageOptions = {};
-    //         console.log("page load width", Verge.viewportW());
+    var fullPageOptions = {};
+    // console.log("page load width", Verge.viewportW());
 
     // we could use fullpage's responsiveWidth option, but it doesnt have the fitToSection
     // so we calc the viewport ourselves
-    // if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
-    //     fullPageOptions.autoScrolling = false;
-    //     fullPageOptions.fitToSection = false;
-    //     console.log('going responsive');
-    // }
+    if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
+        fullPageOptions.autoScrolling = false;
+        fullPageOptions.fitToSection = false;
+        console.log('going responsive');
+    }
 
-    // else {
-    //     console.log('going full featured');
-    //     fullPageOptions.autoScrolling = true;
-    //     fullPageOptions.fitToSection = true;
-    // }
+    else {
+        console.log('going full featured');
+        fullPageOptions.autoScrolling = true;
+        fullPageOptions.fitToSection = true;
+    }
 
-    // var fullPageInstance = new fullpage("#fullpage", {
-    //     licenseKey: '',
-    //     anchors: ['intro', 'bio', 'art-projects', 'what-is', 'professional-work'],
-    //     recordHistory: true,
-    //     animateAnchor: false,
-    //     scrollingSpeed: 600,
-    //     slidesNavigation: true,
-    //     scrollBar: false,
-    //     navigation: false,
-    //     autoScrolling: fullPageOptions.autoScrolling,
-    //     fitToSection: fullPageOptions.fitToSection,
+    var fullPageInstance = new fullpage("#fullpage", {
+        licenseKey: '',
+        anchors: ['intro', 'bio', 'art-projects', 'what-is', 'professional-work'],
+        recordHistory: true,
+        animateAnchor: false,
+        scrollingSpeed: 600,
+        slidesNavigation: true,
+        scrollBar: false,
+        navigation: false,
+        autoScrolling: fullPageOptions.autoScrolling,
+        fitToSection: fullPageOptions.fitToSection,
 
-    //     afterResize: function(width, height){
-    //         var fullpageContainer = this;
-    //         console.log("full page resize: width: ", width, ' height: ' , height);
+        // afterResize: function(width, height){
+        //     var fullpageContainer = this;
+        //     console.log("full page resize: width: ", width, ' height: ' , height);
 
-    //         if(width < mobileWidth || height < mobileWidth) {
-    //             console.log('going responsive');
-    //             fullpage_api.setAutoScrolling(false);
-    //             fullpage_api.setFitToSection(false);
+        //     if(width < mobileWidth || height < mobileWidth) {
+        //         console.log('going responsive');
+        //         fullpage_api.setAutoScrolling(false);
+        //         fullpage_api.setFitToSection(false);
 
-    //             $('.fp-tableCell').css('height', 'auto');
-    //             $('.fp-table').css('height', 'auto');
-    //             $('.fp-section').css('height', 'auto');
+        //         $('.fp-tableCell').css('height', 'auto');
+        //         $('.fp-table').css('height', 'auto');
+        //         $('.fp-section').css('height', 'auto');
 
-    //             $('.js--nav__section').hide();
-    //         }
+        //         $('.js--nav__section').hide();
+        //     }
 
-    //         else {
-    //             console.log('going full featured');
-    //             fullpage_api.setAutoScrolling(true);
-    //             fullpage_api.setFitToSection(true);
-    //             fullpage_api.moveTo('intro');
-    //             $('.js--nav__section').show();
+        //     else {
+        //         console.log('going full featured');
+        //         fullpage_api.setAutoScrolling(true);
+        //         fullpage_api.setFitToSection(true);
+        //         fullpage_api.moveTo('intro');
+        //         $('.js--nav__section').show();
 
-    //             fullpage_api.reBuild();
-    //             window.scrollTo(0, 0);
-    //         }
+        //         fullpage_api.reBuild();
+        //         window.scrollTo(0, 0);
+        //     }
 
-    //         // so image-wrapper, outside of the fullpage wrapper
-    //         // is on the same z-index, so the intro label fragment text hovers work
-    //         if(fullpage_api.getActiveSection().anchor === "intro"){
-    //             $('#fullpage').css('transform', 'none');
-    //         }
-    //     },
+        //     // so image-wrapper, outside of the fullpage wrapper
+        //     // is on the same z-index, so the intro label fragment text hovers work
+        //     if(fullpage_api.getActiveSection().anchor === "intro"){
+        //         $('#fullpage').css('transform', 'none');
+        //     }
+        // },
 
-    //     // when arrived to a new section
-    //     afterLoad: function(origin, destination, direction){
-    //         var loadedSection = origin;
+        // // when arrived to a new section
+        // afterLoad: function(origin, destination, direction){
+        //     var loadedSection = origin;
 
-    //         // so image-wrapper, outside of the fullpage wrapper
-    //         // is on the same z-index, so the intro label fragment text hovers work
-    //         if(destination.anchor === "intro"){
-    //             $('#fullpage').css('transform', 'none');
-    //         }
+        //     // so image-wrapper, outside of the fullpage wrapper
+        //     // is on the same z-index, so the intro label fragment text hovers work
+        //     if(destination.anchor === "intro"){
+        //         $('#fullpage').css('transform', 'none');
+        //     }
 
-    //         // might be the first section, or a deep link arrival
-    //         // if(origin) {
-    //         //     console.log('=========');
-    //         //     console.log('afterLoad');
-    //         //     console.log('origin.index: ', origin.index);
-    //         //     console.log('destination.index: ', destination.index);
-    //         //     console.log('direction: ', direction);
-    //         //     console.log('=========');
-    //         // }
-    //     },
+        //     // might be the first section, or a deep link arrival
+        //     // if(origin) {
+        //     //     console.log('=========');
+        //     //     console.log('afterLoad');
+        //     //     console.log('origin.index: ', origin.index);
+        //     //     console.log('destination.index: ', destination.index);
+        //     //     console.log('direction: ', direction);
+        //     //     console.log('=========');
+        //     // }
+        // },
 
-    //     // before scroll animation begins
-    //     onLeave: function(origin, destination, direction){
-    //         var index = origin.index;
-    //         var leavingSection = $(this);
+        // // before scroll animation begins
+        // onLeave: function(origin, destination, direction){
+        //     var index = origin.index;
+        //     var leavingSection = $(this);
 
-    //         // console.log('=========');
-    //         // console.log('onLeave');
-    //         // console.log('origin.index: ', origin.index);
-    //         // console.log('destination.index: ', destination.index);
-    //         // console.log('direction: ', direction);
-    //         // console.log('=========');
+        //     // console.log('=========');
+        //     // console.log('onLeave');
+        //     // console.log('origin.index: ', origin.index);
+        //     // console.log('destination.index: ', destination.index);
+        //     // console.log('direction: ', direction);
+        //     // console.log('=========');
 
-    //         // if leaving bio
-    //         if(origin.anchor === "bio"){
+        //     // if leaving bio
+        //     if(origin.anchor === "bio"){
 
-    //             // if (timelines.bioTl.isActive()) {
-    //             //  console.log('bioTl active');
-    //             // }
-    //             if (timelines.bioTl.isActive()) {
-    //                 timelines.bioTl.pause();
-    //                 // console.log('bioTl active');
-    //             }
-    //         }
+        //         // if (timelines.bioTl.isActive()) {
+        //         //  console.log('bioTl active');
+        //         // }
+        //         if (timelines.bioTl.isActive()) {
+        //             timelines.bioTl.pause();
+        //             // console.log('bioTl active');
+        //         }
+        //     }
 
-    //         if(origin.anchor === "art-projects"){
-    //             // destroyAndCleanGlideInstance();
-    //         }
-
-
-
-    //         // entering bio
-    //         if(destination.anchor === "bio"){
-    //             // console.log('entered bio section');
-    //             timelines.revealHeadshot.play();
-    //             timelines.bioTl.resume();
-
-    //             // if (timelines.bioTl.isActive()) {
-    //             //  console.log('bioTl active');
-    //             // }
-    //         }
-
-    //         if(destination.anchor === "art-projects"){
-
-    //             // glideArt = initGlide(glideArt);
-    //             // initGlide(); // all
-    //             // initGlide(0); // all
-
-    //             // console.log(gi);
+        //     if(origin.anchor === "art-projects"){
+        //         // destroyAndCleanGlideInstance();
+        //     }
 
 
-    //         }
-    //     },
 
-    //     afterRender: function(){
+        //     // entering bio
+        //     if(destination.anchor === "bio"){
+        //         // console.log('entered bio section');
+        //         timelines.revealHeadshot.play();
+        //         timelines.bioTl.resume();
+
+        //         // if (timelines.bioTl.isActive()) {
+        //         //  console.log('bioTl active');
+        //         // }
+        //     }
+
+        //     if(destination.anchor === "art-projects"){
+
+        //         // glideArt = initGlide(glideArt);
+        //         // initGlide(); // all
+        //         // initGlide(0); // all
+
+        //         // console.log(gi);
 
 
-    //         if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
-    //             console.log('going responsive');
-    //             $('.fp-tableCell').css('height', 'auto');
-    //             $('.fp-table').css('height', 'auto');
-    //             $('.fp-section').css('height', 'auto');
+        //     }
+        // },
 
-    //             // so image-wrapper, outside of the fullpage wrapper
-    //             // is on the same z-index, so the intro label fragment text hovers work
-    //             $('#fullpage').css('transform', 'none');
+        afterRender: function(){
 
-    //             $('.js--nav__section').hide();
-    //         }
+            initGlide(); // all
 
-    //         timelines.bioTl = makeBioTl();
+            // if(Verge.viewportW() < mobileWidth || Verge.viewportH() < mobileHeight) {
+            //     console.log('going responsive');
+            //     $('.fp-tableCell').css('height', 'auto');
+            //     $('.fp-table').css('height', 'auto');
+            //     $('.fp-section').css('height', 'auto');
 
-    //         // needs to be declared after bioTl
-    //         timelines.revealHeadshot = makeRevealHeadshot();
+            //     // so image-wrapper, outside of the fullpage wrapper
+            //     // is on the same z-index, so the intro label fragment text hovers work
+            //     $('#fullpage').css('transform', 'none');
 
-    //         // for project
-    //         var inDuration = 0.35;
-    //         var scale = 1.025;
+            //     $('.js--nav__section').hide();
+            // }
 
-    //         // make named function so we can pass it to jquery event handler
-    //         var showIntroProject = function(e) {
-    //             var $otherLinks = $(".intro__text-wrapper a").not(this);
-    //             var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
-    //             var t = new TimelineMax ({paused:true});
+            // timelines.bioTl = makeBioTl();
 
-    //             t
-    //                 .addLabel('beginPlay')
-    //                 .to(
-    //                     $project,
-    //                     inDuration,
-    //                     {
-    //                         autoAlpha: 1,
-    //                         ease: Power1.easeInOut,
-    //                         scale: scale,
-    //                         transformOrigin:"50% 50%"
-    //                     },
-    //                     'beginPlay'
-    //                 )
-    //                 .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  )
-    //                 .set(".js--nav__section--intro", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
-    //                 .play();
-    //         };
+            // // needs to be declared after bioTl
+            // timelines.revealHeadshot = makeRevealHeadshot();
 
-    //         // make named function so we can pass it to jquery event handler
-    //         var hideIntroProject = function(e) {
-    //             var t = new TimelineMax ({paused:true});
-    //             var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
+            // // for project
+            // var inDuration = 0.35;
+            // var scale = 1.025;
 
-    //             t
-    //                 .addLabel('beginStop')
-    //                 .to(
-    //                     $project,
-    //                       0.2,
-    //                       {
-    //                         autoAlpha: 0,
-    //                         ease: Power0.easeNone,
-    //                         scale: 1
-    //                       },
-    //                       'beginStop'
-    //                    )
-    //                 .set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
-    //                 .play();
+            // make named function so we can pass it to jquery event handler
+            // var showIntroProject = function(e) {
+            //     var $otherLinks = $(".intro__text-wrapper a").not(this);
+            //     var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
+            //     var t = new TimelineMax ({paused:true});
 
-    //             TweenLite.to(".js--nav__section--intro", 0.1, { autoAlpha: 1 });
-    //         };
+            //     t
+            //         .addLabel('beginPlay')
+            //         .to(
+            //             $project,
+            //             inDuration,
+            //             {
+            //                 autoAlpha: 1,
+            //                 ease: Power1.easeInOut,
+            //                 scale: scale,
+            //                 transformOrigin:"50% 50%"
+            //             },
+            //             'beginPlay'
+            //         )
+            //         .set(['.intro__text-wrapper p span', $otherLinks], { autoAlpha: 0 }, 'beginPlay'  )
+            //         .set(".js--nav__section--intro", { autoAlpha: 0, ease: Elastic.easeInOut }, "beginPlay" )
+            //         .play();
+            // };
 
-    //         $(".js--intro-fragment-hover")
-    //             .on('mouseenter', showIntroProject)
-    //             .on('mouseleave', hideIntroProject);
+            // // make named function so we can pass it to jquery event handler
+            // var hideIntroProject = function(e) {
+            //     var t = new TimelineMax ({paused:true});
+            //     var $project = $(".js--project--" + $(e.target).data('introFragmentKey'));
 
-    //         $( ".button--arrow-down" ).on( "click", function() {
-    //             // console.log( $( this ).text() );
-    //             fullpage_api.moveSectionDown();
-    //         });
+            //     t
+            //         .addLabel('beginStop')
+            //         .to(
+            //             $project,
+            //               0.2,
+            //               {
+            //                 autoAlpha: 0,
+            //                 ease: Power0.easeNone,
+            //                 scale: 1
+            //               },
+            //               'beginStop'
+            //            )
+            //         .set(['.intro__text-wrapper p span', ".intro__text-wrapper a"], { autoAlpha: 1 }, 'beginStop' )
+            //         .play();
 
-    //         $( ".js--nav__section-line-active--intro" ).on( "click", function() {
-    //             // console.log( $( this ).text() );
-    //             fullpage_api.moveSectionDown();
-    //         });
-    //     }
-    // });
+            //     TweenLite.to(".js--nav__section--intro", 0.1, { autoAlpha: 1 });
+            // };
+
+            // $(".js--intro-fragment-hover")
+            //     .on('mouseenter', showIntroProject)
+            //     .on('mouseleave', hideIntroProject);
+
+            // $( ".button--arrow-down" ).on( "click", function() {
+            //     // console.log( $( this ).text() );
+            //     fullpage_api.moveSectionDown();
+            // });
+
+            // $( ".js--nav__section-line-active--intro" ).on( "click", function() {
+            //     // console.log( $( this ).text() );
+            //     fullpage_api.moveSectionDown();
+            // });
+        }
+    });
 
         // 0: "all",
          // 1: "events",
@@ -627,194 +623,194 @@ import arrowPartial from '../templates/partials/arrow.hbs';
         // return glideInstance;
     };
 
-    function makeRevealHeadshot(){
-        var tl = new TimelineMax ({ paused: true });
-        tl
-            .addLabel('begin')
-            .set($bioTextMask, { width: 500})
+    // function makeRevealHeadshot(){
+    //     var tl = new TimelineMax ({ paused: true });
+    //     tl
+    //         .addLabel('begin')
+    //         .set($bioTextMask, { width: 500})
 
-            // .to(".nav", 0.5, { className: "+=nav--on-light" }, "begin+=0.01")
-            .to(
-                [ $headshotMaskBox ],
-                0.7,
-                {
-                    scaleX: 0,
-                    ease: Power4.easeIn
-                },
-                "begin+=0.15"
-            )
+    //         // .to(".nav", 0.5, { className: "+=nav--on-light" }, "begin+=0.01")
+    //         .to(
+    //             [ $headshotMaskBox ],
+    //             0.7,
+    //             {
+    //                 scaleX: 0,
+    //                 ease: Power4.easeIn
+    //             },
+    //             "begin+=0.15"
+    //         )
 
-            .to(
-                [ $headshotImage ] ,
-                0.5,
-                {
-                    autoAlpha: 1,
-                    ease: Power4.easeIn
-                },
-                "begin+=0.075"
-            )
+    //         .to(
+    //             [ $headshotImage ] ,
+    //             0.5,
+    //             {
+    //                 autoAlpha: 1,
+    //                 ease: Power4.easeIn
+    //             },
+    //             "begin+=0.075"
+    //         )
 
-            .addLabel('beginText')
-            .to(
-                [ $bioTextMask ],
-                0.6,
-                {
-                    scaleX: 0,
-                    // autoAlpha: 0,
-                    ease: Power4.easeInOut
-                },
-                "begin+=0.075"
-            )
+    //         .addLabel('beginText')
+    //         .to(
+    //             [ $bioTextMask ],
+    //             0.6,
+    //             {
+    //                 scaleX: 0,
+    //                 // autoAlpha: 0,
+    //                 ease: Power4.easeInOut
+    //             },
+    //             "begin+=0.075"
+    //         )
 
-            .to(
-                [ $bioText ],
-                1.5,
-                {
-                    autoAlpha: 1,
-                    ease: Power4.easeInOut
-                },
-                "begin+=0.1"
-            )
+    //         .to(
+    //             [ $bioText ],
+    //             1.5,
+    //             {
+    //                 autoAlpha: 1,
+    //                 ease: Power4.easeInOut
+    //             },
+    //             "begin+=0.1"
+    //         )
 
-            .to(
-                [ $bioNavBGMask ],
-                0.8,
-                {
-                    scaleX: 0,
-                    ease: Power4.easeInOut
-                },
-                "begin+=0.175"
-            )
+    //         .to(
+    //             [ $bioNavBGMask ],
+    //             0.8,
+    //             {
+    //                 scaleX: 0,
+    //                 ease: Power4.easeInOut
+    //             },
+    //             "begin+=0.175"
+    //         )
 
-            .to(
-                [ ".bio__tab-border" ],
-                0.3,
-                {
-                    scaleY: 1,
-                    ease: Expo.easeIn
-                    // width: 3
-                },
-                "begin+=0.7"
-            )
+    //         .to(
+    //             [ ".bio__tab-border" ],
+    //             0.3,
+    //             {
+    //                 scaleY: 1,
+    //                 ease: Expo.easeIn
+    //                 // width: 3
+    //             },
+    //             "begin+=0.7"
+    //         )
 
-            // if there are 0 or 1 headshots, the tl will just display for the headshot
-            // otherwise, construct and start the slideshow
-            .add(timelines.bioTl.play(), "begin+=0.5")
+    //         // if there are 0 or 1 headshots, the tl will just display for the headshot
+    //         // otherwise, construct and start the slideshow
+    //         .add(timelines.bioTl.play(), "begin+=0.5")
 
-            .to(
-                [ ".button--resume-pdf" ],
-                0.75,
-                {
-                    scaleY: 1,
-                    ease: Elastic.easeOut.config(1, 0.3),
-                    height: "11.5rem"
-                    // width: 3
-                },
-                "begin+=1"
-            )
-            // .to(
-            //  [ $headshotMaskColor ],
-            //  2,
-            //  {
-            //      autoAlpha: 0,
-            //      ease: Power4.easeOut
-            //  },
-            //  "beginText-=0.1"
-            // )
+    //         .to(
+    //             [ ".button--resume-pdf" ],
+    //             0.75,
+    //             {
+    //                 scaleY: 1,
+    //                 ease: Elastic.easeOut.config(1, 0.3),
+    //                 height: "11.5rem"
+    //                 // width: 3
+    //             },
+    //             "begin+=1"
+    //         )
+    //         // .to(
+    //         //  [ $headshotMaskColor ],
+    //         //  2,
+    //         //  {
+    //         //      autoAlpha: 0,
+    //         //      ease: Power4.easeOut
+    //         //  },
+    //         //  "beginText-=0.1"
+    //         // )
 
-            // .timeScale( .2 )
+    //         // .timeScale( .2 )
 
-            // console.log("bio tl: ", tl);
-        return tl;
-    };
+    //         // console.log("bio tl: ", tl);
+    //     return tl;
+    // };
 
-    function makeBioTl(){
-        var $bioImages = $(".headshot__image");
-        var numHeadshotsImages = $bioImages.length;
-        var fadeDuration = 2.8;
-        var showSlideFor = 3.5;
+    // function makeBioTl(){
+    //     var $bioImages = $(".headshot__image");
+    //     var numHeadshotsImages = $bioImages.length;
+    //     var fadeDuration = 2.8;
+    //     var showSlideFor = 3.5;
 
-        if (numHeadshotsImages > 1)  {
-            var tl = new TimelineMax({
-                onComplete: onComplete,
-                paused: true,
-                repeat: -1,
-                smoothChildTiming: true
-            });
+    //     if (numHeadshotsImages > 1)  {
+    //         var tl = new TimelineMax({
+    //             onComplete: onComplete,
+    //             paused: true,
+    //             repeat: -1,
+    //             smoothChildTiming: true
+    //         });
 
-            var $reversed = _.reverse($bioImages);
-            var $f = _.first($bioImages);
-            var $l = _.last($bioImages)
+    //         var $reversed = _.reverse($bioImages);
+    //         var $f = _.first($bioImages);
+    //         var $l = _.last($bioImages)
 
-            $reversed.each(function(index, element) {
+    //         $reversed.each(function(index, element) {
 
-                /*
+    //             /*
 
-                    slideshow depends on source order as:
-                        <img D>
-                        <img C>
-                        <img B>
-                        <img A>
+    //                 slideshow depends on source order as:
+    //                     <img D>
+    //                     <img C>
+    //                     <img B>
+    //                     <img A>
 
-                    ------------------------
+    //                 ------------------------
 
-                    Transition each image's opacity from 1 to 0,
-                    revealing what's under it visually (the image that's earlier in the source)
+    //                 Transition each image's opacity from 1 to 0,
+    //                 revealing what's under it visually (the image that's earlier in the source)
 
-                    On the last image of the stack, fade it with the first image,
-                    and set a callback to reset to the beginning state for looping
+    //                 On the last image of the stack, fade it with the first image,
+    //                 and set a callback to reset to the beginning state for looping
 
-                        s                                         e
-                        t                                         n
-                        a                                         d
-                        r
-                        t
+    //                     s                                         e
+    //                     t                                         n
+    //                     a                                         d
+    //                     r
+    //                     t
 
-                        D: 1      D: 1      D: 1       D: 1   ->  D: 0
-                        C: 1      C: 1      C: 1   ->  C: 0       C: 0
-                        B: 1      B: 1  ->  B: 0       B: 0       B: 0
-                        A: 1  ->  A: 0      A: 0       A: 0   ->  A: 1
-                        ----      ----      ----       ----       ----
-                        .to()    .to()      .to()      .to()     .to() with onComplete(e)
+    //                     D: 1      D: 1      D: 1       D: 1   ->  D: 0
+    //                     C: 1      C: 1      C: 1   ->  C: 0       C: 0
+    //                     B: 1      B: 1  ->  B: 0       B: 0       B: 0
+    //                     A: 1  ->  A: 0      A: 0       A: 0   ->  A: 1
+    //                     ----      ----      ----       ----       ----
+    //                     .to()    .to()      .to()      .to()     .to() with onComplete(e)
 
-                        onComplete(e){
-                            // rest opacity of everything but A
-                            D: 1,
-                            C: 1,
-                            B, 1
-                        };
-                */
+    //                     onComplete(e){
+    //                         // rest opacity of everything but A
+    //                         D: 1,
+    //                         C: 1,
+    //                         B, 1
+    //                     };
+    //             */
 
-                // image A
-                 if (index === $bioImages.length - 1) {
-                    tl.addLabel("swapFirstAndLast", "+=" + showSlideFor);
-                    tl.to( $f, fadeDuration, { autoAlpha: 1, ease: Power1.EaseIn }, "swapFirstAndLast" );
-                    tl.to( $l, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "swapFirstAndLast" );
-                 }
+    //             // image A
+    //              if (index === $bioImages.length - 1) {
+    //                 tl.addLabel("swapFirstAndLast", "+=" + showSlideFor);
+    //                 tl.to( $f, fadeDuration, { autoAlpha: 1, ease: Power1.EaseIn }, "swapFirstAndLast" );
+    //                 tl.to( $l, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "swapFirstAndLast" );
+    //              }
 
-                // everything but A
-                 else {
-                    tl.to( element, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "+=" + showSlideFor)
-                 }
-            });
+    //             // everything but A
+    //              else {
+    //                 tl.to( element, fadeDuration, { autoAlpha: 0, ease: Power1.EaseIn }, "+=" + showSlideFor)
+    //              }
+    //         });
 
-            function onComplete() {
-                /*
-                    At this point, the last image in the DOM source order is showing
-                    (which is the first image the admin wants to see in the slideshow)
-                    begin the scenesm reset the opacity to the start state
-                */
-                TweenLite.set(_.initial($bioImages), { autoAlpha: 1 });
-            }
-         }
+    //         function onComplete() {
+    //             /*
+    //                 At this point, the last image in the DOM source order is showing
+    //                 (which is the first image the admin wants to see in the slideshow)
+    //                 begin the scenesm reset the opacity to the start state
+    //             */
+    //             TweenLite.set(_.initial($bioImages), { autoAlpha: 1 });
+    //         }
+    //      }
 
-         else {
-            var tl = new TimelineMax({ paused: true });
-            tl.to($bioImages, 1, { autoAlpha: 1});
-         }
+    //      else {
+    //         var tl = new TimelineMax({ paused: true });
+    //         tl.to($bioImages, 1, { autoAlpha: 1});
+    //      }
 
-        return tl;
-    };
+    //     return tl;
+    // };
 
     // function destroyAndCleanGlideInstance(){
     //     // glideI.disable();
