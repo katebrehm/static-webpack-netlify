@@ -58,52 +58,65 @@ import artProjectsCollectionTemplate from '../templates/home/sections/art-projec
         // bpoints should match _mq.scss
         // 1280 +
         type: 'carousel',
+
+        // or
+        // this gets rid of the flickering issue
+        // https://codepen.io/lifeinchords/pen/joBwWP
+        // type: 'slider',
+        // rewind: false,
+
         startAt: 0,
         perView: 3,
-        dragThreshold: 25   ,
-        // focusAt: 'center',
+        perTouch: 3,
+        swipeThreshold: 1,
 
         // mouse clicks on slides dont register while animating
         // keep this
-        animationDuration: 100,
+        animationDuration: 200,
+
+        // either
+        // bound: true,
+
+        // or
+        focusAt: 'center',
         peek: { before: 100, after: 100 },
-        gap: 5
-        // swipeThreshold: false,
-        // perTouch: 2,
-        // rewind: false,
-        // breakpoints: {
 
-        //     // 1031 to 1200
-        //     1200: {
-        //         perView: 3,
-        //         gap: 16,
-        //         peek: { before: 32, after: 32 },
-        //     },
+        gap: 5,
+        perTouch: 2,
+        breakpoints: {
 
-        //     // 861 to 1030
-        //     1030: {
-        //         perView: 2,
-        //         gap: 16,
-        //         peek: { before: 50, after: 50 },
-        //         swipeThreshold: 1
-        //     },
+            // 1031 to 1200
+            1200: {
+                perView: 3,
+                gap: 16,
+                peek: { before: 32, after: 32 },
+                swipeThreshold: 1
+            },
 
-        //     // 651 to 860
-        //     860: {
-        //         perView: 1,
-        //         gap: 8,
-        //         peek: { before: 50, after: 50 },
-        //         swipeThreshold: 1
-        //     },
+            // 861 to 1030
+            1030: {
+                perView: 2,
+                gap: 16,
+                peek: { before: 50, after: 50 },
+                swipeThreshold: 1
+            },
 
-        //     // up to 650
-        //     650: {
-        //         perView: 1,
-        //         gap: 0,
-        //         peek: 0,
-        //         swipeThreshold: 1
-        //     }
-        // }
+            // 651 to 860
+            860: {
+                perView: 1,
+                gap: 8,
+                peek: { before: 50, after: 50 },
+                swipeThreshold: 1
+            },
+
+            // up to 650
+            650: {
+                perView: 1,
+                gap: 0,
+                peek: 0,
+                swipeThreshold: 1
+            }
+        }
     };
 
     // var mobileWidth = 650;
